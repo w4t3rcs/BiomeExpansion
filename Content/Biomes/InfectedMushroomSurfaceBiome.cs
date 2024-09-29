@@ -1,5 +1,4 @@
-﻿using System;
-using BiomeExpansion.Backgrounds;
+﻿using BiomeExpansion.Backgrounds;
 using BiomeExpansion.Common.Systems;
 using Terraria;
 using Terraria.Graphics.Capture;
@@ -8,7 +7,7 @@ using Terraria.ModLoader;
 
 namespace BiomeExpansion.Content.Biomes
 {
-    public class TestSurfaceBiome : ModBiome
+    public class InfectedMushroomSurfaceBiome : ModBiome
     {
         public override ModWaterStyle WaterStyle => ModContent.GetInstance<TestWaterStyle>();
         public override CaptureBiome.TileColorStyle TileColorStyle => CaptureBiome.TileColorStyle.Mushroom;
@@ -16,7 +15,7 @@ namespace BiomeExpansion.Content.Biomes
         public override int Music => MusicID.Mushrooms;
 
         public override bool IsBiomeActive(Player player) {
-            return !player.ZoneDungeon && ModContent.GetInstance<BiomeTileCounterSystem>().TileCount >= 950;
+            return !player.ZoneDungeon && ModContent.GetInstance<BiomeTileCounterSystem>().InfectedMushroomBiomeTileCount >= 950;
         }
     }   
 }
