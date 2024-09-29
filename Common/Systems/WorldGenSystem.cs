@@ -34,7 +34,7 @@ public class WorldGenSystem : ModSystem
             int worldGenPart = Main.maxTilesX / 4;
             startX = WorldGen.genRand.Next(worldGenPart, Main.maxTilesX - worldGenPart);
         } while (Math.Abs(startX - Main.spawnTileX) < minDistanceFromSpawn);
-        int startY = 0;
+        int startY = Main.maxTilesY / 16 * 2;
         for (int i = startX; i < startX + biomeWidth; i++)
         {
             for (int j = startY; j < Main.worldSurface - 10 + biomeHeight; j++)
