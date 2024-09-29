@@ -1,0 +1,44 @@
+# This file will automatically update with entries for new content after a build and reload.
+
+Items: {
+	TestSword: {
+		DisplayName: Test Sword
+		Tooltip:
+			'''
+			Template of an item
+			Replacing this tooltip is duty 
+			It's snowing on Mt.Fuji
+			'''
+	}
+
+	TestBlock: {
+		DisplayName: Test Block
+		Tooltip: ""
+	}
+
+	TestGrassBlock: {
+		DisplayName: Test Grass Block
+		Tooltip: ""
+	}
+
+	TestSummonWeapon: {
+		DisplayName: Test Summon Weapon
+		Tooltip: ""
+	}
+}
+
+Biomes: {
+	TestSurfaceBiome: {
+		DisplayName: Test Surface Biome
+		TownNPCDialogueName: the Test Surface Biome
+	}
+}
+
+Buffs: {
+	TestMinionBuff: {
+		DisplayName: Test Minion Buff
+		Description: Mods.BiomeExpansion.Buffs.TestMinionBuff.Description
+	}
+}
+
+Projectiles.TestMinion.DisplayName: Test Minion

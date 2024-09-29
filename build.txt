@@ -1,0 +1,3 @@
+displayName = Biome Expansion
+author = konsi, w4t3rcs
+version = 0.1
