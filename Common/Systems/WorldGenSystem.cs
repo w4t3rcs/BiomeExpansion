@@ -27,7 +27,7 @@ public class WorldGenSystem : ModSystem
 
     private void GenerateDefaultBiome(GenerationProgress progress, GameConfiguration config, int biomeWidth, int biomeHeight, int minDistanceFromSpawn, ushort dirtBlock, ushort grassBlock)
     {
-        progress.Message = "Generating custom biomes...";
+        progress.Message = "Generating BiomeExpansion biomes...";
         int startX;
         do
         {
