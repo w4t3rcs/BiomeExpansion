@@ -34,10 +34,10 @@ public class WorldGenSystem : ModSystem
             int worldGenPart = Main.maxTilesX / 4;
             startX = WorldGen.genRand.Next(worldGenPart, Main.maxTilesX - worldGenPart);
         } while (Math.Abs(startX - Main.spawnTileX) < minDistanceFromSpawn);
-        int startY = (int) (Main.worldSurface * 0.35f);
+        int startY = 0;
         for (int i = startX; i < startX + biomeWidth; i++)
         {
-            for (int j = startY; j < startY + biomeHeight; j++)
+            for (int j = startY; j < Main.worldSurface - 10 + biomeHeight; j++)
             {
                 PlaceCustomBiomeBlock(i, j, startX, biomeWidth, startY, biomeHeight, [TileID.Dirt, TileID.ClayBlock, TileID.Stone], dirtBlock);
                 PlaceCustomBiomeBlock(i, j, startX, biomeWidth, startY, biomeHeight, [TileID.Grass], grassBlock);

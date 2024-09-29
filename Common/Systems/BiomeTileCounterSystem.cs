@@ -6,7 +6,7 @@ namespace BiomeExpansion.Common.Systems;
 
 public class BiomeTileCounterSystem : ModSystem
 {
-    public int TileCount = 0;
+    public int TileCount;
 
     public override void ResetNearbyTileEffects()
     {
