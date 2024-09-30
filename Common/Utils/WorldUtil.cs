@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using Terraria;
 using Terraria.ID;
@@ -9,6 +8,9 @@ namespace BiomeExpansion.Common.Utils;
 
 public static class WorldUtil
 {
+    private static ushort[] ReplacedGrassTiles => [TileID.Grass, TileID.CorruptGrass, TileID.CrimsonGrass];
+    private static ushort[] ReplacedDirtTiles => [TileID.Dirt, TileID.ClayBlock, TileID.Stone];
+    
     public static void GenerateBiomeNextToEvilBiome(GenerationProgress progress, int biomeWidth, int biomeHeight, ushort dirtBlock, ushort grassBlock)
     {
         progress.Message = "Generating BiomeExpansion biomes...";
@@ -17,13 +19,59 @@ public static class WorldUtil
                 TileID.CorruptGrass, TileID.CorruptSandstone, TileID.Ebonsand, TileID.Ebonstone,
                 TileID.CrimsonGrass, TileID.CrimsonSandstone, TileID.Crimsand, TileID.Crimstone,
         ]);
-        int startX = Main.maxTilesX - evilBiomeXCoordinates.Value < evilBiomeXCoordinates.Key ? evilBiomeXCoordinates.Key - biomeWidth : evilBiomeXCoordinates.Value;
+        if (evilBiomeXCoordinates.Value < Main.maxTilesX / 2)
+        {
+            if (!IsSpawnNear(evilBiomeXCoordinates.Value + biomeWidth / 2, biomeWidth))
+            {
+                GenerateBiomeOnTheRightSide(evilBiomeXCoordinates.Value, startY, endY, biomeWidth, biomeHeight, dirtBlock, grassBlock);
+            }
+            else
+            {
+                GenerateBiomeOnTheLeftSide(evilBiomeXCoordinates.Key, startY, endY, biomeWidth, biomeHeight, dirtBlock, grassBlock);
+            }
+        }
+        else
+        {
+            if (!IsSpawnNear(evilBiomeXCoordinates.Key - biomeWidth / 2, biomeWidth))
+            {
+                GenerateBiomeOnTheLeftSide(evilBiomeXCoordinates.Key, startY, endY, biomeWidth, biomeHeight, dirtBlock, grassBlock);
+            }
+            else
+            {
+                GenerateBiomeOnTheRightSide(evilBiomeXCoordinates.Value, startY, endY, biomeWidth, biomeHeight,dirtBlock, grassBlock);
+            }
+        }
+    }
+
+    public static bool IsSpawnNear(int x, int minimumDistance)
+    {
+        int spawnTileX = Main.spawnTileX;
+        return (x + minimumDistance > spawnTileX && x < spawnTileX + Main.maxTilesX)
+               || (x - minimumDistance < spawnTileX && x > spawnTileX - Main.maxTilesX);
+    }
+    
+    public static void GenerateBiomeOnTheLeftSide(int startX, int startY, int endY, int biomeWidth, int biomeHeight, ushort dirtBlock, ushort grassBlock)
+    {
+        {
+            for (int i = startX - biomeWidth; i < startX; i++)
+            {
+                for (int j = startY; j < endY; j++)
+                {
+                    ReplaceBlocks(i, j, ReplacedGrassTiles, grassBlock);
+                    ReplaceBlocks(i, j, ReplacedDirtTiles, dirtBlock);
+                }
+            }
+        }
+    }
+    
+    public static void GenerateBiomeOnTheRightSide(int startX, int startY, int endY, int biomeWidth, int biomeHeight, ushort dirtBlock, ushort grassBlock)
+    {
         for (int i = startX; i < startX + biomeWidth; i++)
         {
             for (int j = startY; j < endY; j++)
             {
-                ReplaceBlocks(i, j, startX, biomeWidth, startY, biomeHeight, [TileID.Dirt, TileID.ClayBlock, TileID.Stone], dirtBlock);
-                ReplaceBlocks(i, j, startX, biomeWidth, startY, biomeHeight, [TileID.Grass], grassBlock);
+                ReplaceBlocks(i, j, ReplacedGrassTiles, grassBlock);
+                ReplaceBlocks(i, j, ReplacedDirtTiles, dirtBlock);
             }
         }
     }
@@ -57,23 +105,11 @@ public static class WorldUtil
         return new KeyValuePair<int, int>(leftX, rightX);
     }
     
-    public static void ReplaceBlocks(int x, int y, int startX, int biomeWidth, int startY, int biomeHeight, ushort[] replacedTiles, ushort tileType)
+    public static void ReplaceBlocks(int x, int y, ushort[] replacedTiles, ushort tileType)
     {
-        int distanceToEdgeX = Math.Min(x - startX, startX + biomeWidth - x);
-        int distanceToEdgeY = startY + biomeHeight - y;
         if (Main.tile[x, y].HasTile && replacedTiles.Contains(Main.tile[x, y].TileType))
         {
-            if (distanceToEdgeX > 20 || distanceToEdgeY > 20)
-            {
-                Main.tile[x, y].TileType = tileType; 
-            }
-            else
-            {
-                if (WorldGen.genRand.NextFloat() < 0.5f)
-                {
-                    Main.tile[x, y].TileType = tileType;
-                }
-            }
+            Main.tile[x, y].TileType = tileType; 
         } 
     }
 }
