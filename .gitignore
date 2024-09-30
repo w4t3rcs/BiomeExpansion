@@ -1,2 +1,5 @@
 ﻿obj
 Folder.DotSettings.user
+bin
+.vs
+.idea
