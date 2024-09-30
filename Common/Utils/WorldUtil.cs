@@ -17,7 +17,7 @@ public static class WorldUtil
                 TileID.CorruptGrass, TileID.CorruptSandstone, TileID.Ebonsand, TileID.Ebonstone,
                 TileID.CrimsonGrass, TileID.CrimsonSandstone, TileID.Crimsand, TileID.Crimstone,
         ]);
-        int startX = evilBiomeXCoordinates.Value;
+        int startX = Main.maxTilesX - evilBiomeXCoordinates.Value < evilBiomeXCoordinates.Key ? evilBiomeXCoordinates.Key - biomeWidth : evilBiomeXCoordinates.Value;
         for (int i = startX; i < startX + biomeWidth; i++)
         {
             for (int j = startY; j < endY; j++)
@@ -30,7 +30,7 @@ public static class WorldUtil
     
     public static KeyValuePair<int, int> GetBiomeXCoordinates(int startY, int endY, ushort[] biomeTiles)
     {
-        int maximumBiomeTileDistance = 20;
+        int maximumBiomeTileDistance = 25;
         int leftX = 0, rightX = 0;
         for (int i = startY; i < endY; i++)
         {
