@@ -1,43 +1,60 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Terraria;
 using Terraria.ID;
+using Terraria.WorldBuilding;
 
 namespace BiomeExpansion.Common.Utils;
 
 public static class WorldUtil
 {
-    public static bool IsNearCorruption(int x, int y, int radius)
+    public static void GenerateBiomeNextToEvilBiome(GenerationProgress progress, int biomeWidth, int biomeHeight, ushort dirtBlock, ushort grassBlock)
     {
-        return IsNearBiome(x, y, radius, [TileID.CorruptGrass]);
-    }
-    
-    public static bool IsNearCrimson(int x, int y, int radius)
-    {
-        return IsNearBiome(x, y, radius, [TileID.CrimsonGrass]);
-    }
-
-    
-    public static bool IsNearBiome(int x, int y, int radius, ushort[] biomeTiles)
-    {
-        try
+        progress.Message = "Generating BiomeExpansion biomes...";
+        int startY = Main.maxTilesY / 8, endY = (int)(Main.worldSurface - 10 + biomeHeight);
+        KeyValuePair<int,int> evilBiomeXCoordinates = GetBiomeXCoordinates(startY, endY, [
+                TileID.CorruptGrass, TileID.CorruptSandstone, TileID.Ebonsand, TileID.Ebonstone,
+                TileID.CrimsonGrass, TileID.CrimsonSandstone, TileID.Crimsand, TileID.Crimstone,
+        ]);
+        int startX = evilBiomeXCoordinates.Value;
+        for (int i = startX; i < startX + biomeWidth; i++)
         {
-            for (int i = x - radius; i < x + radius; i++)
+            for (int j = startY; j < endY; j++)
             {
-                for (int j = y - radius; j < y + radius; j++)
+                ReplaceBlocks(i, j, startX, biomeWidth, startY, biomeHeight, [TileID.Dirt, TileID.ClayBlock, TileID.Stone], dirtBlock);
+                ReplaceBlocks(i, j, startX, biomeWidth, startY, biomeHeight, [TileID.Grass], grassBlock);
+            }
+        }
+    }
+    
+    public static KeyValuePair<int, int> GetBiomeXCoordinates(int startY, int endY, ushort[] biomeTiles)
+    {
+        int maximumBiomeTileDistance = 20;
+        int leftX = 0, rightX = 0;
+        for (int i = startY; i < endY; i++)
+        {
+            for (int j = 0; j < Main.maxTilesX; j++)
+            {
+                if (biomeTiles.Contains(Main.tile[j, i].TileType))
                 {
-                    if (biomeTiles.Contains(Main.tile[i, j].TileType))
+                    if (leftX == 0)
                     {
-                        return true;
+                        leftX = j;
+                        rightX = j + 1;
+                    }
+                    else
+                    {
+                        if (maximumBiomeTileDistance < j - rightX)
+                        {
+                            rightX++;
+                        }
                     }
                 }
             }
-            return false;
         }
-        catch (Exception e)
-        {
-            return false;
-        }
+
+        return new KeyValuePair<int, int>(leftX, rightX);
     }
     
     public static void ReplaceBlocks(int x, int y, int startX, int biomeWidth, int startY, int biomeHeight, ushort[] replacedTiles, ushort tileType)

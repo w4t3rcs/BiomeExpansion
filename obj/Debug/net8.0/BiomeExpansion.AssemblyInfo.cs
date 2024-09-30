@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("BiomeExpansion")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6b47bb42bf87e63b28d713fc721fd08d23619523")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0b4c2b941e1916c7513faa9a559745a5fd9cd464")]
 [assembly: System.Reflection.AssemblyProductAttribute("BiomeExpansion")]
 [assembly: System.Reflection.AssemblyTitleAttribute("BiomeExpansion")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
