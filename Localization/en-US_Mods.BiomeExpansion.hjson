@@ -32,6 +32,11 @@ Biomes: {
 		DisplayName: Test Surface Biome
 		TownNPCDialogueName: the Test Surface Biome
 	}
+
+	InfectedMushroomSurfaceBiome: {
+		DisplayName: Infected Mushroom Surface Biome
+		TownNPCDialogueName: the Infected Mushroom Surface Biome
+	}
 }
 
 Buffs: {

@@ -6,15 +6,15 @@ namespace BiomeExpansion.Common.Systems;
 
 public class BiomeTileCounterSystem : ModSystem
 {
-    public int TileCount;
-
+    public int InfectedMushroomBiomeTileCount;
+    
     public override void ResetNearbyTileEffects()
     {
-        TileCount = 0;
+        InfectedMushroomBiomeTileCount = 0;
     }
 
     public override void TileCountsAvailable(ReadOnlySpan<int> tileCounts)
     {
-        TileCount = tileCounts[ModContent.TileType<TestBlock>()] + tileCounts[ModContent.TileType<TestGrassBlock>()];
+        InfectedMushroomBiomeTileCount = tileCounts[ModContent.TileType<TestBlock>()] + tileCounts[ModContent.TileType<TestGrassBlock>()];
     }
 }
