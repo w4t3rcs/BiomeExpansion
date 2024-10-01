@@ -26,22 +26,22 @@ public static class WorldUtil
         {
             if (!IsSpawnNear(evilBiomeXCoordinates.Value + biomeWidth / 2, biomeWidth))
             {
-                GenerateBiomeOnTheRightSide(evilBiomeXCoordinates.Value, startY, endY, biomeWidth, biomeHeight, dirtBlock, grassBlock, stoneBlock);
+                GenerateBiomeOnTheRightSide(evilBiomeXCoordinates.Value, startY, endY, biomeWidth, dirtBlock, grassBlock, stoneBlock);
             }
             else
             {
-                GenerateBiomeOnTheLeftSide(evilBiomeXCoordinates.Key, startY, endY, biomeWidth, biomeHeight, dirtBlock, grassBlock,  stoneBlock);
+                GenerateBiomeOnTheLeftSide(evilBiomeXCoordinates.Key, startY, endY, biomeWidth, dirtBlock, grassBlock,  stoneBlock);
             }
         }
         else
         {
             if (!IsSpawnNear(evilBiomeXCoordinates.Key - biomeWidth / 2, biomeWidth))
             {
-                GenerateBiomeOnTheLeftSide(evilBiomeXCoordinates.Key, startY, endY, biomeWidth, biomeHeight, dirtBlock, grassBlock, stoneBlock);
+                GenerateBiomeOnTheLeftSide(evilBiomeXCoordinates.Key, startY, endY, biomeWidth, dirtBlock, grassBlock, stoneBlock);
             }
             else
             {
-                GenerateBiomeOnTheRightSide(evilBiomeXCoordinates.Value, startY, endY, biomeWidth, biomeHeight,dirtBlock, grassBlock, stoneBlock);
+                GenerateBiomeOnTheRightSide(evilBiomeXCoordinates.Value, startY, endY, biomeWidth,dirtBlock, grassBlock, stoneBlock);
             }
         }
     }
@@ -53,34 +53,34 @@ public static class WorldUtil
                || (x - minimumDistance < spawnTileX && x > spawnTileX - Main.maxTilesX);
     }
     
-    public static void GenerateBiomeOnTheLeftSide(int startX, int startY, int endY, int biomeWidth, int biomeHeight, ushort dirtBlock, ushort grassBlock, ushort stoneBlock)
+    public static void GenerateBiomeOnTheLeftSide(int startX, int startY, int endY, int biomeWidth, ushort dirtBlock, ushort grassBlock, ushort stoneBlock)
     {
+        
+        for (int i = startX - biomeWidth; i < startX; i++)
         {
-            for (int i = startX - biomeWidth; i < startX; i++)
-            {
-                for (int j = startY; j < endY; j++)
-                {
-                    ReplaceBlocks(i, j, ReplacedGrassTiles, grassBlock);
-                    ReplaceBlocks(i, j, ReplacedDirtTiles, dirtBlock);
-                    ReplaceBlocks(i, j, ReplacedStoneTiles, stoneBlock);
-                }
-            }
+            GenerateBiomeVertically(i, startY, endY, dirtBlock, grassBlock, stoneBlock);
         }
+        
     }
     
-    public static void GenerateBiomeOnTheRightSide(int startX, int startY, int endY, int biomeWidth, int biomeHeight, ushort dirtBlock, ushort grassBlock, ushort stoneBlock)
+    public static void GenerateBiomeOnTheRightSide(int startX, int startY, int endY, int biomeWidth, ushort dirtBlock, ushort grassBlock, ushort stoneBlock)
     {
         for (int i = startX; i < startX + biomeWidth; i++)
         {
-            for (int j = startY; j < endY; j++)
-            {
-                ReplaceBlocks(i, j, ReplacedGrassTiles, grassBlock);
-                ReplaceBlocks(i, j, ReplacedDirtTiles, dirtBlock);
-                ReplaceBlocks(i, j, ReplacedStoneTiles, stoneBlock);
-            }
+            GenerateBiomeVertically(i, startY, endY, dirtBlock, grassBlock, stoneBlock);
         }
     }
-    
+
+    private static void GenerateBiomeVertically(int x, int startY, int endY, ushort dirtBlock, ushort grassBlock, ushort stoneBlock) 
+    {
+        for (int j = startY; j < endY; j++)
+        {
+            ReplaceBlocks(x, j, ReplacedGrassTiles, grassBlock);
+            ReplaceBlocks(x, j, ReplacedDirtTiles, dirtBlock);
+            ReplaceBlocks(x, j, ReplacedStoneTiles, stoneBlock);
+        }
+    }
+
     public static KeyValuePair<int, int> GetBiomeXCoordinates(int startY, int endY, ushort[] biomeTiles)
     {
         int maximumBiomeTileDistance = 25;
