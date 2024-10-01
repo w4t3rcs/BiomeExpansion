@@ -1,7 +1,9 @@
 ﻿using System.Collections.Generic;
 using BiomeExpansion.Common.Utils;
 using BiomeExpansion.Content.Tiles;
+using Terraria;
 using Terraria.GameContent.Generation;
+using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.WorldBuilding;
 
@@ -17,7 +19,9 @@ public class WorldGenSystem : ModSystem
         {
             tasks.Insert(biomeGenIndex + 1, new PassLegacy("Infected Mushroom Biome", (progress, configuration) =>
                 WorldUtil.GenerateBiomeNextToEvilBiome(progress, 500, 20, 
-                    (ushort) ModContent.TileType<TestBlock>(), (ushort) ModContent.TileType<TestGrassBlock>())));
+                    (ushort) ModContent.TileType<TestBlock>(), 
+                    (ushort) ModContent.TileType<TestGrassBlock>(), 
+                    WorldGen.crimson ? TileID.Crimstone : TileID.Ebonstone)));
         }
     }
 }
