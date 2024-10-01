@@ -9,7 +9,7 @@ namespace BiomeExpansion.Common.Utils;
 public static class WorldUtil
 {
     private static ushort[] ReplacedGrassTiles => [TileID.Grass, TileID.CorruptGrass, TileID.CrimsonGrass];
-    private static ushort[] ReplacedDirtTiles => [TileID.Dirt, TileID.ClayBlock, TileID.Stone];
+    private static ushort[] ReplacedDirtTiles => [TileID.Dirt, TileID.ClayBlock];
     
     public static void GenerateBiomeNextToEvilBiome(GenerationProgress progress, int biomeWidth, int biomeHeight, ushort dirtBlock, ushort grassBlock)
     {
