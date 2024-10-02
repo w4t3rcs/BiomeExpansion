@@ -10,6 +10,7 @@ namespace BiomeExpansion.Common.Utils;
 
 public static class WorldUtil
 {
+    private const int MaximumBiomeTileDistance = 15;
     private static ushort[] ReplacedGrassTiles => [TileID.Grass, TileID.CorruptGrass, TileID.CrimsonGrass];
     private static ushort[] ReplacedDirtTiles => [TileID.Dirt, TileID.ClayBlock];
     private static ushort[] ReplacedStoneTiles => [TileID.Stone];
@@ -22,14 +23,16 @@ public static class WorldUtil
                 TileID.CorruptGrass, TileID.CorruptSandstone, TileID.Ebonsand, TileID.Ebonstone,
                 TileID.CrimsonGrass, TileID.CrimsonSandstone, TileID.Crimsand, TileID.Crimstone,
         ]);
-        if (evilBiomeXCoordinates.Value < Main.maxTilesX / 2)
+        if (evilBiomeXCoordinates.Value < Main.maxTilesX / 2) //True - правая сторона
         {
             if (!IsSpawnNear(evilBiomeXCoordinates.Value + biomeWidth / 2, biomeWidth))
             {
+                Console.WriteLine("here - 1");
                 GenerateBiomeOnTheRightSide(evilBiomeXCoordinates.Value, startY, endY, biomeWidth, dirtBlock, grassBlock, stoneBlock);
             }
             else
             {
+                Console.WriteLine("here - 2");
                 GenerateBiomeOnTheLeftSide(evilBiomeXCoordinates.Key, startY, endY, biomeWidth, dirtBlock, grassBlock,  stoneBlock);
             }
         }
@@ -37,23 +40,25 @@ public static class WorldUtil
         {
             if (!IsSpawnNear(evilBiomeXCoordinates.Key - biomeWidth / 2, biomeWidth))
             {
+                Console.WriteLine("here - 3");
                 GenerateBiomeOnTheLeftSide(evilBiomeXCoordinates.Key, startY, endY, biomeWidth, dirtBlock, grassBlock, stoneBlock);
             }
             else
             {
+                Console.WriteLine("here - 4");
                 GenerateBiomeOnTheRightSide(evilBiomeXCoordinates.Value, startY, endY, biomeWidth,dirtBlock, grassBlock, stoneBlock);
             }
         }
     }
 
-    public static bool IsSpawnNear(int x, int minimumDistance)
+    private static bool IsSpawnNear(int x, int minimumDistance)
     {
         int spawnTileX = Main.spawnTileX;
-        return (x + minimumDistance > spawnTileX && x < spawnTileX + Main.maxTilesX)
-               || (x - minimumDistance < spawnTileX && x > spawnTileX - Main.maxTilesX);
+        return (x + minimumDistance > spawnTileX && x < spawnTileX + minimumDistance)
+               || (x - minimumDistance < spawnTileX && x > spawnTileX - minimumDistance);
     }
     
-    public static void GenerateBiomeOnTheLeftSide(int startX, int startY, int endY, int biomeWidth, ushort dirtBlock, ushort grassBlock, ushort stoneBlock)
+    private static void GenerateBiomeOnTheLeftSide(int startX, int startY, int endY, int biomeWidth, ushort dirtBlock, ushort grassBlock, ushort stoneBlock)
     {
         
         for (int i = startX - biomeWidth; i < startX; i++)
@@ -63,7 +68,7 @@ public static class WorldUtil
         
     }
     
-    public static void GenerateBiomeOnTheRightSide(int startX, int startY, int endY, int biomeWidth, ushort dirtBlock, ushort grassBlock, ushort stoneBlock)
+    private static void GenerateBiomeOnTheRightSide(int startX, int startY, int endY, int biomeWidth, ushort dirtBlock, ushort grassBlock, ushort stoneBlock)
     {
         for (int i = startX; i < startX + biomeWidth; i++)
         {
@@ -81,36 +86,65 @@ public static class WorldUtil
         }
     }
 
-    public static KeyValuePair<int, int> GetBiomeXCoordinates(int startY, int endY, ushort[] biomeTiles)
+    private static KeyValuePair<int, int> GetBiomeXCoordinates(int startY, int endY, ushort[] biomeTiles)
     {
-        int maximumBiomeTileDistance = 25;
-        int leftX = 0, rightX = 0;
-        for (int i = startY; i < endY; i++)
+        int leftX = GetBiomeLeftX(startY, endY, biomeTiles);
+        int rightX = GetBiomeRightX(startY, endY, biomeTiles, leftX);
+        return new KeyValuePair<int, int>(leftX, rightX);
+    }
+    
+    private static int GetBiomeRightX(int startY, int endY, ushort[] biomeTiles, int leftX)
+    {
+        int distanceCounter = 0;
+        int rightX = leftX + 1;
+        for (int x = rightX; x < Main.maxTilesX; x++)
         {
-            for (int j = 0; j < Main.maxTilesX; j++)
+            bool neededTileFound = false;
+            for (int y = startY; y < endY; y++)
             {
-                if (biomeTiles.Contains(Main.tile[j, i].TileType))
+                if (biomeTiles.Contains(Main.tile[x, y].TileType))
                 {
-                    if (leftX == 0)
-                    {
-                        leftX = j;
-                        rightX = j + 1;
-                    }
-                    else
-                    {
-                        if (maximumBiomeTileDistance < j - rightX)
-                        {
-                            rightX++;
-                        }
-                    }
+                    rightX++; 
+                    neededTileFound = true;
+                    distanceCounter = 0;
+                    break;
+                }
+            }
+            
+            if (!neededTileFound && distanceCounter < MaximumBiomeTileDistance)
+            {
+                rightX++;
+                distanceCounter++;
+            }
+            else if (distanceCounter > MaximumBiomeTileDistance)
+            {
+                rightX -= MaximumBiomeTileDistance;
+                break;
+            }
+        }
+
+        return rightX;
+    }
+
+    private static int GetBiomeLeftX(int startY, int endY, ushort[] biomeTiles)
+    {
+        int leftX = 0;
+        for (int y = startY; y < endY; y++)
+        {
+            for (int x = 0; x < Main.maxTilesX; x++)
+            {
+                if (biomeTiles.Contains(Main.tile[x, y].TileType) && leftX == 0)
+                {
+                    leftX = x;
+                    break;
                 }
             }
         }
 
-        return new KeyValuePair<int, int>(leftX, rightX);
+        return leftX;
     }
-    
-    public static void ReplaceBlocks(int x, int y, ushort[] replacedTiles, ushort tileType)
+
+    private static void ReplaceBlocks(int x, int y, ushort[] replacedTiles, ushort tileType)
     {
         try
         {
