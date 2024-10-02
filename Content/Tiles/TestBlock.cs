@@ -20,6 +20,6 @@ public class TestBlock : ModTile
 
     public override void ChangeWaterfallStyle(ref int style)
     {
-        style = ModContent.GetInstance<TestWaterfallStyle>().Slot;
+        style = ModContent.GetInstance<InfectedMushroomWaterfallStyle>().Slot;
     }
 }

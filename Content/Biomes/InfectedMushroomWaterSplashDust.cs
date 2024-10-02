@@ -3,7 +3,7 @@ using Terraria.ModLoader;
 
 namespace BiomeExpansion.Content.Biomes;
 
-public class TestWaterSplashDust : ModDust
+public class InfectedMushroomWaterSplashDust : ModDust
 {
     public override void SetStaticDefaults()
     {

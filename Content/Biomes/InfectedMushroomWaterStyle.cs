@@ -6,27 +6,27 @@ using Terraria.ModLoader;
 
 namespace BiomeExpansion.Content.Biomes
 {
-    public class TestWaterStyle : ModWaterStyle
+    public class InfectedMushroomWaterStyle : ModWaterStyle
     {
         private Asset<Texture2D> _rainTexture;
         public override void Load()
         {
-            _rainTexture = Mod.Assets.Request<Texture2D>("Content/Biomes/TestRain");
+            _rainTexture = Mod.Assets.Request<Texture2D>("Content/Biomes/InfectedMushroomRain");
         }
 
         public override int ChooseWaterfallStyle()
         {
-            return ModContent.GetInstance<TestWaterfallStyle>().Slot;
+            return ModContent.GetInstance<InfectedMushroomWaterfallStyle>().Slot;
         }
 
         public override int GetSplashDust()
         {
-            return ModContent.DustType<TestWaterSplashDust>();
+            return ModContent.DustType<InfectedMushroomWaterSplashDust>();
         }
 
         public override int GetDropletGore()
         {
-            return ModContent.GoreType<TestDroplet>();
+            return ModContent.GoreType<InfectedMushroomDroplet>();
         }
         
         public override void LightColorMultiplier(ref float r, ref float g, ref float b)

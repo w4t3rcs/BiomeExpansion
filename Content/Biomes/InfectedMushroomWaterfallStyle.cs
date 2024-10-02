@@ -4,7 +4,7 @@ using Terraria.ModLoader;
 
 namespace BiomeExpansion.Content.Biomes
 {
-    public class TestWaterfallStyle : ModWaterfallStyle
+    public class InfectedMushroomWaterfallStyle : ModWaterfallStyle
     {
         public override void AddLight(int i, int j)
         {
