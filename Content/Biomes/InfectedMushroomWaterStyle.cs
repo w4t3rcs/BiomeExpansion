@@ -8,12 +8,6 @@ namespace BiomeExpansion.Content.Biomes
 {
     public class InfectedMushroomWaterStyle : ModWaterStyle
     {
-        private Asset<Texture2D> _rainTexture;
-        public override void Load()
-        {
-            _rainTexture = Mod.Assets.Request<Texture2D>("Content/Biomes/InfectedMushroomRain");
-        }
-
         public override int ChooseWaterfallStyle()
         {
             return ModContent.GetInstance<InfectedMushroomWaterfallStyle>().Slot;
@@ -38,12 +32,12 @@ namespace BiomeExpansion.Content.Biomes
 
         public override Color BiomeHairColor()
         {
-            return Color.White;
+            return WorldGen.crimson ? Color.Crimson : Color.Purple;
         }
 
         public override Asset<Texture2D> GetRainTexture()
         {
-            return _rainTexture;
+            return Mod.Assets.Request<Texture2D>(WorldGen.crimson ? "Content/Biomes/InfectedMushroomCrimsonRain" : "Content/Biomes/InfectedMushroomCorruptionRain");
         }
 
         public override byte GetRainVariant()
