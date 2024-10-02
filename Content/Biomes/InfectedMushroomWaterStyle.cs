@@ -1,7 +1,9 @@
-﻿using Microsoft.Xna.Framework;
+﻿using BiomeExpansion.Common.Utils;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace BiomeExpansion.Content.Biomes
@@ -15,7 +17,7 @@ namespace BiomeExpansion.Content.Biomes
 
         public override int GetSplashDust()
         {
-            return ModContent.DustType<InfectedMushroomWaterSplashDust>();
+            return WorldGen.crimson ? DustID.Crimson : DustID.Corruption;
         }
 
         public override int GetDropletGore()
@@ -25,9 +27,14 @@ namespace BiomeExpansion.Content.Biomes
         
         public override void LightColorMultiplier(ref float r, ref float g, ref float b)
         {
-            r = 1f;
-            g = 1f;
-            b = 1f;
+            if (WorldGen.crimson)
+            {
+                ColorUtil.SetRGBFromColor(out r, out g, out b, Color.Crimson);
+            }
+            else
+            {
+                ColorUtil.SetRGBFromColor(out r, out g, out b, Color.Purple);
+            }
         }
 
         public override Color BiomeHairColor()
