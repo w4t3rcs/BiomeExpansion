@@ -6,7 +6,7 @@ using Terraria.ModLoader;
 
 namespace BiomeExpansion.Content.Tiles;
 
-public class TestBlock : ModTile
+public class InfectedMushroomDirtBlock : ModTile
 {
     public override void SetStaticDefaults()
     {

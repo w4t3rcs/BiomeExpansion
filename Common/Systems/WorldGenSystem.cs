@@ -19,8 +19,8 @@ public class WorldGenSystem : ModSystem
         {
             tasks.Insert(biomeGenIndex + 1, new PassLegacy("Infected Mushroom Biome", (progress, configuration) =>
                 WorldUtil.GenerateBiomeNextToEvilBiome(progress, 500, 20, 
-                    (ushort) ModContent.TileType<TestBlock>(), 
-                    (ushort) ModContent.TileType<TestGrassBlock>(), 
+                    (ushort) ModContent.TileType<InfectedMushroomDirtBlock>(), 
+                    (ushort) ModContent.TileType<InfectedMushroomGrassBlock>(), 
                     WorldGen.crimson ? TileID.Crimstone : TileID.Ebonstone)));
         }
     }

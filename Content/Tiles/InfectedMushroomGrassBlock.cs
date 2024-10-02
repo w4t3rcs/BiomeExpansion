@@ -7,12 +7,12 @@ using Terraria.ModLoader;
 
 namespace BiomeExpansion.Content.Tiles;
 
-public class TestGrassBlock : ModTile
+public class InfectedMushroomGrassBlock : ModTile
 {
     public override void SetStaticDefaults()
     {
         Main.tileSolid[Type] = true;
-        Main.tileMerge[ModContent.TileType<TestBlock>()][Type] = true;
+        Main.tileMerge[ModContent.TileType<InfectedMushroomDirtBlock>()][Type] = true;
         Main.tileBlockLight[Type] = true;
         Main.tileLighted[Type] = true;
         DustType = DustID.Chlorophyte;
@@ -21,7 +21,7 @@ public class TestGrassBlock : ModTile
         TileID.Sets.Grass[Type] = true;
         TileID.Sets.Conversion.Grass[Type] = true;
         TileID.Sets.NeedsGrassFraming[Type] = true;
-        TileID.Sets.NeedsGrassFramingDirt[Type] = ModContent.TileType<TestBlock>();
+        TileID.Sets.NeedsGrassFramingDirt[Type] = ModContent.TileType<InfectedMushroomDirtBlock>();
         TileID.Sets.CanBeDugByShovel[Type] = true;
     }
 
