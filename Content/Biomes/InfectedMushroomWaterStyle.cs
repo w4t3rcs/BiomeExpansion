@@ -1,5 +1,4 @@
-﻿using BiomeExpansion.Common.Utils;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using Terraria;
@@ -27,19 +26,14 @@ namespace BiomeExpansion.Content.Biomes
         
         public override void LightColorMultiplier(ref float r, ref float g, ref float b)
         {
-            if (WorldGen.crimson)
-            {
-                ColorUtil.SetRGBFromColor(out r, out g, out b, Color.Crimson);
-            }
-            else
-            {
-                ColorUtil.SetRGBFromColor(out r, out g, out b, Color.Purple);
-            }
+            r = 1;
+            g = 1;
+            b = 1;
         }
 
         public override Color BiomeHairColor()
         {
-            return WorldGen.crimson ? Color.Crimson : Color.Purple;
+            return Color.White;
         }
 
         public override Asset<Texture2D> GetRainTexture()

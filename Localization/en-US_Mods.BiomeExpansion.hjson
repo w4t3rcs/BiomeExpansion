@@ -20,6 +20,11 @@ Items: {
 		DisplayName: Infected Mushroom Dirt Block
 		Tooltip: ""
 	}
+
+	InfectedSmallMushroom: {
+		DisplayName: Infected Small Mushroom
+		Tooltip: ""
+	}
 }
 
 Biomes: {
