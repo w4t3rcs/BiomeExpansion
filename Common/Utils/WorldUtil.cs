@@ -18,11 +18,16 @@ public static class WorldUtil
     public static void GenerateBiomeNextToEvilBiome(GenerationProgress progress, int biomeWidth, int biomeHeight, ushort dirtBlock, ushort grassBlock, ushort stoneBlock)
     {
         progress.Message = "Generating BiomeExpansion biomes...";
-        int startY = Main.maxTilesY / 8, endY = (int)(Main.worldSurface - 10 + biomeHeight);
-        KeyValuePair<int,int> evilBiomeXCoordinates = GetBiomeXCoordinates(startY, endY, [
+        GenerateBiomeNextToBiome(biomeWidth, biomeHeight, dirtBlock, grassBlock, stoneBlock, [
                 TileID.CorruptGrass, TileID.CorruptSandstone, TileID.Ebonsand, TileID.Ebonstone,
-                TileID.CrimsonGrass, TileID.CrimsonSandstone, TileID.Crimsand, TileID.Crimstone,
+                TileID.CrimsonGrass, TileID.CrimsonSandstone, TileID.Crimsand, TileID.Crimstone
         ]);
+    }
+
+    public static void GenerateBiomeNextToBiome(int biomeWidth, int biomeHeight, ushort dirtBlock, ushort grassBlock, ushort stoneBlock, ushort[] neighbourBiomeTiles)
+    {
+        int startY = Main.maxTilesY / 8, endY = (int)(Main.worldSurface - 10 + biomeHeight);
+        KeyValuePair<int,int> evilBiomeXCoordinates = GetBiomeXCoordinates(startY, endY, neighbourBiomeTiles);
         if (evilBiomeXCoordinates.Value < Main.maxTilesX / 2) //True - правая сторона
         {
             if (!IsSpawnNear(evilBiomeXCoordinates.Value + biomeWidth / 2, biomeWidth))
