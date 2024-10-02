@@ -13,7 +13,7 @@ public class WorldGenSystem : ModSystem
 {
     public override void ModifyWorldGenTasks(List<GenPass> tasks, ref double totalWeight)
     {
-        int biomeGenIndex = tasks.FindIndex(genpass => genpass.Name.Equals("Guide"));
+        int biomeGenIndex = tasks.FindIndex(genpass => genpass.Name.Equals("Surface Ore and Stone"));
 
         if (biomeGenIndex != -1)
         {

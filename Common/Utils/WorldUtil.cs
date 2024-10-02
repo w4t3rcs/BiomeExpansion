@@ -12,7 +12,7 @@ public static class WorldUtil
 {
     private const int MaximumBiomeTileDistance = 15;
     private static ushort[] ReplacedGrassTiles => [TileID.Grass, TileID.CorruptGrass, TileID.CrimsonGrass];
-    private static ushort[] ReplacedDirtTiles => [TileID.Dirt, TileID.ClayBlock];
+    private static ushort[] ReplacedDirtTiles => [TileID.Dirt, TileID.ClayBlock, TileID.Sand];
     private static ushort[] ReplacedStoneTiles => [TileID.Stone];
     
     public static void GenerateBiomeNextToEvilBiome(GenerationProgress progress, int biomeWidth, int biomeHeight, ushort dirtBlock, ushort grassBlock, ushort stoneBlock)
@@ -27,12 +27,10 @@ public static class WorldUtil
         {
             if (!IsSpawnNear(evilBiomeXCoordinates.Value + biomeWidth / 2, biomeWidth))
             {
-                Console.WriteLine("here - 1");
                 GenerateBiomeOnTheRightSide(evilBiomeXCoordinates.Value, startY, endY, biomeWidth, dirtBlock, grassBlock, stoneBlock);
             }
             else
             {
-                Console.WriteLine("here - 2");
                 GenerateBiomeOnTheLeftSide(evilBiomeXCoordinates.Key, startY, endY, biomeWidth, dirtBlock, grassBlock,  stoneBlock);
             }
         }
@@ -40,12 +38,10 @@ public static class WorldUtil
         {
             if (!IsSpawnNear(evilBiomeXCoordinates.Key - biomeWidth / 2, biomeWidth))
             {
-                Console.WriteLine("here - 3");
                 GenerateBiomeOnTheLeftSide(evilBiomeXCoordinates.Key, startY, endY, biomeWidth, dirtBlock, grassBlock, stoneBlock);
             }
             else
             {
-                Console.WriteLine("here - 4");
                 GenerateBiomeOnTheRightSide(evilBiomeXCoordinates.Value, startY, endY, biomeWidth,dirtBlock, grassBlock, stoneBlock);
             }
         }
@@ -118,7 +114,7 @@ public static class WorldUtil
             }
             else if (distanceCounter > MaximumBiomeTileDistance)
             {
-                rightX -= MaximumBiomeTileDistance;
+                rightX -= MaximumBiomeTileDistance + 5;
                 break;
             }
         }
