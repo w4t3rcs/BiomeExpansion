@@ -6,6 +6,8 @@ namespace BiomeExpansion.Content.Items.Weapons;
 
 public class TestSword : ModItem
 {
+	public override string Texture => "BiomeExpansion/Assets/Items/Weapons/TestSword";
+
 	public override void SetDefaults()
 	{ 
 		Item.damage = 155;

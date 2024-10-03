@@ -8,6 +8,8 @@ namespace BiomeExpansion.Content.Minions;
 
 public class TestMinion : ModProjectile
 {
+	public override string Texture => "BiomeExpansion/Assets/Minions/TestMinion";
+	
     public override void SetStaticDefaults() {
 			// Sets the amount of frames this minion has on its spritesheet
 			Main.projFrames[Projectile.type] = 4;

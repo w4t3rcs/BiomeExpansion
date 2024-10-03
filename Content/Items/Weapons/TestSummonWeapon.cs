@@ -9,6 +9,8 @@ namespace BiomeExpansion.Content.Items.Weapons;
 
 public class TestSummonWeapon : ModItem
 {
+    public override string Texture => "BiomeExpansion/Assets/Items/Weapons/TestSummonWeapon";
+    
     public override void SetStaticDefaults() {
         ItemID.Sets.GamepadWholeScreenUseRange[Item.type] = true;
         ItemID.Sets.LockOnIgnoresCollision[Item.type] = true;

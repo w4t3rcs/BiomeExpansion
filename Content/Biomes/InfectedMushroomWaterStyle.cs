@@ -9,6 +9,8 @@ namespace BiomeExpansion.Content.Biomes
 {
     public class InfectedMushroomWaterStyle : ModWaterStyle
     {
+        public override string Texture => "BiomeExpansion/Assets/Water/InfectedMushroomWaterStyle";
+        
         public override int ChooseWaterfallStyle()
         {
             return ModContent.GetInstance<InfectedMushroomWaterfallStyle>().Slot;
@@ -38,7 +40,7 @@ namespace BiomeExpansion.Content.Biomes
 
         public override Asset<Texture2D> GetRainTexture()
         {
-            return Mod.Assets.Request<Texture2D>(WorldGen.crimson ? "Content/Biomes/InfectedMushroomCrimsonRain" : "Content/Biomes/InfectedMushroomCorruptionRain");
+            return Mod.Assets.Request<Texture2D>(WorldGen.crimson ? "Assets/Rain/InfectedMushroomCrimsonRain" : "Assets/Rain/InfectedMushroomCorruptionRain");
         }
 
         public override byte GetRainVariant()

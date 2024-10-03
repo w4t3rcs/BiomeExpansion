@@ -6,6 +6,8 @@ namespace BiomeExpansion.Content.Biomes
 {
     public class InfectedMushroomWaterfallStyle : ModWaterfallStyle
     {
+        public override string Texture => "BiomeExpansion/Assets/Water/InfectedMushroomWaterfallStyle";
+        
         public override void AddLight(int i, int j)
         {
             Color color = WorldGen.crimson ? Color.Crimson : Color.Purple;

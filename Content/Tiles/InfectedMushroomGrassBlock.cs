@@ -10,6 +10,8 @@ namespace BiomeExpansion.Content.Tiles;
 
 public class InfectedMushroomGrassBlock : ModTile
 {
+    public override string Texture => "BiomeExpansion/Assets/Tiles/InfectedMushroomGrassBlock";
+    
     public override void SetStaticDefaults()
     {
         Main.tileSolid[Type] = true;

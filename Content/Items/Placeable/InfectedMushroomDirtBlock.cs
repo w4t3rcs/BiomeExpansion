@@ -4,6 +4,8 @@ namespace BiomeExpansion.Content.Items.Placeable;
 
 public class InfectedMushroomDirtBlock : ModItem
 {
+    public override string Texture => "BiomeExpansion/Assets/Items/Placeable/InfectedMushroomDirtBlock";
+    
     public override void SetStaticDefaults()
     {
         Item.ResearchUnlockCount = 100;

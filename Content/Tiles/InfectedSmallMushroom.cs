@@ -11,6 +11,8 @@ namespace BiomeExpansion.Content.Tiles;
 
 public class InfectedSmallMushroom : ModTile
 {
+    public override string Texture => "BiomeExpansion/Assets/Tiles/InfectedSmallMushroom";
+    
     public override void SetStaticDefaults()
     {
         Main.tileCut[Type] = true;

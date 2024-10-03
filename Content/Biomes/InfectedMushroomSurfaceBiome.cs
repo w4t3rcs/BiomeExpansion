@@ -15,7 +15,7 @@ namespace BiomeExpansion.Content.Biomes
         public override int Music => MusicID.Mushrooms;
 
         public override bool IsBiomeActive(Player player) {
-            return !player.ZoneDungeon && ModContent.GetInstance<BiomeTileCounterSystem>().InfectedMushroomBiomeTileCount >= 950;
+            return !player.ZoneDungeon && ModContent.GetInstance<BiomeTileCounterSystem>().InfectedMushroomBiomeTileCount >= 750;
         }
     }   
 }

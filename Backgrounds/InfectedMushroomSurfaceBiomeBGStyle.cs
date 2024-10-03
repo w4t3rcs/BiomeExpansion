@@ -4,10 +4,12 @@ namespace BiomeExpansion.Backgrounds;
 
 public class InfectedMushroomSurfaceBiomeBGStyle : ModSurfaceBackgroundStyle
 {
+    
+    
     public override int ChooseCloseTexture(ref float scale, ref double parallax, ref float a, ref float b)
     {
         b -= 250f;
-        return BackgroundTextureLoader.GetBackgroundSlot("BiomeExpansion/Backgrounds/InfectedMushroomSurfaceBiomeClose");
+        return BackgroundTextureLoader.GetBackgroundSlot("BiomeExpansion/Assets/Backgrounds/InfectedMushroomSurfaceBiomeClose");
     }
 
     public override void ModifyFarFades(float[] fades, float transitionSpeed)
