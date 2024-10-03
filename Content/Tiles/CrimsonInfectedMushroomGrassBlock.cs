@@ -6,7 +6,7 @@ namespace BiomeExpansion.Content.Tiles;
 
 public class CrimsonInfectedMushroomGrassBlock : InfectedMushroomGrassTile
 {
-    public override string Texture => "BiomeExpansion/Assets/Tiles/InfectedMushroomGrassBlock";
+    public override string Texture => "BiomeExpansion/Assets/Tiles/CrimsonInfectedMushroomGrassBlock";
     
     public override void SetStaticDefaults()
     {

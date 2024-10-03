@@ -6,7 +6,7 @@ namespace BiomeExpansion.Content.Tiles;
 
 public class CorruptionInfectedMushroomGrassBlock : InfectedMushroomGrassTile
 {
-    public override string Texture => "BiomeExpansion/Assets/Tiles/InfectedMushroomGrassBlock";
+    public override string Texture => "BiomeExpansion/Assets/Tiles/CorruptionInfectedMushroomGrassBlock";
     
     public override void SetStaticDefaults()
     {
