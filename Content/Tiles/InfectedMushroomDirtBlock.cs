@@ -13,7 +13,7 @@ public class InfectedMushroomDirtBlock : ModTile
     public override void SetStaticDefaults()
     {
         Main.tileSolid[Type] = true;
-        Main.tileMerge[Type][ModContent.TileType<InfectedMushroomGrassBlock>()] = true;
+        Main.tileMerge[Type][ModContent.TileType<CorruptionInfectedMushroomGrassBlock>()] = true;
         Main.tileMergeDirt[Type] = true;
         Main.tileBlockLight[Type] = true;
         Main.tileLighted[Type] = true;

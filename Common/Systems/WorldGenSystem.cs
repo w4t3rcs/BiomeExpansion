@@ -21,10 +21,10 @@ public class WorldGenSystem : ModSystem
             {
                 BiomeUtil.GenerateBiomeNextToEvilBiome(progress, BEBiome.InfectedMushroom, 500, 20,
                     (ushort)ModContent.TileType<InfectedMushroomDirtBlock>(),
-                    (ushort)ModContent.TileType<InfectedMushroomGrassBlock>(),
+                    WorldGen.crimson ? (ushort)ModContent.TileType<CrimsonInfectedMushroomGrassBlock>() : (ushort)ModContent.TileType<CorruptionInfectedMushroomGrassBlock>(),
                     WorldGen.crimson ? TileID.Crimstone : TileID.Ebonstone);
-                PlantUtil.GeneratePlant(BEBiome.InfectedMushroom, 90,
-                    (ushort) ModContent.TileType<InfectedSmallMushroom>(), [(ushort) ModContent.TileType<InfectedMushroomGrassBlock>()]);
+                PlantUtil.GeneratePlant(BEBiome.InfectedMushroom, 85,
+                    (ushort) ModContent.TileType<InfectedSmallMushroom>(), [(ushort)ModContent.TileType<CorruptionInfectedMushroomGrassBlock>(), (ushort)ModContent.TileType<CorruptionInfectedMushroomGrassBlock>()]);
                 BiomeUtil.BEBiomesXCoordinates.Remove(BEBiome.InfectedMushroom);
             }));
         }

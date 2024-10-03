@@ -2,6 +2,7 @@
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.Enums;
+using Terraria.ModLoader;
 using Terraria.ObjectData;
 
 namespace BiomeExpansion.Content.Tiles;
@@ -18,5 +19,6 @@ public class InfectedSmallMushroom : SmallMushroomTile
         TileObjectData.newTile.RandomStyleRange = 5;
         TileObjectData.newTile.StyleHorizontal = true;
         TileObjectData.addTile(Type);
+        RegisterItemDrop(ModContent.ItemType<Items.Placeable.InfectedSmallMushroom>());
     }
 }

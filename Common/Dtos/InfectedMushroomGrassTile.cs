@@ -1,17 +1,14 @@
-﻿using System.Collections.Generic;
-using BiomeExpansion.Content.Biomes;
-using Microsoft.Xna.Framework;
+﻿using BiomeExpansion.Content.Biomes;
+using BiomeExpansion.Content.Tiles;
 using Terraria;
 using Terraria.GameContent.Metadata;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace BiomeExpansion.Content.Tiles;
+namespace BiomeExpansion.Common.Dtos;
 
-public class InfectedMushroomGrassBlock : ModTile
+public abstract class InfectedMushroomGrassTile : ModTile
 {
-    public override string Texture => "BiomeExpansion/Assets/Tiles/InfectedMushroomGrassBlock";
-    
     public override void SetStaticDefaults()
     {
         Main.tileSolid[Type] = true;
@@ -25,27 +22,11 @@ public class InfectedMushroomGrassBlock : ModTile
         TileID.Sets.NeedsGrassFraming[Type] = true;
         TileID.Sets.NeedsGrassFramingDirt[Type] = ModContent.TileType<InfectedMushroomDirtBlock>();
         TileID.Sets.CanBeDugByShovel[Type] = true;
-        if (WorldGen.crimson)
-        {
-            DustType = DustID.Crimson;
-            AddMapEntry(new Color(0, 0, 0)); //TODO
-        }
-        else
-        {
-            DustType = DustID.Corruption;
-            AddMapEntry(new Color(126, 78, 186));
-        }
+        RegisterItemDrop(ModContent.ItemType<Content.Items.Placeable.InfectedMushroomDirtBlock>());
     }
-    
-    
 
     public override void ChangeWaterfallStyle(ref int style)
     {
         style = ModContent.GetInstance<InfectedMushroomWaterfallStyle>().Slot;
-    }
-
-    public override IEnumerable<Item> GetItemDrops(int i, int j)
-    {
-        return [ModContent.GetInstance<Items.Placeable.InfectedMushroomDirtBlock>().Item];
     }
 }
