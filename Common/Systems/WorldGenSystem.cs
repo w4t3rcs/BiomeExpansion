@@ -25,6 +25,7 @@ public class WorldGenSystem : ModSystem
                     WorldGen.crimson ? TileID.Crimstone : TileID.Ebonstone);
                 PlantUtil.GeneratePlant(BEBiome.InfectedMushroom, 90,
                     (ushort) ModContent.TileType<InfectedSmallMushroom>(), [(ushort) ModContent.TileType<InfectedMushroomGrassBlock>()]);
+                BiomeUtil.BEBiomesXCoordinates.Remove(BEBiome.InfectedMushroom);
             }));
         }
     }
