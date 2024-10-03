@@ -23,7 +23,7 @@ public class WorldGenSystem : ModSystem
                     (ushort)ModContent.TileType<InfectedMushroomDirtBlock>(),
                     (ushort)ModContent.TileType<InfectedMushroomGrassBlock>(),
                     WorldGen.crimson ? TileID.Crimstone : TileID.Ebonstone);
-                PlantUtil.GeneratePlant(BEBiome.InfectedMushroom, 85,
+                PlantUtil.GeneratePlant(BEBiome.InfectedMushroom, 90,
                     (ushort) ModContent.TileType<InfectedSmallMushroom>(), [(ushort) ModContent.TileType<InfectedMushroomGrassBlock>()]);
             }));
         }
