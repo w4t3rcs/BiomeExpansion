@@ -6,20 +6,21 @@ using Terraria.ModLoader;
 
 namespace BiomeExpansion.Content.Tiles;
 
-public class TestBlock : ModTile
+public class InfectedMushroomDirtBlock : ModTile
 {
     public override void SetStaticDefaults()
     {
         Main.tileSolid[Type] = true;
+        Main.tileMerge[Type][ModContent.TileType<InfectedMushroomGrassBlock>()] = true;
         Main.tileMergeDirt[Type] = true;
         Main.tileBlockLight[Type] = true;
         Main.tileLighted[Type] = true;
-        DustType = DustID.Chlorophyte;
-        AddMapEntry(new Color(200, 200, 200));
+        DustType = DustID.Mud;
+        AddMapEntry(new Color(142, 86, 78));
     }
 
     public override void ChangeWaterfallStyle(ref int style)
     {
-        style = ModContent.GetInstance<TestWaterfallStyle>().Slot;
+        style = ModContent.GetInstance<InfectedMushroomWaterfallStyle>().Slot;
     }
 }

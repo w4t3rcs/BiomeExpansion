@@ -1,9 +1,8 @@
-﻿using Terraria.ID;
-using Terraria.ModLoader;
+﻿using Terraria.ModLoader;
 
 namespace BiomeExpansion.Content.Items.Placeable;
 
-public class TestBlock : ModItem
+public class InfectedSmallMushroom : ModItem
 {
     public override void SetStaticDefaults()
     {
@@ -12,7 +11,7 @@ public class TestBlock : ModItem
 
     public override void SetDefaults()
     {
-        Item.DefaultToPlaceableTile(ModContent.TileType<Tiles.TestBlock>());
+        Item.DefaultToPlaceableTile(ModContent.TileType<Tiles.InfectedSmallMushroom>());
         Item.width = 12;
         Item.height = 12;
     }

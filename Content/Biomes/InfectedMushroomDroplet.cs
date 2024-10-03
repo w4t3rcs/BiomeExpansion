@@ -3,7 +3,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace BiomeExpansion.Content.Biomes {
-    public class TestDroplet : ModGore
+    public class InfectedMushroomDroplet : ModGore
     {
         public override void SetStaticDefaults()
         {

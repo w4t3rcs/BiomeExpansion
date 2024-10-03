@@ -11,28 +11,23 @@ Items: {
 			'''
 	}
 
-	TestBlock: {
-		DisplayName: Test Block
-		Tooltip: ""
-	}
-
-	TestGrassBlock: {
-		DisplayName: Test Grass Block
-		Tooltip: ""
-	}
-
 	TestSummonWeapon: {
 		DisplayName: Test Summon Weapon
+		Tooltip: ""
+	}
+
+	InfectedMushroomDirtBlock: {
+		DisplayName: Infected Mushroom Dirt Block
+		Tooltip: ""
+	}
+
+	InfectedSmallMushroom: {
+		DisplayName: Infected Small Mushroom
 		Tooltip: ""
 	}
 }
 
 Biomes: {
-	TestSurfaceBiome: {
-		DisplayName: Test Surface Biome
-		TownNPCDialogueName: the Test Surface Biome
-	}
-
 	InfectedMushroomSurfaceBiome: {
 		DisplayName: Infected Mushroom Surface Biome
 		TownNPCDialogueName: the Infected Mushroom Surface Biome
