@@ -14,7 +14,7 @@ public class WorldGenSystem : ModSystem
 {
     public override void ModifyWorldGenTasks(List<GenPass> tasks, ref double totalWeight)
     {
-        int biomeGenIndex = tasks.FindIndex(genpass => genpass.Name.Equals("Surface Ore and Stone"));
+        int biomeGenIndex = tasks.FindIndex(genpass => genpass.Name.Equals("Quick Cleanup"));
         if (biomeGenIndex != -1)
         {
             tasks.Insert(biomeGenIndex + 1, new PassLegacy("Infected Mushroom Biome", (progress, configuration) =>
@@ -24,7 +24,8 @@ public class WorldGenSystem : ModSystem
                     WorldGen.crimson ? (ushort)ModContent.TileType<CrimsonInfectedMushroomGrassBlock>() : (ushort)ModContent.TileType<CorruptionInfectedMushroomGrassBlock>(),
                     WorldGen.crimson ? TileID.Crimstone : TileID.Ebonstone);
                 PlantUtil.GeneratePlant(BEBiome.InfectedMushroom, 85,
-                    (ushort) ModContent.TileType<InfectedSmallMushroom>(), [(ushort)ModContent.TileType<CorruptionInfectedMushroomGrassBlock>(), (ushort)ModContent.TileType<CorruptionInfectedMushroomGrassBlock>()]);
+                    WorldGen.crimson ? (ushort) ModContent.TileType<CrimsonInfectedSmallMushroom>() : (ushort) ModContent.TileType<CorruptionInfectedSmallMushroom>(), 
+                    WorldGen.crimson ? [(ushort)ModContent.TileType<CrimsonInfectedMushroomGrassBlock>()] : [(ushort)ModContent.TileType<CorruptionInfectedMushroomGrassBlock>()]);
                 BiomeUtil.BEBiomesXCoordinates.Remove(BEBiome.InfectedMushroom);
             }));
         }

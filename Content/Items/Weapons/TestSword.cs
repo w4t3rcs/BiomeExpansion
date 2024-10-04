@@ -1,3 +1,4 @@
+using BiomeExpansion.Common.Utils;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -6,7 +7,7 @@ namespace BiomeExpansion.Content.Items.Weapons;
 
 public class TestSword : ModItem
 {
-	public override string Texture => "BiomeExpansion/Assets/Items/Weapons/TestSword";
+	public override string Texture => TextureUtil.GetDynamicTexture("TestSword");
 
 	public override void SetDefaults()
 	{ 

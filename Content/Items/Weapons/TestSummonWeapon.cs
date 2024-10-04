@@ -1,4 +1,5 @@
-﻿using BiomeExpansion.Content.Minions;
+﻿using BiomeExpansion.Common.Utils;
+using BiomeExpansion.Content.Minions;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
@@ -9,7 +10,7 @@ namespace BiomeExpansion.Content.Items.Weapons;
 
 public class TestSummonWeapon : ModItem
 {
-    public override string Texture => "BiomeExpansion/Assets/Items/Weapons/TestSummonWeapon";
+    public override string Texture => TextureUtil.GetDynamicTexture("TestSummonWeapon");
     
     public override void SetStaticDefaults() {
         ItemID.Sets.GamepadWholeScreenUseRange[Item.type] = true;

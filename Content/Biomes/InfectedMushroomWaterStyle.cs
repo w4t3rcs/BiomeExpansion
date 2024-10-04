@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using BiomeExpansion.Common.Utils;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using Terraria;
@@ -9,7 +10,7 @@ namespace BiomeExpansion.Content.Biomes
 {
     public class InfectedMushroomWaterStyle : ModWaterStyle
     {
-        public override string Texture => "BiomeExpansion/Assets/Water/InfectedMushroomWaterStyle";
+        public override string Texture => TextureUtil.GetDynamicTexture("InfectedMushroomWaterStyle");
         
         public override int ChooseWaterfallStyle()
         {
@@ -40,7 +41,7 @@ namespace BiomeExpansion.Content.Biomes
 
         public override Asset<Texture2D> GetRainTexture()
         {
-            return Mod.Assets.Request<Texture2D>(WorldGen.crimson ? "Assets/Rain/InfectedMushroomCrimsonRain" : "Assets/Rain/InfectedMushroomCorruptionRain");
+            return Mod.Assets.Request<Texture2D>(TextureUtil.GetDynamicTexture(WorldGen.crimson ?  "InfectedMushroomCrimsonRain" : "InfectedMushroomCorruptionRain"));
         }
 
         public override byte GetRainVariant()

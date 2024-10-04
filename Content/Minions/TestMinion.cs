@@ -1,4 +1,5 @@
 ﻿using System;
+using BiomeExpansion.Common.Utils;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
@@ -8,7 +9,7 @@ namespace BiomeExpansion.Content.Minions;
 
 public class TestMinion : ModProjectile
 {
-	public override string Texture => "BiomeExpansion/Assets/Minions/TestMinion";
+	public override string Texture => TextureUtil.GetDynamicTexture("TestMinion");
 	
     public override void SetStaticDefaults() {
 			// Sets the amount of frames this minion has on its spritesheet

@@ -1,11 +1,12 @@
-﻿using Terraria;
+﻿using BiomeExpansion.Common.Utils;
+using Terraria;
 using Terraria.ModLoader;
 
 namespace BiomeExpansion.Content.Minions;
 
 public class TestMinionBuff : ModBuff
 {
-    public override string Texture => "BiomeExpansion/Assets/Minions/TestMinionBuff";
+    public override string Texture => TextureUtil.GetDynamicTexture("TestMinionBuff");
     
     public override void SetStaticDefaults() {
         Main.buffNoSave[Type] = true; // This buff won't save when you exit the world

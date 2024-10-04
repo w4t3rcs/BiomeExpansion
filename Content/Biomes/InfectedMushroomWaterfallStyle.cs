@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using BiomeExpansion.Common.Utils;
+using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
 
@@ -6,7 +7,7 @@ namespace BiomeExpansion.Content.Biomes
 {
     public class InfectedMushroomWaterfallStyle : ModWaterfallStyle
     {
-        public override string Texture => "BiomeExpansion/Assets/Water/InfectedMushroomWaterfallStyle";
+        public override string Texture => TextureUtil.GetDynamicTexture("InfectedMushroomWaterfallStyle");
         
         public override void AddLight(int i, int j)
         {

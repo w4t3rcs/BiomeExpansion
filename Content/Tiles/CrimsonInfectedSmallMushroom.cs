@@ -5,14 +5,14 @@ using Terraria.ID;
 
 namespace BiomeExpansion.Content.Tiles;
 
-public class CrimsonInfectedMushroomGrassBlock : InfectedMushroomGrassTile
+public class CrimsonInfectedSmallMushroom : InfectedSmallMushroomTile
 {
-    public override string Texture => TextureUtil.GetDynamicTileTexture("CrimsonInfectedMushroomGrassBlock");
+    public override string Texture => TextureUtil.GetDynamicTileTexture("CrimsonInfectedSmallMushroom");
     
     public override void SetStaticDefaults()
     {
         base.SetStaticDefaults();
-        DustType = DustID.Crimson;
-        AddMapEntry(Color.Crimson);
+        DustType = DustID.CrimsonPlants;
+        AddMapEntry(Color.MistyRose);
     }
 }

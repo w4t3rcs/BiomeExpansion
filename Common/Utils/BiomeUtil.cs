@@ -13,44 +13,41 @@ public static class BiomeUtil
 {
     public static Dictionary<BEBiome, KeyValuePair<int, int>> BEBiomesXCoordinates = new();
     public static readonly int StartY = Main.maxTilesY / 8;
-    private const int MaximumBiomeTileDistance = 15;
-    private static ushort[] ReplacedGrassTiles => [TileID.Grass, TileID.CorruptGrass, TileID.CrimsonGrass];
-    private static ushort[] ReplacedDirtTiles => [TileID.Dirt, TileID.ClayBlock, TileID.Sand];
-    private static ushort[] ReplacedStoneTiles => [TileID.Stone];
+    private const int MaximumBiomeTileDistance = 10;
     
     public static void GenerateBiomeNextToEvilBiome(GenerationProgress progress, BEBiome biome, int biomeWidth, int biomeHeight, ushort dirtBlock, ushort grassBlock, ushort stoneBlock)
     {
         progress.Message = "Generating BiomeExpansion biomes...";
-        GenerateBiomeNextToBiome(biome, biomeWidth, biomeHeight, dirtBlock, grassBlock, stoneBlock, [
+        GenerateBiomeNextToBiome(biome, biomeWidth, biomeHeight, dirtBlock, grassBlock, [
                 TileID.CorruptGrass, TileID.CorruptSandstone, TileID.Ebonsand, TileID.Ebonstone,
                 TileID.CrimsonGrass, TileID.CrimsonSandstone, TileID.Crimsand, TileID.Crimstone
         ]);
     }
 
-    public static void GenerateBiomeNextToBiome(BEBiome biome, int biomeWidth, int biomeHeight, ushort dirtBlock, ushort grassBlock, ushort stoneBlock, ushort[] neighbourBiomeTiles)
+    public static void GenerateBiomeNextToBiome(BEBiome biome, int biomeWidth, int biomeHeight, ushort dirtBlock, ushort grassBlock, ushort[] neighbourBiomeTiles)
     {
         int endY = (int)(Main.worldSurface - 10 + biomeHeight);
         KeyValuePair<int,int> evilBiomeXCoordinates = GetBiomeXCoordinates(StartY, endY, neighbourBiomeTiles);
         if (evilBiomeXCoordinates.Value < Main.maxTilesX / 2)
         {
-            if (!IsSpawnNear(evilBiomeXCoordinates.Value + biomeWidth / 2, biomeWidth))
+            if (!IsSpawnNear(evilBiomeXCoordinates.Value + biomeWidth, biomeWidth))
             {
-                GenerateBiomeOnTheRightSide(biome, evilBiomeXCoordinates.Value, StartY, endY, biomeWidth, dirtBlock, grassBlock, stoneBlock);
+                GenerateBiomeOnTheRightSide(biome, evilBiomeXCoordinates.Value, StartY, endY, biomeWidth, dirtBlock, grassBlock);
             }
             else
             {
-                GenerateBiomeOnTheLeftSide(biome, evilBiomeXCoordinates.Key, StartY, endY, biomeWidth, dirtBlock, grassBlock,  stoneBlock);
+                GenerateBiomeOnTheLeftSide(biome, evilBiomeXCoordinates.Key, StartY, endY, biomeWidth, dirtBlock, grassBlock);
             }
         }
         else
         {
-            if (!IsSpawnNear(evilBiomeXCoordinates.Key - biomeWidth / 2, biomeWidth))
+            if (!IsSpawnNear(evilBiomeXCoordinates.Key - biomeWidth, biomeWidth))
             {
-                GenerateBiomeOnTheLeftSide(biome, evilBiomeXCoordinates.Key, StartY, endY, biomeWidth, dirtBlock, grassBlock, stoneBlock);
+                GenerateBiomeOnTheLeftSide(biome, evilBiomeXCoordinates.Key, StartY, endY, biomeWidth, dirtBlock, grassBlock);
             }
             else
             {
-                GenerateBiomeOnTheRightSide(biome, evilBiomeXCoordinates.Value, StartY, endY, biomeWidth,dirtBlock, grassBlock, stoneBlock);
+                GenerateBiomeOnTheRightSide(biome, evilBiomeXCoordinates.Value, StartY, endY, biomeWidth,dirtBlock, grassBlock);
             }
         }
     }
@@ -62,33 +59,32 @@ public static class BiomeUtil
                || (x - minimumDistance < spawnTileX && x > spawnTileX - minimumDistance);
     }
     
-    private static void GenerateBiomeOnTheLeftSide(BEBiome biome, int startX, int startY, int endY, int biomeWidth, ushort dirtBlock, ushort grassBlock, ushort stoneBlock)
+    private static void GenerateBiomeOnTheLeftSide(BEBiome biome, int startX, int startY, int endY, int biomeWidth, ushort dirtBlock, ushort grassBlock)
     {
         int rightX = startX - biomeWidth;
         BEBiomesXCoordinates.Add(biome, new KeyValuePair<int, int>(rightX, startX));
         for (int i = rightX; i < startX; i++)
         {
-            GenerateBiomeVertically(i, startY, endY, dirtBlock, grassBlock, stoneBlock);
+            GenerateBiomeVertically(i, startY, endY, dirtBlock, grassBlock);
         }
     }
     
-    private static void GenerateBiomeOnTheRightSide(BEBiome biome, int startX, int startY, int endY, int biomeWidth, ushort dirtBlock, ushort grassBlock, ushort stoneBlock)
+    private static void GenerateBiomeOnTheRightSide(BEBiome biome, int startX, int startY, int endY, int biomeWidth, ushort dirtBlock, ushort grassBlock)
     {
         int leftX = startX + biomeWidth;
         BEBiomesXCoordinates.Add(biome, new KeyValuePair<int, int>(startX, leftX));
         for (int i = startX; i < leftX; i++)
         {
-            GenerateBiomeVertically(i, startY, endY, dirtBlock, grassBlock, stoneBlock);
+            GenerateBiomeVertically(i, startY, endY, dirtBlock, grassBlock);
         }
     }
 
-    private static void GenerateBiomeVertically(int x, int startY, int endY, ushort dirtBlock, ushort grassBlock, ushort stoneBlock) 
+    private static void GenerateBiomeVertically(int x, int startY, int endY, ushort dirtBlock, ushort grassBlock) 
     {
-        for (int j = startY; j < endY; j++)
+        for (int y = startY; y < endY; y++)
         {
-            ReplaceBlocks(x, j, ReplacedGrassTiles, grassBlock);
-            ReplaceBlocks(x, j, ReplacedDirtTiles, dirtBlock);
-            ReplaceBlocks(x, j, ReplacedStoneTiles, stoneBlock);
+            PlaceDefaultBlock(x, y, dirtBlock);
+            PlaceGrassBlock(x, y, grassBlock);
         }
     }
 
@@ -150,11 +146,30 @@ public static class BiomeUtil
         return leftX;
     }
 
-    private static void ReplaceBlocks(int x, int y, ushort[] replacedTiles, ushort tileType)
+    private static void PlaceGrassBlock(int x, int y, ushort tileType)
     {
         try
         {
-            if (Main.tile[x, y].HasTile && replacedTiles.Contains(Main.tile[x, y].TileType))
+            if (Main.tile[x, y].HasTile 
+                && (!Main.tile[x, y - 1].HasTile || !Main.tile[x, y + 1].HasTile 
+                                                 || !Main.tile[x - 1, y].HasTile || !Main.tile[x + 1, y].HasTile
+                                                 || !Main.tile[x - 1, y - 1].HasTile || !Main.tile[x - 1, y + 1].HasTile
+                                                 || !Main.tile[x + 1, y - 1].HasTile || !Main.tile[x + 1, y + 1].HasTile))
+            {
+                Main.tile[x, y].TileType = tileType; 
+            }
+        }
+        catch (Exception e)
+        {
+            ModContent.GetInstance<BiomeExpansion>().Logger.Error(e);        
+        }
+    }
+    
+    private static void PlaceDefaultBlock(int x, int y, ushort tileType)
+    {
+        try
+        {
+            if (Main.tile[x, y].HasTile)
             {
                 Main.tile[x, y].TileType = tileType; 
             }

@@ -1,4 +1,5 @@
-﻿using BiomeExpansion.Content.Biomes;
+﻿using BiomeExpansion.Common.Utils;
+using BiomeExpansion.Content.Biomes;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
@@ -8,7 +9,7 @@ namespace BiomeExpansion.Content.Tiles;
 
 public class InfectedMushroomDirtBlock : ModTile
 {
-    public override string Texture => "BiomeExpansion/Assets/Tiles/InfectedMushroomDirtBlock";
+    public override string Texture => TextureUtil.GetDynamicTileTexture("InfectedMushroomDirtBlock");
     
     public override void SetStaticDefaults()
     {

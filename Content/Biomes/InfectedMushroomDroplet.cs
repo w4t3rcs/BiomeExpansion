@@ -1,4 +1,5 @@
-﻿using Terraria.GameContent;
+﻿using BiomeExpansion.Common.Utils;
+using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -6,7 +7,7 @@ namespace BiomeExpansion.Content.Biomes;
 
 public class InfectedMushroomDroplet : ModGore
 {
-    public override string Texture => "BiomeExpansion/Assets/Water/InfectedMushroomDroplet";
+    public override string Texture => TextureUtil.GetDynamicTexture("InfectedMushroomDroplet");
 
     public override void SetStaticDefaults()
     { 
