@@ -1,9 +1,9 @@
-﻿using BiomeExpansion.Content.Items.Placeable;
-using Terraria;
+﻿using Terraria;
 using Terraria.DataStructures;
 using Terraria.Enums;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
+using CorruptionInfectedSmallMushroom = BiomeExpansion.Content.Items.Placeable.CorruptionInfectedSmallMushroom;
 
 namespace BiomeExpansion.Common.Dtos;
 
@@ -16,7 +16,6 @@ public abstract class InfectedSmallMushroomTile : SmallMushroomTile
         TileObjectData.newTile.AnchorBottom = new AnchorData(AnchorType.SolidWithTop | AnchorType.SolidTile, 1, 0);
         TileObjectData.newTile.RandomStyleRange = 5;
         TileObjectData.newTile.StyleHorizontal = true;
-        TileObjectData.addTile(Type);
         RegisterItemDrop(ModContent.ItemType<CorruptionInfectedSmallMushroom>());
     }
 }
