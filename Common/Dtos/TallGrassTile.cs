@@ -1,4 +1,5 @@
-﻿using Terraria.ObjectData;
+﻿using Terraria.ID;
+using Terraria.ObjectData;
 
 namespace BiomeExpansion.Common.Dtos;
 
@@ -7,7 +8,8 @@ public abstract class TallGrassTile : FramedPlantTile
     public override void SetStaticDefaults()
     {
         base.SetStaticDefaults();
-        TileObjectData.newTile.RandomStyleRange = 5;
+        TileID.Sets.SwaysInWindBasic[Type] = true;
+        TileObjectData.newTile.RandomStyleRange = 9;
         TileObjectData.newTile.StyleHorizontal = false;
     }
 }

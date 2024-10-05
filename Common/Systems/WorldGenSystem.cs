@@ -19,16 +19,34 @@ public class WorldGenSystem : ModSystem
         {
             tasks.Insert(biomeGenIndex + 1, new PassLegacy("Infected Mushroom Biome", (progress, configuration) =>
             {
-                BiomeHelper.GenerateBiomeNextToEvilBiome(progress, BEBiome.InfectedMushroom, 500, 20,
-                    (ushort)ModContent.TileType<InfectedMushroomDirt>(),
-                    WorldGen.crimson ? (ushort)ModContent.TileType<CrimsonInfectedMushroomGrass>() : (ushort)ModContent.TileType<CorruptionInfectedMushroomGrass>(),
-                    WorldGen.crimson ? (ushort)ModContent.WallType<CrimsonInfectedMushroomWall>() : (ushort)ModContent.WallType<CorruptionInfectedMushroomWall>());
-                PlantHelper.GeneratePlant(BEBiome.InfectedMushroom, 6,
-                    WorldGen.crimson ? (ushort)ModContent.TileType<CrimsonInfectedSmallMushroom>() : (ushort)ModContent.TileType<CorruptionInfectedSmallMushroom>(), 
-                    WorldGen.crimson ? [(ushort)ModContent.TileType<CrimsonInfectedMushroomGrass>()] : [(ushort)ModContent.TileType<CorruptionInfectedMushroomGrass>()]);
-                PlantHelper.GeneratePlant(BEBiome.InfectedMushroom, 3,
-                    WorldGen.crimson ? (ushort)ModContent.TileType<CrimsonInfectedMushroomTallGrass>() : (ushort)ModContent.TileType<CorruptionInfectedMushroomTallGrass>(),
-                    WorldGen.crimson ? [(ushort)ModContent.TileType<CrimsonInfectedMushroomGrass>()] : [(ushort)ModContent.TileType<CorruptionInfectedMushroomGrass>()]);
+                progress.Message = "Generating BiomeExpansion biomes...";
+                if (WorldGen.crimson)
+                {
+                    BiomeHelper.GenerateBiomeNextToEvilBiome(BEBiome.InfectedMushroom, 500, 20,
+                        (ushort)ModContent.TileType<InfectedMushroomDirt>(),
+                        (ushort)ModContent.TileType<CrimsonInfectedMushroomGrass>(),
+                        (ushort)ModContent.WallType<CrimsonInfectedMushroomWall>());
+                    PlantHelper.GeneratePlant(BEBiome.InfectedMushroom, 6, 
+                        (ushort)ModContent.TileType<CrimsonInfectedSmallMushroom>(), 
+                        [(ushort)ModContent.TileType<CrimsonInfectedMushroomGrass>()]);
+                    PlantHelper.GeneratePlant(BEBiome.InfectedMushroom, 3,
+                        (ushort)ModContent.TileType<CrimsonInfectedMushroomTallGrass>(),
+                        [(ushort)ModContent.TileType<CrimsonInfectedMushroomGrass>()]);
+                }
+                else
+                {
+                    BiomeHelper.GenerateBiomeNextToEvilBiome(BEBiome.InfectedMushroom, 500, 20,
+                        (ushort)ModContent.TileType<InfectedMushroomDirt>(), 
+                        (ushort)ModContent.TileType<CorruptionInfectedMushroomGrass>(), 
+                        (ushort)ModContent.WallType<CorruptionInfectedMushroomWall>());
+                    PlantHelper.GeneratePlant(BEBiome.InfectedMushroom, 6,
+                        (ushort)ModContent.TileType<CorruptionInfectedSmallMushroom>(),
+                        [(ushort)ModContent.TileType<CorruptionInfectedMushroomGrass>()]);
+                    PlantHelper.GeneratePlant(BEBiome.InfectedMushroom, 3,
+                        (ushort)ModContent.TileType<CorruptionInfectedMushroomTallGrass>(),
+                        [(ushort)ModContent.TileType<CorruptionInfectedMushroomGrass>()]);
+                }
+                
                 BiomeHelper.BEBiomesXCoordinates.Remove(BEBiome.InfectedMushroom);
             }));
         }

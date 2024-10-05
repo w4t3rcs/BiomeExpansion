@@ -11,7 +11,7 @@ namespace BiomeExpansion.Content.Biomes
     {
         public override ModWaterStyle WaterStyle => ModContent.GetInstance<CrimsonInfectedMushroomWaterStyle>();
         public override CaptureBiome.TileColorStyle TileColorStyle => CaptureBiome.TileColorStyle.Crimson;
-        public override ModSurfaceBackgroundStyle SurfaceBackgroundStyle => ModContent.GetInstance<InfectedMushroomSurfaceBiomeBGStyle>();
+        public override ModSurfaceBackgroundStyle SurfaceBackgroundStyle => ModContent.GetInstance<СrimsonInfectedMushroomSurfaceBiomeBGStyle>();
         public override int Music => MusicID.Mushrooms;
 
         public override bool IsBiomeActive(Player player) {

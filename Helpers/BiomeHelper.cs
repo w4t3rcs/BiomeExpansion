@@ -5,7 +5,6 @@ using BiomeExpansion.Common.Dtos;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Terraria.WorldBuilding;
 
 namespace BiomeExpansion.Helpers;
 
@@ -15,9 +14,8 @@ public static class BiomeHelper
     public static readonly int StartY = Main.maxTilesY / 8;
     private const int MaximumBiomeTileDistance = 10;
     
-    public static void GenerateBiomeNextToEvilBiome(GenerationProgress progress, BEBiome biome, int biomeWidth, int biomeHeight, ushort dirtBlock, ushort grassBlock, ushort wall)
+    public static void GenerateBiomeNextToEvilBiome(BEBiome biome, int biomeWidth, int biomeHeight, ushort dirtBlock, ushort grassBlock, ushort wall)
     {
-        progress.Message = "Generating BiomeExpansion biomes...";
         GenerateBiomeNextToBiome(biome, biomeWidth, biomeHeight, dirtBlock, grassBlock, wall, [
                 TileID.CorruptGrass, TileID.CorruptSandstone, TileID.Ebonsand, TileID.Ebonstone,
                 TileID.CrimsonGrass, TileID.CrimsonSandstone, TileID.Crimsand, TileID.Crimstone
