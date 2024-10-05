@@ -21,10 +21,10 @@ public abstract class FramedPlantTile : ModTile
         TileID.Sets.ReplaceTileBreakUp[Type] = true;
         TileID.Sets.IgnoredInHouseScore[Type] = true;
         TileID.Sets.IgnoredByGrowingSaplings[Type] = true;
-        TileObjectData.newTile.Height = 1;
+        TileObjectData.newTile.StyleHorizontal = true;
+        TileObjectData.newTile.Height = height;
         TileObjectData.newTile.Width = 1;
         TileObjectData.newTile.CoordinateHeights = new int[height];
-        TileObjectData.newTile.CoordinateHeights[0] = 16;
         TileObjectData.newTile.CoordinateWidth = 16;
         TileObjectData.newTile.CoordinatePadding = 2;
         TileObjectData.newTile.Origin = new Point16(1 / 2, height - 1);

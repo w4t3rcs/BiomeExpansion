@@ -9,7 +9,7 @@ public abstract class TallGrassTile : FramedPlantTile
     {
         base.SetStaticDefaults();
         TileID.Sets.SwaysInWindBasic[Type] = true;
+        TileObjectData.newTile.CoordinateHeights[0] = 16;
         TileObjectData.newTile.RandomStyleRange = 9;
-        TileObjectData.newTile.StyleHorizontal = false;
     }
 }
