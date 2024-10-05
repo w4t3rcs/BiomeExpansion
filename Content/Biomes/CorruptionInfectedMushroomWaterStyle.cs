@@ -1,4 +1,4 @@
-﻿using BiomeExpansion.Common.Utils;
+﻿using BiomeExpansion.Helpers;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
@@ -8,23 +8,23 @@ using Terraria.ModLoader;
 
 namespace BiomeExpansion.Content.Biomes
 {
-    public class InfectedMushroomWaterStyle : ModWaterStyle
+    public class CorruptionInfectedMushroomWaterStyle : ModWaterStyle
     {
-        public override string Texture => TextureUtil.GetDynamicTexture("InfectedMushroomWaterStyle");
+        public override string Texture => TextureHelper.GetDynamicTexture("CorruptionInfectedMushroomWaterStyle");
         
         public override int ChooseWaterfallStyle()
         {
-            return ModContent.GetInstance<InfectedMushroomWaterfallStyle>().Slot;
+            return ModContent.GetInstance<CorruptionInfectedMushroomWaterfallStyle>().Slot;
         }
 
         public override int GetSplashDust()
         {
-            return WorldGen.crimson ? DustID.Crimson : DustID.Corruption;
+            return DustID.Corruption;
         }
 
         public override int GetDropletGore()
         {
-            return ModContent.GoreType<InfectedMushroomDroplet>();
+            return ModContent.GoreType<CorruptionInfectedMushroomDroplet>();
         }
         
         public override void LightColorMultiplier(ref float r, ref float g, ref float b)
@@ -41,7 +41,7 @@ namespace BiomeExpansion.Content.Biomes
 
         public override Asset<Texture2D> GetRainTexture()
         {
-            return Mod.Assets.Request<Texture2D>(TextureUtil.GetDynamicTexture(WorldGen.crimson ?  "InfectedMushroomCrimsonRain" : "InfectedMushroomCorruptionRain"));
+            return Mod.Assets.Request<Texture2D>("Assets/Rain/CorruptionInfectedMushroomRain");
         }
 
         public override byte GetRainVariant()

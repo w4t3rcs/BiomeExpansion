@@ -1,11 +1,11 @@
-﻿using BiomeExpansion.Common.Utils;
+﻿using BiomeExpansion.Helpers;
 using Terraria.ModLoader;
 
 namespace BiomeExpansion.Content.Items.Placeable;
 
-public class InfectedMushroomDirtBlock : ModItem
+public class InfectedMushroomDirt : ModItem
 {
-    public override string Texture => TextureUtil.GetDynamicTileItemTexture("InfectedMushroomDirtBlock");
+    public override string Texture => TextureHelper.GetDynamicTileItemTexture("InfectedMushroomDirt");
     
     public override void SetStaticDefaults()
     {
@@ -14,7 +14,7 @@ public class InfectedMushroomDirtBlock : ModItem
 
     public override void SetDefaults()
     {
-        Item.DefaultToPlaceableTile(ModContent.TileType<Tiles.InfectedMushroomDirtBlock>());
+        Item.DefaultToPlaceableTile(ModContent.TileType<Tiles.InfectedMushroomDirt>());
         Item.width = 12;
         Item.height = 12;
     }

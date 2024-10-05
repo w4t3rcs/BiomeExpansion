@@ -11,6 +11,7 @@
 	  <Folder Include="Assets\Items\Weapons\" />
 	  <Folder Include="Assets\Minions\" />
 	  <Folder Include="Assets\Projectiles\" />
+	  <Folder Include="Content\Buffs\" />
 	</ItemGroup>
 
 	<!-- References -->

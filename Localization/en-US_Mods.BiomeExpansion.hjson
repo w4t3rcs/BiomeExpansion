@@ -21,6 +21,11 @@ Items: {
 		Tooltip: ""
 	}
 
+	InfectedMushroomDirt: {
+		DisplayName: Infected Mushroom Dirt
+		Tooltip: ""
+	}
+
 	InfectedSmallMushroom: {
 		DisplayName: Infected Small Mushroom
 		Tooltip: ""
@@ -41,6 +46,16 @@ Biomes: {
 	InfectedMushroomSurfaceBiome: {
 		DisplayName: Infected Mushroom Surface Biome
 		TownNPCDialogueName: the Infected Mushroom Surface Biome
+	}
+
+	CorruptionInfectedMushroomSurfaceBiome: {
+		DisplayName: Corruption Infected Mushroom Surface Biome
+		TownNPCDialogueName: the Corruption Infected Mushroom Surface Biome
+	}
+
+	CrimsonInfectedMushroomSurfaceBiome: {
+		DisplayName: Crimson Infected Mushroom Surface Biome
+		TownNPCDialogueName: the Crimson Infected Mushroom Surface Biome
 	}
 }
 

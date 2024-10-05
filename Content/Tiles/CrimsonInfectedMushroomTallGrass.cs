@@ -7,17 +7,16 @@ using Terraria.ObjectData;
 
 namespace BiomeExpansion.Content.Tiles;
 
-public class CrimsonInfectedSmallMushroom : SmallMushroomTile
+public class CrimsonInfectedMushroomTallGrass : TallGrassTile
 {
-    public override string Texture => TextureHelper.GetDynamicTileTexture("CrimsonInfectedSmallMushroom");
-    
+    public override string Texture => TextureHelper.GetDynamicTileTexture("CrimsonInfectedMushroomTallGrass");
+
     public override void SetStaticDefaults()
     {
         base.SetStaticDefaults();
         TileObjectData.newTile.AnchorValidTiles = [ModContent.TileType<CrimsonInfectedMushroomGrass>()];
-        DustType = DustID.CrimsonPlants;
-        AddMapEntry(Color.MistyRose);
+        DustType = DustID.CorruptPlants;
+        AddMapEntry(Color.DarkViolet);
         TileObjectData.addTile(Type);
-        RegisterItemDrop(ModContent.ItemType<Items.Placeable.CrimsonInfectedSmallMushroom>());
     }
 }

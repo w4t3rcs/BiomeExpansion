@@ -1,11 +1,11 @@
-﻿using BiomeExpansion.Common.Utils;
+﻿using BiomeExpansion.Helpers;
 using Terraria.ModLoader;
 
 namespace BiomeExpansion.Content.Items.Placeable;
 
 public class CorruptionInfectedSmallMushroom : ModItem
 {
-    public override string Texture => TextureUtil.GetDynamicTileItemTexture("CorruptionInfectedSmallMushroom");
+    public override string Texture => TextureHelper.GetDynamicTileItemTexture("CorruptionInfectedSmallMushroom");
     
     public override void SetStaticDefaults()
     {
