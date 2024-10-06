@@ -28,4 +28,5 @@ public static class PlantHelper
     {
         return soilBlocks.Contains(Main.tile[x, y].TileType) && !Main.tile[x, y].IsHalfBlock && !Main.tile[x, y - 1].HasTile && WorldGen.genRand.NextBool(rarity);
     }
+   
 }

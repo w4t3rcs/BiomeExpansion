@@ -18,6 +18,6 @@ public class CrimsonInfectedSmallMushroom : SmallMushroomTile
         DustType = DustID.CrimsonPlants;
         AddMapEntry(Color.MistyRose);
         TileObjectData.addTile(Type);
-        RegisterItemDrop(ModContent.ItemType<Items.Placeable.CrimsonInfectedSmallMushroom>());
+        RegisterItemDrop(ModContent.ItemType<Items.Placeable.CrimsonInfectedSmallMushroom>(), 0, 2, 3, 4);
     }
 }

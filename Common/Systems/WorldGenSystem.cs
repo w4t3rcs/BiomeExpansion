@@ -39,12 +39,16 @@ public class WorldGenSystem : ModSystem
                         (ushort)ModContent.TileType<InfectedMushroomDirt>(), 
                         (ushort)ModContent.TileType<CorruptionInfectedMushroomGrass>(), 
                         (ushort)ModContent.WallType<CorruptionInfectedMushroomWall>());
-                    PlantHelper.GeneratePlant(BEBiome.InfectedMushroom, 6,
+                    PlantHelper.GeneratePlant(BEBiome.InfectedMushroom, 7,
                         (ushort)ModContent.TileType<CorruptionInfectedSmallMushroom>(),
                         [(ushort)ModContent.TileType<CorruptionInfectedMushroomGrass>()],5);
                     PlantHelper.GeneratePlant(BEBiome.InfectedMushroom, 3,
                         (ushort)ModContent.TileType<CorruptionInfectedMushroomTallGrass>(),
                         [(ushort)ModContent.TileType<CorruptionInfectedMushroomGrass>()], 9);
+                    TreeHelper.GenerateTree(BEBiome.InfectedMushroom, 10,
+                        (ushort)ModContent.TileType<CorruptionInfectedSmallMushroom>(),
+                        [(ushort)ModContent.TileType<CorruptionInfectedMushroomGrass>()], 
+                        16);
                 }
                 
                 BiomeHelper.BEBiomesXCoordinates.Remove(BEBiome.InfectedMushroom);

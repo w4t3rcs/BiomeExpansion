@@ -10,7 +10,7 @@ namespace BiomeExpansion.Content.Tiles;
 public class CorruptionInfectedSmallMushroom : SmallMushroomTile
 {
     public override string Texture => TextureHelper.GetDynamicTileTexture("CorruptionInfectedSmallMushroom");
-    
+
     public override void SetStaticDefaults()
     {
         base.SetStaticDefaults();
@@ -18,6 +18,6 @@ public class CorruptionInfectedSmallMushroom : SmallMushroomTile
         DustType = DustID.CorruptPlants;
         AddMapEntry(Color.DarkViolet);
         TileObjectData.addTile(Type);
-        RegisterItemDrop(ModContent.ItemType<Items.Placeable.CorruptionInfectedSmallMushroom>());
+        RegisterItemDrop(ModContent.ItemType<Items.Placeable.CorruptionInfectedSmallMushroom>(), 0, 2, 3, 4);
     }
 }

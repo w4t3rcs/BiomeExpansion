@@ -15,8 +15,8 @@ public class CrimsonInfectedMushroomTallGrass : TallGrassTile
     {
         base.SetStaticDefaults();
         TileObjectData.newTile.AnchorValidTiles = [ModContent.TileType<CrimsonInfectedMushroomGrass>()];
-        DustType = DustID.CorruptPlants;
-        AddMapEntry(Color.DarkViolet);
+        DustType = DustID.CrimsonPlants;
+        AddMapEntry(Color.MistyRose);
         TileObjectData.addTile(Type);
     }
 }
