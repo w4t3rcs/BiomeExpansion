@@ -17,5 +17,9 @@ namespace BiomeExpansion.Content.Biomes
         public override bool IsBiomeActive(Player player) {
             return !player.ZoneDungeon && ModContent.GetInstance<BiomeTileCounterSystem>().CorruptionInfectedMushroomBiomeTileCount >= 150;
         }
+        // public override void SpecialVisuals(Player player, bool isActive)
+        // {
+        //     player.ManageSpecialBiomeVisuals("BiomeExpansion:CorruptionInfectedMushroomSurfaceBiome:", isActive);
+        // }
     }   
 }

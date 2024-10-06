@@ -14,7 +14,7 @@ public class WorldGenSystem : ModSystem
 {
     public override void ModifyWorldGenTasks(List<GenPass> tasks, ref double totalWeight)
     {
-        int biomeGenIndex = tasks.FindIndex(genpass => genpass.Name.Equals("Clean Up Dirt"));
+        int biomeGenIndex = tasks.FindIndex(genpass => genpass.Name.Equals("Micro Biomes"));
         if (biomeGenIndex != -1)
         {
             tasks.Insert(biomeGenIndex + 1, new PassLegacy("Infected Mushroom Biome", (progress, configuration) =>
