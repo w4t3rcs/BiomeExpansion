@@ -19,11 +19,11 @@ public static class BackgroundHelper
     {
         float screenPosition = Main.screenPosition.Y + Main.screenHeight / 2 - 600f;
         double backgroundTopMagicNumber = (0f - screenPosition + ScreenOff / 2f) / (surfacePosition * 16f);
-        var bgTopY = (int)(backgroundTopMagicNumber * topYMultiplier + a) + (int)ScAdj + pushBGTopHack;
+        int bgTopY = (int)(backgroundTopMagicNumber * topYMultiplier + a) + (int)ScAdj + pushBGTopHack;
         bgScale *= BackgroundScaleMultiplier;
-        var bgWidthScaled = (int)(layer.Width * bgScale);
+        int bgWidthScaled = (int)(layer.Width * bgScale);
         SkyManager.Instance.DrawToDepth(Main.spriteBatch, minDepth / bgParallax);
-        var bgStartX = (int)(0.0 - Math.IEEERemainder((double)Main.screenPosition.X * bgParallax, bgWidthScaled) - bgWidthScaled / 2);
+        int bgStartX = (int)(0.0 - Math.IEEERemainder((double)Main.screenPosition.X * bgParallax, bgWidthScaled) - bgWidthScaled / 2);
         if (Main.gameMenu)
         {
             bgTopY = b + pushBGTopHack;
@@ -41,5 +41,6 @@ public static class BackgroundHelper
                     default, bgScale, SpriteEffects.None, 0f);
             }
         }
+        
     }
 }
