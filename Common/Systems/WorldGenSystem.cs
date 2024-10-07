@@ -14,7 +14,7 @@ public class WorldGenSystem : ModSystem
 {
     public override void ModifyWorldGenTasks(List<GenPass> tasks, ref double totalWeight)
     {
-        int biomeGenIndex = tasks.FindIndex(genpass => genpass.Name.Equals("Micro Biomes"));
+        int biomeGenIndex = tasks.FindIndex(genpass => genpass.Name.Equals("Quick Cleanup"));
         if (biomeGenIndex != -1)
         {
             tasks.Insert(biomeGenIndex + 1, new PassLegacy("Infected Mushroom Biome", (progress, configuration) =>
@@ -25,6 +25,7 @@ public class WorldGenSystem : ModSystem
                     BiomeHelper.GenerateBiomeNextToEvilBiome(BEBiome.InfectedMushroom, 500, 20,
                         (ushort)ModContent.TileType<InfectedMushroomDirt>(),
                         (ushort)ModContent.TileType<CrimsonInfectedMushroomGrass>(),
+                        (ushort)ModContent.TileType<CrimsonInfectedMushroomStone>(),
                         (ushort)ModContent.WallType<CrimsonInfectedMushroomWall>());
                     PlantHelper.GeneratePlant(BEBiome.InfectedMushroom, 6, 
                         (ushort)ModContent.TileType<CrimsonInfectedSmallMushroom>(), 
@@ -38,6 +39,7 @@ public class WorldGenSystem : ModSystem
                     BiomeHelper.GenerateBiomeNextToEvilBiome(BEBiome.InfectedMushroom, 500, 20,
                         (ushort)ModContent.TileType<InfectedMushroomDirt>(), 
                         (ushort)ModContent.TileType<CorruptionInfectedMushroomGrass>(), 
+                        (ushort)ModContent.TileType<CorruptionInfectedMushroomStone>(),
                         (ushort)ModContent.WallType<CorruptionInfectedMushroomWall>());
                     PlantHelper.GeneratePlant(BEBiome.InfectedMushroom, 7,
                         (ushort)ModContent.TileType<CorruptionInfectedSmallMushroom>(),

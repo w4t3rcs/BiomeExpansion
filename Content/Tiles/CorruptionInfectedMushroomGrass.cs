@@ -2,6 +2,7 @@
 using BiomeExpansion.Content.Biomes;
 using BiomeExpansion.Helpers;
 using Microsoft.Xna.Framework;
+using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -14,6 +15,7 @@ public class CorruptionInfectedMushroomGrass : InfectedMushroomGrassTile
     public override void SetStaticDefaults()
     {
         base.SetStaticDefaults();
+        Main.tileMerge[Type][ModContent.TileType<CorruptionInfectedMushroomStone>()] = true;
         DustType = DustID.Corruption;
         AddMapEntry(Color.MediumPurple);
     }
