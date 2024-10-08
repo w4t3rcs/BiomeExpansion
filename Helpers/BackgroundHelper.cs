@@ -39,7 +39,7 @@ public static class BackgroundHelper
                 Main.spriteBatch.Draw(layer,
                     new Vector2(bgStartX + bgWidthScaled * i, bgTopY + bgyOffset),
                     new Rectangle(0, 0, layer.Width,
-                        layer.Height), new Color(COSBMAplha.R, COSBMAplha.B, COSBMAplha.G, COSBMAplha.A), 0f,
+                        layer.Height), layer.GraphicsDevice.BlendFactor, 0f,
                     default, bgScale, SpriteEffects.None, 0f);
             }
         }
