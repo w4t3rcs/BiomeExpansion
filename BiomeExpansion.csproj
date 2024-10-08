@@ -12,7 +12,6 @@
 	  <Folder Include="Assets\Minions\" />
 	  <Folder Include="Assets\Projectiles\" />
 	  <Folder Include="Content\Buffs\" />
-	  <Folder Include="Content\Effects\" />
 	  <Folder Include="Content\Skies\" />
 	</ItemGroup>
 

@@ -53,7 +53,7 @@ public static class BiomeHelper
 
     private static bool IsSpawnNear(int x, int minimumDistance)
     {
-        int spawnTileX = Main.spawnTileX;
+        int spawnTileX = Main.maxTilesX / 2;
         return (x + minimumDistance > spawnTileX && x < spawnTileX + minimumDistance)
                || (x - minimumDistance < spawnTileX && x > spawnTileX - minimumDistance);
     }

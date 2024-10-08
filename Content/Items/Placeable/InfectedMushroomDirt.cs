@@ -5,7 +5,7 @@ namespace BiomeExpansion.Content.Items.Placeable;
 
 public class InfectedMushroomDirt : ModItem
 {
-    public override string Texture => TextureHelper.GetDynamicTileItemTexture("InfectedMushroomDirt");
+    public override string Texture => TextureHelper.GetDynamicItemTexture("InfectedMushroomDirt");
     
     public override void SetStaticDefaults()
     {

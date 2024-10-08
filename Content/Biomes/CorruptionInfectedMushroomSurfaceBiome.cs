@@ -3,6 +3,7 @@ using BiomeExpansion.Common.Systems;
 using Terraria;
 using Terraria.GameContent.Events;
 using Terraria.Graphics.Capture;
+using Terraria.Graphics.Effects;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -25,9 +26,15 @@ namespace BiomeExpansion.Content.Biomes
         public override bool IsBiomeActive(Player player) {
             return !player.ZoneDungeon && ModContent.GetInstance<BiomeTileCounterSystem>().CorruptionInfectedMushroomBiomeTileCount >= 150;
         }
-        // public override void SpecialVisuals(Player player, bool isActive)
-        // {
-        //     player.ManageSpecialBiomeVisuals("BiomeExpansion:CorruptionInfectedMushroomSurfaceBiome:", isActive);
-        // }
+
+        public override void OnInBiome(Player player)
+        {
+            Filters.Scene["BiomeExpansion:CorruptionInfectedMushroomShader"].Active = true;
+        }
+
+        public override void OnLeave(Player player)
+        {
+            Filters.Scene["BiomeExpansion:CorruptionInfectedMushroomShader"].Active = false;
+        }
     }   
 }

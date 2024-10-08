@@ -7,14 +7,12 @@ namespace BiomeExpansion.Backgrounds;
 
 public class СorruptionInfectedMushroomSurfaceBiomeBGStyle : ModSurfaceBackgroundStyle
 { 
-    private const int MiddleBGYOffset = 70;
-    private const int CloseBGYOffset = 80;
-    private const int FrontBGYOffset = 110;
+    private const int MiddleBGYOffset = 225;
+    private const int CloseBGYOffset = 75;
     private const string HorizonTexture = "BiomeExpansion/Assets/Backgrounds/CorruptionInfectedMushroomSurfaceBiomeHorizon";
     private const string FarTexture = "BiomeExpansion/Assets/Backgrounds/CorruptionInfectedMushroomSurfaceBiomeFar";
     private const string MiddleTexture = "BiomeExpansion/Assets/Backgrounds/CorruptionInfectedMushroomSurfaceBiomeMiddle";
     private const string CloseTexture = "BiomeExpansion/Assets/Backgrounds/CorruptionInfectedMushroomSurfaceBiomeClose";
-    private const string FrontTexture = "BiomeExpansion/Assets/Backgrounds/CorruptionInfectedMushroomSurfaceBiomeFront";
     
     public override int ChooseFarTexture() => BackgroundTextureLoader.GetBackgroundSlot(HorizonTexture);
     
@@ -67,8 +65,6 @@ public class СorruptionInfectedMushroomSurfaceBiomeBGStyle : ModSurfaceBackgrou
                 MiddleBGYOffset, 1.25f, 0.4f, 1800.0f, 1500.0f, 320, 0, 1.2f, pushBGTopHack);
             BackgroundHelper.DrawLayer(ModContent.Request<Texture2D>(CloseTexture).Value, surfacePosition,
                 CloseBGYOffset, 1.31f, 0.43f, 1950.0f, 1750.0f, 400, 80, 1f, pushBGTopHack);
-            BackgroundHelper.DrawLayer(ModContent.Request<Texture2D>(FrontTexture).Value, surfacePosition,
-                FrontBGYOffset, 1.34f, 0.49f, 2100.0f, 2000.0f, 480, 120, 1f, pushBGTopHack);
         }
         
         return false;

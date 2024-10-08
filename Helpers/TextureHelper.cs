@@ -8,9 +8,9 @@ public static class TextureHelper
     public const string AssetsLocation = "BiomeExpansion/Assets";
     public static readonly string ModSourcesDirectory = ModLoader.ModPath.Replace("Mods", "ModSources");
     
-    public static string GetDynamicTileItemTexture(string fileName)
+    public static string GetDynamicItemTexture(string fileName)
     {
-        return GetDynamicTexture($"{AssetsLocation}/Items/Placeable", fileName);
+        return GetDynamicTexture($"{AssetsLocation}/Items", fileName);
     }
     
     public static string GetDynamicTileTexture(string fileName)

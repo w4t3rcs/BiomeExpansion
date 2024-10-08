@@ -5,7 +5,7 @@ namespace BiomeExpansion.Content.Items.Placeable;
 
 public class CrimsonInfectedSmallMushroom : ModItem
 {
-    public override string Texture => TextureHelper.GetDynamicTileItemTexture("CrimsonInfectedSmallMushroom");
+    public override string Texture => TextureHelper.GetDynamicItemTexture("CrimsonInfectedSmallMushroom");
     
     public override void SetStaticDefaults()
     {
