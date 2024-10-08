@@ -7,11 +7,11 @@ namespace BiomeExpansion.Backgrounds;
 
 public class СorruptionInfectedMushroomSurfaceBiomeBGStyle : ModSurfaceBackgroundStyle
 { 
-    private const int HorizonBGYOffset = 75;
-    private const int FarBGYOffset = 85;
-    private const int MiddleBGYOffset = 140;
-    private const int CloseBGYOffset = 150;
-    private const int FrontBGYOffset = 160;
+    private const int HorizonBGYOffset = 20;
+    private const int FarBGYOffset = 35;
+    private const int MiddleBGYOffset = 70;
+    private const int CloseBGYOffset = 80;
+    private const int FrontBGYOffset = 110;
     private const string HorizonTexture = "BiomeExpansion/Assets/Backgrounds/CorruptionInfectedMushroomSurfaceBiomeHorizon";
     private const string FarTexture = "BiomeExpansion/Assets/Backgrounds/CorruptionInfectedMushroomSurfaceBiomeFar";
     private const string MiddleTexture = "BiomeExpansion/Assets/Backgrounds/CorruptionInfectedMushroomSurfaceBiomeMiddle";
@@ -62,15 +62,15 @@ public class СorruptionInfectedMushroomSurfaceBiomeBGStyle : ModSurfaceBackgrou
         if (canBGDraw)
         {
             BackgroundHelper.DrawLayer(ModContent.Request<Texture2D>(HorizonTexture).Value, surfacePosition,
-                HorizonBGYOffset, 1f, 0.38f, 1400.0f, 1000.0f, 160, -120, 1.5f, ref pushBGTopHack);
+                HorizonBGYOffset, 1f, 0.38f, 1400.0f, 1000.0f, 160, -120, 1.5f, pushBGTopHack);
             BackgroundHelper.DrawLayer(ModContent.Request<Texture2D>(FarTexture).Value, surfacePosition,
-                FarBGYOffset, 1.10f, 0.43f, 1650.0f, 1250.0f, 240, -80, 1.35f, ref pushBGTopHack);
+                FarBGYOffset, 1.10f, 0.43f, 1650.0f, 1250.0f, 240, -80, 1.35f, pushBGTopHack);
             BackgroundHelper.DrawLayer(ModContent.Request<Texture2D>(MiddleTexture).Value, surfacePosition,
-                MiddleBGYOffset, 1.25f, 0.47f, 1800.0f, 1500.0f, 320, 0, 1.2f, ref pushBGTopHack);
+                MiddleBGYOffset, 1.25f, 0.47f, 1800.0f, 1500.0f, 320, 0, 1.2f, pushBGTopHack);
             BackgroundHelper.DrawLayer(ModContent.Request<Texture2D>(CloseTexture).Value, surfacePosition,
-                CloseBGYOffset, 1.31f, 0.55f, 1950.0f, 1750.0f, 400, 80, 1.1f, ref pushBGTopHack);
+                CloseBGYOffset, 1.31f, 0.55f, 1950.0f, 1750.0f, 400, 80, 1.1f, pushBGTopHack);
             BackgroundHelper.DrawLayer(ModContent.Request<Texture2D>(FrontTexture).Value, surfacePosition,
-                FrontBGYOffset, 1.34f, 0.63f, 2100.0f, 2000.0f, 480, 120, 1f, ref pushBGTopHack);
+                FrontBGYOffset, 1.34f, 0.63f, 2100.0f, 2000.0f, 480, 120, 1f, pushBGTopHack);
         }
         
         return false;

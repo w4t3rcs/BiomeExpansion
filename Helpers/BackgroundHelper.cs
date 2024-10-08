@@ -15,7 +15,7 @@ public static class BackgroundHelper
     internal static readonly float ScreenOff = (float)ScreenOffField.GetValue(Main.instance)!;
     internal static readonly float ScAdj = (float)ScAdjField.GetValue(Main.instance)!;
     
-    public static void DrawLayer(Texture2D layer, float surfacePosition, int bgyOffset, float bgScale, float bgParallax, float topYMultiplier, float a, int b, int bgX, float minDepth, ref int pushBGTopHack)
+    public static void DrawLayer(Texture2D layer, float surfacePosition, int bgyOffset, float bgScale, float bgParallax, float topYMultiplier, float a, int b, int bgX, float minDepth, int pushBGTopHack)
     {
         float screenPosition = Main.screenPosition.Y + Main.screenHeight / 2 - 600f;
         double backgroundTopMagicNumber = (0f - screenPosition + ScreenOff / 2f) / (surfacePosition * 16f);

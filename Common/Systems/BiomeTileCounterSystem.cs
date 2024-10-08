@@ -17,7 +17,7 @@ public class BiomeTileCounterSystem : ModSystem
 
     public override void TileCountsAvailable(ReadOnlySpan<int> tileCounts)
     {
-        CorruptionInfectedMushroomBiomeTileCount = tileCounts[ModContent.TileType<CorruptionInfectedMushroomGrass>()];
+        CorruptionInfectedMushroomBiomeTileCount = tileCounts[ModContent.TileType<CorruptionInfectedMushroomGrass>()] + tileCounts[ModContent.TileType<CorruptionInfectedMushroomStone>()];
         CrimsonInfectedMushroomBiomeTileCount = tileCounts[ModContent.TileType<CrimsonInfectedMushroomGrass>()];
     }
 }
