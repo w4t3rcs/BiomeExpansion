@@ -44,4 +44,9 @@ public class CrimsonInfectedBigMushroom : ModTree
     public override void SetTreeFoliageSettings(Tile tile, ref int xoffset, ref int treeFrame, ref int floorY, ref int topTextureFrameWidth, ref int topTextureFrameHeight)
     {
     }
+    
+    public override bool Shake(int x, int y, ref bool createLeaves)
+    {
+        return false;
+    }
 }

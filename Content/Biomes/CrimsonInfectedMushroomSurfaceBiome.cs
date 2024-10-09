@@ -3,7 +3,6 @@ using BiomeExpansion.Common.Systems;
 using Terraria;
 using Terraria.GameContent.Events;
 using Terraria.Graphics.Capture;
-using Terraria.Graphics.Effects;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -25,18 +24,6 @@ namespace BiomeExpansion.Content.Biomes
 
         public override bool IsBiomeActive(Player player) {
             return !player.ZoneDungeon && ModContent.GetInstance<BiomeTileCounterSystem>().CrimsonInfectedMushroomBiomeTileCount >= 150;
-        }
-        
-        public override void OnInBiome(Player player)
-        {
-            Filters.Scene.Activate("BiomeExpansion:CrimsonBloodMoonFilterShader");
-            // Filters.Scene.Activate("BiomeExpansion:CrimsonInfectedShader");
-        }
-
-        public override void OnLeave(Player player)
-        {
-            Filters.Scene.Deactivate("BiomeExpansion:CrimsonBloodMoonFilterShader");
-            // Filters.Scene.Deactivate("BiomeExpansion:CrimsonInfectedShader");
         }
     }   
 }

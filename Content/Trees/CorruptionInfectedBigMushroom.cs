@@ -9,12 +9,9 @@ namespace BiomeExpansion.Content.Tiles.Trees;
 
 public class CorruptionInfectedBigMushroom : ModTree
 {
-    private Asset<Texture2D> _texture;
-    private Asset<Texture2D> _branchesTexture;
-    private Asset<Texture2D> _topsTexture;
-    public override Asset<Texture2D> GetTexture() => _texture;
-    public override Asset<Texture2D> GetBranchTextures() => _branchesTexture;
-    public override Asset<Texture2D> GetTopTextures() => _topsTexture;
+    public override Asset<Texture2D> GetTexture() => ModContent.Request<Texture2D>("BiomeExpansion/Assets/Trees/BigInfectedMushroom");
+    public override Asset<Texture2D> GetBranchTextures() => ModContent.Request<Texture2D>("BiomeExpansion/Assets/Trees/BigCorruptionInfectedMushroomBranches");
+    public override Asset<Texture2D> GetTopTextures() => ModContent.Request<Texture2D>("BiomeExpansion/Assets/Trees/BigCorruptionInfectedMushroomTops");
     public override int CreateDust() => DustID.Corruption;
     public override bool CanDropAcorn() => false;
     public override int DropWood() => ModContent.ItemType<Items.Placeable.CorruptionInfectedSmallMushroom>();
@@ -30,9 +27,6 @@ public class CorruptionInfectedBigMushroom : ModTree
     public override void SetStaticDefaults() 
     {
         GrowsOnTileId = [ModContent.TileType<CorruptionInfectedMushroomGrass>()];
-        _texture = ModContent.Request<Texture2D>("BiomeExpansion/Assets/Trees/BigInfectedMushroom");
-        _branchesTexture = ModContent.Request<Texture2D>("BiomeExpansion/Assets/Trees/BigCorruptionInfectedMushroomBranches");
-        _topsTexture = ModContent.Request<Texture2D>("BiomeExpansion/Assets/Trees/BigCorruptionInfectedMushroomTops");
     }
 
     public override int SaplingGrowthType(ref int style)
@@ -43,5 +37,12 @@ public class CorruptionInfectedBigMushroom : ModTree
     
     public override void SetTreeFoliageSettings(Tile tile, ref int xoffset, ref int treeFrame, ref int floorY, ref int topTextureFrameWidth, ref int topTextureFrameHeight)
     {
+        topTextureFrameWidth = 112;
+        topTextureFrameHeight = 94;
+    }
+    
+    public override bool Shake(int x, int y, ref bool createLeaves)
+    {
+        return false;
     }
 }
