@@ -7,7 +7,7 @@ namespace BiomeExpansion.Content.Biomes;
 
 public class CorruptionInfectedMushroomDroplet : ModGore
 {
-    public override string Texture => TextureHelper.GetDynamicTexture("CorruptionInfectedMushroomDroplet");
+    public override string Texture => TextureHelper.GetDynamicWaterTexture("CorruptionInfectedMushroomDroplet");
 
     public override void SetStaticDefaults()
     { 
