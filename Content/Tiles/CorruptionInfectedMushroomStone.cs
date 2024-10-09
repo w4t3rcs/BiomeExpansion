@@ -17,6 +17,7 @@ public class CorruptionInfectedMushroomStone : InfectedMushroomStoneTile
         Main.tileMerge[Type][ModContent.TileType<CorruptionInfectedMushroomGrass>()] = true;
         DustType = DustID.Corruption;
         AddMapEntry(Color.Purple);
+        RegisterItemDrop(ModContent.ItemType<Items.Placeable.CorruptionInfectedMushroomStone>());
     }
 
     public override bool IsTileBiomeSightable(int i, int j, ref Color sightColor)

@@ -29,12 +29,14 @@ namespace BiomeExpansion.Content.Biomes
         
         public override void OnInBiome(Player player)
         {
-            Filters.Scene["BiomeExpansion:CrimsonInfectedMushroomShader"].Active = true;
+            Filters.Scene.Activate("BiomeExpansion:CrimsonBloodMoonFilterShader");
+            // Filters.Scene.Activate("BiomeExpansion:CrimsonInfectedShader");
         }
 
         public override void OnLeave(Player player)
         {
-            Filters.Scene["BiomeExpansion:CrimsonInfectedMushroomShader"].Active = false;
+            Filters.Scene.Deactivate("BiomeExpansion:CrimsonBloodMoonFilterShader");
+            // Filters.Scene.Deactivate("BiomeExpansion:CrimsonInfectedShader");
         }
     }   
 }

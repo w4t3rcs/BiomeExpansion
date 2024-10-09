@@ -23,4 +23,10 @@ public abstract class InfectedMushroomStoneTile : ModTile
     {
         num = fail ? 1 : 3;
     }
+
+    public override bool CanKillTile(int i, int j, ref bool blockDamaged)
+    {
+        int pickaxePower = Main.LocalPlayer.HeldItem.pick;
+        return pickaxePower > 65;
+    }
 }

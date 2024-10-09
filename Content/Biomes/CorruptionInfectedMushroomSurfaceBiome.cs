@@ -29,12 +29,12 @@ namespace BiomeExpansion.Content.Biomes
 
         public override void OnInBiome(Player player)
         {
-            Filters.Scene["BiomeExpansion:CorruptionInfectedMushroomShader"].Active = true;
+            Filters.Scene["BiomeExpansion:CorruptionBloodMoonFilterShader"].Active = true;
         }
 
         public override void OnLeave(Player player)
         {
-            Filters.Scene["BiomeExpansion:CorruptionInfectedMushroomShader"].Active = false;
+            Filters.Scene["BiomeExpansion:CorruptionBloodMoonFilterShader"].Active = false;
         }
     }   
 }

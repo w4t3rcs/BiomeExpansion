@@ -17,6 +17,7 @@ public class CrimsonInfectedMushroomStone : InfectedMushroomStoneTile
         Main.tileMerge[Type][ModContent.TileType<CrimsonInfectedMushroomGrass>()] = true;
         DustType = DustID.Crimstone;
         AddMapEntry(Color.Crimson);
+        RegisterItemDrop(ModContent.ItemType<Items.Placeable.CrimsonInfectedMushroomStone>());
     }
 
     public override bool IsTileBiomeSightable(int i, int j, ref Color sightColor)

@@ -40,6 +40,16 @@ Items: {
 		DisplayName: Crimson Infected Small Mushroom
 		Tooltip: ""
 	}
+
+	CorruptionInfectedMushroomStone: {
+		DisplayName: Corruption Infected Mushroom Stone
+		Tooltip: ""
+	}
+
+	CrimsonInfectedMushroomStone: {
+		DisplayName: Crimson Infected Mushroom Stone
+		Tooltip: ""
+	}
 }
 
 Biomes: {
