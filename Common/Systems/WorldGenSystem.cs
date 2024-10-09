@@ -27,7 +27,7 @@ public class WorldGenSystem : ModSystem
                         (ushort)ModContent.TileType<CrimsonInfectedMushroomGrass>(),
                         (ushort)ModContent.TileType<CrimsonInfectedMushroomStone>(),
                         (ushort)ModContent.WallType<CrimsonInfectedMushroomWall>());
-                    PlantHelper.GeneratePlant(BEBiome.InfectedMushroom, 6, 
+                    PlantHelper.GeneratePlant(BEBiome.InfectedMushroom, 5, 
                         (ushort)ModContent.TileType<CrimsonInfectedSmallMushroom>(), 
                         [(ushort)ModContent.TileType<CrimsonInfectedMushroomGrass>()], 5);
                     PlantHelper.GeneratePlant(BEBiome.InfectedMushroom, 3,
@@ -41,16 +41,12 @@ public class WorldGenSystem : ModSystem
                         (ushort)ModContent.TileType<CorruptionInfectedMushroomGrass>(), 
                         (ushort)ModContent.TileType<CorruptionInfectedMushroomStone>(),
                         (ushort)ModContent.WallType<CorruptionInfectedMushroomWall>());
-                    PlantHelper.GeneratePlant(BEBiome.InfectedMushroom, 7,
+                    PlantHelper.GeneratePlant(BEBiome.InfectedMushroom, 5,
                         (ushort)ModContent.TileType<CorruptionInfectedSmallMushroom>(),
                         [(ushort)ModContent.TileType<CorruptionInfectedMushroomGrass>()],5);
                     PlantHelper.GeneratePlant(BEBiome.InfectedMushroom, 3,
                         (ushort)ModContent.TileType<CorruptionInfectedMushroomTallGrass>(),
                         [(ushort)ModContent.TileType<CorruptionInfectedMushroomGrass>()], 9);
-                    TreeHelper.GenerateTree(BEBiome.InfectedMushroom, 10,
-                        (ushort)ModContent.TileType<CorruptionInfectedSmallMushroom>(),
-                        [(ushort)ModContent.TileType<CorruptionInfectedMushroomGrass>()], 
-                        16);
                 }
                 
                 BiomeHelper.BEBiomesXCoordinates.Remove(BEBiome.InfectedMushroom);
