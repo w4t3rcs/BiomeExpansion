@@ -50,6 +50,26 @@ Items: {
 		DisplayName: Crimson Infected Mushroom Stone
 		Tooltip: ""
 	}
+
+	CorruptoomBar: {
+		DisplayName: Corruptoom Bar
+		Tooltip: ""
+	}
+
+	CorruptoomOre: {
+		DisplayName: Corruptoom Ore
+		Tooltip: ""
+	}
+
+	CrimsoomBar: {
+		DisplayName: Crimsoom Bar
+		Tooltip: ""
+	}
+
+	CrimsoomOre: {
+		DisplayName: Crimsoom Ore
+		Tooltip: ""
+	}
 }
 
 Biomes: {

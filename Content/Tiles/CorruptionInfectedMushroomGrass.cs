@@ -16,6 +16,7 @@ public class CorruptionInfectedMushroomGrass : InfectedMushroomGrassTile
     {
         base.SetStaticDefaults();
         Main.tileMerge[Type][ModContent.TileType<CorruptionInfectedMushroomStone>()] = true;
+        Main.tileMerge[Type][ModContent.TileType<CorruptoomOre>()] = true;
         DustType = DustID.Corruption;
         AddMapEntry(Color.MediumPurple);
     }
