@@ -14,4 +14,13 @@ public static class FrameHelper
         Tile tile = Main.tile[x, y];
         tile.TileFrameX =(short)(frameNumber * (frameSize + padding));
     }
+
+    public static void SetFramingVine(int x, int y)
+    {
+        Tile vineTile = Main.tile[x, y];
+        Tile topTile = Main.tile[x, y - 1];
+        Tile bottomTile = Main.tile[x, y + 1];
+        if (topTile.HasTile && topTile.TileType == vineTile.TileType && bottomTile.HasTile && bottomTile.TileType == vineTile.TileType) 
+            WorldGen.SquareTileFrame(x, y);
+    }
 }

@@ -33,6 +33,12 @@ public class WorldGenSystem : ModSystem
                     PlantHelper.GeneratePlant(BEBiome.InfectedMushroom, 3,
                         (ushort)ModContent.TileType<CrimsonInfectedMushroomTallGrass>(),
                         [(ushort)ModContent.TileType<CrimsonInfectedMushroomGrass>()], 9);
+                    PlantHelper.GeneratePlant(BEBiome.InfectedMushroom, 2,
+                        (ushort)ModContent.TileType<CrimsonInfectedMushroomVine>(),
+                        [(ushort)ModContent.TileType<CrimsonInfectedMushroomGrass>()], 0, true);
+                    OreHelper.GenerateOre(BEBiome.InfectedMushroom, BiomeHelper.StartY, BiomeHelper.StartY + 500, 25, 
+                        WorldGen.genRand.Next(3, 6), WorldGen.genRand.Next(2, 6),
+                        (ushort)ModContent.TileType<CrimsoomOre>());
                 }
                 else
                 {
@@ -47,6 +53,12 @@ public class WorldGenSystem : ModSystem
                     PlantHelper.GeneratePlant(BEBiome.InfectedMushroom, 3,
                         (ushort)ModContent.TileType<CorruptionInfectedMushroomTallGrass>(),
                         [(ushort)ModContent.TileType<CorruptionInfectedMushroomGrass>()], 9);
+                    PlantHelper.GeneratePlant(BEBiome.InfectedMushroom, 2,
+                        (ushort)ModContent.TileType<CorruptionInfectedMushroomVine>(),
+                        [(ushort)ModContent.TileType<CorruptionInfectedMushroomGrass>()], 0, true);
+                    OreHelper.GenerateOre(BEBiome.InfectedMushroom, BiomeHelper.StartY, BiomeHelper.StartY + 500, 25, 
+                        WorldGen.genRand.Next(3, 6), WorldGen.genRand.Next(2, 6),
+                        (ushort)ModContent.TileType<CorruptoomOre>());
                 }
                 
                 BiomeHelper.BEBiomesXCoordinates.Remove(BEBiome.InfectedMushroom);
