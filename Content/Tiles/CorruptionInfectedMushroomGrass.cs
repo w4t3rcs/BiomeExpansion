@@ -1,5 +1,4 @@
-﻿using BiomeExpansion.Common.Dtos;
-using BiomeExpansion.Content.Biomes;
+﻿using BiomeExpansion.Content.Biomes;
 using BiomeExpansion.Helpers;
 using Microsoft.Xna.Framework;
 using Terraria;
@@ -8,17 +7,19 @@ using Terraria.ModLoader;
 
 namespace BiomeExpansion.Content.Tiles;
 
-public class CorruptionInfectedMushroomGrass : InfectedMushroomGrassTile
+public class CorruptionInfectedMushroomGrass : ModTile
 {
     public override string Texture => TextureHelper.GetDynamicTileTexture("CorruptionInfectedMushroomGrass");
     
     public override void SetStaticDefaults()
     {
-        base.SetStaticDefaults();
+        TileHelper.SetGrass(Type, (ushort)ModContent.TileType<InfectedMushroomDirt>());
         Main.tileMerge[Type][ModContent.TileType<CorruptionInfectedMushroomStone>()] = true;
         Main.tileMerge[Type][ModContent.TileType<CorruptoomOre>()] = true;
+        HitSound = SoundID.Grass;
         DustType = DustID.Corruption;
         AddMapEntry(Color.MediumPurple);
+        RegisterItemDrop(ModContent.ItemType<Items.Placeable.InfectedMushroomDirt>());
     }
     
     public override void ChangeWaterfallStyle(ref int style)

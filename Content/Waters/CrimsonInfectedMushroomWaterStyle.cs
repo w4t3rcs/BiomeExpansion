@@ -41,7 +41,7 @@ namespace BiomeExpansion.Content.Biomes
 
         public override Asset<Texture2D> GetRainTexture()
         {
-            return Mod.Assets.Request<Texture2D>("Assets/Rain/CrimsonInfectedMushroomRain");
+            return Mod.Assets.Request<Texture2D>("Assets/Rains/CrimsonInfectedMushroomRain");
         }
 
         public override byte GetRainVariant()

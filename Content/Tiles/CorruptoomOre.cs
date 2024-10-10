@@ -1,5 +1,4 @@
-﻿using BiomeExpansion.Common.Dtos;
-using BiomeExpansion.Helpers;
+﻿using BiomeExpansion.Helpers;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
@@ -7,14 +6,15 @@ using Terraria.ModLoader;
 
 namespace BiomeExpansion.Content.Tiles;
 
-public class CorruptoomOre : InfectedMushroomStoneTile
+public class CorruptoomOre : ModTile
 {
     public override string Texture => TextureHelper.GetDynamicTileTexture("CorruptoomOre");
 
     public override void SetStaticDefaults()
     {
-        base.SetStaticDefaults();
+        TileHelper.SetOre(Type);
         Main.tileMerge[Type][ModContent.TileType<CorruptionInfectedMushroomGrass>()] = true;
+        HitSound = SoundID.Tink;
         DustType = DustID.Corruption;
         AddMapEntry(Color.Purple);
         RegisterItemDrop(ModContent.ItemType<Items.Placeable.CorruptoomOre>());
@@ -24,5 +24,16 @@ public class CorruptoomOre : InfectedMushroomStoneTile
     {
         sightColor = Color.Purple;
         return true;
+    }
+    
+    public override void NumDust(int i, int j, bool fail, ref int num)
+    {
+        num = fail ? 1 : 3;
+    }
+
+    public override bool CanKillTile(int i, int j, ref bool blockDamaged)
+    {
+        int pickaxePower = Main.LocalPlayer.HeldItem.pick;
+        return pickaxePower > 65;
     }
 }

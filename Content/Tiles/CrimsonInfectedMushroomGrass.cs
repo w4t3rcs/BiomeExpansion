@@ -1,5 +1,4 @@
-﻿using BiomeExpansion.Common.Dtos;
-using BiomeExpansion.Content.Biomes;
+﻿using BiomeExpansion.Content.Biomes;
 using BiomeExpansion.Helpers;
 using Microsoft.Xna.Framework;
 using Terraria;
@@ -8,17 +7,19 @@ using Terraria.ModLoader;
 
 namespace BiomeExpansion.Content.Tiles;
 
-public class CrimsonInfectedMushroomGrass : InfectedMushroomGrassTile
+public class CrimsonInfectedMushroomGrass : ModTile
 {
     public override string Texture => TextureHelper.GetDynamicTileTexture("CrimsonInfectedMushroomGrass");
     
     public override void SetStaticDefaults()
     {
-        base.SetStaticDefaults();
+        TileHelper.SetGrass(Type, (ushort)ModContent.TileType<InfectedMushroomDirt>());
         Main.tileMerge[Type][ModContent.TileType<CrimsonInfectedMushroomStone>()] = true;
         Main.tileMerge[Type][ModContent.TileType<CrimsoomOre>()] = true;
+        HitSound = SoundID.Grass;
         DustType = DustID.Crimson;
         AddMapEntry(Color.Crimson);
+        RegisterItemDrop(ModContent.ItemType<Items.Placeable.InfectedMushroomDirt>());
     }
     
     
