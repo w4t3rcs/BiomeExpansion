@@ -20,7 +20,7 @@ public static class TileHelper
         TileID.Sets.ReplaceTileBreakUp[type] = true;
         TileID.Sets.IgnoredInHouseScore[type] = true;
         TileID.Sets.IgnoredByGrowingSaplings[type] = true;
-        TileObjectData.newTile.RandomStyleRange = 9;
+        TileObjectData.newTile.RandomStyleRange = styleRange;
         TileObjectData.newTile.StyleHorizontal = isStyleHorizontal;
         TileObjectData.newTile.Height = height;
         TileObjectData.newTile.Width = width;
