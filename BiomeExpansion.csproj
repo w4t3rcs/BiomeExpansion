@@ -10,7 +10,6 @@
 	<ItemGroup>
 	  <Folder Include="Assets\Minions\" />
 	  <Folder Include="Assets\Projectiles\" />
-	  <Folder Include="Content\Buffs\" />
 	</ItemGroup>
 
 	<!-- References -->

@@ -8,6 +8,7 @@ public static class TextureHelper
     public const string AssetsLocation = "BiomeExpansion/Assets";
     public const string ItemsAssetsLocation = $"{AssetsLocation}/Items";
     public const string TilesAssetsLocation = $"{AssetsLocation}/Tiles";
+    public const string BuffsAssetsLocation = $"{AssetsLocation}/Buffs";
     public const string MinionsAssetsLocation = $"{AssetsLocation}/Minions";
     public const string ProjectilesAssetsLocation = $"{AssetsLocation}/Projectiles";
     public const string RainsAssetsLocation = $"{AssetsLocation}/Rains";
@@ -24,6 +25,11 @@ public static class TextureHelper
     public static string GetDynamicTileTexture(string fileName)
     {
         return GetDynamicTexture(TilesAssetsLocation, fileName);
+    }
+    
+    public static string GetDynamicBuffTexture(string fileName)
+    {
+        return GetDynamicTexture(BuffsAssetsLocation, fileName);
     }
     
     public static string GetDynamicMinionTexture(string fileName)

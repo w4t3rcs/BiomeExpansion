@@ -144,6 +144,11 @@ Buffs: {
 		DisplayName: Test Minion Buff
 		Description: Mods.BiomeExpansion.Buffs.TestMinionBuff.Description
 	}
+
+	CorruptionSporeInfectionBuff: {
+		DisplayName: Corruption Spore Infection Buff
+		Description: Mods.BiomeExpansion.Buffs.CorruptionSporeInfectionBuff.Description
+	}
 }
 
 Projectiles.TestMinion.DisplayName: Test Minion
