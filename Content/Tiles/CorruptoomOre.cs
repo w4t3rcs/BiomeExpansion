@@ -14,6 +14,8 @@ public class CorruptoomOre : ModTile
     {
         TileHelper.SetOre(Type);
         Main.tileMerge[Type][ModContent.TileType<CorruptionInfectedMushroomGrass>()] = true;
+        MineResist = 1f;
+        MinPick = 65;
         HitSound = SoundID.Tink;
         DustType = DustID.Corruption;
         AddMapEntry(Color.Purple);
@@ -29,11 +31,5 @@ public class CorruptoomOre : ModTile
     public override void NumDust(int i, int j, bool fail, ref int num)
     {
         num = fail ? 1 : 3;
-    }
-
-    public override bool CanKillTile(int i, int j, ref bool blockDamaged)
-    {
-        int pickaxePower = Main.LocalPlayer.HeldItem.pick;
-        return pickaxePower > 65;
     }
 }

@@ -67,8 +67,9 @@ public static class TileHelper
         Main.tileOreFinderPriority[type] = 320;
         Main.tileShine2[type] = true;
         Main.tileShine[type] = 975;
-        Main.tileMergeDirt[type] = true;
         TileID.Sets.Ore[type] = true;
+        TileID.Sets.ChecksForMerge[type] = true;
+        TileID.Sets.DoesntGetReplacedWithTileReplacement[type] = true;
     }
     
     public static void SetVine(ushort type)

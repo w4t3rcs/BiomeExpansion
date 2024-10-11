@@ -15,6 +15,7 @@ public class CrimsonInfectedMushroomStone : ModTile
         TileHelper.SetStone(Type);
         Main.tileMerge[Type][ModContent.TileType<CrimsonInfectedMushroomGrass>()] = true;
         Main.tileMerge[Type][ModContent.TileType<InfectedMushroomDirt>()] = true;
+        MinPick = 65;
         HitSound = SoundID.Tink;
         DustType = DustID.Crimstone;
         AddMapEntry(Color.Crimson);
@@ -30,11 +31,5 @@ public class CrimsonInfectedMushroomStone : ModTile
     public override void NumDust(int i, int j, bool fail, ref int num)
     {
         num = fail ? 1 : 3;
-    }
-
-    public override bool CanKillTile(int i, int j, ref bool blockDamaged)
-    {
-        int pickaxePower = Main.LocalPlayer.HeldItem.pick;
-        return pickaxePower > 65;
     }
 }
