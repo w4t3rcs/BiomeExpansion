@@ -100,6 +100,26 @@ Items: {
 		DisplayName: Crimsoom Axe
 		Tooltip: ""
 	}
+
+	CorruptionInfectedMushroomSeeds: {
+		DisplayName: Corruption Infected Mushroom Seeds
+		Tooltip: ""
+	}
+
+	CrimsonInfectedMushroomSeeds: {
+		DisplayName: Crimson Infected Mushroom Seeds
+		Tooltip: ""
+	}
+
+	CorruptoomBow: {
+		DisplayName: Corruptoom Bow
+		Tooltip: ""
+	}
+
+	CrimsoomBow: {
+		DisplayName: Crimsoom Bow
+		Tooltip: ""
+	}
 }
 
 Biomes: {
