@@ -13,8 +13,8 @@ public class CorruptoomPickaxe : ModItem
         Item.width = 40;
         Item.height = 40;
         Item.useStyle = ItemUseStyleID.Swing;
-        Item.useTime = 15;
-        Item.useAnimation = 15;
+        Item.useTime = 20;
+        Item.useAnimation = 20;
         Item.autoReuse = true;
         Item.DamageType = DamageClass.Melee;
         Item.damage = 10;
