@@ -70,6 +70,36 @@ Items: {
 		DisplayName: Crimsoom Ore
 		Tooltip: ""
 	}
+
+	CorruptoomPickaxe: {
+		DisplayName: Corruptoom Pickaxe
+		Tooltip: ""
+	}
+
+	CorruptoomSword: {
+		DisplayName: Corruptoom Sword
+		Tooltip: ""
+	}
+
+	CrimsoomPickaxe: {
+		DisplayName: Crimsoom Pickaxe
+		Tooltip: ""
+	}
+
+	CrimsoomSword: {
+		DisplayName: Crimsoom Sword
+		Tooltip: ""
+	}
+
+	CorruptoomAxe: {
+		DisplayName: Corruptoom Axe
+		Tooltip: ""
+	}
+
+	CrimsoomAxe: {
+		DisplayName: Crimsoom Axe
+		Tooltip: ""
+	}
 }
 
 Biomes: {
