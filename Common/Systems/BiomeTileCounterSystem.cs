@@ -6,18 +6,18 @@ namespace BiomeExpansion.Common.Systems;
 
 public class BiomeTileCounterSystem : ModSystem
 {
-    public int CorruptionInfectedMushroomBiomeTileCount;
-    public int CrimsonInfectedMushroomBiomeTileCount;
+    public int CorruptionInfectedMushroomSurfaceBiomeTileCount;
+    public int CrimsonInfectedMushroomSurfaceBiomeTileCount;
     
     public override void ResetNearbyTileEffects()
     {
-        CorruptionInfectedMushroomBiomeTileCount = 0;
-        CrimsonInfectedMushroomBiomeTileCount = 0;
+        CorruptionInfectedMushroomSurfaceBiomeTileCount = 0;
+        CrimsonInfectedMushroomSurfaceBiomeTileCount = 0;
     }
 
     public override void TileCountsAvailable(ReadOnlySpan<int> tileCounts)
     {
-        CorruptionInfectedMushroomBiomeTileCount = tileCounts[ModContent.TileType<CorruptionInfectedMushroomGrass>()] + tileCounts[ModContent.TileType<CorruptionInfectedMushroomStone>()];
-        CrimsonInfectedMushroomBiomeTileCount = tileCounts[ModContent.TileType<CrimsonInfectedMushroomGrass>()];
+        CorruptionInfectedMushroomSurfaceBiomeTileCount = tileCounts[ModContent.TileType<CorruptionInfectedMushroomGrass>()] + tileCounts[ModContent.TileType<CorruptionInfectedMushroomStone>()];
+        CrimsonInfectedMushroomSurfaceBiomeTileCount = tileCounts[ModContent.TileType<CrimsonInfectedMushroomGrass>()] + tileCounts[ModContent.TileType<CrimsonInfectedMushroomStone>()];
     }
 }

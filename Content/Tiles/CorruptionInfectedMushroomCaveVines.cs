@@ -7,16 +7,16 @@ using Terraria.ModLoader;
 
 namespace BiomeExpansion.Content.Tiles;
 
-public class CrimsonInfectedMushroomVine : ModTile
+public class CorruptionInfectedMushroomCaveVines : ModTile
 {
-    public override string Texture => TextureHelper.GetDynamicTileTexture("CrimsonInfectedMushroomVine");
-    
+    public override string Texture => TextureHelper.GetDynamicTileTexture("CorruptionInfectedMushroomCaveVines");
+
     public override void SetStaticDefaults()
     {
         TileHelper.SetVine(Type);
         HitSound = SoundID.Grass;
-        DustType = DustID.CrimsonPlants;
-        AddMapEntry(Color.Crimson);
+        DustType = DustID.CorruptPlants;
+        AddMapEntry(Color.Purple);
     }
     
     public override void KillTile(int i, int j, ref bool fail, ref bool effectOnly, ref bool noItem)

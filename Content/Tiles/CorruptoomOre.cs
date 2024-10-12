@@ -15,7 +15,6 @@ public class CorruptoomOre : ModTile
         TileHelper.SetOre(Type);
         Main.tileMerge[Type][ModContent.TileType<CorruptionInfectedMushroomGrass>()] = true;
         MineResist = 1f;
-        MinPick = 65;
         HitSound = SoundID.Tink;
         DustType = DustID.Corruption;
         AddMapEntry(Color.Purple);

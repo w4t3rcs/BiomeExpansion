@@ -1,13 +1,14 @@
-﻿using BiomeExpansion.Common.Dtos;
+﻿using BiomeExpansion.Common.Generation;
 using Terraria;
 
 namespace BiomeExpansion.Helpers;
 
 public static class OreHelper
 {
-    public static void GenerateOre(BEBiome biome, int startY, int endY, sbyte rarity, float strength, int steps, ushort ore)
+    public static void GenerateOre(BEBiome biome, sbyte rarity, float strength, int steps, ushort ore)
     {
-        var (leftX, rightX) = BiomeHelper.BEBiomesXCoordinates[biome];
+        var (leftX, rightX) = GenerationHelper.BEBiomesXCoordinates[biome];
+        var (startY, endY) = GenerationHelper.BEBiomesYCoordinates[biome];
         for (int x = leftX; x < rightX; x++)
         {
             for (int y = startY; y < endY; y++)
