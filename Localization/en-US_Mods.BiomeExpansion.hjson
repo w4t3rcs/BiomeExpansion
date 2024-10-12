@@ -149,6 +149,16 @@ Buffs: {
 		DisplayName: Corruption Spore Infection Buff
 		Description: Mods.BiomeExpansion.Buffs.CorruptionSporeInfectionBuff.Description
 	}
+
+	CorruptionSporeInfectionDebuff: {
+		DisplayName: Corruption Spore Infection Debuff
+		Description: Mods.BiomeExpansion.Buffs.CorruptionSporeInfectionDebuff.Description
+	}
+
+	CrimsonSporeInfectionDebuff: {
+		DisplayName: Crimson Spore Infection Debuff
+		Description: Mods.BiomeExpansion.Buffs.CrimsonSporeInfectionDebuff.Description
+	}
 }
 
 Projectiles.TestMinion.DisplayName: Test Minion
