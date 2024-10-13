@@ -14,10 +14,10 @@ public static class BiomeHelper
     private static readonly ushort[] StoneTiles = [TileID.CorruptSandstone, TileID.Ebonstone, TileID.CrimsonSandstone, TileID.Crimstone, TileID.Stone];
     private const int MaximumBiomeTileDistance = 10;
     
-    public static void GenerateCaveBiomeUnderBEBiome(BEBiome biome, int deepness, ushort mainTile, ushort wall)
+    public static void GenerateCaveBiomeUnderBEBiome(BEBiome biome, BEBiome aboveBiome, int deepness, ushort mainTile, ushort wall)
     {
-        var (leftX, rightX) = GenerationHelper.BEBiomesXCoordinates[BEBiome.SurfaceInfectedMushroom];
-        var (_, endY) = GenerationHelper.BEBiomesYCoordinates[BEBiome.SurfaceInfectedMushroom];
+        var (leftX, rightX) = GenerationHelper.BEBiomesXCoordinates[aboveBiome];
+        var (_, endY) = GenerationHelper.BEBiomesYCoordinates[BEBiome.InfectedMushroomSurface];
         GenerationHelper.BEBiomesXCoordinates.Add(biome, new KeyValuePair<int, int>(leftX, rightX));
         GenerationHelper.BEBiomesYCoordinates.Add(biome, new KeyValuePair<int, int>(endY, endY + deepness));
         for (int i = leftX; i < rightX; i++)
@@ -173,7 +173,7 @@ public static class BiomeHelper
     {
         try
         {
-            if (Main.tile[x, y].HasTile)
+            if (Main.tile[x, y].HasTile && Main.tileSolid[Main.tile[x, y].TileType])
             {
                 Main.tile[x, y].TileType = tileType; 
             }
@@ -188,7 +188,7 @@ public static class BiomeHelper
     {
         try
         {
-            if (Main.tile[x, y].HasTile && !StoneTiles.Contains(Main.tile[x, y].TileType))
+            if (Main.tile[x, y].HasTile && Main.tileSolid[Main.tile[x, y].TileType] && !StoneTiles.Contains(Main.tile[x, y].TileType))
             {
                 Main.tile[x, y].TileType = tileType; 
             }

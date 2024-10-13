@@ -9,9 +9,10 @@ public static class PlantHelper
     public static void GeneratePlant(BEBiome biome, sbyte rarity, ushort plantTile, ushort[] soilBlocks, sbyte frameCount = 0, bool isVine = false)
     {
         var (leftX, rightX) = GenerationHelper.BEBiomesXCoordinates[biome];
+        var (startY, endY) = GenerationHelper.BEBiomesYCoordinates[biome];
         for (int x = leftX; x < rightX; x++)
         {
-            for (int y = GenerationHelper.SurfaceY; y < Main.maxTilesY; y++)
+            for (int y = startY; y < endY + 12; y++)
             {
                 if (isVine)
                 {

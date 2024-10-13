@@ -13,8 +13,8 @@ public class WorldGenSystem : ModSystem
         int biomeGenIndex = tasks.FindIndex(genpass => genpass.Name.Equals("Quick Cleanup"));
         if (biomeGenIndex != -1)
         {
-            tasks.Insert(++biomeGenIndex, new SurfaceInfectedMushroomGenPass("Surface Infected Mushroom Biome", 100f));
-            tasks.Insert(++biomeGenIndex, new CaveInfectedMushroomGenPass("Cave Infected Mushroom Biome", 100f));
+            tasks.Insert(++biomeGenIndex, new InfectedMushroomSurfaceGenPass("Surface Infected Mushroom Biome", 100f));
+            tasks.Insert(++biomeGenIndex, new InfectedMushroomCaveGenPass("Cave Infected Mushroom Biome", 100f));
             GenerationHelper.Clear();
         }
     }

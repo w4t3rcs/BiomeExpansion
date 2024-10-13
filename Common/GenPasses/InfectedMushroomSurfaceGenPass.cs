@@ -9,7 +9,7 @@ using Terraria.WorldBuilding;
 
 namespace BiomeExpansion.Common.GenPasses;
 
-public class SurfaceInfectedMushroomGenPass(string name, double loadWeight) : GenPass(name, loadWeight)
+public class InfectedMushroomSurfaceGenPass(string name, double loadWeight) : GenPass(name, loadWeight)
 {
     protected override void ApplyPass(GenerationProgress progress, GameConfiguration configuration)
     { 
@@ -17,7 +17,7 @@ public class SurfaceInfectedMushroomGenPass(string name, double loadWeight) : Ge
         if (WorldGen.crimson)
         {
             GenerationHelper.CreateSurfaceBiomeBuilder()
-                .Biome(BEBiome.SurfaceInfectedMushroom)
+                .Biome(BEBiome.InfectedMushroomSurface)
                 .Width(500)
                 .Height(20)
                 .IsNearEvil()
@@ -50,7 +50,7 @@ public class SurfaceInfectedMushroomGenPass(string name, double loadWeight) : Ge
                     .FrameCount(9)
                     .AndSurface()
                 .PlantGenerationStep()
-                    .TileType(ModContent.TileType<CrimsonInfectedMushroomVine>())
+                    .TileType(ModContent.TileType<CrimsonInfectedMushroomVines>())
                     .SoilTiles([(ushort)ModContent.TileType<CrimsonInfectedMushroomGrass>()])
                     .Rarity(2)
                     .IsHanging()
@@ -60,7 +60,7 @@ public class SurfaceInfectedMushroomGenPass(string name, double loadWeight) : Ge
         else 
         {
             GenerationHelper.CreateSurfaceBiomeBuilder()
-                .Biome(BEBiome.SurfaceInfectedMushroom)
+                .Biome(BEBiome.InfectedMushroomSurface)
                 .Width(500)
                 .Height(20)
                 .IsNearEvil()
@@ -93,7 +93,7 @@ public class SurfaceInfectedMushroomGenPass(string name, double loadWeight) : Ge
                     .FrameCount(9)
                     .AndSurface()
                 .PlantGenerationStep()
-                    .TileType(ModContent.TileType<CorruptionInfectedMushroomVine>())
+                    .TileType(ModContent.TileType<CorruptionInfectedMushroomVines>())
                     .SoilTiles([(ushort)ModContent.TileType<CorruptionInfectedMushroomGrass>()])
                     .Rarity(2)
                     .IsHanging()

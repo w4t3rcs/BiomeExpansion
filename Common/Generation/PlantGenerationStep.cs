@@ -7,7 +7,7 @@ public class PlantGenerationStep
 {
     public GenerationHelper.SurfaceBiomeBuilder SurfaceBiomeBuilder;
     public GenerationHelper.CaveBiomeBuilder CaveBiomeBuilder;
-    public sbyte rarity;
+    public sbyte rarity = 1;
     public int tileType;
     public ushort[] soilTiles = [TileID.Grass];
     public sbyte frameCount = 0;

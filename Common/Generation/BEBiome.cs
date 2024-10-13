@@ -2,6 +2,6 @@
 
 public enum BEBiome
 {
-    SurfaceInfectedMushroom,
-    CaveInfectedMushroom
+    InfectedMushroomSurface,
+    InfectedMushroomCave
 }

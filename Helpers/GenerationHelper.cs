@@ -104,6 +104,7 @@ public class GenerationHelper
         public readonly List<OreGenerationStep> OreGenerationSteps = [];
         private BEBiome _biome;
         private bool _isUnderBEBiome;
+        private BEBiome _aboveBiome;
         private int _deepness;
 
         public CaveBiomeBuilder Biome(BEBiome biome)
@@ -111,10 +112,16 @@ public class GenerationHelper
             _biome = biome;
             return this;
         }
-
+        
         public CaveBiomeBuilder IsUnderBEBiome()
         {
             _isUnderBEBiome = true;
+            return this;
+        }
+        
+        public CaveBiomeBuilder AboveBiome(BEBiome aboveBiome)
+        {
+            _aboveBiome = aboveBiome;
             return this;
         }
         
@@ -144,7 +151,7 @@ public class GenerationHelper
             if (_isUnderBEBiome)
             {
                 DefaultCaveTileGenerationSteps.Sort((step1, step2) => step1.generationId - step2.generationId);
-                BiomeHelper.GenerateCaveBiomeUnderBEBiome(_biome, _deepness,
+                BiomeHelper.GenerateCaveBiomeUnderBEBiome(_biome, _aboveBiome, _deepness,
                     (ushort)DefaultCaveTileGenerationSteps[0].tileType,
                     (ushort)DefaultCaveTileGenerationSteps[1].tileType);
                 foreach (PlantGenerationStep generationStep in PlantGenerationSteps)

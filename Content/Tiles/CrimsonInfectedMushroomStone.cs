@@ -15,7 +15,6 @@ public class CrimsonInfectedMushroomStone : ModTile
         TileHelper.SetStone(Type);
         Main.tileMerge[Type][ModContent.TileType<CrimsonInfectedMushroomGrass>()] = true;
         Main.tileMerge[Type][ModContent.TileType<InfectedMushroomDirt>()] = true;
-        MinPick = 65;
         HitSound = SoundID.Tink;
         DustType = DustID.Crimstone;
         AddMapEntry(Color.Crimson);

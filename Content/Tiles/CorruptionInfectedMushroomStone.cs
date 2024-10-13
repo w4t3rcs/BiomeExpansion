@@ -15,7 +15,6 @@ public class CorruptionInfectedMushroomStone : ModTile
         TileHelper.SetStone(Type);
         Main.tileMerge[Type][ModContent.TileType<CorruptionInfectedMushroomGrass>()] = true;
         Main.tileMerge[Type][ModContent.TileType<InfectedMushroomDirt>()] = true;
-        MinPick = 65;
         HitSound = SoundID.Tink;
         DustType = DustID.Corruption;
         AddMapEntry(Color.Purple);
