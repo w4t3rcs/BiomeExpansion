@@ -1,17 +1,17 @@
 ﻿using System.Linq;
-using BiomeExpansion.Common.Dtos;
+using BiomeExpansion.Common.Generation;
 using Terraria;
 
 namespace BiomeExpansion.Helpers;
 
 public static class PlantHelper
 {
-    public static void GeneratePlant(BEBiome biome, sbyte rarity, ushort plantTile, ushort[] soilBlocks, int frameCount = 0, bool isVine = false)
+    public static void GeneratePlant(BEBiome biome, sbyte rarity, ushort plantTile, ushort[] soilBlocks, sbyte frameCount = 0, bool isVine = false)
     {
-        var (leftX, rightX) = BiomeHelper.BEBiomesXCoordinates[biome];
+        var (leftX, rightX) = GenerationHelper.BEBiomesXCoordinates[biome];
         for (int x = leftX; x < rightX; x++)
         {
-            for (int y = BiomeHelper.StartY; y < Main.maxTilesY; y++)
+            for (int y = GenerationHelper.SurfaceY; y < Main.maxTilesY; y++)
             {
                 if (isVine)
                 {
@@ -59,7 +59,7 @@ public static class PlantHelper
         return soilBlocks.Contains(Main.tile[x, y].TileType) && !Main.tile[x, y].IsHalfBlock && !Main.tile[x, y - 1].HasTile && WorldGen.genRand.NextBool(rarity);
     }
     
-    private static void PlacePlant(ushort plantTile, int x, int y, int frameCount)
+    private static void PlacePlant(ushort plantTile, int x, int y, sbyte frameCount)
     {
         WorldGen.PlaceTile(x, y, plantTile);
         FrameHelper.SetRandomFrame(x, y, frameCount, 16, 2);
