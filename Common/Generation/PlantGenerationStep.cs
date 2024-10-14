@@ -12,6 +12,7 @@ public class PlantGenerationStep
     public ushort[] soilTiles = [TileID.Grass];
     public sbyte frameCount = 0;
     public bool isHanging = false;
+    public bool isBunch = false;
 
     public PlantGenerationStep(GenerationHelper.SurfaceBiomeBuilder surfaceBiomeBuilder)
     {
@@ -52,6 +53,13 @@ public class PlantGenerationStep
         this.isHanging = true;
         return this;
     }
+    
+    public PlantGenerationStep IsBunch()
+    {
+        this.isBunch = true;
+        return this;
+    }
+
 
     public GenerationHelper.SurfaceBiomeBuilder AndSurface()
     {

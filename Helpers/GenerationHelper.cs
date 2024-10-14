@@ -156,7 +156,7 @@ public class GenerationHelper
                     (ushort)DefaultCaveTileGenerationSteps[1].tileType);
                 foreach (PlantGenerationStep generationStep in PlantGenerationSteps)
                     PlantHelper.GeneratePlant(_biome, generationStep.rarity, (ushort)generationStep.tileType,
-                        generationStep.soilTiles, generationStep.frameCount, generationStep.isHanging);
+                        generationStep.soilTiles, generationStep.frameCount, generationStep.isHanging, generationStep.isBunch);
                 foreach (OreGenerationStep generationStep in OreGenerationSteps)
                     OreHelper.GenerateOre(_biome, generationStep.rarity,
                         generationStep.strength, generationStep.steps, (ushort)generationStep.tileType);

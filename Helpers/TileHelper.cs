@@ -31,6 +31,7 @@ public static class TileHelper
         TileObjectData.newTile.Origin = new Point16(width / 2, height - 1);
         TileObjectData.newTile.UsesCustomCanPlace = true;
         TileObjectData.newTile.AnchorBottom = new AnchorData(AnchorType.SolidWithTop | AnchorType.SolidTile, 1, 0);
+        TileMaterials.SetForTileId(type, TileMaterials._materialsByName["Plant"]);
     }
     
     public static void SetGrass(ushort type, ushort dirt)
@@ -82,6 +83,17 @@ public static class TileHelper
         TileID.Sets.ReplaceTileBreakDown[type] = true;
         TileID.Sets.VineThreads[type] = true;
         TileID.Sets.DrawFlipMode[type] = 1;
+        TileMaterials.SetForTileId(type, TileMaterials._materialsByName["Plant"]);
+    }
+    
+    public static void SetPlantThorns(ushort type, int damage = 5)
+    {
+        Main.tileCut[type] = true;
+        Main.tileBlockLight[type] = true;
+        Main.tileLavaDeath[type] = true;
+        Main.tileNoFail[type] = true;
+        TileID.Sets.TouchDamageImmediate[type] = damage;
+        TileID.Sets.ReplaceTileBreakDown[type] = true;
         TileMaterials.SetForTileId(type, TileMaterials._materialsByName["Plant"]);
     }
 }
