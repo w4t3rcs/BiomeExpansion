@@ -31,8 +31,8 @@ public class CrimsonInfectedBigMushroom : ModTree
     {
         GrowsOnTileId = [ModContent.TileType<CrimsonInfectedMushroomGrass>()];
         _texture = ModContent.Request<Texture2D>("BiomeExpansion/Assets/Trees/BigInfectedMushroom");
-        _branchesTexture = ModContent.Request<Texture2D>("BiomeExpansion/Assets/Trees/BigInfectedMushroomBranches");
-        _topsTexture = ModContent.Request<Texture2D>("BiomeExpansion/Assets/Trees/BigInfectedMushroomTops");
+        _branchesTexture = ModContent.Request<Texture2D>("BiomeExpansion/Assets/Trees/BigCrimsonInfectedMushroomBranches");
+        _topsTexture = ModContent.Request<Texture2D>("BiomeExpansion/Assets/Trees/BigCrimsonInfectedMushroomTops");
     }
 
     public override int SaplingGrowthType(ref int style)
@@ -43,6 +43,8 @@ public class CrimsonInfectedBigMushroom : ModTree
     
     public override void SetTreeFoliageSettings(Tile tile, ref int xoffset, ref int treeFrame, ref int floorY, ref int topTextureFrameWidth, ref int topTextureFrameHeight)
     {
+        topTextureFrameWidth = 112;
+        topTextureFrameHeight = 94;
     }
     
     public override bool Shake(int x, int y, ref bool createLeaves)

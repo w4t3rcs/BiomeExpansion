@@ -73,6 +73,17 @@ public static class TileHelper
         TileID.Sets.DoesntGetReplacedWithTileReplacement[type] = true;
     }
     
+    public static void SetBar(ushort type, int shine = 1100)
+    {
+        Main.tileShine[type] = shine;
+        Main.tileSolid[type] = true;
+        Main.tileSolidTop[type] = true;
+        Main.tileFrameImportant[type] = true;
+        TileObjectData.newTile.CopyFrom(TileObjectData.Style1x1);
+        TileObjectData.newTile.StyleHorizontal = true;
+        TileObjectData.newTile.LavaDeath = false;
+    }
+    
     public static void SetVine(ushort type)
     {
         Main.tileCut[type] = true;
@@ -86,7 +97,7 @@ public static class TileHelper
         TileMaterials.SetForTileId(type, TileMaterials._materialsByName["Plant"]);
     }
     
-    public static void SetPlantThorns(ushort type, int damage = 5)
+    public static void SetPlantThorns(ushort type, int damage = 10)
     {
         Main.tileCut[type] = true;
         Main.tileBlockLight[type] = true;

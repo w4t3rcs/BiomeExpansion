@@ -16,4 +16,6 @@ public class CrimsonInfectedMushroomCaveThorns : ModTile
         DustType = DustID.CrimsonPlants;
         AddMapEntry(Color.Crimson);
     }
+    
+    
 }
