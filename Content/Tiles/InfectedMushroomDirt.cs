@@ -24,8 +24,7 @@ public class InfectedMushroomDirt : ModTile
         Main.tileBlockLight[Type] = true;
         Main.tileLighted[Type] = true;
         TileID.Sets.CanBeClearedDuringOreRunner[Type] = true;
-        TileID.Sets.Dirt[Type] = true;
-        HitSound = SoundID.Grass;
+        HitSound = SoundID.Dig;
         DustType = DustID.Mud;
         AddMapEntry(new Color(142, 86, 78));
     }

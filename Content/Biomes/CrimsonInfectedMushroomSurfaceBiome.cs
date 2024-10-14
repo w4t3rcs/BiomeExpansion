@@ -13,7 +13,7 @@ namespace BiomeExpansion.Content.Biomes
         public override ModWaterStyle WaterStyle => ModContent.GetInstance<CrimsonInfectedMushroomWaterStyle>();
         public override CaptureBiome.TileColorStyle TileColorStyle => CaptureBiome.TileColorStyle.Crimson;
         public override ModSurfaceBackgroundStyle SurfaceBackgroundStyle => ModContent.GetInstance<СrimsonInfectedMushroomSurfaceBiomeBGStyle>();
-        public override ModUndergroundBackgroundStyle UndergroundBackgroundStyle => ModContent.GetInstance<СrimsonInfectedMushroomCaveBiomeBGStyle>();
+        public override ModUndergroundBackgroundStyle UndergroundBackgroundStyle => ModContent.GetInstance<СrimsonInfectedMushroomSurfaceBiomeBGUGStyle>();
         public override int Music => MusicID.Mushrooms;
         public override SceneEffectPriority Priority {  
             get
