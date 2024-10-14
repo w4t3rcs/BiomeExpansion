@@ -18,7 +18,7 @@ public class InfectedMushroomCaveGenPass(string name, double loadWeight) : GenPa
         {
             GenerationHelper.CreateCaveBiomeBuilder()
                 .Biome(BEBiome.InfectedMushroomCave)
-                .Deepness(75)
+                .Deepness(125)
                 .IsUnderBEBiome()
                 .AboveBiome(BEBiome.InfectedMushroomSurface)
                 .DefaultCaveTileGenerationStep()
@@ -65,7 +65,7 @@ public class InfectedMushroomCaveGenPass(string name, double loadWeight) : GenPa
         {
             GenerationHelper.CreateCaveBiomeBuilder()
                 .Biome(BEBiome.InfectedMushroomCave)
-                .Deepness(75)
+                .Deepness(125)
                 .IsUnderBEBiome()
                 .AboveBiome(BEBiome.InfectedMushroomSurface)
                 .DefaultCaveTileGenerationStep()

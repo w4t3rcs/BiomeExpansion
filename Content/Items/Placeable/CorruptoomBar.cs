@@ -14,7 +14,7 @@ public class CorruptoomBar : ModItem
 
     public override void SetDefaults()
     {
-        // Item.DefaultToPlaceableTile(ModContent.TileType<Tiles.CorruptoomBar>());
+        Item.DefaultToPlaceableTile(ModContent.TileType<Tiles.CorruptoomBar>());
         Item.width = 12;
         Item.height = 12;
     }
