@@ -27,7 +27,7 @@ public static class TileHelper
         TileObjectData.newTile.Height = height;
         TileObjectData.newTile.Width = width;
         TileObjectData.newTile.CoordinateHeights = new int[height];
-        TileObjectData.newTile.CoordinateHeights[0] = coordinateHeight;
+        for (int i = 0; i < height; i++) TileObjectData.newTile.CoordinateHeights[i] = coordinateHeight;
         TileObjectData.newTile.CoordinateWidth = frameSize;
         TileObjectData.newTile.CoordinatePadding = framePadding;
         TileObjectData.newTile.Origin = new Point16(width / 2, height - 1);
@@ -109,5 +109,43 @@ public static class TileHelper
         TileID.Sets.TouchDamageImmediate[type] = damage;
         TileID.Sets.ReplaceTileBreakDown[type] = true;
         TileMaterials.SetForTileId(type, TileMaterials._materialsByName["Plant"]);
+    }
+    
+    public static void SetWood(ushort type, bool mergeWithDirt = true)
+    {
+        Main.tileSolid[type] = true;
+        Main.tileMergeDirt[type] = mergeWithDirt;
+        Main.tileBlockLight[type] = true;
+        TileMaterials.SetForTileId(type, TileMaterials._materialsByName["Wood"]);
+    }
+
+    public static void Set3X2BiomeSurfaceDecoration(ushort type)
+    {
+        Main.tileFrameImportant[type] = true;
+        Main.tileNoFail[type] = true;
+        Main.tileObsidianKill[type] = true;
+        TileObjectData.newTile.CopyFrom(TileObjectData.Style3x2);
+    }
+    
+    public static void Set2X5BiomeSurfaceDecoration(ushort type)
+    {
+        const int width = 2;
+        const int height = 5;
+        const int frameSize = 16;
+        const int framePadding = 2;
+        Main.tileLighted[type] = true;
+        Main.tileLavaDeath[type] = false;
+        Main.tileObsidianKill[type] = true;
+        Main.tileNoFail[type] = true;
+        Main.tileFrameImportant[type] = true;
+        TileObjectData.newTile.Height = height;
+        TileObjectData.newTile.Width = width;
+        TileObjectData.newTile.CoordinateHeights = new int[height];
+        for (int i = 0; i < height; i++) TileObjectData.newTile.CoordinateHeights[i] = 16;
+        TileObjectData.newTile.CoordinateWidth = frameSize;
+        TileObjectData.newTile.CoordinatePadding = framePadding;
+        TileObjectData.newTile.Origin = new Point16(width / 2, height - 1);
+        TileObjectData.newTile.UsesCustomCanPlace = true;
+        TileObjectData.newTile.AnchorBottom = new AnchorData(AnchorType.SolidWithTop | AnchorType.SolidTile, 1, 0);
     }
 }

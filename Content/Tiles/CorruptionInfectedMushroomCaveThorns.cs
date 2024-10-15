@@ -13,7 +13,7 @@ public class CorruptionInfectedMushroomCaveThorns : ModTile
     {
         TileHelper.SetPlantThorns(Type);
         HitSound = SoundID.Grass;
-        DustType = DustID.CorruptPlants;
+        DustType = DustID.CorruptionThorns;
         AddMapEntry(Color.Purple);
     }
 }

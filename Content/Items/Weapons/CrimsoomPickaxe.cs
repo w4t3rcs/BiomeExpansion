@@ -20,7 +20,7 @@ public class CrimsoomPickaxe : ModItem
         Item.damage = 10;
         Item.knockBack = 2;
         Item.UseSound = SoundID.Item1;
-        Item.pick = 65;
+        Item.pick = 60;
         Item.attackSpeedOnlyAffectsWeaponAnimation = true;
     }
 }

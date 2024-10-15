@@ -35,7 +35,7 @@ public static class PlantHelper
     
     private static bool CheckBottomPositionToPlace(sbyte rarity, ushort[] soilBlocks, int x, int y, int range)
     {
-        if (soilBlocks.Contains(Main.tile[x, y].TileType) && !Main.tile[x, y].IsHalfBlock && WorldGen.genRand.NextBool(rarity))
+        if (soilBlocks.Contains(Main.tile[x, y].TileType) && !Main.tile[x, y].TopSlope && WorldGen.genRand.NextBool(rarity))
         {
             for (int i = y + 1; i < y + range; i++)
             {
@@ -61,6 +61,11 @@ public static class PlantHelper
         }
     }
     
+    private static bool CheckTopPositionToPlace(sbyte rarity, ushort[] soilBlocks, int x, int y)
+    {
+        return soilBlocks.Contains(Main.tile[x, y].TileType) && !Main.tile[x, y].BottomSlope && !Main.tile[x, y - 1].HasTile && WorldGen.genRand.NextBool(rarity);
+    } 
+    
     private static void PlaceBunch(ushort plantTile, int x, int y, sbyte frameCount, int horizontalRange, int verticalRange)
     {
         for (int i = 0; i < verticalRange; i++)
@@ -77,11 +82,6 @@ public static class PlantHelper
                 }
             }
         }
-    }
-    
-    private static bool CheckTopPositionToPlace(sbyte rarity, ushort[] soilBlocks, int x, int y)
-    {
-        return soilBlocks.Contains(Main.tile[x, y].TileType) && !Main.tile[x, y].IsHalfBlock && !Main.tile[x, y - 1].HasTile && WorldGen.genRand.NextBool(rarity);
     }
     
     private static void PlacePlant(ushort plantTile, int x, int y, sbyte frameCount)

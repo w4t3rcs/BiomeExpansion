@@ -2,7 +2,6 @@
 using BiomeExpansion.Helpers;
 using Microsoft.Xna.Framework;
 using Terraria;
-using Terraria.GameContent.Metadata;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -14,13 +13,10 @@ public class InfectedMushroomWood : ModTile
 
     public override void SetStaticDefaults()
     {
-        Main.tileSolid[Type] = true;
-        Main.tileMergeDirt[Type] = true;
+        TileHelper.SetWood(Type);
         Main.tileMerge[Type][ModContent.TileType<CrimsonInfectedMushroomGrass>()] = true;
         Main.tileMerge[Type][ModContent.TileType<CorruptionInfectedMushroomGrass>()] = true;
         Main.tileMerge[Type][ModContent.TileType<InfectedMushroomDirt>()] = true;
-        Main.tileBlockLight[Type] = true;
-        TileMaterials.SetForTileId(Type, TileMaterials._materialsByName["Wood"]);
         HitSound = SoundID.Dig;
         AddMapEntry(Color.DarkCyan);
     }

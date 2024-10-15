@@ -30,6 +30,7 @@ public class GenerationHelper
         public readonly List<DefaultSurfaceTileGenerationStep> DefaultSurfaceTileGenerationSteps = [];
         public readonly List<PlantGenerationStep> PlantGenerationSteps = [];
         public readonly List<OreGenerationStep> OreGenerationSteps = [];
+        public readonly List<GroundDecorationGenerationStep> GroundDecorationGenerationSteps = [];
         private BEBiome _biome;
         private bool _isNearEvil;
         private int _width;
@@ -73,6 +74,11 @@ public class GenerationHelper
         {
             return new OreGenerationStep(this);
         }
+        
+        public GroundDecorationGenerationStep GroundDecorationGenerationStep()
+        {
+            return new GroundDecorationGenerationStep(this);
+        }
 
         public void Generate()
         {
@@ -90,6 +96,9 @@ public class GenerationHelper
                 foreach (OreGenerationStep generationStep in OreGenerationSteps)
                     OreHelper.GenerateOre(_biome, generationStep.rarity, 
                         generationStep.strength, generationStep.steps, (ushort)generationStep.tileType);
+                foreach (GroundDecorationGenerationStep generationStep in GroundDecorationGenerationSteps)
+                    GroundDecorationHelper.GenerateGroundDecoration(_biome, generationStep.rarity, (ushort)generationStep.tileType,
+                        generationStep.width, generationStep.height);
                 DefaultSurfaceTileGenerationSteps.Clear();
                 PlantGenerationSteps.Clear();
                 OreGenerationSteps.Clear();
@@ -102,6 +111,7 @@ public class GenerationHelper
         public readonly List<DefaultCaveTileGenerationStep> DefaultCaveTileGenerationSteps = [];
         public readonly List<PlantGenerationStep> PlantGenerationSteps = [];
         public readonly List<OreGenerationStep> OreGenerationSteps = [];
+        public readonly List<GroundDecorationGenerationStep> GroundDecorationGenerationSteps = [];
         private BEBiome _biome;
         private bool _isUnderBEBiome;
         private BEBiome _aboveBiome;
@@ -145,6 +155,11 @@ public class GenerationHelper
         {
             return new OreGenerationStep(this);
         }
+        
+        public GroundDecorationGenerationStep GroundDecorationGenerationStep()
+        {
+            return new GroundDecorationGenerationStep(this);
+        }
 
         public void Generate()
         {
@@ -160,6 +175,9 @@ public class GenerationHelper
                 foreach (OreGenerationStep generationStep in OreGenerationSteps)
                     OreHelper.GenerateOre(_biome, generationStep.rarity,
                         generationStep.strength, generationStep.steps, (ushort)generationStep.tileType);
+                foreach (GroundDecorationGenerationStep generationStep in GroundDecorationGenerationSteps)
+                    GroundDecorationHelper.GenerateGroundDecoration(_biome, generationStep.rarity, (ushort)generationStep.tileType,
+                        generationStep.width, generationStep.height);
                 DefaultCaveTileGenerationSteps.Clear();
                 PlantGenerationSteps.Clear();
                 OreGenerationSteps.Clear();
