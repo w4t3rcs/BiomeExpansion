@@ -1,8 +1,10 @@
-﻿using Terraria;
+﻿using BiomeExpansion.Content.Tiles;
+using Terraria;
 using Terraria.DataStructures;
 using Terraria.Enums;
 using Terraria.GameContent.Metadata;
 using Terraria.ID;
+using Terraria.ModLoader;
 using Terraria.ObjectData;
 
 namespace BiomeExpansion.Helpers;
@@ -38,6 +40,7 @@ public static class TileHelper
     {
         Main.tileSolid[type] = true;
         Main.tileMerge[type][dirt] = true;
+        Main.tileMerge[type][ModContent.TileType<InfectedMushroomWood>()] = true;
         Main.tileMergeDirt[type] = true;
         Main.tileBlockLight[type] = true;
         Main.tileLighted[type] = true;
