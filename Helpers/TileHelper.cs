@@ -11,7 +11,7 @@ namespace BiomeExpansion.Helpers;
 
 public static class TileHelper
 {
-    public static void SetFramePlant(ushort type, int styleRange, int coordinateHeight, bool isStyleHorizontal = true, int height = 1, int width = 1, int frameSize = 16, int framePadding = 2)
+    public static void Set1X1FramedPlant(ushort type, int styleRange, int coordinateHeight, bool isStyleHorizontal = true, int height = 1, int width = 1, int frameSize = 16, int framePadding = 2)
     {
         Main.tileLighted[type] = true;
         Main.tileCut[type] = true;
@@ -127,10 +127,8 @@ public static class TileHelper
         TileObjectData.newTile.CopyFrom(TileObjectData.Style3x2);
     }
     
-    public static void Set2X5BiomeSurfaceDecoration(ushort type)
+    public static void SetCustomXCustomBiomeSurfaceDecoration(ushort type, int width, int height)
     {
-        const int width = 2;
-        const int height = 5;
         const int frameSize = 16;
         const int framePadding = 2;
         Main.tileLighted[type] = true;
@@ -146,6 +144,6 @@ public static class TileHelper
         TileObjectData.newTile.CoordinatePadding = framePadding;
         TileObjectData.newTile.Origin = new Point16(width / 2, height - 1);
         TileObjectData.newTile.UsesCustomCanPlace = true;
-        TileObjectData.newTile.AnchorBottom = new AnchorData(AnchorType.SolidWithTop | AnchorType.SolidTile, 2, 0);
+        TileObjectData.newTile.AnchorBottom = new AnchorData(AnchorType.SolidWithTop | AnchorType.SolidTile, width, 0);
     }
 }

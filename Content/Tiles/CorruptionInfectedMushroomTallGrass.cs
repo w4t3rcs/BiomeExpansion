@@ -15,7 +15,7 @@ public class CorruptionInfectedMushroomTallGrass : ModTile
 
     public override void SetStaticDefaults()
     {
-        TileHelper.SetFramePlant(Type, 9, 16);
+        TileHelper.Set1X1FramedPlant(Type, 9, 16);
         TileID.Sets.SwaysInWindBasic[Type] = true;
         TileObjectData.newTile.AnchorValidTiles = [ModContent.TileType<CorruptionInfectedMushroomGrass>()];
         TileObjectData.addTile(Type);
