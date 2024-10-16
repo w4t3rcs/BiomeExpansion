@@ -120,6 +120,11 @@ Items: {
 		DisplayName: Crimsoom Bow
 		Tooltip: ""
 	}
+
+	TestPlaceable: {
+		DisplayName: Test Placeable
+		Tooltip: ""
+	}
 }
 
 Biomes: {

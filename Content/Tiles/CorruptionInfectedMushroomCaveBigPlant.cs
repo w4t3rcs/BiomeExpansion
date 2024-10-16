@@ -13,10 +13,15 @@ public class CorruptionInfectedMushroomCaveBigPlant : ModTile
     public override void SetStaticDefaults()
     {
         TileHelper.Set2X5BiomeSurfaceDecoration(Type);
-        TileObjectData.newTile.AnchorValidTiles = [ModContent.TileType<CorruptionInfectedMushroomGrass>()];
+        TileObjectData.newTile.AnchorValidTiles = [ModContent.TileType<CorruptionInfectedMushroomStone>()];
         TileObjectData.addTile(Type);
         HitSound = SoundID.Dig;
         DustType = DustID.CorruptPlants;
         AddMapEntry(Color.DarkViolet);
+    }
+
+    public override void NumDust(int i, int j, bool fail, ref int num)
+    {
+        num = fail ? 1 : 3;
     }
 }

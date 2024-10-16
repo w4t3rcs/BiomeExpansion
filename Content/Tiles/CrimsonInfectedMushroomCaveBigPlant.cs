@@ -8,15 +8,20 @@ namespace BiomeExpansion.Content.Tiles;
 
 public class CrimsonInfectedMushroomCaveBigPlant : ModTile
 {
-    public override string Texture => TextureHelper.GetDynamicTileTexture("CorruptionInfectedMushroomCaveBigPlant");
+    public override string Texture => TextureHelper.GetDynamicTileTexture("CrimsonInfectedMushroomCaveBigPlant");
 
     public override void SetStaticDefaults()
     {
         TileHelper.Set2X5BiomeSurfaceDecoration(Type);
-        TileObjectData.newTile.AnchorValidTiles = [ModContent.TileType<CrimsonInfectedMushroomGrass>()];
+        TileObjectData.newTile.AnchorValidTiles = [ModContent.TileType<CrimsonInfectedMushroomStone>()];
         TileObjectData.addTile(Type);
         HitSound = SoundID.Dig;
         DustType = DustID.CrimsonPlants;
         AddMapEntry(Color.Crimson);
+    }
+
+    public override void NumDust(int i, int j, bool fail, ref int num)
+    {
+        num = fail ? 1 : 3;
     }
 }
