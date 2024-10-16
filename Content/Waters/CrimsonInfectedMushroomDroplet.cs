@@ -3,7 +3,7 @@ using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace BiomeExpansion.Content.Biomes;
+namespace BiomeExpansion.Content.Waters;
 
 public class CrimsonInfectedMushroomDroplet : ModGore
 {

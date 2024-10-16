@@ -10,6 +10,7 @@ public class GroundDecorationGenerationStep
     public int tileType;
     public sbyte width = 1;
     public sbyte height = 1;
+    public sbyte frameCount = 0;
     public ushort[] allowedTiles = [];
 
     public GroundDecorationGenerationStep(GenerationHelper.SurfaceBiomeBuilder surfaceBiomeBuilder)
@@ -43,6 +44,12 @@ public class GroundDecorationGenerationStep
     public GroundDecorationGenerationStep Height(sbyte height)
     {
         this.height = height;
+        return this;
+    }
+    
+    public GroundDecorationGenerationStep FrameCount(sbyte frameCount)
+    {
+        this.frameCount = frameCount;
         return this;
     }
     

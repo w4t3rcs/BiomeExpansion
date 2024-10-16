@@ -6,7 +6,7 @@ namespace BiomeExpansion.Helpers;
 
 public static class GroundDecorationHelper
 {
-    public static void GenerateGroundDecoration(BEBiome biome, sbyte rarity, ushort groundDecorationTile, sbyte width = 1, sbyte height = 1, ushort[] allowedTiles = null)
+    public static void GenerateGroundDecoration(BEBiome biome, sbyte rarity, ushort groundDecorationTile, sbyte width = 1, sbyte height = 1, int frameCount = 0, ushort[] allowedTiles = null)
     {
         var (leftX, rightX) = GenerationHelper.BEBiomesXCoordinates[biome];
         var (startY, endY) = GenerationHelper.BEBiomesYCoordinates[biome];
@@ -15,7 +15,7 @@ public static class GroundDecorationHelper
             for (int y = startY; y < endY; y++)
             {
                 if (CheckPositionToPlace(rarity, x, y, width, height, allowedTiles)) 
-                    PlaceDecoration(groundDecorationTile, x, y - 1);
+                    PlaceDecoration(groundDecorationTile, x, y - 1, frameCount);
             }
         }
     }
@@ -44,8 +44,9 @@ public static class GroundDecorationHelper
         return false;
     }
     
-    private static void PlaceDecoration(ushort decorationTile, int x, int y)
+    private static void PlaceDecoration(ushort decorationTile, int x, int y, int frameCount)
     {
         WorldGen.PlaceTile(x, y, decorationTile);
+        if (frameCount != 0) FrameHelper.SetRandomFrame(x, y, frameCount);
     }
 }

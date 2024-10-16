@@ -35,6 +35,7 @@ public class GenerationHelper
         private bool _isNearEvil;
         private int _width;
         private int _height;
+        private SurfaceModification _surfaceModification;
         
         public SurfaceBiomeBuilder Biome(BEBiome biome)
         {
@@ -57,6 +58,12 @@ public class GenerationHelper
         public SurfaceBiomeBuilder Height(int height)
         {
             _height = height;
+            return this;
+        }
+        
+        public SurfaceBiomeBuilder SurfaceModification(SurfaceModification surfaceModification)
+        {
+            _surfaceModification = surfaceModification;
             return this;
         }
         
@@ -90,6 +97,7 @@ public class GenerationHelper
                     (ushort)DefaultSurfaceTileGenerationSteps[1].tileType,
                     (ushort)DefaultSurfaceTileGenerationSteps[2].tileType,
                     (ushort)DefaultSurfaceTileGenerationSteps[3].tileType);
+                _surfaceModification?.Invoke(_biome);
                 foreach (PlantGenerationStep generationStep in PlantGenerationSteps)
                     PlantHelper.GeneratePlant(_biome, generationStep.rarity, (ushort)generationStep.tileType,
                         generationStep.soilTiles, generationStep.frameCount, generationStep.isHanging);
@@ -98,7 +106,7 @@ public class GenerationHelper
                         generationStep.strength, generationStep.steps, (ushort)generationStep.tileType);
                 foreach (GroundDecorationGenerationStep generationStep in GroundDecorationGenerationSteps)
                     GroundDecorationHelper.GenerateGroundDecoration(_biome, generationStep.rarity, (ushort)generationStep.tileType,
-                        generationStep.width, generationStep.height);
+                        generationStep.width, generationStep.height, generationStep.frameCount, generationStep.allowedTiles);
                 DefaultSurfaceTileGenerationSteps.Clear();
                 PlantGenerationSteps.Clear();
                 OreGenerationSteps.Clear();
@@ -116,6 +124,7 @@ public class GenerationHelper
         private bool _isUnderBEBiome;
         private BEBiome _aboveBiome;
         private int _deepness;
+        private SurfaceModification _surfaceModification;
 
         public CaveBiomeBuilder Biome(BEBiome biome)
         {
@@ -138,6 +147,12 @@ public class GenerationHelper
         public CaveBiomeBuilder Deepness(int deepness)
         {
             _deepness = deepness;
+            return this;
+        }
+        
+        public CaveBiomeBuilder SurfaceModification(SurfaceModification surfaceModification)
+        {
+            _surfaceModification = surfaceModification;
             return this;
         }
 
@@ -169,6 +184,7 @@ public class GenerationHelper
                 BiomeHelper.GenerateCaveBiomeUnderBEBiome(_biome, _aboveBiome, _deepness,
                     (ushort)DefaultCaveTileGenerationSteps[0].tileType,
                     (ushort)DefaultCaveTileGenerationSteps[1].tileType);
+                _surfaceModification?.Invoke(_biome);
                 foreach (PlantGenerationStep generationStep in PlantGenerationSteps)
                     PlantHelper.GeneratePlant(_biome, generationStep.rarity, (ushort)generationStep.tileType,
                         generationStep.soilTiles, generationStep.frameCount, generationStep.isHanging, generationStep.isBunch);
@@ -177,7 +193,7 @@ public class GenerationHelper
                         generationStep.strength, generationStep.steps, (ushort)generationStep.tileType);
                 foreach (GroundDecorationGenerationStep generationStep in GroundDecorationGenerationSteps)
                     GroundDecorationHelper.GenerateGroundDecoration(_biome, generationStep.rarity, (ushort)generationStep.tileType,
-                        generationStep.width, generationStep.height);
+                        generationStep.width, generationStep.height, generationStep.frameCount, generationStep.allowedTiles);
                 DefaultCaveTileGenerationSteps.Clear();
                 PlantGenerationSteps.Clear();
                 OreGenerationSteps.Clear();

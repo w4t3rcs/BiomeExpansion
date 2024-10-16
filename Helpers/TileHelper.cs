@@ -127,7 +127,7 @@ public static class TileHelper
         TileObjectData.newTile.CopyFrom(TileObjectData.Style3x2);
     }
     
-    public static void SetCustomXCustomBiomeSurfaceDecoration(ushort type, int width, int height)
+    public static void SetCustomXCustomBiomeSurfaceDecoration(ushort type, int width, int height, bool isStyleHorizontal = false, int styleRange = 0)
     {
         const int frameSize = 16;
         const int framePadding = 2;
@@ -139,11 +139,16 @@ public static class TileHelper
         TileObjectData.newTile.Height = height;
         TileObjectData.newTile.Width = width;
         TileObjectData.newTile.CoordinateHeights = new int[height];
-        for (int i = 0; i < height; i++) TileObjectData.newTile.CoordinateHeights[i] = 16;
+        for (int i = 0; i < height; i++) TileObjectData.newTile.CoordinateHeights[i] = frameSize;
         TileObjectData.newTile.CoordinateWidth = frameSize;
         TileObjectData.newTile.CoordinatePadding = framePadding;
         TileObjectData.newTile.Origin = new Point16(width / 2, height - 1);
         TileObjectData.newTile.UsesCustomCanPlace = true;
         TileObjectData.newTile.AnchorBottom = new AnchorData(AnchorType.SolidWithTop | AnchorType.SolidTile, width, 0);
+        if (isStyleHorizontal)
+        {
+            TileObjectData.newTile.StyleHorizontal = true;
+            TileObjectData.newTile.RandomStyleRange = styleRange;
+        }
     }
 }

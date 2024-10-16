@@ -3,16 +3,15 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace BiomeExpansion.Content.Biomes
+namespace BiomeExpansion.Content.Waters;
+
+public class CorruptionInfectedMushroomWaterfallStyle : ModWaterfallStyle
 {
-    public class CorruptionInfectedMushroomWaterfallStyle : ModWaterfallStyle
-    {
-        public override string Texture => TextureHelper.GetDynamicWaterTexture("CorruptionInfectedMushroomWaterfallStyle");
+    public override string Texture => TextureHelper.GetDynamicWaterTexture("CorruptionInfectedMushroomWaterfallStyle");
         
-        public override void AddLight(int i, int j)
-        {
-            Color color = WorldGen.crimson ? Color.Crimson : Color.Purple;
-            Lighting.AddLight(new Vector2(i, j).ToWorldCoordinates(), color.ToVector3() * 0.5f);
-        }
+    public override void AddLight(int i, int j)
+    {
+        Color color = WorldGen.crimson ? Color.Crimson : Color.Purple;
+        Lighting.AddLight(new Vector2(i, j).ToWorldCoordinates(), color.ToVector3() * 0.5f);
     }
 }

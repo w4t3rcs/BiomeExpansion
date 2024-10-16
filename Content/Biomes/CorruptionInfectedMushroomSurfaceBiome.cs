@@ -1,5 +1,6 @@
 ﻿using BiomeExpansion.Backgrounds;
 using BiomeExpansion.Common.Systems;
+using BiomeExpansion.Content.Waters;
 using Terraria;
 using Terraria.GameContent.Events;
 using Terraria.Graphics.Capture;

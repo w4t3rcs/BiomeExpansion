@@ -1,4 +1,4 @@
-﻿using BiomeExpansion.Content.Biomes;
+﻿using BiomeExpansion.Content.Waters;
 using BiomeExpansion.Helpers;
 using Microsoft.Xna.Framework;
 using Terraria;

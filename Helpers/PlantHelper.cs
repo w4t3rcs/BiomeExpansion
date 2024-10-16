@@ -87,6 +87,6 @@ public static class PlantHelper
     private static void PlacePlant(ushort plantTile, int x, int y, sbyte frameCount)
     {
         WorldGen.PlaceTile(x, y, plantTile);
-        FrameHelper.SetRandomFrame(x, y, frameCount, 16, 2);
+        FrameHelper.SetRandomFrame(x, y, frameCount);
     }
 }
