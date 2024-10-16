@@ -11,7 +11,7 @@ namespace BiomeExpansion.Helpers;
 
 public static class TileHelper
 {
-    public static void Set1X1FramedPlant(ushort type, int styleRange, int coordinateHeight, bool isStyleHorizontal = true, int height = 1, int width = 1, int frameSize = 16, int framePadding = 2)
+    public static void Set1X1FramedPlant(ushort type, int styleRange, bool isStyleHorizontal = true, int height = 1, int width = 1, int frameSize = 16, int framePadding = 2)
     {
         Main.tileLighted[type] = true;
         Main.tileCut[type] = true;
@@ -27,7 +27,7 @@ public static class TileHelper
         TileObjectData.newTile.Height = height;
         TileObjectData.newTile.Width = width;
         TileObjectData.newTile.CoordinateHeights = new int[height];
-        for (int i = 0; i < height; i++) TileObjectData.newTile.CoordinateHeights[i] = coordinateHeight;
+        for (int i = 0; i < height; i++) TileObjectData.newTile.CoordinateHeights[i] = 16;
         TileObjectData.newTile.CoordinateWidth = frameSize;
         TileObjectData.newTile.CoordinatePadding = framePadding;
         TileObjectData.newTile.Origin = new Point16(width / 2, height - 1);
