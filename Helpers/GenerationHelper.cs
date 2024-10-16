@@ -98,18 +98,20 @@ public class GenerationHelper
                     (ushort)DefaultSurfaceTileGenerationSteps[2].tileType,
                     (ushort)DefaultSurfaceTileGenerationSteps[3].tileType);
                 _surfaceModification?.Invoke(_biome);
+                foreach (GroundDecorationGenerationStep generationStep in GroundDecorationGenerationSteps)
+                    GroundDecorationHelper.GenerateGroundDecoration(_biome, generationStep.rarity, (ushort)generationStep.tileType,
+                        generationStep.width, generationStep.height, generationStep.frameCount, generationStep.allowedTiles);
+
                 foreach (PlantGenerationStep generationStep in PlantGenerationSteps)
                     PlantHelper.GeneratePlant(_biome, generationStep.rarity, (ushort)generationStep.tileType,
                         generationStep.soilTiles, generationStep.frameCount, generationStep.isHanging);
                 foreach (OreGenerationStep generationStep in OreGenerationSteps)
                     OreHelper.GenerateOre(_biome, generationStep.rarity, 
                         generationStep.strength, generationStep.steps, (ushort)generationStep.tileType);
-                foreach (GroundDecorationGenerationStep generationStep in GroundDecorationGenerationSteps)
-                    GroundDecorationHelper.GenerateGroundDecoration(_biome, generationStep.rarity, (ushort)generationStep.tileType,
-                        generationStep.width, generationStep.height, generationStep.frameCount, generationStep.allowedTiles);
                 DefaultSurfaceTileGenerationSteps.Clear();
                 PlantGenerationSteps.Clear();
                 OreGenerationSteps.Clear();
+                GroundDecorationGenerationSteps.Clear();
             }
         }
     }
@@ -185,18 +187,19 @@ public class GenerationHelper
                     (ushort)DefaultCaveTileGenerationSteps[0].tileType,
                     (ushort)DefaultCaveTileGenerationSteps[1].tileType);
                 _surfaceModification?.Invoke(_biome);
+                foreach (GroundDecorationGenerationStep generationStep in GroundDecorationGenerationSteps)
+                    GroundDecorationHelper.GenerateGroundDecoration(_biome, generationStep.rarity, (ushort)generationStep.tileType,
+                        generationStep.width, generationStep.height, generationStep.frameCount, generationStep.allowedTiles);
                 foreach (PlantGenerationStep generationStep in PlantGenerationSteps)
                     PlantHelper.GeneratePlant(_biome, generationStep.rarity, (ushort)generationStep.tileType,
                         generationStep.soilTiles, generationStep.frameCount, generationStep.isHanging, generationStep.isBunch);
                 foreach (OreGenerationStep generationStep in OreGenerationSteps)
                     OreHelper.GenerateOre(_biome, generationStep.rarity,
                         generationStep.strength, generationStep.steps, (ushort)generationStep.tileType);
-                foreach (GroundDecorationGenerationStep generationStep in GroundDecorationGenerationSteps)
-                    GroundDecorationHelper.GenerateGroundDecoration(_biome, generationStep.rarity, (ushort)generationStep.tileType,
-                        generationStep.width, generationStep.height, generationStep.frameCount, generationStep.allowedTiles);
                 DefaultCaveTileGenerationSteps.Clear();
                 PlantGenerationSteps.Clear();
                 OreGenerationSteps.Clear();
+                GroundDecorationGenerationSteps.Clear();
             }
         }
     }

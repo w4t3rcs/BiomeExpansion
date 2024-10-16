@@ -1,26 +1,23 @@
 ﻿using BiomeExpansion.Helpers;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
 namespace BiomeExpansion.Content.Tiles;
 
-public class CrimsonInfectedMushroomCaveBigMushroom : ModTile
+public class CrimsonInfectedMushroomCaveRock : ModTile
 {
-    public override string Texture => TextureHelper.GetDynamicTileTexture("CrimsonInfectedMushroomCaveBigMushroom");
+    public override string Texture => TextureHelper.GetDynamicTileTexture("CrimsonInfectedMushroomCaveRock");
 
     public override void SetStaticDefaults()
     {
-        Main.tileCut[Type] = true;
-        TileHelper.SetCustomXCustomBiomeSurfaceDecoration(Type, 3, 3, true, 2);
+        TileHelper.SetCustomXCustomBiomeSurfaceDecoration(Type, 3, 2, true, 3);
         TileObjectData.newTile.AnchorValidTiles = [ModContent.TileType<CrimsonInfectedMushroomStone>()];
         TileObjectData.addTile(Type);
-        HitSound = SoundID.Grass;
+        HitSound = SoundID.Dig;
         DustType = DustID.CrimsonPlants;
         AddMapEntry(Color.Crimson);
-        RegisterItemDrop(ModContent.ItemType<Items.Placeable.CrimsonInfectedSmallMushroom>());
     }
 
     public override void NumDust(int i, int j, bool fail, ref int num)
