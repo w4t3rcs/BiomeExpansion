@@ -125,6 +125,11 @@ Items: {
 		DisplayName: Test Placeable
 		Tooltip: ""
 	}
+
+	FearPiece: {
+		DisplayName: Fear Piece
+		Tooltip: ""
+	}
 }
 
 Biomes: {
