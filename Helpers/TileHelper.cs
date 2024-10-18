@@ -15,7 +15,7 @@ public static class TileHelper
     {
         Main.tileSolid[type] = true;
         Main.tileMerge[type][dirt] = true;
-        Main.tileMerge[type][ModContent.TileType<InfectedMushroomWood>()] = true;
+        Main.tileMerge[type][ModContent.TileType<CorruptionInfectedMushroomWood>()] = true;
         Main.tileMergeDirt[type] = true;
         Main.tileBlockLight[type] = true;
         Main.tileLighted[type] = true;

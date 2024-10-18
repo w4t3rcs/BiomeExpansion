@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using BiomeExpansion.Common.Generation;
-using Terraria;
 
 namespace BiomeExpansion.Helpers;
 
@@ -11,9 +10,12 @@ public class GenerationHelper
     public const int GrassGenerationId = 2;
     public const int StoneGenerationId = 3;
     public const int WallGenerationId = 4;
+    public static readonly IGroundModification HorizontalTunnelModification = new HorizontalTunnelModification();
     public static readonly Dictionary<BEBiome, KeyValuePair<int, int>> BEBiomesXCoordinates = new();
     public static readonly Dictionary<BEBiome, KeyValuePair<int, int>> BEBiomesYCoordinates = new();
-    public static readonly int SurfaceY = Main.maxTilesY / 8;
+    private static readonly IBiomeRegistrar BiomeRegistrar = new BiomeRegistrar();
+    private static readonly IBiomeLocator SurfaceBiomeLocator = new SurfaceBiomeLocator();
+    private static readonly IDependentBiomeLocator DependentBiomeLocator = new DependentBiomeLocator();
     
     public static SurfaceBiomeBuilder CreateSurfaceBiomeBuilder() => new();
     
@@ -34,7 +36,7 @@ public class GenerationHelper
         private bool _isNearEvil;
         private int _width;
         private int _height;
-        private SurfaceModification _surfaceModification;
+        private IGroundModification _groundModification;
         
         public SurfaceBiomeBuilder Biome(BEBiome biome)
         {
@@ -60,9 +62,9 @@ public class GenerationHelper
             return this;
         }
         
-        public SurfaceBiomeBuilder SurfaceModification(SurfaceModification surfaceModification)
+        public SurfaceBiomeBuilder GroundModification(IGroundModification groundModification)
         {
-            _surfaceModification = surfaceModification;
+            _groundModification = groundModification;
             return this;
         }
         
@@ -86,12 +88,15 @@ public class GenerationHelper
             DefaultSurfaceTileGenerationSteps.Sort((step1, step2) => step1.generationId - step2.generationId);
             if (_isNearEvil)
             {
-                BiomeHelper.GenerateSurfaceBiomeNextToEvilBiome(_biome, _width, _height, 
+                KeyValuePair<int,int> xCoordinates = SurfaceBiomeLocator.GetBiomeXCoordinates(_width, BiomeHelper.EvilGroundTiles);
+                KeyValuePair<int,int> yCoordinates = SurfaceBiomeLocator.GetBiomeYCoordinates(_height);
+                BiomeRegistrar.Register(_biome, xCoordinates, yCoordinates);
+                _groundModification?.Modify(BEBiomesXCoordinates[_biome].Key, BEBiomesXCoordinates[_biome].Value, BEBiomesYCoordinates[_biome].Key, BEBiomesYCoordinates[_biome].Value);
+                BiomeHelper.GenerateSurfaceBiome(_biome, 
                     (ushort)DefaultSurfaceTileGenerationSteps[0].tileType, 
                     (ushort)DefaultSurfaceTileGenerationSteps[1].tileType,
                     (ushort)DefaultSurfaceTileGenerationSteps[2].tileType,
                     (ushort)DefaultSurfaceTileGenerationSteps[3].tileType);
-                _surfaceModification?.Invoke(_biome);
                 foreach (GroundDecorationGenerationStep generationStep in GroundDecorationGenerationSteps)
                 {
                     if (generationStep.isPlant)
@@ -122,10 +127,10 @@ public class GenerationHelper
         public readonly List<OreGenerationStep> OreGenerationSteps = [];
         public readonly List<GroundDecorationGenerationStep> GroundDecorationGenerationSteps = [];
         private BEBiome _biome;
-        private bool _isUnderBEBiome;
+        private bool _isDependentBiome;
         private BEBiome _aboveBiome;
         private int _deepness;
-        private SurfaceModification _surfaceModification;
+        private IGroundModification _groundModification;
 
         public CaveBiomeBuilder Biome(BEBiome biome)
         {
@@ -133,9 +138,9 @@ public class GenerationHelper
             return this;
         }
         
-        public CaveBiomeBuilder IsUnderBEBiome()
+        public CaveBiomeBuilder IsDependentBiome()
         {
-            _isUnderBEBiome = true;
+            _isDependentBiome = true;
             return this;
         }
         
@@ -151,9 +156,9 @@ public class GenerationHelper
             return this;
         }
         
-        public CaveBiomeBuilder SurfaceModification(SurfaceModification surfaceModification)
+        public CaveBiomeBuilder GroundModification(IGroundModification groundModification)
         {
-            _surfaceModification = surfaceModification;
+            _groundModification = groundModification;
             return this;
         }
 
@@ -174,13 +179,16 @@ public class GenerationHelper
 
         public void Generate()
         {
-            if (_isUnderBEBiome)
+            if (_isDependentBiome)
             {
+                KeyValuePair<int,int> xCoordinates = DependentBiomeLocator.GetBiomeXCoordinates(_aboveBiome);
+                KeyValuePair<int,int> yCoordinates = DependentBiomeLocator.GetBiomeYCoordinates(_aboveBiome, _deepness);
+                BiomeRegistrar.Register(_biome, xCoordinates, yCoordinates);
+                _groundModification?.Modify(BEBiomesXCoordinates[_biome].Key, BEBiomesXCoordinates[_biome].Value, BEBiomesYCoordinates[_biome].Key, BEBiomesYCoordinates[_biome].Value);
                 DefaultCaveTileGenerationSteps.Sort((step1, step2) => step1.generationId - step2.generationId);
-                BiomeHelper.GenerateCaveBiomeUnderBEBiome(_biome, _aboveBiome, _deepness,
+                BiomeHelper.GenerateDependentCaveBiome(_biome,
                     (ushort)DefaultCaveTileGenerationSteps[0].tileType,
                     (ushort)DefaultCaveTileGenerationSteps[1].tileType);
-                _surfaceModification?.Invoke(_biome);
                 foreach (GroundDecorationGenerationStep generationStep in GroundDecorationGenerationSteps)
                 {
                     if (generationStep.isPlant)

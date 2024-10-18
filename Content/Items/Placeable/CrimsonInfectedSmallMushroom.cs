@@ -1,5 +1,4 @@
-﻿using BiomeExpansion.Content.Tiles;
-using BiomeExpansion.Helpers;
+﻿using BiomeExpansion.Helpers;
 using Terraria.ModLoader;
 
 namespace BiomeExpansion.Content.Items.Placeable;
@@ -15,7 +14,7 @@ public class CrimsonInfectedSmallMushroom : ModItem
 
     public override void SetDefaults()
     {
-        Item.DefaultToPlaceableTile(ModContent.TileType<InfectedMushroomWood>());
+        // Item.DefaultToPlaceableTile(ModContent.TileType<CrimsonInfectedMushroomWood>());
         Item.width = 12;
         Item.height = 12;
     }
