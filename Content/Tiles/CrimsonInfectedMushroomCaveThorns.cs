@@ -17,5 +17,8 @@ public class CrimsonInfectedMushroomCaveThorns : ModTile
         AddMapEntry(Color.Crimson);
     }
     
-    
+    public override void NumDust(int i, int j, bool fail, ref int num)
+    {
+        num = fail ? 1 : 3;
+    }
 }

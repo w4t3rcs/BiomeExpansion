@@ -8,10 +8,15 @@ public class GroundDecorationGenerationStep
     public GenerationHelper.CaveBiomeBuilder CaveBiomeBuilder;
     public sbyte rarity = 1;
     public int tileType;
-    public sbyte width = 1;
-    public sbyte height = 1;
+    public ushort[] soilTiles = [];
     public sbyte frameCount = 0;
-    public ushort[] allowedTiles = [];
+    public sbyte width = 0;
+    public sbyte height = 0;
+    public bool isPlant = false;
+    public bool isHanging = false;
+    public bool isBunch = false;
+    public bool isUnderwater = false;
+    public bool isLilypad = false;
 
     public GroundDecorationGenerationStep(GenerationHelper.SurfaceBiomeBuilder surfaceBiomeBuilder)
     {
@@ -35,30 +40,60 @@ public class GroundDecorationGenerationStep
         return this;
     }
     
-    public GroundDecorationGenerationStep Width(sbyte width)
+    public GroundDecorationGenerationStep SoilTiles(ushort[] soilTiles)
     {
-        this.width = width;
+        this.soilTiles = soilTiles;
         return this;
     }
 
-    public GroundDecorationGenerationStep Height(sbyte height)
-    {
-        this.height = height;
-        return this;
-    }
-    
     public GroundDecorationGenerationStep FrameCount(sbyte frameCount)
     {
         this.frameCount = frameCount;
         return this;
     }
     
-    public GroundDecorationGenerationStep AllowedTiles(ushort[] allowedTiles)
+    public GroundDecorationGenerationStep Width(sbyte width)
     {
-        this.allowedTiles = allowedTiles;
+        this.width = width;
         return this;
     }
     
+    public GroundDecorationGenerationStep Height(sbyte height)
+    {
+        this.height = height;
+        return this;
+    }
+    
+    public GroundDecorationGenerationStep IsPlant()
+    {
+        this.isPlant = true;
+        return this;
+    }
+    
+    public GroundDecorationGenerationStep IsHanging()
+    {
+        this.isHanging = true;
+        return this;
+    }
+    
+    public GroundDecorationGenerationStep IsBunch()
+    {
+        this.isBunch = true;
+        return this;
+    }
+
+    public GroundDecorationGenerationStep IsUnderwater()
+    {
+        this.isUnderwater = true;
+        return this;
+    }
+    
+    public GroundDecorationGenerationStep IsLilypad()
+    {
+        this.isLilypad = true;
+        return this;
+    }
+
     public GenerationHelper.SurfaceBiomeBuilder AndSurface()
     {
         SurfaceBiomeBuilder.GroundDecorationGenerationSteps.Add(this);

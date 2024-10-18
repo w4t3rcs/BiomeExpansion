@@ -16,4 +16,9 @@ public class CorruptionInfectedMushroomCaveThorns : ModTile
         DustType = DustID.CorruptionThorns;
         AddMapEntry(Color.Purple);
     }
+    
+    public override void NumDust(int i, int j, bool fail, ref int num)
+    {
+        num = fail ? 1 : 3;
+    }
 }

@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using BiomeExpansion.Common.Generation;
 using Terraria;
 using Terraria.ID;
-using Terraria.ModLoader;
 
 namespace BiomeExpansion.Helpers;
 
@@ -105,7 +103,7 @@ public static class BiomeHelper
         for (int y = startY; y < endY; y++)
         {
             PlaceDirt(x, y, dirt);
-            PlaceGrass(x, y, grass);
+            PlaceGrass(x, y, dirt, grass);
             PlaceStone(x, y, stone);
             PlaceWall(x, y, wall);
         }
@@ -171,80 +169,28 @@ public static class BiomeHelper
     
     private static void PlaceMainTile(int x, int y, ushort tileType)
     {
-        try
-        {
-            if (Main.tile[x, y].HasTile && Main.tileSolid[Main.tile[x, y].TileType])
-            {
-                Main.tile[x, y].TileType = tileType; 
-            }
-        }
-        catch (Exception e)
-        {
-            ModContent.GetInstance<BiomeExpansion>().Logger.Error(e);        
-        }
+        WorldGen.ReplaceTile(x, y, tileType, Main.tile[x, y].TileFrameX);
     }
     
     private static void PlaceDirt(int x, int y, ushort tileType)
     {
-        try
-        {
-            if (Main.tile[x, y].HasTile && Main.tileSolid[Main.tile[x, y].TileType] && !StoneTiles.Contains(Main.tile[x, y].TileType))
-            {
-                Main.tile[x, y].TileType = tileType; 
-            }
-        }
-        catch (Exception e)
-        {
-            ModContent.GetInstance<BiomeExpansion>().Logger.Error(e);        
-        }
+        if (!StoneTiles.Contains(Main.tile[x, y].TileType))
+            WorldGen.ReplaceTile(x, y, tileType, Main.tile[x, y].TileFrameX);
     }
     
-    private static void PlaceGrass(int x, int y, ushort tileType)
+    private static void PlaceGrass(int x, int y, ushort dirt, ushort grass)
     {
-        try
-        {
-            if (Main.tile[x, y].HasTile && !StoneTiles.Contains(Main.tile[x, y].TileType)
-                && (!Main.tile[x, y - 1].HasTile || !Main.tile[x, y + 1].HasTile 
-                                                 || !Main.tile[x - 1, y].HasTile || !Main.tile[x + 1, y].HasTile
-                                                 || !Main.tile[x - 1, y - 1].HasTile || !Main.tile[x - 1, y + 1].HasTile
-                                                 || !Main.tile[x + 1, y - 1].HasTile || !Main.tile[x + 1, y + 1].HasTile))
-            {
-                Main.tile[x, y].TileType = tileType; 
-            }
-        }
-        catch (Exception e)
-        {
-            ModContent.GetInstance<BiomeExpansion>().Logger.Error(e);        
-        }
+        WorldGen.SpreadGrass(x, y, dirt, grass);
     }
     
     private static void PlaceStone(int x, int y, ushort tileType)
     {
-        try
-        {
-            if (Main.tile[x, y].HasTile && StoneTiles.Contains(Main.tile[x, y].TileType))
-            {
-                Main.tile[x, y].TileType = tileType; 
-            }
-        }
-        catch (Exception e)
-        {
-            ModContent.GetInstance<BiomeExpansion>().Logger.Error(e);        
-        }
+        if (StoneTiles.Contains(Main.tile[x, y].TileType))
+            WorldGen.ReplaceTile(x, y, tileType, Main.tile[x, y].TileFrameX);
     }
     
     private static void PlaceWall(int x, int y, ushort wall)
     {
-        try
-        {
-            if (Main.tile[x, y].WallType > 0)
-            {
-                Main.tile[x, y].WallType = wall; 
-            }
-        }
-        catch (Exception e)
-        {
-            ModContent.GetInstance<BiomeExpansion>().Logger.Error(e);        
-        }
+        WorldGen.ReplaceWall(x, y, wall);
     }
 }

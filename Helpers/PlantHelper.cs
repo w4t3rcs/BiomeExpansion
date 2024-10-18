@@ -6,7 +6,9 @@ namespace BiomeExpansion.Helpers;
 
 public static class PlantHelper
 {
-    public static void GeneratePlant(BEBiome biome, sbyte rarity, ushort plantTile, ushort[] soilBlocks, sbyte frameCount = 0, bool isVine = false, bool isBunch = false)
+    public static void GeneratePlant(BEBiome biome, sbyte rarity, ushort plantTile, ushort[] soilBlocks, 
+        sbyte frameCount = 0, sbyte width = 1, sbyte height = 1, 
+        bool isVine = false, bool isBunch = false, bool isUnderwater = false, bool isLilyPad = false)
     {
         var (leftX, rightX) = GenerationHelper.BEBiomesXCoordinates[biome];
         var (startY, endY) = GenerationHelper.BEBiomesYCoordinates[biome];
@@ -24,6 +26,14 @@ public static class PlantHelper
                     int horizontalRange = WorldGen.genRand.Next(4, 8);
                     int verticalRange = WorldGen.genRand.Next(3, 5);
                     if (CheckTopPositionToPlace(rarity, soilBlocks, x, y)) PlaceBunch(plantTile, x, y - 1, frameCount, horizontalRange, verticalRange);
+                }
+                else if (isUnderwater)
+                {
+                    
+                }
+                else if (isLilyPad)
+                {
+                    
                 }
                 else
                 {
