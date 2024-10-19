@@ -10,8 +10,8 @@ public class GroundDecorationGenerationStep
     public int tileType;
     public ushort[] soilTiles = [];
     public sbyte frameCount = 0;
-    public sbyte width = 0;
-    public sbyte height = 0;
+    public sbyte width = 1;
+    public sbyte height = 1;
     public bool isPlant = false;
     public bool isHanging = false;
     public bool isBunch = false;
