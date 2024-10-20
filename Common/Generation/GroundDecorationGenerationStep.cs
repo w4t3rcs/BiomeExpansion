@@ -15,7 +15,7 @@ public class GroundDecorationGenerationStep
     public bool isPlant = false;
     public bool isHanging = false;
     public bool isBunch = false;
-    public bool isUnderwater = false;
+    public bool isSeaOats = false;
     public bool isLilypad = false;
 
     public GroundDecorationGenerationStep(GenerationHelper.SurfaceBiomeBuilder surfaceBiomeBuilder)
@@ -82,9 +82,9 @@ public class GroundDecorationGenerationStep
         return this;
     }
 
-    public GroundDecorationGenerationStep IsUnderwater()
+    public GroundDecorationGenerationStep IsSeaOats()
     {
-        this.isUnderwater = true;
+        this.isSeaOats = true;
         return this;
     }
     

@@ -102,6 +102,14 @@ public static class TileHelper
         TileObjectData.newTile.CopyFrom(TileObjectData.Style3x2);
     }
     
+    public static void SetSeaOats(ushort type)
+    {
+        SetCustomXCustomFramedPlant(type, 15, true, 2);
+        TileObjectData.newTile.CopyFrom(TileObjectData.GetTileData(TileID.SeaOats, 0));
+        TileObjectData.newTile.WaterDeath = false;
+        TileObjectData.newTile.WaterPlacement = LiquidPlacement.OnlyInLiquid;
+    }
+    
     public static void SetCustomXCustomFramedPlant(ushort type, int styleRange, bool isStyleHorizontal = true, int height = 1, int width = 1)
     {
         Main.tileCut[type] = true;

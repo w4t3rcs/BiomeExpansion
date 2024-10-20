@@ -103,7 +103,7 @@ public class GenerationHelper
                     {
                         PlantHelper.GeneratePlant(_biome, generationStep.rarity, (ushort)generationStep.tileType, generationStep.soilTiles, 
                             generationStep.frameCount, generationStep.width, generationStep.height, 
-                            generationStep.isHanging, generationStep.isBunch, generationStep.isUnderwater, generationStep.isLilypad);
+                            generationStep.isHanging, generationStep.isBunch, generationStep.isSeaOats, generationStep.isLilypad);
                     }
                     else
                     {
@@ -195,7 +195,7 @@ public class GenerationHelper
                     {
                         PlantHelper.GeneratePlant(_biome, generationStep.rarity, (ushort)generationStep.tileType, generationStep.soilTiles, 
                             generationStep.frameCount, generationStep.width, generationStep.height, 
-                            generationStep.isHanging, generationStep.isBunch, generationStep.isUnderwater, generationStep.isLilypad);
+                            generationStep.isHanging, generationStep.isBunch, generationStep.isSeaOats, generationStep.isLilypad);
                     }
                     else
                     {
