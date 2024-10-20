@@ -16,7 +16,7 @@ public class GroundDecorationGenerationStep
     public bool isHanging = false;
     public bool isBunch = false;
     public bool isSeaOats = false;
-    public bool isLilypad = false;
+    public bool isLilyPad = false;
 
     public GroundDecorationGenerationStep(GenerationHelper.SurfaceBiomeBuilder surfaceBiomeBuilder)
     {
@@ -88,9 +88,9 @@ public class GroundDecorationGenerationStep
         return this;
     }
     
-    public GroundDecorationGenerationStep IsLilypad()
+    public GroundDecorationGenerationStep IsLilyPad()
     {
-        this.isLilypad = true;
+        this.isLilyPad = true;
         return this;
     }
 

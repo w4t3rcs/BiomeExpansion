@@ -10,7 +10,7 @@ public class TestPlaceable : ModItem
     
     public override void SetDefaults()
     {
-        Item.DefaultToPlaceableTile(ModContent.TileType<CorruptionInfectedMushroomOats>());
+        Item.DefaultToPlaceableTile(ModContent.TileType<CorruptionInfectedMushroomLilyPad>());
         Item.width = 12;
         Item.height = 12;
     }

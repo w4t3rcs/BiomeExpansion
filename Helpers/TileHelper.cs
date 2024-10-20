@@ -102,25 +102,31 @@ public static class TileHelper
         TileObjectData.newTile.CopyFrom(TileObjectData.Style3x2);
     }
     
+    public static void SetLilyPad(ushort type)
+    {
+        
+        SetCustomXCustomFramedPlant(type, 18, true, 1, 1, true, false);
+        TileObjectData.newTile.CopyFrom(TileObjectData.GetTileData(TileID.LilyPad, 0));
+    }
+
     public static void SetSeaOats(ushort type)
     {
         SetCustomXCustomFramedPlant(type, 15, true, 2);
         TileObjectData.newTile.CopyFrom(TileObjectData.GetTileData(TileID.SeaOats, 0));
-        TileObjectData.newTile.WaterDeath = false;
-        TileObjectData.newTile.WaterPlacement = LiquidPlacement.OnlyInLiquid;
     }
     
-    public static void SetCustomXCustomFramedPlant(ushort type, int styleRange, bool isStyleHorizontal = true, int height = 1, int width = 1)
+    public static void SetCustomXCustomFramedPlant(ushort type, int styleRange, bool isStyleHorizontal = true, int height = 1, int width = 1, bool isCustomCanPlace = true, bool isAnchorBottom = true)
     {
         Main.tileCut[type] = true;
+        Main.tileLavaDeath[type] = true;
         TileID.Sets.ReplaceTileBreakUp[type] = true;
         TileID.Sets.IgnoredInHouseScore[type] = true;
         TileID.Sets.IgnoredByGrowingSaplings[type] = true;
-        SetCustomXCustomBiomeSurfaceDecoration(type, width, height, isStyleHorizontal, styleRange);
+        SetCustomXCustomBiomeSurfaceDecoration(type, width, height, isStyleHorizontal, styleRange, isCustomCanPlace, isAnchorBottom);
         TileMaterials.SetForTileId(type, TileMaterials._materialsByName["Plant"]);
     }
     
-    public static void SetCustomXCustomBiomeSurfaceDecoration(ushort type, int width, int height, bool isStyleHorizontal = false, int styleRange = 0)
+    public static void SetCustomXCustomBiomeSurfaceDecoration(ushort type, int width, int height, bool isStyleHorizontal = false, int styleRange = 0, bool isCustomCanPlace = true, bool isAnchorBottom = true)
     {
         const int frameSize = 16;
         const int framePadding = 2;
@@ -137,8 +143,8 @@ public static class TileHelper
         TileObjectData.newTile.CoordinateWidth = frameSize;
         TileObjectData.newTile.CoordinatePadding = framePadding;
         TileObjectData.newTile.Origin = new Point16(width / 2, height - 1);
-        TileObjectData.newTile.UsesCustomCanPlace = true;
-        TileObjectData.newTile.AnchorBottom = new AnchorData(AnchorType.SolidWithTop | AnchorType.SolidTile, width, 0);
+        if (isCustomCanPlace) TileObjectData.newTile.UsesCustomCanPlace = true;
+        if (isAnchorBottom) TileObjectData.newTile.AnchorBottom = new AnchorData(AnchorType.SolidWithTop | AnchorType.SolidTile, width, 0);
         if (isStyleHorizontal)
         {
             TileObjectData.newTile.StyleHorizontal = true;

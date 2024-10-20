@@ -79,7 +79,6 @@ public static class PlantHelper
                 {
                     WorldGen.PlaceTile(x - j/2, y - i/2, plantTile);
                     FrameHelper.SetRandomFrame(x - j/2, y - i/2, frameCount);
-                    
                 }
             }
         }
@@ -88,15 +87,23 @@ public static class PlantHelper
     private static void PlaceSeaOats(ushort plantTile, int x, int y, sbyte rarity, ushort[] soilTiles)
     {
         if (!CheckTopPositionToPlace(rarity, soilTiles, x, y + 1)) return;
-        WorldGen.PlaceTile(x, y, plantTile);
-        FrameHelper.SetFramingSeaOats(x, y);
+        int horizontalRange = WorldGen.genRand.Next(6, 16);
+        for (int i = 0; i <= horizontalRange; i++)
+        {
+            if (!CheckTopPositionToPlace(1, soilTiles, x + i, y + 1)) return;
+            WorldGen.PlaceTile(x + i, y, plantTile);
+            FrameHelper.SetFramingSeaOats(x + i, y);
+        }
     }
     
     private static void PlaceLilyPad(ushort plantTile, int x, int y)
     {
         WorldGen.PlaceLilyPad(x, y);
-        if (Main.tile[x, y].TileType == TileID.LilyPad) 
+        if (Main.tile[x, y].TileType == TileID.LilyPad)
+        {
             WorldGen.ReplaceTile(x, y, plantTile, Main.tile[x, y].TileFrameX);
+            FrameHelper.SetRandomFrame(x, y, 18);
+        }
     }
     
     private static void PlacePlant(ushort plantTile, int x, int y, int width, int height, sbyte frameCount, sbyte rarity, ushort[] soilTiles)

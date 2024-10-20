@@ -6,7 +6,6 @@ public static class FrameHelper
 {
     public const int FrameSize = 16;
     public const int FramePadding = 16;
-    private static int CurrentSeaOatsFrame = 1;
     
     public static void SetRandomFrame(int x, int y, int frameCount)
     {
@@ -21,10 +20,9 @@ public static class FrameHelper
 
     public static void SetFramingSeaOats(int x, int y)
     {
-        if (CurrentSeaOatsFrame > 15) CurrentSeaOatsFrame = 0;
-        CurrentSeaOatsFrame++;
-        SetFrameX(x, y, CurrentSeaOatsFrame);
-        if (CurrentSeaOatsFrame > 5) SetFrameX(x, y - 1, CurrentSeaOatsFrame);
+        int randomFrame = WorldGen.genRand.Next(1, 15);
+        SetFrameX(x, y, randomFrame);
+        if (randomFrame > 4) SetFrameX(x, y - 1, randomFrame);
     }
     
     public static void SetFramingVine(int x, int y)
