@@ -15,6 +15,7 @@ public static class TextureHelper
     public const string TreesAssetsLocation = $"{AssetsLocation}/Trees";
     public const string WallsAssetsLocation = $"{AssetsLocation}/Walls";
     public const string WatersAssetsLocation = $"{AssetsLocation}/Waters";
+    public const string SkiesAssetsLocation = $"{AssetsLocation}/Skies";
     public static readonly string ModSourcesDirectory = ModLoader.ModPath.Replace("Mods", "ModSources");
     
     public static string GetDynamicItemTexture(string fileName)
@@ -60,6 +61,11 @@ public static class TextureHelper
     public static string GetDynamicWaterTexture(string fileName)
     {
         return GetDynamicTexture(WatersAssetsLocation, fileName);
+    }
+    
+    public static string GetDynamicSkyTexture(string fileName)
+    {
+        return GetDynamicTexture(SkiesAssetsLocation, fileName);
     }
     
     public static string GetDynamicTexture(string fileName)

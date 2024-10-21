@@ -11,21 +11,20 @@ struct PS_INPUT
 float4 MainPS(PS_INPUT input) : COLOR
 {
     float4 color = tex2D(SpriteTexture, input.TexCoord);
-    color.r *= 1.5; 
-    color.g *= 0.2; 
-    color.b *= 0.2;
-
-    float wave = sin((input.TexCoord.x + input.TexCoord.y) * 25.0 + Time * 6.0) * 0.03;
+    color.r *= 0.4;
+    color.g *= 0.2;
+    color.b *= 2.0;
+    float wave = sin((input.TexCoord.x + input.TexCoord.y) * 30.0 + Time * 8.0) * 0.05;
     float2 distortedTexCoord = input.TexCoord + wave * Intensity;
     float4 distortedColor = tex2D(SpriteTexture, distortedTexCoord);
-    color = lerp(color, distortedColor, 0.5);
+    color = lerp(color, distortedColor, 0.6);
     float2 center = float2(0.5, 0.5);
     float dist = distance(input.TexCoord, center);
-    color.rgb *= 1.0 - dist * 0.4 * Intensity;
+    color.rgb *= 1.0 - dist * 0.5 * Intensity;
     return color;
 }
 
-technique CrimsonInfectedShader
+technique CorruptionInfectedShader
 {
     pass Pass1
     {
