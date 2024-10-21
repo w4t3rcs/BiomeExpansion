@@ -11,7 +11,7 @@ public class GenerationHelper
     public const int StoneGenerationId = 3;
     public const int WallGenerationId = 4;
     public static readonly IGroundModification HorizontalTunnelModification = new HorizontalTunnelModification();
-    public static readonly IGroundModification DiagonalTunnelModification = new DiagonalTunnelModification();
+    public static readonly IGroundModification TwoDirectionDiagonalTunnelModification = new TwoDirectionDiagonalTunnelModification();
     public static readonly Dictionary<BEBiome, KeyValuePair<int, int>> BEBiomesXCoordinates = new();
     public static readonly Dictionary<BEBiome, KeyValuePair<int, int>> BEBiomesYCoordinates = new();
     private static readonly IBiomeRegistrar BiomeRegistrar = new BiomeRegistrar();
