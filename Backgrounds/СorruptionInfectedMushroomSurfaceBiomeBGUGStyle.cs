@@ -8,7 +8,7 @@ public class СorruptionInfectedMushroomSurfaceBiomeBGUGStyle : ModUndergroundBa
 
     public override void FillTextureArray(int[] textureSlots)
     {
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < 4; i++)
         {
             textureSlots[i] = BackgroundTextureLoader.GetBackgroundSlot(Texture + i);
         }

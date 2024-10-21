@@ -19,7 +19,7 @@ public class InfectedMushroomCaveGenPass(string name, double loadWeight) : GenPa
             .Deepness(125)
             .IsDependentBiome()
             .AboveBiome(BEBiome.InfectedMushroomSurface)
-            .GroundModification(GenerationHelper.HorizontalTunnelModification);
+            .GroundModification(GenerationHelper.TwoDirectionDiagonalTunnelModification);
         if (WorldGen.crimson)
         {
             caveBiomeBuilder = caveBiomeBuilder
