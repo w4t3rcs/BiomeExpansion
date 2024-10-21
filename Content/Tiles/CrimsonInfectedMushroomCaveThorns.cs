@@ -1,5 +1,6 @@
 ﻿using BiomeExpansion.Helpers;
 using Microsoft.Xna.Framework;
+using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -15,6 +16,11 @@ public class CrimsonInfectedMushroomCaveThorns : ModTile
         HitSound = SoundID.Grass;
         DustType = DustID.CrimsonPlants;
         AddMapEntry(Color.Crimson);
+    }
+    
+    public override bool IsTileDangerous(int i, int j, Player player)
+    {
+        return true;
     }
     
     public override void NumDust(int i, int j, bool fail, ref int num)

@@ -1,5 +1,6 @@
 ﻿using BiomeExpansion.Helpers;
 using Microsoft.Xna.Framework;
+using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -16,7 +17,12 @@ public class CorruptionInfectedMushroomCaveThorns : ModTile
         DustType = DustID.CorruptionThorns;
         AddMapEntry(Color.Purple);
     }
-    
+
+    public override bool IsTileDangerous(int i, int j, Player player)
+    {
+        return true;
+    }
+
     public override void NumDust(int i, int j, bool fail, ref int num)
     {
         num = fail ? 1 : 3;

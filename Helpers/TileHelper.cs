@@ -81,6 +81,7 @@ public static class TileHelper
         Main.tileBlockLight[type] = true;
         Main.tileLavaDeath[type] = true;
         Main.tileNoFail[type] = true;
+        TileID.Sets.TouchDamageDestroyTile[type] = true;
         TileID.Sets.TouchDamageImmediate[type] = damage;
         TileID.Sets.ReplaceTileBreakDown[type] = true;
         TileMaterials.SetForTileId(type, TileMaterials._materialsByName["Plant"]);
