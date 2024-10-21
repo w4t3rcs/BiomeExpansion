@@ -95,6 +95,25 @@ public static class TileHelper
         TileMaterials.SetForTileId(type, TileMaterials._materialsByName["Wood"]);
     }
 
+    public static void SetPlatform(ModTile tile)
+    {
+        Main.tileLighted[tile.Type] = true;
+        Main.tileFrameImportant[tile.Type] = true;
+        Main.tileSolidTop[tile.Type] = true;
+        Main.tileSolid[tile.Type] = true;
+        Main.tileNoAttach[tile.Type] = true;
+        Main.tileTable[tile.Type] = true;
+        Main.tileLavaDeath[tile.Type] = true;
+        TileID.Sets.Platforms[tile.Type] = true;
+        TileID.Sets.DisableSmartCursor[tile.Type] = true;
+        TileObjectData.newTile.CopyFrom(TileObjectData.Style1x1);
+        TileObjectData.newTile.CopyFrom(TileObjectData.GetTileData(TileID.Platforms, 0));
+        TileObjectData.newTile.LavaDeath = true;
+        TileObjectData.newTile.LavaPlacement = LiquidPlacement.NotAllowed;
+        tile.AddToArray(ref TileID.Sets.RoomNeeds.CountsAsDoor);
+        tile.AdjTiles = [TileID.Platforms];
+    }
+
     public static void Set3X2BiomeSurfaceDecoration(ushort type)
     {
         Main.tileFrameImportant[type] = true;

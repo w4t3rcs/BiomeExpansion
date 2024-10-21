@@ -8,6 +8,7 @@
 		
 	</PropertyGroup>
 	<ItemGroup>
+	  <Folder Include="Assets\Items\Walls\" />
 	  <Folder Include="Assets\Minions\" />
 	  <Folder Include="Assets\Projectiles\" />
 	</ItemGroup>

@@ -130,6 +130,11 @@ Items: {
 		DisplayName: Fear Piece
 		Tooltip: ""
 	}
+
+	InfectedMushroomWoodPlatform: {
+		DisplayName: Infected Mushroom Wood Platform
+		Tooltip: ""
+	}
 }
 
 Biomes: {
