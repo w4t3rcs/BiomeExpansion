@@ -14,14 +14,15 @@ public class InfectedMushroomCaveGenPass(string name, double loadWeight) : GenPa
     protected override void ApplyPass(GenerationProgress progress, GameConfiguration configuration)
     { 
         progress.Message = "Generating Cave Infected Mushroom biome...";
+        var caveBiomeBuilder = GenerationHelper.CreateCaveBiomeBuilder()
+            .Biome(BEBiome.InfectedMushroomCave)
+            .Deepness(125)
+            .IsDependentBiome()
+            .AboveBiome(BEBiome.InfectedMushroomSurface)
+            .GroundModification(GenerationHelper.HorizontalTunnelModification);
         if (WorldGen.crimson)
         {
-            GenerationHelper.CreateCaveBiomeBuilder()
-                .Biome(BEBiome.InfectedMushroomCave)
-                .Deepness(125)
-                .IsDependentBiome()
-                .AboveBiome(BEBiome.InfectedMushroomSurface)
-                .GroundModification(GenerationHelper.HorizontalTunnelModification)
+            caveBiomeBuilder = caveBiomeBuilder
                 .DefaultCaveTileGenerationStep()
                     .GenerationId(GenerationHelper.MainGenerationId)
                     .TileType(ModContent.TileType<CrimsonInfectedMushroomStone>())
@@ -67,7 +68,7 @@ public class InfectedMushroomCaveGenPass(string name, double loadWeight) : GenPa
                 .GroundDecorationGenerationStep()
                     .TileType(ModContent.TileType<CrimsonInfectedMushroomCaveThorns>())
                     .SoilTiles([(ushort)ModContent.TileType<CrimsonInfectedMushroomStone>()])
-                    .Rarity(25)
+                    .Rarity(50)
                     .IsPlant()
                     .IsBunch()
                     .AndCave()
@@ -82,17 +83,11 @@ public class InfectedMushroomCaveGenPass(string name, double loadWeight) : GenPa
                     .Rarity(100)
                     .Strength(WorldGen.genRand.Next(3, 6))
                     .Steps(WorldGen.genRand.Next(2, 6))
-                    .AndCave()
-                .Generate();
+                    .AndCave();
         }
         else 
         {
-            GenerationHelper.CreateCaveBiomeBuilder()
-                .Biome(BEBiome.InfectedMushroomCave)
-                .Deepness(125)
-                .IsDependentBiome()
-                .AboveBiome(BEBiome.InfectedMushroomSurface)
-                .GroundModification(GenerationHelper.HorizontalTunnelModification)
+            caveBiomeBuilder = caveBiomeBuilder
                 .DefaultCaveTileGenerationStep()
                     .GenerationId(GenerationHelper.MainGenerationId)
                     .TileType(ModContent.TileType<CorruptionInfectedMushroomStone>())
@@ -138,7 +133,7 @@ public class InfectedMushroomCaveGenPass(string name, double loadWeight) : GenPa
                 .GroundDecorationGenerationStep()
                     .TileType(ModContent.TileType<CorruptionInfectedMushroomCaveThorns>())
                     .SoilTiles([(ushort)ModContent.TileType<CorruptionInfectedMushroomStone>()])
-                    .Rarity(25)
+                    .Rarity(50)
                     .IsPlant()
                     .IsBunch()
                     .AndCave()
@@ -153,8 +148,9 @@ public class InfectedMushroomCaveGenPass(string name, double loadWeight) : GenPa
                     .Rarity(100)
                     .Strength(WorldGen.genRand.Next(3, 6))
                     .Steps(WorldGen.genRand.Next(2, 6))
-                    .AndCave()
-                .Generate();
+                    .AndCave();
         }
+        
+        caveBiomeBuilder.Generate();
     }
 }

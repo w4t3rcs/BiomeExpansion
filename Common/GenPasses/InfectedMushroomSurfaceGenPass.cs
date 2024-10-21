@@ -14,13 +14,15 @@ public class InfectedMushroomSurfaceGenPass(string name, double loadWeight) : Ge
     protected override void ApplyPass(GenerationProgress progress, GameConfiguration configuration)
     { 
         progress.Message = "Generating Surface Infected Mushroom biome...";
+        var surfaceBiomeBuilder = GenerationHelper.CreateSurfaceBiomeBuilder()
+            .Biome(BEBiome.InfectedMushroomSurface)
+            .Width(500)
+            .Height(20)
+            .IsNearEvil()
+            .GroundModification(GenerationHelper.DiagonalTunnelModification);
         if (WorldGen.crimson)
         {
-            GenerationHelper.CreateSurfaceBiomeBuilder()
-                .Biome(BEBiome.InfectedMushroomSurface)
-                .Width(500)
-                .Height(20)
-                .IsNearEvil()
+            surfaceBiomeBuilder = surfaceBiomeBuilder
                 .DefaultBiomeTileGenerationStep()
                     .GenerationId(GenerationHelper.DirtGenerationId)
                     .TileType(ModContent.TileType<InfectedMushroomDirt>())
@@ -76,16 +78,11 @@ public class InfectedMushroomSurfaceGenPass(string name, double loadWeight) : Ge
                     .Rarity(2)
                     .IsPlant()
                     .IsHanging()
-                    .AndSurface()
-                .Generate();
+                    .AndSurface();
         }
         else 
         {
-            GenerationHelper.CreateSurfaceBiomeBuilder()
-                .Biome(BEBiome.InfectedMushroomSurface)
-                .Width(500)
-                .Height(20)
-                .IsNearEvil()
+            surfaceBiomeBuilder = surfaceBiomeBuilder
                 .DefaultBiomeTileGenerationStep()
                     .GenerationId(GenerationHelper.DirtGenerationId)
                     .TileType(ModContent.TileType<InfectedMushroomDirt>())
@@ -141,13 +138,9 @@ public class InfectedMushroomSurfaceGenPass(string name, double loadWeight) : Ge
                     .Rarity(2)
                     .IsPlant()
                     .IsHanging()
-                    .AndSurface()
-                .GroundDecorationGenerationStep()
-                    .TileType(ModContent.TileType<CorruptionInfectedMushroomLilyPad>())
-                    .Rarity(2)
-                    .IsPlant()
-                    .AndSurface()
-                .Generate();
+                    .AndSurface();
         }
+        
+        surfaceBiomeBuilder.Generate();
     }
 }
