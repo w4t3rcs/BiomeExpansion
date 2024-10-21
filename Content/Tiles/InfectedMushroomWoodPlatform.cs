@@ -15,8 +15,8 @@ public class InfectedMushroomWoodPlatform : ModTile
         TileHelper.SetPlatform(this);
         TileObjectData.addTile(Type);
         HitSound = SoundID.Dig;
-        DustType = DustID.Corruption;
-        AddMapEntry(Color.MediumPurple);
+        DustType = DustID.Ebonwood;
+        AddMapEntry(Color.Cyan);
         RegisterItemDrop(ModContent.ItemType<Items.Placeable.InfectedMushroomWoodPlatform>());
     }
 

@@ -135,6 +135,16 @@ Items: {
 		DisplayName: Infected Mushroom Wood Platform
 		Tooltip: ""
 	}
+
+	CorruptionInfectedMushroomWoodTorch: {
+		DisplayName: Corruption Infected Mushroom Wood Torch
+		Tooltip: ""
+	}
+
+	CorruptionInfectedMushroomWoodCampfire: {
+		DisplayName: Corruption Infected Mushroom Wood Campfire
+		Tooltip: ""
+	}
 }
 
 Biomes: {

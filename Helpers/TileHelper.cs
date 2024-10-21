@@ -113,7 +113,66 @@ public static class TileHelper
         tile.AddToArray(ref TileID.Sets.RoomNeeds.CountsAsDoor);
         tile.AdjTiles = [TileID.Platforms];
     }
-
+    
+    public static void SetTorch(ModTile tile)
+    {
+        Main.tileLighted[tile.Type] = true;
+        Main.tileFrameImportant[tile.Type] = true;
+        Main.tileSolid[tile.Type] = false;
+        Main.tileNoAttach[tile.Type] = true;
+        Main.tileNoFail[tile.Type] = true;
+        Main.tileWaterDeath[tile.Type] = true;
+        Main.tileLavaDeath[tile.Type] = true;
+        TileID.Sets.DisableSmartCursor[tile.Type] = true;
+        TileID.Sets.Torch[tile.Type] = true;
+        TileID.Sets.FramesOnKillWall[tile.Type] = true;
+        TileObjectData.newTile.CopyFrom(TileObjectData.StyleTorch);
+        TileObjectData.newTile.WaterDeath = true;
+        TileObjectData.newTile.LavaDeath = true;
+        TileObjectData.newTile.WaterPlacement = LiquidPlacement.NotAllowed;
+        TileObjectData.newTile.LavaPlacement = LiquidPlacement.NotAllowed;
+        TileObjectData.newTile.AnchorBottom = new AnchorData(AnchorType.SolidTile | AnchorType.SolidSide, TileObjectData.newTile.Width, 0);
+        TileObjectData.newAlternate.CopyFrom(TileObjectData.StyleTorch);
+        TileObjectData.newAlternate.WaterDeath = true;
+        TileObjectData.newAlternate.LavaDeath = true;
+        TileObjectData.newAlternate.WaterPlacement = LiquidPlacement.NotAllowed;
+        TileObjectData.newAlternate.LavaPlacement = LiquidPlacement.NotAllowed;
+        TileObjectData.newAlternate.AnchorLeft = new AnchorData(AnchorType.SolidTile | AnchorType.SolidSide | AnchorType.Tree | AnchorType.AlternateTile, TileObjectData.newTile.Height, 0);
+        TileObjectData.newAlternate.AnchorAlternateTiles = [124];
+        TileObjectData.addAlternate(1);
+        TileObjectData.newAlternate.CopyFrom(TileObjectData.StyleTorch);
+        TileObjectData.newAlternate.WaterDeath = true;
+        TileObjectData.newAlternate.LavaDeath = true;
+        TileObjectData.newAlternate.WaterPlacement = LiquidPlacement.NotAllowed;
+        TileObjectData.newAlternate.LavaPlacement = LiquidPlacement.NotAllowed;
+        TileObjectData.newAlternate.AnchorRight = new AnchorData(AnchorType.SolidTile | AnchorType.SolidSide | AnchorType.Tree | AnchorType.AlternateTile, TileObjectData.newTile.Height, 0);
+        TileObjectData.newAlternate.AnchorAlternateTiles = [124];
+        TileObjectData.addAlternate(2);
+        TileObjectData.newAlternate.CopyFrom(TileObjectData.StyleTorch);
+        TileObjectData.newAlternate.WaterDeath = true;
+        TileObjectData.newAlternate.LavaDeath = true;
+        TileObjectData.newAlternate.WaterPlacement = LiquidPlacement.NotAllowed;
+        TileObjectData.newAlternate.LavaPlacement = LiquidPlacement.NotAllowed;
+        TileObjectData.newAlternate.AnchorWall = true;
+        TileObjectData.addAlternate(0);
+        tile.AddToArray(ref TileID.Sets.RoomNeeds.CountsAsTorch);
+        tile.AdjTiles = [TileID.Torches];
+    }
+    
+    public static void SetCampfire(ModTile tile)
+    {
+        Main.tileLighted[tile.Type] = true;
+        Main.tileFrameImportant[tile.Type] = true;
+        Main.tileWaterDeath[tile.Type] = true;
+        Main.tileLavaDeath[tile.Type] = true;
+        TileID.Sets.HasOutlines[tile.Type] = true;
+        TileID.Sets.InteractibleByNPCs[tile.Type] = true;
+        TileID.Sets.Campfire[tile.Type] = true;
+        tile.AdjTiles = [TileID.Campfire];
+        TileObjectData.newTile.CopyFrom(TileObjectData.GetTileData(TileID.Campfire, 0));
+        TileObjectData.newTile.StyleLineSkip = 9; 
+    }
+    
     public static void Set3X2BiomeSurfaceDecoration(ushort type)
     {
         Main.tileFrameImportant[type] = true;
