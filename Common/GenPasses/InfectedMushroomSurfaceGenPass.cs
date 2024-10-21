@@ -18,8 +18,7 @@ public class InfectedMushroomSurfaceGenPass(string name, double loadWeight) : Ge
             .Biome(BEBiome.InfectedMushroomSurface)
             .Width(500)
             .Height(20)
-            .IsNearEvil()
-            .GroundModification(GenerationHelper.HorizontalTunnelModification);
+            .IsNearEvil();
         if (WorldGen.crimson)
         {
             surfaceBiomeBuilder = surfaceBiomeBuilder

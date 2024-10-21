@@ -64,8 +64,8 @@ public static class PlantHelper
     private static void PlaceBunch(ushort plantTile, int x, int y, sbyte frameCount, sbyte rarity, ushort[] soilTiles)
     {
         if (!CheckTopPositionToPlace(rarity, soilTiles, x, y + 1)) return;
-        int horizontalRange = WorldGen.genRand.Next(4, 8);
-        int verticalRange = WorldGen.genRand.Next(3, 5);
+        int horizontalRange = WorldGen.genRand.Next(4, 12);
+        int verticalRange = WorldGen.genRand.Next(2, 6);
         for (int i = 0; i < verticalRange; i++)
         {
             for (int j = 0; j < horizontalRange; j++)
