@@ -183,11 +183,28 @@ public static class TileHelper
         TileObjectData.newTile.CopyFrom(TileObjectData.StyleOnTable1x1);
         TileObjectData.newTile.CoordinateHeights = [20];
         TileObjectData.newTile.WaterPlacement = LiquidPlacement.Allowed;
+        TileObjectData.newTile.LavaPlacement = LiquidPlacement.NotAllowed;
         TileObjectData.newTile.DrawYOffset = -4;
         TileObjectData.newTile.StyleLineSkip = 2;
         tile.AdjTiles = [TileID.Candles];
         tile.AddToArray(ref TileID.Sets.RoomNeeds.CountsAsTorch);
         TileID.Sets.DisableSmartCursor[tile.Type] = true;
+    }
+
+    public static void SetCandelabra(ModTile tile)
+    {
+        Main.tileLighted[tile.Type] = true;
+        Main.tileFrameImportant[tile.Type] = true;
+        Main.tileLavaDeath[tile.Type] = true;
+        Main.tileWaterDeath[tile.Type] = false;
+        TileID.Sets.DisableSmartCursor[tile.Type] = true;
+        TileObjectData.newTile.CopyFrom(TileObjectData.Style2x2);
+        TileObjectData.newTile.LavaDeath = true;
+        TileObjectData.newTile.WaterPlacement = LiquidPlacement.Allowed;
+        TileObjectData.newTile.LavaPlacement = LiquidPlacement.NotAllowed;
+        TileObjectData.newTile.StyleLineSkip = 2;
+        tile.AddToArray(ref TileID.Sets.RoomNeeds.CountsAsTorch);
+        tile.AdjTiles = [TileID.Candelabras];
     }
     
     public static void Set3X2BiomeSurfaceDecoration(ushort type)
