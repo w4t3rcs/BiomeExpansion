@@ -73,7 +73,7 @@ public static class FrameHelper
         {
             float shakeX = Utils.RandomInt(ref randomShakeEffect, -10, 11) * 0.15f;
             float shakeY = Utils.RandomInt(ref randomShakeEffect, -10, 1) * 0.35f;
-            Main.spriteBatch.Draw(flameTexture, new Vector2(drawPositionX + shakeX, drawPositionY + shakeY + yOffset) + zero, new Rectangle(tile.TileFrameX + offsetX, tile.TileFrameY + offsetY, width, height), new Color(100, 100, 100, 0), 0f, default(Vector2), 1f, SpriteEffects.None, 0f);
+            Main.spriteBatch.Draw(flameTexture, new Vector2(drawPositionX + shakeX, drawPositionY + shakeY + yOffset) + zero, new Rectangle(tile.TileFrameX + offsetX, tile.TileFrameY + offsetY, width, height), new Color(100, 100, 100, 0), 0f, default, 1f, SpriteEffects.None, 0f);
         }
     }
     

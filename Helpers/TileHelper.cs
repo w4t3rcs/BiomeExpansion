@@ -222,6 +222,26 @@ public static class TileHelper
         tile.AdjTiles = [TileID.Lamps];
     }
     
+    public static void SetLantern(ModTile tile)
+    {
+        Main.tileLighted[tile.Type] = true;
+        Main.tileFrameImportant[tile.Type] = true;
+        Main.tileLavaDeath[tile.Type] = true;
+        Main.tileWaterDeath[tile.Type] = false;
+        TileID.Sets.DisableSmartCursor[tile.Type] = true;
+        TileObjectData.newTile.CopyFrom(TileObjectData.Style1x2Top);
+        TileObjectData.newTile.LavaDeath = true;
+        TileObjectData.newTile.LavaPlacement = LiquidPlacement.NotAllowed;
+        TileObjectData.newTile.StyleLineSkip = 2;
+        TileObjectData.newTile.DrawYOffset = -2;
+        TileObjectData.newAlternate.CopyFrom(TileObjectData.newTile);
+        TileObjectData.newAlternate.AnchorTop = new AnchorData(AnchorType.Platform, TileObjectData.newTile.Width, 0);
+        TileObjectData.newAlternate.DrawYOffset = -10;
+        TileObjectData.addAlternate(0);
+        tile.AddToArray(ref TileID.Sets.RoomNeeds.CountsAsTorch);
+        tile.AdjTiles = [TileID.HangingLanterns];
+    }
+    
     public static void Set3X2BiomeSurfaceDecoration(ushort type)
     {
         Main.tileFrameImportant[type] = true;
