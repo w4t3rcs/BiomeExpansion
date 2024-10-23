@@ -87,4 +87,29 @@ public static class FrameHelper
         Main.dust[dust].velocity *= 0.3f;
         Main.dust[dust].velocity.Y -= 1.5f;
     }
+    
+    //Thx Calamity Mod for this great method :)
+    public static void LightHitWire(int type, int i, int j, int tileX, int tileY)
+    {
+        int x = i - Main.tile[i, j].TileFrameX / 18 % tileX;
+        int y = j - Main.tile[i, j].TileFrameY / 18 % tileY;
+        int tile = 18 * tileX;
+        for (int l = x; l < x + tileX; l++)
+        {
+            for (int m = y; m < y + tileY; m++)
+            {
+                if (Main.tile[l, m].HasTile && Main.tile[l, m].TileType == type)
+                    Main.tile[l, m].TileFrameX += (short)(Main.tile[l, m].TileFrameX < tile ? tile : -tile);
+            }
+        }
+
+        if (Wiring.running)
+        {
+            for (int k = 0; k < tileX; k++)
+            {
+                for (int l = 0; l < tileY; l++)
+                    Wiring.SkipWire(x + k, y + l);
+            }
+        }
+    }
 }
