@@ -33,8 +33,8 @@ public class FearPiece : ModItem
     public override bool PreDrawInInventory(SpriteBatch spriteBatch, Vector2 position, Rectangle frame, Color drawColor, Color itemColor,
         Vector2 origin, float scale)
     {
-        const float newScale = 1f;
-        position += new Vector2(0f, -4) * newScale;
+        const float newScale = 0.9f;
+        position += new Vector2(1f, -6) * newScale;
         spriteBatch.Draw(TextureAssets.Item[Type].Value, position, frame, drawColor, 0f, origin, newScale, SpriteEffects.None, 0);
         return false;
     }
