@@ -242,6 +242,80 @@ public static class TileHelper
         tile.AdjTiles = [TileID.HangingLanterns];
     }
     
+    public static void SetBookcase(ModTile tile)
+    {
+        Main.tileSolidTop[tile.Type] = true;
+        Main.tileLighted[tile.Type] = true;
+        Main.tileFrameImportant[tile.Type] = true;
+        Main.tileTable[tile.Type] = true;
+        Main.tileLavaDeath[tile.Type] = true;
+        Main.tileWaterDeath[tile.Type] = false;
+        TileObjectData.newTile.CopyFrom(TileObjectData.Style3x4);
+        TileObjectData.newTile.LavaDeath = true;
+        TileObjectData.newTile.WaterPlacement = LiquidPlacement.Allowed;
+        TileObjectData.newTile.LavaPlacement = LiquidPlacement.NotAllowed;
+        TileObjectData.addTile(tile.Type);
+        tile.AddToArray(ref TileID.Sets.RoomNeeds.CountsAsTable);
+        tile.AdjTiles = [TileID.Bookcases];
+    }
+    
+    public static void SetBathtub(ModTile tile)
+    {
+        Main.tileLighted[tile.Type] = true;
+        Main.tileFrameImportant[tile.Type] = true;
+        Main.tileLavaDeath[tile.Type] = true;
+        Main.tileWaterDeath[tile.Type] = false;
+        TileObjectData.newTile.Width = 4;
+        TileObjectData.newTile.Height = 2;
+        TileObjectData.newTile.CoordinateHeights = [16, 18];
+        TileObjectData.newTile.CoordinateWidth = 16;
+        TileObjectData.newTile.CoordinatePadding = 2;
+        TileObjectData.newTile.Direction = TileObjectDirection.PlaceLeft;
+        TileObjectData.newTile.StyleHorizontal = true;
+        TileObjectData.newTile.Origin = new Point16(1, 1);
+        TileObjectData.newTile.UsesCustomCanPlace = true;
+        TileObjectData.newTile.AnchorBottom = new AnchorData(AnchorType.SolidTile | AnchorType.SolidWithTop, 4, 0);
+        TileObjectData.newTile.LavaDeath = true;
+        TileObjectData.newTile.WaterPlacement = LiquidPlacement.Allowed;
+        TileObjectData.newTile.LavaPlacement = LiquidPlacement.NotAllowed;
+        TileObjectData.newAlternate.CopyFrom(TileObjectData.newTile);
+        TileObjectData.newAlternate.Direction = TileObjectDirection.PlaceRight;
+        TileObjectData.addAlternate(1);
+        TileObjectData.addTile(tile.Type);
+        tile.AddToArray(ref TileID.Sets.RoomNeeds.CountsAsTable);       
+    }
+
+    public static void SetBed(ModTile tile)
+    {
+        Main.tileFrameImportant[tile.Type] = true;
+        Main.tileLavaDeath[tile.Type] = true;
+        Main.tileWaterDeath[tile.Type] = false;
+        TileID.Sets.HasOutlines[tile.Type] = true;
+        TileID.Sets.CanBeSleptIn[tile.Type] = true;
+        TileID.Sets.InteractibleByNPCs[tile.Type] = true;
+        TileID.Sets.IsValidSpawnPoint[tile.Type] = true;
+        TileID.Sets.DisableSmartCursor[tile.Type] = true;
+        TileObjectData.newTile.Width = 4;
+        TileObjectData.newTile.Height = 2;
+        TileObjectData.newTile.CoordinateHeights = [16, 18];
+        TileObjectData.newTile.CoordinateWidth = 16;
+        TileObjectData.newTile.CoordinatePadding = 2;
+        TileObjectData.newTile.Direction = TileObjectDirection.PlaceLeft;
+        TileObjectData.newTile.StyleHorizontal = true;
+        TileObjectData.newTile.Origin = new Point16(1, 1);
+        TileObjectData.newTile.UsesCustomCanPlace = true;
+        TileObjectData.newTile.AnchorBottom = new AnchorData(AnchorType.SolidTile | AnchorType.SolidWithTop, 4, 0);
+        TileObjectData.newTile.LavaDeath = true;
+        TileObjectData.newTile.WaterPlacement = LiquidPlacement.Allowed;
+        TileObjectData.newTile.LavaPlacement = LiquidPlacement.NotAllowed;
+        TileObjectData.newAlternate.CopyFrom(TileObjectData.newTile);
+        TileObjectData.newAlternate.Direction = TileObjectDirection.PlaceRight;
+        TileObjectData.addAlternate(1);
+        TileObjectData.addTile(tile.Type);
+        tile.AddToArray(ref TileID.Sets.RoomNeeds.CountsAsChair);
+        tile.AdjTiles = [TileID.Beds];
+    }
+    
     public static void Set3X2BiomeSurfaceDecoration(ushort type)
     {
         Main.tileFrameImportant[type] = true;

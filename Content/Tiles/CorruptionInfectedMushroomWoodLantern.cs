@@ -50,16 +50,15 @@ public class CorruptionInfectedMushroomWoodLantern : ModTile
         }
     }
     
-    // It doesn't work :(
-    // public override void PostDraw(int i, int j, SpriteBatch spriteBatch)
-    // {
-    //     FrameHelper.DrawFlameEffect(ModContent.Request<Texture2D>("BiomeExpansion/Assets/Tiles/Furniture/CorruptionInfectedMushroomWoodLanternFlame").Value, i, j, 0, -2);
-    // }
+    public override void PostDraw(int i, int j, SpriteBatch spriteBatch)
+    {
+        FrameHelper.DrawFlameEffect(ModContent.Request<Texture2D>("BiomeExpansion/Assets/Tiles/Furniture/CorruptionInfectedMushroomWoodLanternFlame").Value, i, j, 0, -8);
+    }
 
     public override void DrawEffects(int i, int j, SpriteBatch spriteBatch, ref TileDrawInfo drawData)
     {
         if (Main.tile[i, j].TileFrameX < 18)
-            FrameHelper.DrawFlameSparks(DustID.BlueFlare, 5, i, j);
+            FrameHelper.DrawFlameSparks(DustID.BlueFlare, 7, i, j);
     }
     
     public override void HitWire(int i, int j)
