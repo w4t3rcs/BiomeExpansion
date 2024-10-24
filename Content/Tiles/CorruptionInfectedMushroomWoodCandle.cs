@@ -37,8 +37,8 @@ public class CorruptionInfectedMushroomWoodCandle : ModTile
         if (tile.TileFrameX < 18)
         {
             r = 0f;
-            g = 0.3f;
-            b = 1.2f;
+            g = 0.6f;
+            b = 1.0f;
         }
         else
         {

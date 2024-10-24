@@ -124,8 +124,8 @@ public class CorruptionInfectedMushroomWoodCampfire : ModTile
 			float pulse = Main.rand.Next(28, 42) * 0.005f;
 			pulse += (270 - Main.mouseTextColor) / 700f;
 			r = 0f + pulse;
-			g = 0.2f + pulse;
-			b = 1.2f + pulse;
+			g = 0.6f + pulse;
+			b = 1.0f + pulse;
 		}
 	}
 
