@@ -4,7 +4,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace BiomeExpansion.Content.Items.Placeable;
+namespace BiomeExpansion.Content.Items.Placeable.Furniture;
 
 public class CorruptionInfectedMushroomWoodTorch : ModItem
 {

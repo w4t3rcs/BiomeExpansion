@@ -17,7 +17,7 @@ public class InfectedMushroomWoodPlatform : ModTile
         HitSound = SoundID.Dig;
         DustType = DustID.Ebonwood;
         AddMapEntry(Color.Cyan);
-        RegisterItemDrop(ModContent.ItemType<Items.Placeable.InfectedMushroomWoodPlatform>());
+        RegisterItemDrop(ModContent.ItemType<Items.Placeable.Furniture.InfectedMushroomWoodPlatform>());
     }
 
     public override void NumDust(int i, int j, bool fail, ref int num)

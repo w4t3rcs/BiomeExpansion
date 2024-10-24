@@ -20,7 +20,7 @@ public class CorruptionInfectedMushroomWoodLamp : ModTile
         HitSound = SoundID.Dig;
         DustType = DustID.BlueTorch;
         AddMapEntry(Color.Cyan);
-        // RegisterItemDrop(ModContent.ItemType<Items.Placeable.CorruptionInfectedMushroomWoodLamp>());
+        RegisterItemDrop(ModContent.ItemType<Items.Placeable.Furniture.CorruptionInfectedMushroomWoodLamp>());
     }
     
     public override void ModifyLight(int i, int j, ref float r, ref float g, ref float b)
@@ -48,7 +48,7 @@ public class CorruptionInfectedMushroomWoodLamp : ModTile
     public override void DrawEffects(int i, int j, SpriteBatch spriteBatch, ref TileDrawInfo drawData)
     {
         if (Main.tile[i, j].TileFrameX < 18)
-            FrameHelper.DrawFlameSparks(DustID.BlueFlare, 5, i, j - 1);
+            FrameHelper.DrawFlameSparks(DustID.BlueFlare, 7, i, j - 1);
     }
     
     public override void HitWire(int i, int j)

@@ -25,7 +25,7 @@ public class CorruptionInfectedMushroomWoodCampfire : ModTile
         HitSound = SoundID.Dig;
         DustType = DustID.BlueTorch;
         AddMapEntry(Color.Cyan);
-        RegisterItemDrop(ModContent.ItemType<Items.Placeable.CorruptionInfectedMushroomWoodCampfire>());
+        RegisterItemDrop(ModContent.ItemType<Items.Placeable.Furniture.CorruptionInfectedMushroomWoodCampfire>());
     }
     
     public override void NearbyEffects(int i, int j, bool closer) {

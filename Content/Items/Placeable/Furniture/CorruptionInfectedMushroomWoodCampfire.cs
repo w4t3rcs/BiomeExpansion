@@ -1,7 +1,7 @@
 ﻿using BiomeExpansion.Helpers;
 using Terraria.ModLoader;
 
-namespace BiomeExpansion.Content.Items.Placeable;
+namespace BiomeExpansion.Content.Items.Placeable.Furniture;
 
 public class CorruptionInfectedMushroomWoodCampfire : ModItem
 {

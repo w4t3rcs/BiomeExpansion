@@ -20,7 +20,7 @@ public class CorruptionInfectedMushroomWoodCandelabra : ModTile
         HitSound = SoundID.Dig;
         DustType = DustID.BlueTorch;
         AddMapEntry(Color.Cyan);
-        // RegisterItemDrop(ModContent.ItemType<Items.Placeable.CorruptionInfectedMushroomWoodCandelabra>());
+        RegisterItemDrop(ModContent.ItemType<Items.Placeable.Furniture.CorruptionInfectedMushroomWoodCandelabra>());
     }
     
     public override void ModifyLight(int i, int j, ref float r, ref float g, ref float b)

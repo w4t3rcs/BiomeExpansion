@@ -145,6 +145,26 @@ Items: {
 		DisplayName: Corruption Infected Mushroom Wood Campfire
 		Tooltip: ""
 	}
+
+	CorruptionInfectedMushroomWoodCandelabra: {
+		DisplayName: Corruption Infected Mushroom Wood Candelabra
+		Tooltip: ""
+	}
+
+	CorruptionInfectedMushroomWoodCandle: {
+		DisplayName: Corruption Infected Mushroom Wood Candle
+		Tooltip: ""
+	}
+
+	CorruptionInfectedMushroomWoodLamp: {
+		DisplayName: Corruption Infected Mushroom Wood Lamp
+		Tooltip: ""
+	}
+
+	CorruptionInfectedMushroomWoodLantern: {
+		DisplayName: Corruption Infected Mushroom Wood Lantern
+		Tooltip: ""
+	}
 }
 
 Biomes: {

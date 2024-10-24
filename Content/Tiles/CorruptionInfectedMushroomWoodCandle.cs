@@ -20,7 +20,7 @@ public class CorruptionInfectedMushroomWoodCandle : ModTile
         HitSound = SoundID.Dig;
         DustType = DustID.BlueTorch;
         AddMapEntry(Color.Cyan);
-        // RegisterItemDrop(ModContent.ItemType<Items.Placeable.CorruptionInfectedMushroomWoodCandle>());
+        RegisterItemDrop(ModContent.ItemType<Items.Placeable.Furniture.CorruptionInfectedMushroomWoodCandle>());
     }
 
     public override void MouseOver(int i, int j)
@@ -28,7 +28,7 @@ public class CorruptionInfectedMushroomWoodCandle : ModTile
         Player player = Main.LocalPlayer;
         player.noThrow = 2;
         player.cursorItemIconEnabled = true;
-        // player.cursorItemIconID = ModContent.ItemType<Items.Placeable.CorruptionInfectedMushroomWoodCandle>();
+        player.cursorItemIconID = ModContent.ItemType<Items.Placeable.Furniture.CorruptionInfectedMushroomWoodCandle>();
     }
 
     public override void ModifyLight(int i, int j, ref float r, ref float g, ref float b)

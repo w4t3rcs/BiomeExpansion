@@ -21,7 +21,7 @@ public class CorruptionInfectedMushroomWoodTorch : ModTile
         HitSound = SoundID.Dig;
         DustType = DustID.BlueTorch;
         AddMapEntry(Color.Cyan);
-        RegisterItemDrop(ModContent.ItemType<Items.Placeable.CorruptionInfectedMushroomWoodTorch>());
+        RegisterItemDrop(ModContent.ItemType<Items.Placeable.Furniture.CorruptionInfectedMushroomWoodTorch>());
     }
 
     public override void MouseOver(int i, int j)
@@ -29,7 +29,7 @@ public class CorruptionInfectedMushroomWoodTorch : ModTile
         Player player = Main.LocalPlayer;
         player.noThrow = 2;
         player.cursorItemIconEnabled = true;
-        player.cursorItemIconID = ModContent.ItemType<Items.Placeable.CorruptionInfectedMushroomWoodTorch>();
+        player.cursorItemIconID = ModContent.ItemType<Items.Placeable.Furniture.CorruptionInfectedMushroomWoodTorch>();
     }
 
     public override void ModifyLight(int i, int j, ref float r, ref float g, ref float b)

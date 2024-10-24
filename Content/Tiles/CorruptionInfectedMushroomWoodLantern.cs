@@ -20,7 +20,7 @@ public class CorruptionInfectedMushroomWoodLantern : ModTile
         HitSound = SoundID.Dig;
         DustType = DustID.BlueTorch;
         AddMapEntry(Color.Cyan);
-        // RegisterItemDrop(ModContent.ItemType<Items.Placeable.CorruptionInfectedMushroomWoodLantern>());
+        RegisterItemDrop(ModContent.ItemType<Items.Placeable.Furniture.CorruptionInfectedMushroomWoodLantern>());
     }
 
     public override void SetDrawPositions(int i, int j, ref int width, ref int offsetY, ref int height, ref short tileFrameX, ref short tileFrameY)
@@ -49,11 +49,12 @@ public class CorruptionInfectedMushroomWoodLantern : ModTile
             b = 0f;
         }
     }
-
-    public override void PostDraw(int i, int j, SpriteBatch spriteBatch)
-    {
-        FrameHelper.DrawFlameEffect(ModContent.Request<Texture2D>("BiomeExpansion/Assets/Tiles/Furniture/CorruptionInfectedMushroomWoodLanternFlame").Value, i, j, 0, -2);
-    }
+    
+    // It doesn't work :(
+    // public override void PostDraw(int i, int j, SpriteBatch spriteBatch)
+    // {
+    //     FrameHelper.DrawFlameEffect(ModContent.Request<Texture2D>("BiomeExpansion/Assets/Tiles/Furniture/CorruptionInfectedMushroomWoodLanternFlame").Value, i, j, 0, -2);
+    // }
 
     public override void DrawEffects(int i, int j, SpriteBatch spriteBatch, ref TileDrawInfo drawData)
     {
