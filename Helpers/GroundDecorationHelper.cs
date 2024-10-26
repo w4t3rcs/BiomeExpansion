@@ -47,6 +47,6 @@ public static class GroundDecorationHelper
     private static void PlaceDecoration(ushort decorationTile, int x, int y, int frameCount, int width, int height)
     {
         WorldGen.PlaceTile(x, y, decorationTile);
-        if (frameCount != 0) FrameHelper.SetRandomFrame(x, y, frameCount, width * 16 + FrameHelper.FramePadding, height);
+        if (frameCount != 0) FrameHelper.SetRandomFrame(x, y, frameCount, width, height);
     }
 }

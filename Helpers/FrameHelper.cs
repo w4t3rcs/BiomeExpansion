@@ -8,20 +8,37 @@ namespace BiomeExpansion.Helpers;
 
 public static class FrameHelper
 {
+    public const int FrameSize = 16;
     public const int FramePadding = 2;
-    public const int FrameSize = 16 + FramePadding;
     
-    public static void SetRandomFrame(int x, int y, int frameCount, int frameWidth = FrameSize, int frameHeight = 1)
+    public static void SetRandomFrame(int x, int y, int frameCount, int frameWidth = 1, int frameHeight = 1)
     {
         SetFrameX(x, y, WorldGen.genRand.Next(0, frameCount), frameWidth, frameHeight);
     }
     
-    public static void SetFrameX(int x, int y, int frameNumber, int frameWidth = FrameSize, int frameHeight = 1)
+    public static void SetFrameX(int x, int y, int frameNumber, int frameWidth = 1, int frameHeight = 1)
     {
-        for (int i = 0; i < frameHeight; i++)
+        if (frameWidth > 1 || frameHeight > 1)
         {
-            Tile tile = Main.tile[x, y - i];
-            tile.TileFrameX =(short)(frameNumber * frameWidth);
+            for (int i = 1; i < frameWidth; i++)
+            {
+                for (int j = 0; j < frameHeight; j++)
+                {
+                    Tile tile = Main.tile[x + i, y - j];
+                    tile.TileFrameX =(short)(frameNumber * FrameSize * i);
+                }
+            }
+        
+            for (int j = 0; j < frameHeight; j++)
+            {
+                Tile tile = Main.tile[x + frameWidth - 1, y - j];
+                tile.TileFrameX = (short)(frameNumber * (FrameSize * frameWidth + FramePadding));
+            }   
+        }
+        else
+        {
+            Tile tile = Main.tile[x, y];
+            tile.TileFrameX =(short)(frameNumber * (FrameSize + FramePadding));
         }
     }
 
