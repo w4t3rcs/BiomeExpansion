@@ -24,7 +24,7 @@ public static class FrameHelper
             {
                 for (int j = 0; j < frameHeight; j++)
                 {
-                    Tile tile = Main.tile[x + i, y - j];
+                    Tile tile = Main.tile[x + i - 1, y - j];
                     tile.TileFrameX =(short)(frameNumber * FrameSize * i);
                 }
             }
