@@ -165,6 +165,16 @@ Items: {
 		DisplayName: Corruption Infected Mushroom Wood Lantern
 		Tooltip: ""
 	}
+
+	CorruptionInfectedMushroomOldStone: {
+		DisplayName: Corruption Infected Mushroom Old Stone
+		Tooltip: ""
+	}
+
+	CrimsonInfectedMushroomOldStone: {
+		DisplayName: Crimson Infected Mushroom Old Stone
+		Tooltip: ""
+	}
 }
 
 Biomes: {

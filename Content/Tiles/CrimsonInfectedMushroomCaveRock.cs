@@ -13,7 +13,7 @@ public class CrimsonInfectedMushroomCaveRock : ModTile
     public override void SetStaticDefaults()
     {
         TileHelper.SetCustomXCustomBiomeSurfaceDecoration(Type, 3, 2, true, 3);
-        TileObjectData.newTile.AnchorValidTiles = [ModContent.TileType<CrimsonInfectedMushroomStone>()];
+        TileObjectData.newTile.AnchorValidTiles = [ModContent.TileType<CrimsonInfectedMushroomStone>(), ModContent.TileType<CrimsonInfectedMushroomOldStone>()];
         TileObjectData.addTile(Type);
         HitSound = SoundID.Dig;
         DustType = DustID.CrimsonPlants;

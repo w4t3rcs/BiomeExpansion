@@ -5,7 +5,7 @@ namespace BiomeExpansion.Helpers;
 
 public static class OreHelper
 {
-    public static void GenerateOre(BEBiome biome, sbyte rarity, float strength, int steps, ushort ore)
+    public static void GenerateOre(BEBiome biome, ushort rarity, float strength, int steps, ushort ore)
     {
         var (leftX, rightX) = GenerationHelper.BEBiomesXCoordinates[biome];
         var (startY, endY) = GenerationHelper.BEBiomesYCoordinates[biome];
@@ -24,7 +24,7 @@ public static class OreHelper
         WorldGen.OreRunner(x, y, strength, steps, ore);
     }
     
-    private static bool CheckPositionToPlace(sbyte rarity, int x, int y)
+    private static bool CheckPositionToPlace(ushort rarity, int x, int y)
     {
         return WorldGen.genRand.NextBool(rarity) && Main.tile[x, y].HasTile;
     }

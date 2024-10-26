@@ -7,7 +7,7 @@ namespace BiomeExpansion.Helpers;
 
 public static class PlantHelper
 {
-    public static void GeneratePlant(BEBiome biome, sbyte rarity, ushort plantTile, ushort[] soilTiles, 
+    public static void GeneratePlant(BEBiome biome, ushort rarity, ushort plantTile, ushort[] soilTiles, 
         sbyte frameCount = 0, sbyte width = 1, sbyte height = 1, 
         bool isVine = false, bool isBunch = false, bool isSeaOats = false, bool isLilyPad = false)
     {
@@ -31,7 +31,7 @@ public static class PlantHelper
         }
     }
     
-    private static bool CheckBottomPositionToPlace(sbyte rarity, ushort[] soilTiles, int x, int y, int range)
+    private static bool CheckBottomPositionToPlace(ushort rarity, ushort[] soilTiles, int x, int y, int range)
     {
         if (soilTiles.Contains(Main.tile[x, y].TileType) && !Main.tile[x, y].TopSlope && WorldGen.genRand.NextBool(rarity))
         {
@@ -46,7 +46,7 @@ public static class PlantHelper
         return false;
     }
     
-    private static void PlaceVine(ushort plantTile, int x, int y, sbyte rarity, ushort[] soilTiles)
+    private static void PlaceVine(ushort plantTile, int x, int y, ushort rarity, ushort[] soilTiles)
     {
         int range = WorldGen.genRand.Next(2, 12);
         if (!CheckBottomPositionToPlace(rarity, soilTiles, x, y, range)) return;
@@ -61,7 +61,7 @@ public static class PlantHelper
         }
     }
     
-    private static void PlaceBunch(ushort plantTile, int x, int y, sbyte frameCount, sbyte rarity, ushort[] soilTiles)
+    private static void PlaceBunch(ushort plantTile, int x, int y, sbyte frameCount, ushort rarity, ushort[] soilTiles)
     {
         if (!CheckTopPositionToPlace(rarity, soilTiles, x, y + 1)) return;
         int horizontalRange = WorldGen.genRand.Next(4, 12);
@@ -84,7 +84,7 @@ public static class PlantHelper
         }
     }
     
-    private static void PlaceSeaOats(ushort plantTile, int x, int y, sbyte rarity, ushort[] soilTiles)
+    private static void PlaceSeaOats(ushort plantTile, int x, int y, ushort rarity, ushort[] soilTiles)
     {
         if (!CheckTopPositionToPlace(rarity, soilTiles, x, y + 1)) return;
         int horizontalRange = WorldGen.genRand.Next(6, 16);
@@ -106,14 +106,14 @@ public static class PlantHelper
         }
     }
     
-    private static void PlacePlant(ushort plantTile, int x, int y, int width, int height, sbyte frameCount, sbyte rarity, ushort[] soilTiles)
+    private static void PlacePlant(ushort plantTile, int x, int y, int width, int height, sbyte frameCount, ushort rarity, ushort[] soilTiles)
     {
         if (!CheckTopPositionToPlace(rarity, soilTiles, x, y + 1, width, height)) return;
         WorldGen.PlaceTile(x, y, plantTile);
         FrameHelper.SetRandomFrame(x, y, frameCount);
     }
     
-    private static bool CheckTopPositionToPlace(sbyte rarity, ushort[] soilTiles, int x, int y, int width = 1, int height = 1)
+    private static bool CheckTopPositionToPlace(ushort rarity, ushort[] soilTiles, int x, int y, int width = 1, int height = 1)
     {
         if (!soilTiles.Contains(Main.tile[x, y].TileType) || Main.tile[x, y].BottomSlope || !WorldGen.genRand.NextBool(rarity)) return false;
         for (int i = 1; i <= height; i++)

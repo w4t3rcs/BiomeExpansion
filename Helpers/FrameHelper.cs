@@ -8,18 +8,21 @@ namespace BiomeExpansion.Helpers;
 
 public static class FrameHelper
 {
-    public const int FrameSize = 16;
-    public const int FramePadding = 16;
+    public const int FramePadding = 2;
+    public const int FrameSize = 16 + FramePadding;
     
-    public static void SetRandomFrame(int x, int y, int frameCount)
+    public static void SetRandomFrame(int x, int y, int frameCount, int frameWidth = FrameSize, int frameHeight = 1)
     {
-        SetFrameX(x, y, WorldGen.genRand.Next(0, frameCount));
+        SetFrameX(x, y, WorldGen.genRand.Next(0, frameCount), frameWidth, frameHeight);
     }
     
-    public static void SetFrameX(int x, int y, int frameNumber)
+    public static void SetFrameX(int x, int y, int frameNumber, int frameWidth = FrameSize, int frameHeight = 1)
     {
-        Tile tile = Main.tile[x, y];
-        tile.TileFrameX =(short)(frameNumber * (FrameSize + FramePadding));
+        for (int i = 0; i < frameHeight; i++)
+        {
+            Tile tile = Main.tile[x, y - i];
+            tile.TileFrameX =(short)(frameNumber * frameWidth);
+        }
     }
 
     public static void SetFramingSeaOats(int x, int y)

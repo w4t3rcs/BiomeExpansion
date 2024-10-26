@@ -6,7 +6,7 @@ public class OreGenerationStep
 {
     public GenerationHelper.SurfaceBiomeBuilder SurfaceBiomeBuilder;
     public GenerationHelper.CaveBiomeBuilder CaveBiomeBuilder;
-    public sbyte rarity;
+    public ushort rarity;
     public int tileType;
     public float strength;
     public int steps;
@@ -21,7 +21,7 @@ public class OreGenerationStep
         this.CaveBiomeBuilder = caveBiomeBuilder;
     }
     
-    public OreGenerationStep Rarity(sbyte rarity)
+    public OreGenerationStep Rarity(ushort rarity)
     {
         this.rarity = rarity;
         return this;

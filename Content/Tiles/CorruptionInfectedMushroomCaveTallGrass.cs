@@ -16,7 +16,7 @@ public class CorruptionInfectedMushroomCaveTallGrass : ModTile
     public override void SetStaticDefaults()
     {
         TileHelper.SetCustomXCustomFramedPlant(Type, 16);
-        TileObjectData.newTile.AnchorValidTiles = [ModContent.TileType<CorruptionInfectedMushroomStone>()];
+        TileObjectData.newTile.AnchorValidTiles = [ModContent.TileType<CorruptionInfectedMushroomStone>(), ModContent.TileType<CorruptionInfectedMushroomOldStone>()];
         TileObjectData.addTile(Type);
         HitSound = SoundID.Grass;
         DustType = DustID.CorruptPlants;

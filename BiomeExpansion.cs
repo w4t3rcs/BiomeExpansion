@@ -17,14 +17,6 @@ namespace BiomeExpansion
 			{
 				SkyManager.Instance["BiomeExpansion:CorruptionInfectedMushroomSurfaceBiome"] = new CorruptionSky();
 				SkyManager.Instance["BiomeExpansion:CrimsonInfectedMushroomSurfaceBiome"] = new CrimsonSky();
-				// Asset<Effect> crimsonEffect = Assets.Request<Effect>("Assets/Effects/CrimsonInfectedShader");
-				// ShaderHelper.LoadNewShader("BiomeExpansion:CrimsonInfectedShader", new Filter(new ScreenShaderData(crimsonEffect, "BiomeExpansion:CrimsonInfectedShader")
-				// 	.UseIntensity(1f)
-				// 	.UseProgress(Main.GameUpdateCount / 60f), EffectPriority.High));
-				// Asset<Effect> corruptionEffect = Assets.Request<Effect>("Assets/Effects/CorruptionInfectedShader");
-				// ShaderHelper.LoadNewShader("BiomeExpansion:CorruptionInfectedShader", new Filter(new ScreenShaderData(corruptionEffect, "BiomeExpansion:CorruptionInfectedShader")
-				// 	.UseIntensity(1f)
-				// 	.UseProgress(Main.GameUpdateCount / 60f), EffectPriority.High));
 			}
 		}
 	}

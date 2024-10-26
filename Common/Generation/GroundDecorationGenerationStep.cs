@@ -6,7 +6,7 @@ public class GroundDecorationGenerationStep
 {
     public GenerationHelper.SurfaceBiomeBuilder SurfaceBiomeBuilder;
     public GenerationHelper.CaveBiomeBuilder CaveBiomeBuilder;
-    public sbyte rarity = 1;
+    public ushort rarity = 1;
     public int tileType;
     public ushort[] soilTiles = [];
     public sbyte frameCount = 0;
@@ -28,7 +28,7 @@ public class GroundDecorationGenerationStep
         this.CaveBiomeBuilder = caveBiomeBuilder;
     }
     
-    public GroundDecorationGenerationStep Rarity(sbyte rarity)
+    public GroundDecorationGenerationStep Rarity(ushort rarity)
     {
         this.rarity = rarity;
         return this;
