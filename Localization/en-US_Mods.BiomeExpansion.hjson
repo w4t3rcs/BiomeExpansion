@@ -175,6 +175,41 @@ Items: {
 		DisplayName: Crimson Infected Mushroom Old Stone
 		Tooltip: ""
 	}
+
+	CorruptionInfectedMushroomWoodBench: {
+		DisplayName: Corruption Infected Mushroom Wood Bench
+		Tooltip: ""
+	}
+
+	InfectedMushroomWoodBookcase: {
+		DisplayName: Infected Mushroom Wood Bookcase
+		Tooltip: ""
+	}
+
+	CorruptionInfectedMushroomWoodBath: {
+		DisplayName: Corruption Infected Mushroom Wood Bath
+		Tooltip: ""
+	}
+
+	CorruptionInfectedMushroomWoodBed: {
+		DisplayName: Corruption Infected Mushroom Wood Bed
+		Tooltip: ""
+	}
+
+	CorruptionInfectedMushroomWoodChair: {
+		DisplayName: Corruption Infected Mushroom Wood Chair
+		Tooltip: ""
+	}
+
+	CorruptionInfectedMushroomWoodChest: {
+		DisplayName: Corruption Infected Mushroom Wood Chest
+		Tooltip: ""
+	}
+
+	InfectedMushroomWoodClock: {
+		DisplayName: Infected Mushroom Wood Clock
+		Tooltip: ""
+	}
 }
 
 Biomes: {
