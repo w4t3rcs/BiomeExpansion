@@ -210,6 +210,41 @@ Items: {
 		DisplayName: Infected Mushroom Wood Clock
 		Tooltip: ""
 	}
+
+	CorruptionInfectedMushroomWoodChandelier: {
+		DisplayName: Corruption Infected Mushroom Wood Chandelier
+		Tooltip: ""
+	}
+
+	CorruptionInfectedMushroomWoodDoor: {
+		DisplayName: Corruption Infected Mushroom Wood Door
+		Tooltip: ""
+	}
+
+	CorruptionInfectedMushroomWoodTable: {
+		DisplayName: Corruption Infected Mushroom Wood Table
+		Tooltip: ""
+	}
+
+	CorruptionInfectedMushroomWoodWorkbench: {
+		DisplayName: Corruption Infected Mushroom Wood Workbench
+		Tooltip: ""
+	}
+
+	InfectedMushroomWoodDresser: {
+		DisplayName: Infected Mushroom Wood Dresser
+		Tooltip: ""
+	}
+
+	InfectedMushroomWoodPiano: {
+		DisplayName: Infected Mushroom Wood Piano
+		Tooltip: ""
+	}
+
+	InfectedMushroomWoodSink: {
+		DisplayName: Infected Mushroom Wood Sink
+		Tooltip: ""
+	}
 }
 
 Biomes: {

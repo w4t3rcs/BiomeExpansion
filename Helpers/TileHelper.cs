@@ -208,7 +208,7 @@ public static class TileHelper
         tile.AdjTiles = [TileID.Candelabras];
     }
     
-    public static void SetUpChandelier(ModTile tile)
+    public static void SetChandelier(ModTile tile)
     {
         Main.tileLighted[tile.Type] = true;
         Main.tileFrameImportant[tile.Type] = true;
@@ -389,7 +389,7 @@ public static class TileHelper
         tile.AdjTiles = [TileID.GrandfatherClocks];
     }
     
-    public static void SetDoorClosed(ModTile tile)
+    public static void SetDoorClosed(ModTile tile, int openDoorId)
     {
         Main.tileFrameImportant[tile.Type] = true;
         Main.tileBlockLight[tile.Type] = true;
@@ -401,6 +401,7 @@ public static class TileHelper
         TileID.Sets.DrawsWalls[tile.Type] = true;
         TileID.Sets.HasOutlines[tile.Type] = true;
         TileID.Sets.DisableSmartCursor[tile.Type] = true;
+        TileID.Sets.OpenDoorID[tile.Type] = openDoorId;
         TileObjectData.newTile.Width = 1;
         TileObjectData.newTile.Height = 3;
         TileObjectData.newTile.Origin = new Point16(0, 0);
@@ -423,13 +424,17 @@ public static class TileHelper
         tile.AdjTiles = [TileID.ClosedDoor];
     }
     
-    public static void SetDoorOpen(ModTile tile)
+    public static void SetDoorOpen(ModTile tile, int closedDoorId)
     {
         Main.tileFrameImportant[tile.Type] = true;
         Main.tileSolid[tile.Type] = false;
         Main.tileLavaDeath[tile.Type] = true;
         Main.tileWaterDeath[tile.Type] = false;
         Main.tileNoSunLight[tile.Type] = true;
+        TileID.Sets.HousingWalls[tile.Type] = true;
+        TileID.Sets.HasOutlines[tile.Type] = true;
+        TileID.Sets.DisableSmartCursor[tile.Type] = true;
+        TileID.Sets.CloseDoorID[tile.Type] = closedDoorId;
         TileObjectData.newTile.Width = 2;
         TileObjectData.newTile.Height = 3;
         TileObjectData.newTile.Origin = new Point16(0, 0);
@@ -470,9 +475,6 @@ public static class TileHelper
         TileObjectData.newAlternate.AnchorBottom = new AnchorData(AnchorType.SolidTile, 1, 1);
         TileObjectData.newAlternate.Direction = TileObjectDirection.PlaceLeft;
         TileObjectData.addAlternate(1);
-        TileID.Sets.HousingWalls[tile.Type] = true;
-        TileID.Sets.HasOutlines[tile.Type] = true;
-        TileID.Sets.DisableSmartCursor[tile.Type] = true;
         tile.AddToArray(ref TileID.Sets.RoomNeeds.CountsAsDoor);
         tile.AdjTiles = [TileID.OpenDoor];
     }
@@ -598,7 +600,7 @@ public static class TileHelper
         tile.AdjTiles = [TileID.Tables];
     }
     
-    public static void SetWorkBench(this ModTile tile)
+    public static void SetWorkbench(ModTile tile)
     {
         Main.tileSolidTop[tile.Type] = true;
         Main.tileFrameImportant[tile.Type] = true;
