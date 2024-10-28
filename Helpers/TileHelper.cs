@@ -649,11 +649,11 @@ public static class TileHelper
         TileObjectData.newTile.CopyFrom(TileObjectData.GetTileData(TileID.SeaOats, 0));
     }
     
-    public static void SetCustomXCustomFramedPlant(ushort type, int styleRange, bool isStyleHorizontal = true, int height = 1, int width = 1, bool isCustomCanPlace = true, bool isAnchorBottom = true)
+    public static void SetCustomXCustomFramedPlant(ushort type, int styleRange, bool isStyleHorizontal = true, int height = 1, int width = 1, bool isCustomCanPlace = true, bool isAnchorBottom = true, bool swaysInWind = true)
     {
         Main.tileCut[type] = true;
         Main.tileLavaDeath[type] = true;
-        TileID.Sets.SwaysInWindBasic[type] = true;
+        TileID.Sets.SwaysInWindBasic[type] = swaysInWind;
         TileID.Sets.ReplaceTileBreakUp[type] = true;
         TileID.Sets.IgnoredInHouseScore[type] = true;
         TileID.Sets.IgnoredByGrowingSaplings[type] = true;

@@ -11,35 +11,15 @@ public static class FrameHelper
     public const int FrameSize = 16;
     public const int FramePadding = 2;
     
-    public static void SetRandomFrame(int x, int y, int frameCount, int frameWidth = 1, int frameHeight = 1)
+    public static void SetRandomFrame(int x, int y, int frameCount)
     {
-        SetFrameX(x, y, WorldGen.genRand.Next(0, frameCount), frameWidth, frameHeight);
+        SetFrameX(x, y, WorldGen.genRand.Next(0, frameCount));
     }
     
-    public static void SetFrameX(int x, int y, int frameNumber, int frameWidth = 1, int frameHeight = 1)
+    public static void SetFrameX(int x, int y, int frameNumber)
     {
-        if (frameWidth > 1 || frameHeight > 1)
-        {
-            for (int i = 1; i < frameWidth; i++)
-            {
-                for (int j = 0; j < frameHeight; j++)
-                {
-                    Tile tile = Main.tile[x + i - 1, y - j];
-                    tile.TileFrameX =(short)(frameNumber * FrameSize * i);
-                }
-            }
-        
-            for (int j = 0; j < frameHeight; j++)
-            {
-                Tile tile = Main.tile[x + frameWidth - 1, y - j];
-                tile.TileFrameX = (short)(frameNumber * (FrameSize * frameWidth + FramePadding));
-            }   
-        }
-        else
-        {
-            Tile tile = Main.tile[x, y];
-            tile.TileFrameX =(short)(frameNumber * (FrameSize + FramePadding));
-        }
+        Tile tile = Main.tile[x, y];
+        tile.TileFrameX =(short)(frameNumber * (FrameSize + FramePadding));
     }
 
     public static void SetFramingSeaOats(int x, int y)

@@ -12,7 +12,7 @@ public class CorruptionInfectedMushroomCaveBigMushroom : ModTile
 
     public override void SetStaticDefaults()
     {
-        TileHelper.SetCustomXCustomFramedPlant(Type, 2, true, 3, 3);
+        TileHelper.SetCustomXCustomFramedPlant(Type, 2, true, 3, 3, true, true, false);
         TileObjectData.newTile.AnchorValidTiles = [ModContent.TileType<CorruptionInfectedMushroomStone>(), ModContent.TileType<CorruptionInfectedMushroomOldStone>()];
         TileObjectData.addTile(Type);
         HitSound = SoundID.Grass;
