@@ -1,11 +1,13 @@
-﻿using Microsoft.Xna.Framework.Graphics;
+﻿using BiomeExpansion.Content.Items.Placeable.Furniture;
+using BiomeExpansion.Content.Tiles;
+using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using Terraria;
 using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace BiomeExpansion.Content.Tiles.Trees;
+namespace BiomeExpansion.Content.Trees;
 
 public class CrimsonInfectedBigMushroom : ModTree
 {
@@ -14,7 +16,7 @@ public class CrimsonInfectedBigMushroom : ModTree
     public override Asset<Texture2D> GetTopTextures() => ModContent.Request<Texture2D>("BiomeExpansion/Assets/Trees/BigCrimsonInfectedMushroomTops");
     public override int CreateDust() => DustID.Crimson;
     public override bool CanDropAcorn() => false;
-    public override int DropWood() => ModContent.ItemType<Items.Placeable.CrimsonInfectedSmallMushroom>();
+    public override int DropWood() => ModContent.ItemType<CrimsonInfectedMushroomWood>();
     public override TreePaintingSettings TreeShaderSettings => new()
     {
         UseSpecialGroups = true,
