@@ -8,8 +8,29 @@ namespace BiomeExpansion.Helpers;
 
 public static class FrameHelper
 {
-    public const int FrameSize = 16;
-    public const int FramePadding = 2;
+    public const sbyte FrameSize = 16;
+    public const sbyte FramePadding = 2;
+    
+    public static void SetRandomXxXFrame(int x, int y, int width, int height, int frameCount)
+    {
+        SetXxXFrameX(x, y, width, height, WorldGen.genRand.Next(0, frameCount));
+    }
+    
+    public static void SetXxXFrameX(int x, int y, int width, int height, int frameNumber)
+    {
+        Tile tile = Main.tile[x - 1, y];
+        short currentFrame = (short)(frameNumber * (FrameSize + FramePadding) * width);
+        tile.TileFrameX = currentFrame;
+        for (int j = 1; j < height; j++) Main.tile[x, y - j].TileFrameX = currentFrame;
+        for (int i = 0; i < width; i++)
+        {
+            currentFrame += FrameSize + FramePadding;
+            for (int j = 0; j < height; j++)
+            {
+                Main.tile[x + i, y - j].TileFrameX = currentFrame;
+            }
+        }
+    }
     
     public static void SetRandomFrame(int x, int y, int frameCount)
     {
