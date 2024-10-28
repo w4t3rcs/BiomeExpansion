@@ -14,7 +14,7 @@ public class CorruptionInfectedMushroomWoodLamp : ModItem
 
     public override void SetDefaults()
     {
-        Item.DefaultToPlaceableTile(ModContent.TileType<Tiles.CorruptionInfectedMushroomWoodLamp>());
+        Item.DefaultToPlaceableTile(ModContent.TileType<Tiles.Furniture.CorruptionInfectedMushroomWoodLamp>());
         Item.width = 16;
         Item.height = 36;
     }

@@ -1,4 +1,4 @@
-﻿using BiomeExpansion.Content.Tiles;
+﻿using BiomeExpansion.Content.Tiles.Furniture;
 using BiomeExpansion.Helpers;
 using Terraria.ModLoader;
 

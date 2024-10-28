@@ -14,7 +14,7 @@ public class InfectedMushroomWoodPiano : ModItem
 
     public override void SetDefaults()
     {
-        Item.DefaultToPlaceableTile(ModContent.TileType<Tiles.InfectedMushroomWoodPiano>());
+        Item.DefaultToPlaceableTile(ModContent.TileType<Tiles.Furniture.InfectedMushroomWoodPiano>());
         Item.width = 34;
         Item.height = 26;
     }

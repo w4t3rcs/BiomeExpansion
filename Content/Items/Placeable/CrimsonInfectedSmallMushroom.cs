@@ -14,7 +14,6 @@ public class CrimsonInfectedSmallMushroom : ModItem
 
     public override void SetDefaults()
     {
-        // Item.DefaultToPlaceableTile(ModContent.TileType<CrimsonInfectedMushroomWood>());
         Item.width = 12;
         Item.height = 12;
     }

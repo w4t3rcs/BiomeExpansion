@@ -14,7 +14,7 @@ public class InfectedMushroomWoodSink : ModItem
 
     public override void SetDefaults()
     {
-        Item.DefaultToPlaceableTile(ModContent.TileType<Tiles.InfectedMushroomWoodSink>());
+        Item.DefaultToPlaceableTile(ModContent.TileType<Tiles.Furniture.InfectedMushroomWoodSink>());
         Item.width = 32;
         Item.height = 26;
     }

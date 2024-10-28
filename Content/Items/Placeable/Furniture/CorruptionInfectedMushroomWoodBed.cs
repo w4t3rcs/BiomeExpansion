@@ -14,7 +14,7 @@ public class CorruptionInfectedMushroomWoodBed : ModItem
 
     public override void SetDefaults()
     {
-        Item.DefaultToPlaceableTile(ModContent.TileType<Tiles.CorruptionInfectedMushroomWoodBed>());
+        Item.DefaultToPlaceableTile(ModContent.TileType<Tiles.Furniture.CorruptionInfectedMushroomWoodBed>());
         Item.width = 34;
         Item.height = 20;
     }

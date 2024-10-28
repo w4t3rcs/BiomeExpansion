@@ -14,7 +14,7 @@ public class InfectedMushroomWoodDresser : ModItem
 
     public override void SetDefaults()
     {
-        Item.DefaultToPlaceableTile(ModContent.TileType<Tiles.InfectedMushroomWoodDresser>());
+        Item.DefaultToPlaceableTile(ModContent.TileType<Tiles.Furniture.InfectedMushroomWoodDresser>());
         Item.width = 40;
         Item.height = 24;
     }

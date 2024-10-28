@@ -18,6 +18,6 @@ public class CrimsonInfectedSmallMushroom : ModTile
         HitSound = SoundID.Grass;
         DustType = DustID.CrimsonPlants;
         AddMapEntry(Color.MistyRose);
-        RegisterItemDrop(ModContent.ItemType<Items.Placeable.CrimsonInfectedSmallMushroom>(), 0, 2, 3, 4);
+        RegisterItemDrop(ModContent.ItemType<Items.Placeable.CrimsonInfectedSmallMushroom>());
     }
 }

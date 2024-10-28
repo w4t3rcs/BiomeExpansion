@@ -231,6 +231,11 @@ Items: {
 		Tooltip: ""
 	}
 
+	CorruptionInfectedMushroomWood: {
+		DisplayName: Corruption Infected Mushroom Wood
+		Tooltip: ""
+	}
+
 	InfectedMushroomWoodDresser: {
 		DisplayName: Infected Mushroom Wood Dresser
 		Tooltip: ""
@@ -243,6 +248,86 @@ Items: {
 
 	InfectedMushroomWoodSink: {
 		DisplayName: Infected Mushroom Wood Sink
+		Tooltip: ""
+	}
+
+	CrimsonInfectedMushroomWood: {
+		DisplayName: Crimson Infected Mushroom Wood
+		Tooltip: ""
+	}
+
+	CrimsonInfectedMushroomWoodBath: {
+		DisplayName: Crimson Infected Mushroom Wood Bath
+		Tooltip: ""
+	}
+
+	CrimsonInfectedMushroomWoodBed: {
+		DisplayName: Crimson Infected Mushroom Wood Bed
+		Tooltip: ""
+	}
+
+	CrimsonInfectedMushroomWoodBench: {
+		DisplayName: Crimson Infected Mushroom Wood Bench
+		Tooltip: ""
+	}
+
+	CrimsonInfectedMushroomWoodCampfire: {
+		DisplayName: Crimson Infected Mushroom Wood Campfire
+		Tooltip: ""
+	}
+
+	CrimsonInfectedMushroomWoodCandelabra: {
+		DisplayName: Crimson Infected Mushroom Wood Candelabra
+		Tooltip: ""
+	}
+
+	CrimsonInfectedMushroomWoodCandle: {
+		DisplayName: Crimson Infected Mushroom Wood Candle
+		Tooltip: ""
+	}
+
+	CrimsonInfectedMushroomWoodChair: {
+		DisplayName: Crimson Infected Mushroom Wood Chair
+		Tooltip: ""
+	}
+
+	CrimsonInfectedMushroomWoodChandelier: {
+		DisplayName: Crimson Infected Mushroom Wood Chandelier
+		Tooltip: ""
+	}
+
+	CrimsonInfectedMushroomWoodChest: {
+		DisplayName: Crimson Infected Mushroom Wood Chest
+		Tooltip: ""
+	}
+
+	CrimsonInfectedMushroomWoodDoor: {
+		DisplayName: Crimson Infected Mushroom Wood Door
+		Tooltip: ""
+	}
+
+	CrimsonInfectedMushroomWoodLamp: {
+		DisplayName: Crimson Infected Mushroom Wood Lamp
+		Tooltip: ""
+	}
+
+	CrimsonInfectedMushroomWoodLantern: {
+		DisplayName: Crimson Infected Mushroom Wood Lantern
+		Tooltip: ""
+	}
+
+	CrimsonInfectedMushroomWoodTable: {
+		DisplayName: Crimson Infected Mushroom Wood Table
+		Tooltip: ""
+	}
+
+	CrimsonInfectedMushroomWoodTorch: {
+		DisplayName: Crimson Infected Mushroom Wood Torch
+		Tooltip: ""
+	}
+
+	CrimsonInfectedMushroomWoodWorkbench: {
+		DisplayName: Crimson Infected Mushroom Wood Workbench
 		Tooltip: ""
 	}
 }

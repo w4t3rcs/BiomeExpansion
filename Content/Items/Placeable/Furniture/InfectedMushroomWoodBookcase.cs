@@ -14,7 +14,7 @@ public class InfectedMushroomWoodBookcase : ModItem
 
     public override void SetDefaults()
     {
-        Item.DefaultToPlaceableTile(ModContent.TileType<Tiles.InfectedMushroomWoodBookcase>());
+        Item.DefaultToPlaceableTile(ModContent.TileType<Tiles.Furniture.InfectedMushroomWoodBookcase>());
         Item.width = 30;
         Item.height = 36;
     }

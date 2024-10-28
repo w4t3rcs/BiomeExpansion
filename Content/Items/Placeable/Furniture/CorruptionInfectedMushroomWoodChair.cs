@@ -14,7 +14,7 @@ public class CorruptionInfectedMushroomWoodChair : ModItem
 
     public override void SetDefaults()
     {
-        Item.DefaultToPlaceableTile(ModContent.TileType<Tiles.CorruptionInfectedMushroomWoodChair>());
+        Item.DefaultToPlaceableTile(ModContent.TileType<Tiles.Furniture.CorruptionInfectedMushroomWoodChair>());
         Item.width = 26;
         Item.height = 32;
     }

@@ -22,7 +22,7 @@ public class CorruptionInfectedMushroomWoodTorch : ModItem
     
     public override void SetDefaults()
     {
-        Item.DefaultToPlaceableTile(ModContent.TileType<Tiles.CorruptionInfectedMushroomWoodTorch>());
+        Item.DefaultToPlaceableTile(ModContent.TileType<Tiles.Furniture.CorruptionInfectedMushroomWoodTorch>());
         Item.width = 14;
         Item.height = 16;
         Item.holdStyle = 1;
@@ -36,7 +36,7 @@ public class CorruptionInfectedMushroomWoodTorch : ModItem
         if (Main.rand.NextBool(player.itemAnimation > 0 ? 20 : 40))
             Dust.NewDust(new Vector2(player.itemLocation.X + 10f * player.direction, player.itemLocation.Y - 26f * player.gravDir), 4, 4, DustID.BlueFlare);
         Vector2 position = player.RotatedRelativePoint(new Vector2(player.itemLocation.X + 12f * player.direction + player.velocity.X, player.itemLocation.Y - 14f + player.velocity.Y), true);
-        Lighting.AddLight(position, 0f, 0.3f, 1.2f);
+        Lighting.AddLight(position, 0f, 0.6f, 1.0f);
     }
 
     public override void PostUpdate()

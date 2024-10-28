@@ -14,7 +14,7 @@ public class CorruptionInfectedMushroomWoodLantern : ModItem
 
     public override void SetDefaults()
     {
-        Item.DefaultToPlaceableTile(ModContent.TileType<Tiles.CorruptionInfectedMushroomWoodLantern>());
+        Item.DefaultToPlaceableTile(ModContent.TileType<Tiles.Furniture.CorruptionInfectedMushroomWoodLantern>());
         Item.width = 14;
         Item.height = 30;
     }

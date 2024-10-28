@@ -1,4 +1,5 @@
 ﻿using System.IO;
+using ReLogic.Content;
 using Terraria.ModLoader;
 
 namespace BiomeExpansion.Helpers;
@@ -20,57 +21,59 @@ public static class TextureHelper
     
     public static string GetDynamicItemTexture(string fileName)
     {
-        return GetDynamicTexture(ItemsAssetsLocation, fileName);
+        return GetNonNullDynamicTexture(ItemsAssetsLocation, fileName);
     }
     
     public static string GetDynamicTileTexture(string fileName)
     {
-        return GetDynamicTexture(TilesAssetsLocation, fileName);
+        return GetNonNullDynamicTexture(TilesAssetsLocation, fileName);
     }
     
     public static string GetDynamicBuffTexture(string fileName)
     {
-        return GetDynamicTexture(BuffsAssetsLocation, fileName);
+        return GetNonNullDynamicTexture(BuffsAssetsLocation, fileName);
     }
     
     public static string GetDynamicMinionTexture(string fileName)
     {
-        return GetDynamicTexture(MinionsAssetsLocation, fileName);
+        return GetNonNullDynamicTexture(MinionsAssetsLocation, fileName);
     }
     
     public static string GetDynamicProjectileTexture(string fileName)
     {
-        return GetDynamicTexture(ProjectilesAssetsLocation, fileName);
+        return GetNonNullDynamicTexture(ProjectilesAssetsLocation, fileName);
     }
     
     public static string GetDynamicRainTexture(string fileName)
     {
-        return GetDynamicTexture(RainsAssetsLocation, fileName);
+        return GetNonNullDynamicTexture(RainsAssetsLocation, fileName);
     }
     
     public static string GetDynamicTreeTexture(string fileName)
     {
-        return GetDynamicTexture(TreesAssetsLocation, fileName);
+        return GetNonNullDynamicTexture(TreesAssetsLocation, fileName);
     }
     
     public static string GetDynamicWallTexture(string fileName)
     {
-        return GetDynamicTexture(WallsAssetsLocation, fileName);
+        return GetNonNullDynamicTexture(WallsAssetsLocation, fileName);
     }
     
     public static string GetDynamicWaterTexture(string fileName)
     {
-        return GetDynamicTexture(WatersAssetsLocation, fileName);
+        return GetNonNullDynamicTexture(WatersAssetsLocation, fileName);
     }
     
     public static string GetDynamicSkyTexture(string fileName)
     {
-        return GetDynamicTexture(SkiesAssetsLocation, fileName);
+        return GetNonNullDynamicTexture(SkiesAssetsLocation, fileName);
     }
     
-    public static string GetDynamicTexture(string fileName)
+    public static string GetNonNullDynamicTexture(string parentDirectory, string fileName)
     {
-        return GetDynamicTexture(AssetsLocation, fileName);
+        string dynamicTextureLocation = GetDynamicTexture(parentDirectory, fileName);
+        if (dynamicTextureLocation is null) throw AssetLoadException.FromMissingAsset(fileName, new FileNotFoundException($"Could not find {parentDirectory}/{fileName}"));
+        return dynamicTextureLocation;
     }
     
     public static string GetDynamicTexture(string parentDirectory, string fileName)
@@ -84,6 +87,7 @@ public static class TextureHelper
             if (possiblyNeededFile is not null) 
                 return possiblyNeededFile;
         }
+        
         return null;
     }
 }

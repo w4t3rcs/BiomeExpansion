@@ -14,7 +14,7 @@ public class InfectedMushroomWoodClock : ModItem
 
     public override void SetDefaults()
     {
-        Item.DefaultToPlaceableTile(ModContent.TileType<Tiles.InfectedMushroomWoodClock>());
+        Item.DefaultToPlaceableTile(ModContent.TileType<Tiles.Furniture.InfectedMushroomWoodClock>());
         Item.width = 18;
         Item.height = 40;
     }

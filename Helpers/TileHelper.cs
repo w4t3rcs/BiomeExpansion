@@ -1,4 +1,4 @@
-﻿using BiomeExpansion.Content.Tiles;
+﻿using BiomeExpansion.Content.Tiles.Furniture;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.Enums;
@@ -653,6 +653,7 @@ public static class TileHelper
     {
         Main.tileCut[type] = true;
         Main.tileLavaDeath[type] = true;
+        TileID.Sets.SwaysInWindBasic[type] = true;
         TileID.Sets.ReplaceTileBreakUp[type] = true;
         TileID.Sets.IgnoredInHouseScore[type] = true;
         TileID.Sets.IgnoredByGrowingSaplings[type] = true;

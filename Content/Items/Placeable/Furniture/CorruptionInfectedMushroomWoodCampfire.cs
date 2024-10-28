@@ -14,7 +14,7 @@ public class CorruptionInfectedMushroomWoodCampfire : ModItem
 
     public override void SetDefaults()
     {
-        Item.DefaultToPlaceableTile(ModContent.TileType<Tiles.CorruptionInfectedMushroomWoodCampfire>());
+        Item.DefaultToPlaceableTile(ModContent.TileType<Tiles.Furniture.CorruptionInfectedMushroomWoodCampfire>());
         Item.width = 32;
         Item.height = 18;
     }

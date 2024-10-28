@@ -14,7 +14,7 @@ public class InfectedMushroomWoodPlatform : ModItem
 
     public override void SetDefaults()
     {
-        Item.DefaultToPlaceableTile(ModContent.TileType<Tiles.InfectedMushroomWoodPlatform>());
+        Item.DefaultToPlaceableTile(ModContent.TileType<Tiles.Furniture.InfectedMushroomWoodPlatform>());
         Item.width = 12;
         Item.height = 12;
     }

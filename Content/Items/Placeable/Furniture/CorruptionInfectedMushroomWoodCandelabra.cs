@@ -14,7 +14,7 @@ public class CorruptionInfectedMushroomWoodCandelabra : ModItem
 
     public override void SetDefaults()
     {
-        Item.DefaultToPlaceableTile(ModContent.TileType<Tiles.CorruptionInfectedMushroomWoodCandelabra>());
+        Item.DefaultToPlaceableTile(ModContent.TileType<Tiles.Furniture.CorruptionInfectedMushroomWoodCandelabra>());
         Item.width = 32;
         Item.height = 32;
     }

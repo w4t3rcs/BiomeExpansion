@@ -18,6 +18,6 @@ public class CorruptionInfectedSmallMushroom : ModTile
         HitSound = SoundID.Grass;
         DustType = DustID.CorruptPlants;
         AddMapEntry(Color.DarkViolet);
-        RegisterItemDrop(ModContent.ItemType<Items.Placeable.CorruptionInfectedSmallMushroom>(), 0, 2, 3, 4);
+        RegisterItemDrop(ModContent.ItemType<Items.Placeable.CorruptionInfectedSmallMushroom>());
     }
 }

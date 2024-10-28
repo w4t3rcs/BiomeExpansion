@@ -9,7 +9,7 @@ namespace BiomeExpansion.Content.Tiles.Trees;
 
 public class CorruptionInfectedBigMushroom : ModTree
 {
-    public override Asset<Texture2D> GetTexture() => ModContent.Request<Texture2D>("BiomeExpansion/Assets/Trees/BigInfectedMushroom");
+    public override Asset<Texture2D> GetTexture() => ModContent.Request<Texture2D>("BiomeExpansion/Assets/Trees/BigCorruptionInfectedMushroom");
     public override Asset<Texture2D> GetBranchTextures() => ModContent.Request<Texture2D>("BiomeExpansion/Assets/Trees/BigCorruptionInfectedMushroomBranches");
     public override Asset<Texture2D> GetTopTextures() => ModContent.Request<Texture2D>("BiomeExpansion/Assets/Trees/BigCorruptionInfectedMushroomTops");
     public override int CreateDust() => DustID.Corruption;
