@@ -1,4 +1,4 @@
-﻿using BiomeExpansion.Content.Tiles;
+﻿using BiomeExpansion.Content.Tiles.Biome;
 using BiomeExpansion.Helpers;
 using Terraria;
 using Terraria.Audio;

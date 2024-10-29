@@ -1,4 +1,5 @@
-﻿using BiomeExpansion.Helpers;
+﻿using BiomeExpansion.Content.Tiles.Biome;
+using BiomeExpansion.Helpers;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;

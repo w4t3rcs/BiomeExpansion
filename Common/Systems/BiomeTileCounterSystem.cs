@@ -1,5 +1,6 @@
 ﻿using System;
-using BiomeExpansion.Content.Tiles;
+using BiomeExpansion.Content.Tiles.Biome;
+using BiomeExpansion.Content.Tiles.Stones;
 using Terraria.ModLoader;
 
 namespace BiomeExpansion.Common.Systems;

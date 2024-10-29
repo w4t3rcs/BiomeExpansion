@@ -1,5 +1,6 @@
 ﻿using BiomeExpansion.Content.Items.Placeable.Furniture;
-using BiomeExpansion.Content.Tiles;
+using BiomeExpansion.Content.Tiles.Biome;
+using BiomeExpansion.Content.Tiles.Plants;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using Terraria;

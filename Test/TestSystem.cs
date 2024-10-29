@@ -1,4 +1,5 @@
-﻿using BiomeExpansion.Content.Tiles;
+﻿using BiomeExpansion.Content.Tiles.Biome;
+using BiomeExpansion.Content.Tiles.Plants;
 using BiomeExpansion.Helpers;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
