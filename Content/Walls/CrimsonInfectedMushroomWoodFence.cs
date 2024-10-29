@@ -6,14 +6,14 @@ using Terraria.ModLoader;
 
 namespace BiomeExpansion.Content.Walls;
 
-public class CrimsonInfectedMushroomCaveWall : ModWall
+public class CrimsonInfectedMushroomWoodFence : ModWall
 {
-    public override string Texture => TextureHelper.GetDynamicWallTexture("CrimsonInfectedMushroomCaveWall");
+    public override string Texture => TextureHelper.GetDynamicWallTexture("CrimsonInfectedMushroomWoodFence");
 
     public override void SetStaticDefaults()
     {
         Main.wallHouse[Type] = false;
-        WallID.Sets.Conversion.Stone[Type] = true;
+        WallID.Sets.CannotBeReplacedByWallSpread[Type] = true;
         DustType = DustID.Crimson;
         AddMapEntry(Color.DarkRed);
     }

@@ -330,6 +330,26 @@ Items: {
 		DisplayName: Crimson Infected Mushroom Wood Workbench
 		Tooltip: ""
 	}
+
+	CorruptionInfectedMushroomWoodFence: {
+		DisplayName: Corruption Infected Mushroom Wood Fence
+		Tooltip: ""
+	}
+
+	CorruptionInfectedMushroomWoodWall: {
+		DisplayName: Corruption Infected Mushroom Wood Wall
+		Tooltip: ""
+	}
+
+	CrimsonInfectedMushroomWoodFence: {
+		DisplayName: Crimson Infected Mushroom Wood Fence
+		Tooltip: ""
+	}
+
+	CrimsonInfectedMushroomWoodWall: {
+		DisplayName: Crimson Infected Mushroom Wood Wall
+		Tooltip: ""
+	}
 }
 
 Biomes: {

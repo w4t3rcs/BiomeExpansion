@@ -6,14 +6,14 @@ using Terraria.ModLoader;
 
 namespace BiomeExpansion.Content.Walls;
 
-public class CorruptionInfectedMushroomCaveWall : ModWall
+public class CorruptionInfectedMushroomWoodFence : ModWall
 {
-    public override string Texture => TextureHelper.GetDynamicWallTexture("CorruptionInfectedMushroomCaveWall");
+    public override string Texture => TextureHelper.GetDynamicWallTexture("CorruptionInfectedMushroomWoodFence");
 
     public override void SetStaticDefaults()
     {
         Main.wallHouse[Type] = false;
-        WallID.Sets.Conversion.Stone[Type] = true;
+        WallID.Sets.CannotBeReplacedByWallSpread[Type] = true;
         DustType = DustID.Corruption;
         AddMapEntry(Color.DarkMagenta);
     }
