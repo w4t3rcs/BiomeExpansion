@@ -21,7 +21,7 @@ public static class FrameHelper
         Tile tile = Main.tile[x - 1, y];
         short currentFrame = (short)(frameNumber * (FrameSize + FramePadding) * width);
         tile.TileFrameX = currentFrame;
-        for (int j = 1; j < height; j++) Main.tile[x, y - j].TileFrameX = currentFrame;
+        for (int j = 1; j < height; j++) Main.tile[x - 1, y - j].TileFrameX = currentFrame;
         for (int i = 0; i < width; i++)
         {
             currentFrame += FrameSize + FramePadding;

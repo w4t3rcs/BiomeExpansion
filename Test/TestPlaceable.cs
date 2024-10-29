@@ -2,7 +2,7 @@
 using BiomeExpansion.Helpers;
 using Terraria.ModLoader;
 
-namespace BiomeExpansion.Content.Items;
+namespace BiomeExpansion.Test;
 
 public class TestPlaceable : ModItem
 {

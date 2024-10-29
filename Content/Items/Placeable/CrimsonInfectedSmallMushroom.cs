@@ -1,4 +1,5 @@
 ﻿using BiomeExpansion.Helpers;
+using Terraria;
 using Terraria.ModLoader;
 
 namespace BiomeExpansion.Content.Items.Placeable;
@@ -16,5 +17,6 @@ public class CrimsonInfectedSmallMushroom : ModItem
     {
         Item.width = 12;
         Item.height = 12;
+        Item.maxStack = Item.CommonMaxStack;
     }
 }
