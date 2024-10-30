@@ -1,4 +1,4 @@
-﻿using BiomeExpansion.Backgrounds;
+﻿using BiomeExpansion.Content.Backgrounds;
 using BiomeExpansion.Common.Systems;
 using BiomeExpansion.Content.Waters;
 using Terraria;
@@ -26,7 +26,7 @@ public class CorruptionInfectedMushroomSurfaceBiome : ModBiome
     }
         
     public override bool IsBiomeActive(Player player) {
-        return !player.ZoneDungeon && ModContent.GetInstance<BiomeTileCounterSystem>().CorruptionInfectedMushroomSurfaceBiomeTileCount >= 450;
+        return !player.ZoneDungeon && ModContent.GetInstance<BiomeTileCounterSystem>().CorruptionInfectedMushroomSurfaceBiomeTileCount >= 200;
     }
 
     public override void SpecialVisuals(Player player, bool isActive)

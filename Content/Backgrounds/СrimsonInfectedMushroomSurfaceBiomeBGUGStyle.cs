@@ -1,10 +1,10 @@
 ﻿using Terraria.ModLoader;
 
-namespace BiomeExpansion.Backgrounds;
+namespace BiomeExpansion.Content.Backgrounds;
 
-public class СorruptionInfectedMushroomSurfaceBiomeBGUGStyle : ModUndergroundBackgroundStyle
+public class СrimsonInfectedMushroomSurfaceBiomeBGUGStyle : ModUndergroundBackgroundStyle
 { 
-    private const string Texture = "BiomeExpansion/Assets/Backgrounds/CorruptionInfectedMushroomSurfaceBiomeUG";
+    private const string Texture = "BiomeExpansion/Assets/Backgrounds/CrimsonInfectedMushroomSurfaceBiomeUG";
 
     public override void FillTextureArray(int[] textureSlots)
     {

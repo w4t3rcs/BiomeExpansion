@@ -3,16 +3,16 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace BiomeExpansion.Backgrounds;
+namespace BiomeExpansion.Content.Backgrounds;
 
-public class СorruptionInfectedMushroomSurfaceBiomeBGStyle : ModSurfaceBackgroundStyle
-{ 
+public class СrimsonInfectedMushroomSurfaceBiomeBGStyle : ModSurfaceBackgroundStyle
+{
     private const int MiddleBGYOffset = 225;
     private const int CloseBGYOffset = 75;
-    private const string HorizonTexture = "BiomeExpansion/Assets/Backgrounds/CorruptionInfectedMushroomSurfaceBiomeHorizon";
-    private const string FarTexture = "BiomeExpansion/Assets/Backgrounds/CorruptionInfectedMushroomSurfaceBiomeFar";
-    private const string MiddleTexture = "BiomeExpansion/Assets/Backgrounds/CorruptionInfectedMushroomSurfaceBiomeMiddle";
-    private const string CloseTexture = "BiomeExpansion/Assets/Backgrounds/CorruptionInfectedMushroomSurfaceBiomeClose";
+    private const string HorizonTexture = "BiomeExpansion/Assets/Backgrounds/CrimsonInfectedMushroomSurfaceBiomeHorizon";
+    private const string FarTexture = "BiomeExpansion/Assets/Backgrounds/CrimsonInfectedMushroomSurfaceBiomeFar";
+    private const string MiddleTexture = "BiomeExpansion/Assets/Backgrounds/CrimsonInfectedMushroomSurfaceBiomeMiddle";
+    private const string CloseTexture = "BiomeExpansion/Assets/Backgrounds/CrimsonInfectedMushroomSurfaceBiomeClose";
     
     public override int ChooseFarTexture() => BackgroundTextureLoader.GetBackgroundSlot(HorizonTexture);
     

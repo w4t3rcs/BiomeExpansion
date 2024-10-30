@@ -1,6 +1,7 @@
 ﻿using BiomeExpansion.Content.Tiles.Biome;
 using BiomeExpansion.Helpers;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
@@ -10,7 +11,8 @@ namespace BiomeExpansion.Content.Tiles.Plants;
 public class CrimsonInfectedSmallMushroom : ModTile
 {
     public override string Texture => TextureHelper.GetDynamicTileTexture("CrimsonInfectedSmallMushroom");
-    
+    private static readonly string GlowMaskTexture = TextureHelper.GetDynamicTileTexture("CrimsonInfectedSmallMushroomGlow");
+
     public override void SetStaticDefaults()
     {
         TileHelper.SetCustomXCustomFramedPlant(Type, 5);
@@ -20,5 +22,11 @@ public class CrimsonInfectedSmallMushroom : ModTile
         DustType = DustID.CrimsonPlants;
         AddMapEntry(Color.MistyRose);
         RegisterItemDrop(ModContent.ItemType<Items.Placeable.Plants.CrimsonInfectedSmallMushroom>());
+    }
+
+    public override bool PreDraw(int i, int j, SpriteBatch spriteBatch)
+    {
+        FrameHelper.DrawTileWithGlowMask(spriteBatch, Texture, GlowMaskTexture, i, j, 1, 1);
+        return false;
     }
 }

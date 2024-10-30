@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.GameContent;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
@@ -11,36 +12,14 @@ public static class FrameHelper
     public const sbyte FrameSize = 16;
     public const sbyte FramePadding = 2;
     
-    public static void SetRandomXxXFrame(int x, int y, int width, int height, int frameCount)
+    public static void SetRandomFrame(int x, int y, int width, int height, int frameCount)
     {
-        SetXxXFrameX(x, y, width, height, WorldGen.genRand.Next(0, frameCount));
+        SetFrameX(x, y, width, height, WorldGen.genRand.Next(0, frameCount));
     }
     
-    public static void SetXxXFrameX(int x, int y, int width, int height, int frameNumber)
+    public static void SetRandomFrame(int x, int y, int height, int frameCount)
     {
-        Tile tile = Main.tile[x - 1, y];
-        short currentFrame = (short)(frameNumber * (FrameSize + FramePadding) * width);
-        tile.TileFrameX = currentFrame;
-        for (int j = 1; j < height; j++) Main.tile[x - 1, y - j].TileFrameX = currentFrame;
-        for (int i = 0; i < width; i++)
-        {
-            currentFrame += FrameSize + FramePadding;
-            for (int j = 0; j < height; j++)
-            {
-                Main.tile[x + i, y - j].TileFrameX = currentFrame;
-            }
-        }
-    }
-    
-    public static void SetRandomFrame(int x, int y, int frameCount)
-    {
-        SetFrameX(x, y, WorldGen.genRand.Next(0, frameCount));
-    }
-    
-    public static void SetFrameX(int x, int y, int frameNumber)
-    {
-        Tile tile = Main.tile[x, y];
-        tile.TileFrameX =(short)(frameNumber * (FrameSize + FramePadding));
+        SetFrameX(x, y, height, WorldGen.genRand.Next(0, frameCount));
     }
 
     public static void SetFramingSeaOats(int x, int y)
@@ -62,6 +41,33 @@ public static class FrameHelper
         }
     }
     
+    public static void SetFrameX(int x, int y, int width, int height, int frameNumber)
+    {
+        Tile tile = Main.tile[x - 1, y];
+        short currentFrame = (short)(frameNumber * (FrameSize + FramePadding) * width);
+        tile.TileFrameX = currentFrame;
+        for (int j = 1; j < height; j++) Main.tile[x - 1, y - j].TileFrameX = currentFrame;
+        for (int i = 0; i < width; i++)
+        {
+            currentFrame += FrameSize + FramePadding;
+            for (int j = 0; j < height; j++)
+            {
+                Main.tile[x + i, y - j].TileFrameX = currentFrame;
+            }
+        }
+    }
+
+    public static void SetFrameX(int x, int y, int height, int frameNumber)
+    {
+        for (int i = 0; i < height; i++)
+            Main.tile[x, y - i].TileFrameX =(short)(frameNumber * (FrameSize + FramePadding));
+    }
+
+    public static void SetFrameX(int x, int y, int frameNumber)
+    {
+        Main.tile[x, y].TileFrameX =(short)(frameNumber * (FrameSize + FramePadding));
+    }
+
     public static void DrawCampfireFlameEffect(Texture2D flameTexture, int i, int j, int offsetY = 0)
     {
         Color color = new Color(255, 255, 255, 0);
@@ -132,5 +138,25 @@ public static class FrameHelper
                     Wiring.SkipWire(x + k, y + l);
             }
         }
+    }
+
+    public static void DrawTileWithGlowMask(SpriteBatch spriteBatch, string tileTexture, string glowTexture, int x, int y, int width = 16, int height = 16)
+    {
+        Tile tile = Framing.GetTileSafely(x, y);
+		Vector2 zero = Main.drawToScreen ? Vector2.Zero : new Vector2(Main.offScreenRange);
+        ReLogic.Content.Asset<Texture2D> asset = ModContent.Request<Texture2D>(tileTexture);
+        ReLogic.Content.Asset<Texture2D> glowAsset = ModContent.Request<Texture2D>(glowTexture);
+        spriteBatch.Draw(
+			asset.Value,
+			new Vector2(x * 16 - (int)Main.screenPosition.X, y * 16 - (int)Main.screenPosition.Y) + zero,
+			new Rectangle(tile.TileFrameX, tile.TileFrameY, width * 18, height * 18),
+			Lighting.GetColor(x, y), 0f, default, 1f, SpriteEffects.None, 0f
+        );
+        spriteBatch.Draw(
+			glowAsset.Value,
+			new Vector2(x * 16 - (int)Main.screenPosition.X, y * 16 - (int)Main.screenPosition.Y) + zero,
+			new Rectangle(tile.TileFrameX, tile.TileFrameY, width * 18, height * 18),
+			Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f
+        );
     }
 }

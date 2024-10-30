@@ -1,6 +1,7 @@
 ﻿using BiomeExpansion.Content.Tiles.Biome;
 using BiomeExpansion.Helpers;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
@@ -10,6 +11,7 @@ namespace BiomeExpansion.Content.Tiles.Plants;
 public class CrimsonInfectedMushroomOats : ModTile
 {
     public override string Texture => TextureHelper.GetDynamicTileTexture("CrimsonInfectedMushroomOats");
+    private static readonly string GlowMaskTexture = TextureHelper.GetDynamicTileTexture("CrimsonInfectedMushroomOatsGlow");
 
     public override void SetStaticDefaults()
     {
@@ -21,6 +23,13 @@ public class CrimsonInfectedMushroomOats : ModTile
         AddMapEntry(Color.Crimson);
     }
     
+    public override bool PreDraw(int i, int j, SpriteBatch spriteBatch) 
+    {
+		FrameHelper.DrawTileWithGlowMask(spriteBatch, Texture, GlowMaskTexture, i, j, 1, 2);
+        return false;
+	}
+
+
     public override void NumDust(int i, int j, bool fail, ref int num)
     {
         num = fail ? 1 : 3;
