@@ -18,7 +18,7 @@ public class InfectedMushroomCaveGenPass(string name, double loadWeight) : GenPa
         progress.Message = "Generating Cave Infected Mushroom biome...";
         var caveBiomeBuilder = GenerationHelper.CreateCaveBiomeBuilder()
             .Biome(BEBiome.InfectedMushroomCave)
-            .Deepness(125)
+            .Deepness(200)
             .IsDependentBiome()
             .AboveBiome(BEBiome.InfectedMushroomSurface)
             .GroundModification(GenerationHelper.TwoDirectionDiagonalTunnelModification);
