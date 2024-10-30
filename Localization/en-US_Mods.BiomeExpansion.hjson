@@ -392,3 +392,4 @@ Buffs: {
 }
 
 Projectiles.TestMinion.DisplayName: Test Minion
+NPCs.CorruptionInfectedSlime.DisplayName: Corruption Infected Slime

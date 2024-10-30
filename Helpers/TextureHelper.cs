@@ -1,13 +1,26 @@
 ﻿using System.Collections.Generic;
 using System.IO;
+using Microsoft.Build.Evaluation;
+using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
+using Terraria;
 using Terraria.ModLoader;
 
 namespace BiomeExpansion.Helpers;
 
 public static class TextureHelper
 {
-    public static readonly Dictionary<string, string> DynamicTileTextures = [];
+    public static readonly Dictionary<string, string> DynamicItemsTextures = [];
+    public static readonly Dictionary<string, string> DynamicTilesTextures = [];
+    public static readonly Dictionary<string, string> DynamicBuffsTextures = [];
+    public static readonly Dictionary<string, string> DynamicMinionsTextures = [];
+    public static readonly Dictionary<string, string> DynamicProjectilesTextures = [];
+    public static readonly Dictionary<string, string> DynamicRainsTextures = [];
+    public static readonly Dictionary<string, string> DynamicTreesTextures = [];
+    public static readonly Dictionary<string, string> DynamicWallsTextures = [];
+    public static readonly Dictionary<string, string> DynamicWatersTextures = [];
+    public static readonly Dictionary<string, string> DynamicSkiesTextures = [];
+    public static readonly Dictionary<string, string> DynamicNPCsTextures = [];
     public const string AssetsLocation = "BiomeExpansion/Assets";
     public const string ItemsAssetsLocation = $"{AssetsLocation}/Items";
     public const string TilesAssetsLocation = $"{AssetsLocation}/Tiles";
@@ -19,17 +32,33 @@ public static class TextureHelper
     public const string WallsAssetsLocation = $"{AssetsLocation}/Walls";
     public const string WatersAssetsLocation = $"{AssetsLocation}/Waters";
     public const string SkiesAssetsLocation = $"{AssetsLocation}/Skies";
+    public const string NPCsAssetsLocation = $"{AssetsLocation}/NPCs";
     public static readonly string ModSourcesDirectory = ModLoader.ModPath.Replace("Mods", "ModSources");
     
     public static void LoadDynamicTextures()
     {
-        foreach (string fileLocation in Directory.GetFiles($"{ModSourcesDirectory}/{TilesAssetsLocation}", "*", SearchOption.AllDirectories))
+        LoadDynamicTextures(ItemsAssetsLocation, DynamicItemsTextures);
+        LoadDynamicTextures(TilesAssetsLocation, DynamicTilesTextures);
+        LoadDynamicTextures(BuffsAssetsLocation, DynamicBuffsTextures);
+        LoadDynamicTextures(MinionsAssetsLocation, DynamicMinionsTextures);
+        LoadDynamicTextures(ProjectilesAssetsLocation, DynamicProjectilesTextures);
+        LoadDynamicTextures(RainsAssetsLocation, DynamicRainsTextures);
+        LoadDynamicTextures(TreesAssetsLocation, DynamicTreesTextures);
+        LoadDynamicTextures(WallsAssetsLocation, DynamicWallsTextures);
+        LoadDynamicTextures(WatersAssetsLocation, DynamicWatersTextures);
+        LoadDynamicTextures(SkiesAssetsLocation, DynamicSkiesTextures);
+        LoadDynamicTextures(NPCsAssetsLocation, DynamicNPCsTextures);
+    }
+
+    public static void LoadDynamicTextures(string location, Dictionary<string, string> cache)
+    {
+        foreach (string fileLocation in Directory.GetFiles($"{ModSourcesDirectory}/{location}", "*", SearchOption.AllDirectories))
         {
             string fileName = Path.GetFileNameWithoutExtension(fileLocation);
-            DynamicTileTextures.Remove(fileName);
+            cache.Remove(fileName);
             string tmodFilePath = fileLocation.Replace($"{ModSourcesDirectory}/", "").Split(".png")[0];
-            DynamicTileTextures.Add(fileName, tmodFilePath);
-            System.Console.WriteLine(DynamicTileTextures[fileName]);
+            cache.Add(fileName, tmodFilePath);
+            System.Console.WriteLine(cache[fileName]);
         }
     }
 

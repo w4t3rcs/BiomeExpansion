@@ -10,7 +10,7 @@ namespace BiomeExpansion.Content.Tiles.Plants;
 
 public class CrimsonInfectedMushroomCaveVines : ModTile
 {
-    public override string Texture => TextureHelper.DynamicTileTextures["CrimsonInfectedMushroomCaveVines"];
+    public override string Texture => TextureHelper.DynamicTilesTextures["CrimsonInfectedMushroomCaveVines"];
     
     public override void SetStaticDefaults()
     {

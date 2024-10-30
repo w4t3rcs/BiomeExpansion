@@ -10,7 +10,7 @@ namespace BiomeExpansion.Content.Tiles.Biome;
 
 public class InfectedMushroomDirt : ModTile
 {
-    public override string Texture => TextureHelper.DynamicTileTextures["InfectedMushroomDirt"];
+    public override string Texture => TextureHelper.DynamicTilesTextures["InfectedMushroomDirt"];
     
     public override void SetStaticDefaults()
     {
