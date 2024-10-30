@@ -36,7 +36,7 @@ public class CorruptionInfectedMushroomCaveBulbVines : ModTile
             || tileFrameX == 216)
             {
                 r = 0.25f;
-                g = 0.2f;
+                g = 0.35f;
                 b = 0.55f;
             }
     }
