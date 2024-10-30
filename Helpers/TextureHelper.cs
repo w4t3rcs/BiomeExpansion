@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System.Collections.Generic;
+using System.IO;
 using ReLogic.Content;
 using Terraria.ModLoader;
 
@@ -6,6 +7,7 @@ namespace BiomeExpansion.Helpers;
 
 public static class TextureHelper
 {
+    public static readonly Dictionary<string, string> DynamicTileTextures = [];
     public const string AssetsLocation = "BiomeExpansion/Assets";
     public const string ItemsAssetsLocation = $"{AssetsLocation}/Items";
     public const string TilesAssetsLocation = $"{AssetsLocation}/Tiles";
@@ -19,6 +21,18 @@ public static class TextureHelper
     public const string SkiesAssetsLocation = $"{AssetsLocation}/Skies";
     public static readonly string ModSourcesDirectory = ModLoader.ModPath.Replace("Mods", "ModSources");
     
+    public static void LoadDynamicTextures()
+    {
+        foreach (string fileLocation in Directory.GetFiles($"{ModSourcesDirectory}/{TilesAssetsLocation}", "*", SearchOption.AllDirectories))
+        {
+            string fileName = Path.GetFileNameWithoutExtension(fileLocation);
+            DynamicTileTextures.Remove(fileName);
+            string tmodFilePath = fileLocation.Replace($"{ModSourcesDirectory}/", "").Split(".png")[0];
+            DynamicTileTextures.Add(fileName, tmodFilePath);
+            System.Console.WriteLine(DynamicTileTextures[fileName]);
+        }
+    }
+
     public static string GetDynamicItemTexture(string fileName)
     {
         return GetNonNullDynamicTexture(ItemsAssetsLocation, fileName);

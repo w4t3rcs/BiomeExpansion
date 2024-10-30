@@ -1,6 +1,7 @@
 using BiomeExpansion.Content.Biomes;
 using BiomeExpansion.Content.Buffs;
 using BiomeExpansion.Content.Skies;
+using BiomeExpansion.Helpers;
 using Terraria;
 using Terraria.Graphics.Effects;
 using Terraria.ID;
@@ -13,6 +14,7 @@ namespace BiomeExpansion
 	{
 		public override void Load()
 		{
+			TextureHelper.LoadDynamicTextures();
 			if (Main.netMode != NetmodeID.Server)
 			{
 				SkyManager.Instance["BiomeExpansion:CorruptionInfectedMushroomSurfaceBiome"] = new CorruptionSky();

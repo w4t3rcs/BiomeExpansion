@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using System.Collections.Generic;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.GameContent;
@@ -11,7 +12,8 @@ public static class FrameHelper
 {
     public const sbyte FrameSize = 16;
     public const sbyte FramePadding = 2;
-    
+    private static readonly Vector2 Zero = Main.drawToScreen ? Vector2.Zero : new Vector2(Main.offScreenRange);
+
     public static void SetRandomFrame(int x, int y, int width, int height, int frameCount)
     {
         SetFrameX(x, y, width, height, WorldGen.genRand.Next(0, frameCount));
@@ -140,23 +142,21 @@ public static class FrameHelper
         }
     }
 
-    public static void DrawTileWithGlowMask(SpriteBatch spriteBatch, string tileTexture, string glowTexture, int x, int y, int width = 16, int height = 16)
+    public static void DrawTileWithGlowMask(SpriteBatch spriteBatch, string tileTexture, int x, int y, int width = 1, int height = 1)
     {
-        Tile tile = Framing.GetTileSafely(x, y);
-		Vector2 zero = Main.drawToScreen ? Vector2.Zero : new Vector2(Main.offScreenRange);
-        ReLogic.Content.Asset<Texture2D> asset = ModContent.Request<Texture2D>(tileTexture);
-        ReLogic.Content.Asset<Texture2D> glowAsset = ModContent.Request<Texture2D>(glowTexture);
-        spriteBatch.Draw(
-			asset.Value,
-			new Vector2(x * 16 - (int)Main.screenPosition.X, y * 16 - (int)Main.screenPosition.Y) + zero,
-			new Rectangle(tile.TileFrameX, tile.TileFrameY, width * 18, height * 18),
-			Lighting.GetColor(x, y), 0f, default, 1f, SpriteEffects.None, 0f
+        var tile = Framing.GetTileSafely(x, y);
+        var frameSizeWithPadding = FrameSize + FramePadding;
+        var glowTextureLocation = $"{tileTexture}Glow";
+        var sourceRect = new Rectangle(tile.TileFrameX, tile.TileFrameY, width * frameSizeWithPadding, height * frameSizeWithPadding);
+        var texture = ModContent.Request<Texture2D>(tileTexture).Value;
+        var glowTexture = ModContent.Request<Texture2D>(glowTextureLocation).Value;
+        var vector = new Vector2(x * FrameSize - (int)Main.screenPosition.X, y * FrameSize - (int)Main.screenPosition.Y) + Zero;
+        spriteBatch.Draw(texture, vector, sourceRect, 
+            Lighting.GetColor(x, y), 0f, default, 1f, SpriteEffects.None, 0f
         );
-        spriteBatch.Draw(
-			glowAsset.Value,
-			new Vector2(x * 16 - (int)Main.screenPosition.X, y * 16 - (int)Main.screenPosition.Y) + zero,
-			new Rectangle(tile.TileFrameX, tile.TileFrameY, width * 18, height * 18),
-			Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f
+        spriteBatch.Draw(glowTexture, vector, sourceRect, 
+            Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f
         );
+
     }
 }

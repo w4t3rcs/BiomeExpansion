@@ -3,6 +3,7 @@ using BiomeExpansion.Content.Items.Others;
 using BiomeExpansion.Content.Tiles.Stones;
 using BiomeExpansion.Helpers;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -12,7 +13,7 @@ namespace BiomeExpansion.Content.Tiles.Plants;
 
 public class CrimsonInfectedMushroomCaveTallGrass : ModTile
 {
-    public override string Texture => TextureHelper.GetDynamicTileTexture("CrimsonInfectedMushroomCaveTallGrass");
+    public override string Texture => TextureHelper.DynamicTileTextures["CrimsonInfectedMushroomCaveTallGrass"];
 
     public override void SetStaticDefaults()
     {
@@ -24,6 +25,12 @@ public class CrimsonInfectedMushroomCaveTallGrass : ModTile
         AddMapEntry(Color.MistyRose);
     }
     
+    public override bool PreDraw(int i, int j, SpriteBatch spriteBatch)
+    {
+		FrameHelper.DrawTileWithGlowMask(spriteBatch, Texture, i, j, 1, 2);
+        return false;
+	}
+
     public override IEnumerable<Item> GetItemDrops(int i, int j)
     {
         Player player = Main.player[Player.FindClosest(new Vector2(i, j).ToWorldCoordinates(), 16, 16)];

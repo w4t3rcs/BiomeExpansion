@@ -1,6 +1,7 @@
 ﻿using BiomeExpansion.Content.Tiles.Stones;
 using BiomeExpansion.Helpers;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
@@ -9,7 +10,7 @@ namespace BiomeExpansion.Content.Tiles.Plants;
 
 public class CrimsonInfectedMushroomCaveBigMushroom : ModTile
 {
-    public override string Texture => TextureHelper.GetDynamicTileTexture("CrimsonInfectedMushroomCaveBigMushroom");
+    public override string Texture => TextureHelper.DynamicTileTextures["CrimsonInfectedMushroomCaveBigMushroom"];
 
     public override void SetStaticDefaults()
     {

@@ -10,8 +10,7 @@ namespace BiomeExpansion.Content.Tiles.Plants;
 
 public class CrimsonInfectedMushroomOats : ModTile
 {
-    public override string Texture => TextureHelper.GetDynamicTileTexture("CrimsonInfectedMushroomOats");
-    private static readonly string GlowMaskTexture = TextureHelper.GetDynamicTileTexture("CrimsonInfectedMushroomOatsGlow");
+    public override string Texture => TextureHelper.DynamicTileTextures["CrimsonInfectedMushroomOats"];
 
     public override void SetStaticDefaults()
     {
@@ -25,10 +24,9 @@ public class CrimsonInfectedMushroomOats : ModTile
     
     public override bool PreDraw(int i, int j, SpriteBatch spriteBatch) 
     {
-		FrameHelper.DrawTileWithGlowMask(spriteBatch, Texture, GlowMaskTexture, i, j, 1, 2);
+		FrameHelper.DrawTileWithGlowMask(spriteBatch, Texture, i, j, 1, 2);
         return false;
 	}
-
 
     public override void NumDust(int i, int j, bool fail, ref int num)
     {

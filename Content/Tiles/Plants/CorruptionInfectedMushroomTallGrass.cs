@@ -3,6 +3,7 @@ using BiomeExpansion.Content.Items.Others;
 using BiomeExpansion.Content.Tiles.Biome;
 using BiomeExpansion.Helpers;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -12,7 +13,7 @@ namespace BiomeExpansion.Content.Tiles.Plants;
 
 public class CorruptionInfectedMushroomTallGrass : ModTile
 {
-    public override string Texture => TextureHelper.GetDynamicTileTexture("CorruptionInfectedMushroomTallGrass");
+    public override string Texture => TextureHelper.DynamicTileTextures["CorruptionInfectedMushroomTallGrass"];
 
     public override void SetStaticDefaults()
     {
@@ -24,6 +25,12 @@ public class CorruptionInfectedMushroomTallGrass : ModTile
         DustType = DustID.CorruptPlants;
         AddMapEntry(Color.DarkViolet);
     }
+
+    public override bool PreDraw(int i, int j, SpriteBatch spriteBatch)
+    {
+		FrameHelper.DrawTileWithGlowMask(spriteBatch, Texture, i, j);
+        return false;
+	}
     
     public override IEnumerable<Item> GetItemDrops(int i, int j)
     {

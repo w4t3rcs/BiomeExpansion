@@ -1,5 +1,6 @@
 ﻿using BiomeExpansion.Helpers;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -8,7 +9,7 @@ namespace BiomeExpansion.Content.Tiles.Plants;
 
 public class CrimsonInfectedMushroomCaveThorns : ModTile
 {
-    public override string Texture => TextureHelper.GetDynamicTileTexture("CrimsonInfectedMushroomCaveThorns");
+    public override string Texture => TextureHelper.DynamicTileTextures["CrimsonInfectedMushroomCaveThorns"];
     
     public override void SetStaticDefaults()
     {
@@ -17,7 +18,7 @@ public class CrimsonInfectedMushroomCaveThorns : ModTile
         DustType = DustID.CrimsonPlants;
         AddMapEntry(Color.Crimson);
     }
-    
+
     public override bool IsTileDangerous(int i, int j, Player player)
     {
         return true;

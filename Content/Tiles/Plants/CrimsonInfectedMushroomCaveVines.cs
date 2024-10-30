@@ -1,5 +1,6 @@
 ﻿using BiomeExpansion.Helpers;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
@@ -9,7 +10,7 @@ namespace BiomeExpansion.Content.Tiles.Plants;
 
 public class CrimsonInfectedMushroomCaveVines : ModTile
 {
-    public override string Texture => TextureHelper.GetDynamicTileTexture("CrimsonInfectedMushroomCaveVines");
+    public override string Texture => TextureHelper.DynamicTileTextures["CrimsonInfectedMushroomCaveVines"];
     
     public override void SetStaticDefaults()
     {
@@ -18,7 +19,7 @@ public class CrimsonInfectedMushroomCaveVines : ModTile
         DustType = DustID.CrimsonPlants;
         AddMapEntry(Color.Crimson);
     }
-    
+
     public override void KillTile(int i, int j, ref bool fail, ref bool effectOnly, ref bool noItem)
     {
         if (WorldGen.genRand.NextBool() && Main.player[Player.FindClosest(new Vector2(i * 16, j * 16), 16, 16)].cordage)

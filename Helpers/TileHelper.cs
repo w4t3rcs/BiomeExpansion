@@ -63,12 +63,13 @@ public static class TileHelper
         TileObjectData.newTile.LavaDeath = false;
     }
     
-    public static void SetVine(ushort type)
+    public static void SetVine(ushort type, bool isBulb = false)
     {
         Main.tileCut[type] = true;
         Main.tileBlockLight[type] = true;
         Main.tileLavaDeath[type] = true;
         Main.tileNoFail[type] = true;
+        Main.tileLighted[type] = isBulb;
         TileID.Sets.IsVine[type] = true;
         TileID.Sets.ReplaceTileBreakDown[type] = true;
         TileID.Sets.VineThreads[type] = true;
