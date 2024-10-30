@@ -8,28 +8,28 @@ using Terraria.ModLoader;
 
 namespace BiomeExpansion.Content.NPCs;
 
-public class CrimsonInfectedSlime : ModNPC
+public class CrimsonInfectedAnglerFish : ModNPC
 {
-    public override string Texture => TextureHelper.DynamicNPCsTextures["CrimsonInfectedSlime"];
+    public override string Texture => TextureHelper.DynamicNPCsTextures["CrimsonInfectedAnglerFish"];
 
     public override void SetStaticDefaults()
     {
-        Main.npcFrameCount[NPC.type] = 2;
+        Main.npcFrameCount[NPC.type] = 6;
     }
 
     public override void SetDefaults()
     {
-        NPC.aiStyle = NPCAIStyleID.Slime;
-        AIType = NPCID.RedSlime;
-        NPC.damage = 15;
-        NPC.width = 36;
-        NPC.height = 31;
-        NPC.defense = 4;
+        NPC.aiStyle = NPCAIStyleID.Piranha;
+        AIType = NPCID.AnglerFish;
+        NPC.damage = 30;
+        NPC.width = 48;
+        NPC.height = 28;
+        NPC.defense = 3;
         NPC.lifeMax = 40;
         NPC.knockBackResist = 0.0f;
-        AnimationType = NPCID.CorruptSlime;
-        NPC.value = Item.buyPrice(0, 0, 1, 0);
-        NPC.alpha = 66;
+        NPC.noGravity = true;
+        AnimationType = NPCID.Piranha;
+        NPC.value = Item.buyPrice(0, 0, 5, 0);
         NPC.HitSound = SoundID.NPCHit1;
         NPC.DeathSound = SoundID.NPCDeath1;
         Banner = NPC.type;
@@ -44,13 +44,13 @@ public class CrimsonInfectedSlime : ModNPC
         bestiaryEntry.Info.AddRange(new IBestiaryInfoElement[]
         {
             BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.TheCrimson,
-            new FlavorTextBestiaryInfoElement("Mods.BiomeExpansion.Bestiary.CrimsonInfectedSlime")
+            new FlavorTextBestiaryInfoElement("Mods.BiomeExpansion.Bestiary.CrimsonInfectedAnglerFish")
         });
     }
 
     public override float SpawnChance(NPCSpawnInfo spawnInfo)
     {
-        if (spawnInfo.Player.InModBiome<CrimsonInfectedMushroomSurfaceBiome>())
+        if (spawnInfo.Player.InModBiome<CrimsonInfectedMushroomSurfaceBiome>() && spawnInfo.Water)
         {
             return 1f;
         }
@@ -67,8 +67,6 @@ public class CrimsonInfectedSlime : ModNPC
 
     public override void HitEffect(NPC.HitInfo hit)
     {
-        NPCHelper.DoHitDust(NPC, hit.HitDirection, DustID.Corruption);
+        NPCHelper.DoHitDust(NPC, hit.HitDirection, DustID.Crimson);
     }
-
-    // public override void ModifyNPCLoot(NPCLoot npcLoot) => npcLoot.Add(ModContent.ItemType<>(), 1, 10, 26);
 }

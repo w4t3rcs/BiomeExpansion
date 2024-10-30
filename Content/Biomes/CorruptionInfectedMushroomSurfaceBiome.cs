@@ -16,6 +16,8 @@ public class CorruptionInfectedMushroomSurfaceBiome : ModBiome
     public override CaptureBiome.TileColorStyle TileColorStyle => CaptureBiome.TileColorStyle.Corrupt;
     public override ModSurfaceBackgroundStyle SurfaceBackgroundStyle => ModContent.GetInstance<СorruptionInfectedMushroomSurfaceBiomeBGStyle>();
     public override ModUndergroundBackgroundStyle UndergroundBackgroundStyle => ModContent.GetInstance<СorruptionInfectedMushroomSurfaceBiomeBGUGStyle>();
+    public override int BiomeCampfireItemType => ModContent.ItemType<Items.Placeable.Furniture.CorruptionInfectedMushroomWoodCampfire>();
+    public override int BiomeTorchItemType => ModContent.ItemType<Items.Placeable.Furniture.CorruptionInfectedMushroomWoodTorch>();
     public override int Music => MusicID.Mushrooms;
     public override SceneEffectPriority Priority {  
         get
@@ -24,7 +26,7 @@ public class CorruptionInfectedMushroomSurfaceBiome : ModBiome
             return SceneEffectPriority.BiomeHigh;
         }
     }
-        
+
     public override bool IsBiomeActive(Player player) {
         return !player.ZoneDungeon && ModContent.GetInstance<BiomeTileCounterSystem>().CorruptionInfectedMushroomSurfaceBiomeTileCount >= 200;
     }

@@ -392,4 +392,11 @@ Buffs: {
 }
 
 Projectiles.TestMinion.DisplayName: Test Minion
-NPCs.CorruptionInfectedSlime.DisplayName: Corruption Infected Slime
+
+NPCs: {
+	CorruptionInfectedSlime.DisplayName: Corruption Infected Slime
+	CrimsonInfectedSlime.DisplayName: Crimson Infected Slime
+	CorruptionInfectedAnglerFish.DisplayName: Corruption Infected Angler Fish
+	CrimsonInfectedAnglerFish.DisplayName: Crimson Infected Angler Fish
+	InfectedAnglerFishSkeleton.DisplayName: Infected Angler Fish Skeleton
+}

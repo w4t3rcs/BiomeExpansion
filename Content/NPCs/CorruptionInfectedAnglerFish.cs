@@ -8,32 +8,32 @@ using Terraria.ModLoader;
 
 namespace BiomeExpansion.Content.NPCs;
 
-public class CrimsonInfectedSlime : ModNPC
+public class CorruptionInfectedAnglerFish : ModNPC
 {
-    public override string Texture => TextureHelper.DynamicNPCsTextures["CrimsonInfectedSlime"];
+    public override string Texture => TextureHelper.DynamicNPCsTextures["CorruptionInfectedAnglerFish"];
 
     public override void SetStaticDefaults()
     {
-        Main.npcFrameCount[NPC.type] = 2;
+        Main.npcFrameCount[NPC.type] = 6;
     }
 
     public override void SetDefaults()
     {
-        NPC.aiStyle = NPCAIStyleID.Slime;
-        AIType = NPCID.RedSlime;
-        NPC.damage = 15;
-        NPC.width = 36;
-        NPC.height = 31;
-        NPC.defense = 4;
-        NPC.lifeMax = 40;
+        NPC.aiStyle = NPCAIStyleID.Piranha;
+        AIType = NPCID.AnglerFish;
+        NPC.damage = 35;
+        NPC.width = 48;
+        NPC.height = 28;
+        NPC.defense = 5;
+        NPC.lifeMax = 30;
         NPC.knockBackResist = 0.0f;
-        AnimationType = NPCID.CorruptSlime;
-        NPC.value = Item.buyPrice(0, 0, 1, 0);
-        NPC.alpha = 66;
+        NPC.noGravity = true;
+        AnimationType = NPCID.Piranha;
+        NPC.value = Item.buyPrice(0, 0, 5, 0);
         NPC.HitSound = SoundID.NPCHit1;
         NPC.DeathSound = SoundID.NPCDeath1;
         Banner = NPC.type;
-        SpawnModBiomes = [ModContent.GetInstance<CrimsonInfectedMushroomSurfaceBiome>().Type];
+        SpawnModBiomes = [ModContent.GetInstance<CorruptionInfectedMushroomSurfaceBiome>().Type];
         // BannerItem = ModContent.ItemType<>();
         NPCHelper.AdjustExpertMode(NPC);
         NPCHelper.AdjustMasterMode(NPC);
@@ -43,14 +43,14 @@ public class CrimsonInfectedSlime : ModNPC
     {
         bestiaryEntry.Info.AddRange(new IBestiaryInfoElement[]
         {
-            BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.TheCrimson,
-            new FlavorTextBestiaryInfoElement("Mods.BiomeExpansion.Bestiary.CrimsonInfectedSlime")
+            BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.TheCorruption,
+            new FlavorTextBestiaryInfoElement("Mods.BiomeExpansion.Bestiary.CorruptionInfectedAnglerFish")
         });
     }
 
     public override float SpawnChance(NPCSpawnInfo spawnInfo)
     {
-        if (spawnInfo.Player.InModBiome<CrimsonInfectedMushroomSurfaceBiome>())
+        if (spawnInfo.Player.InModBiome<CorruptionInfectedMushroomSurfaceBiome>() && spawnInfo.Water)
         {
             return 1f;
         }
@@ -61,7 +61,7 @@ public class CrimsonInfectedSlime : ModNPC
     {
         if (hurtInfo.Damage > 0)
         {
-            target.AddBuff(ModContent.BuffType<CrimsonSporeInfectionDebuff>(), 1200, true);
+            target.AddBuff(ModContent.BuffType<CorruptionSporeInfectionDebuff>(), 1200, true);
         }
     }
 
@@ -69,6 +69,4 @@ public class CrimsonInfectedSlime : ModNPC
     {
         NPCHelper.DoHitDust(NPC, hit.HitDirection, DustID.Corruption);
     }
-
-    // public override void ModifyNPCLoot(NPCLoot npcLoot) => npcLoot.Add(ModContent.ItemType<>(), 1, 10, 26);
 }
