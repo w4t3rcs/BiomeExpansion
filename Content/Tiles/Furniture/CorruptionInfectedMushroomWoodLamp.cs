@@ -11,7 +11,7 @@ namespace BiomeExpansion.Content.Tiles.Furniture;
 
 public class CorruptionInfectedMushroomWoodLamp : ModTile
 {
-    public override string Texture => TextureHelper.GetDynamicTileTexture("CorruptionInfectedMushroomWoodLamp");
+    public override string Texture => TextureHelper.DynamicTilesTextures["CorruptionInfectedMushroomWoodLamp"];
 
     public override void SetStaticDefaults()
     {

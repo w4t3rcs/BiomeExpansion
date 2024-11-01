@@ -12,8 +12,8 @@ namespace BiomeExpansion.Content.Tiles.Furniture;
 
 public class CrimsonInfectedMushroomWoodBench : ModTile
 {
-    public override string Texture => TextureHelper.GetDynamicTileTexture("CrimsonInfectedMushroomWoodBench");
-    public override string HighlightTexture => TextureHelper.GetDynamicTileTexture("InfectedMushroomWoodBenchHighlight");
+    public override string Texture => TextureHelper.DynamicTilesTextures["CrimsonInfectedMushroomWoodBench"];
+    public override string HighlightTexture => TextureHelper.DynamicTilesTextures["InfectedMushroomWoodBenchHighlight"];
 
     public override void SetStaticDefaults()
     {

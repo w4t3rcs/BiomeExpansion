@@ -5,7 +5,7 @@ namespace BiomeExpansion.Content.Items.Placeable.Furniture;
 
 public class CorruptionInfectedMushroomWoodChair : ModItem
 {
-    public override string Texture => TextureHelper.GetDynamicItemTexture("CorruptionInfectedMushroomWoodChair");
+    public override string Texture => TextureHelper.DynamicItemsTextures["CorruptionInfectedMushroomWoodChair"];
     
     public override void SetStaticDefaults()
     {

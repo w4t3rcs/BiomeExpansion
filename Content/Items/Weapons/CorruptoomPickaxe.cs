@@ -6,7 +6,7 @@ namespace BiomeExpansion.Content.Items.Weapons;
 
 public class CorruptoomPickaxe : ModItem
 {
-    public override string Texture => TextureHelper.GetDynamicItemTexture("CorruptoomPickaxe");
+    public override string Texture => TextureHelper.DynamicItemsTextures["CorruptoomPickaxe"];
 
     public override void SetDefaults()
     {

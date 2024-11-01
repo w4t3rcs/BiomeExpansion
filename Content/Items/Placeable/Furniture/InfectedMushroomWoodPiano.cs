@@ -5,7 +5,7 @@ namespace BiomeExpansion.Content.Items.Placeable.Furniture;
 
 public class InfectedMushroomWoodPiano : ModItem
 {
-    public override string Texture => TextureHelper.GetDynamicItemTexture("InfectedMushroomWoodPiano");
+    public override string Texture => TextureHelper.DynamicItemsTextures["InfectedMushroomWoodPiano"];
     
     public override void SetStaticDefaults()
     {

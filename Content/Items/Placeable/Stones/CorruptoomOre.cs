@@ -5,7 +5,7 @@ namespace BiomeExpansion.Content.Items.Placeable.Stones;
 
 public class CorruptoomOre : ModItem
 {
-    public override string Texture => TextureHelper.GetDynamicItemTexture("CorruptoomOre");
+    public override string Texture => TextureHelper.DynamicItemsTextures["CorruptoomOre"];
     
     public override void SetStaticDefaults()
     {

@@ -5,7 +5,7 @@ namespace BiomeExpansion.Content.Items.Placeable.Furniture;
 
 public class CorruptionInfectedMushroomWoodLantern : ModItem
 {
-    public override string Texture => TextureHelper.GetDynamicItemTexture("CorruptionInfectedMushroomWoodLantern");
+    public override string Texture => TextureHelper.DynamicItemsTextures["CorruptionInfectedMushroomWoodLantern"];
     
     public override void SetStaticDefaults()
     {

@@ -12,8 +12,8 @@ namespace BiomeExpansion.Content.Tiles.Furniture;
 
 public class CorruptionInfectedMushroomWoodBed : ModTile
 {
-    public override string Texture => TextureHelper.GetDynamicTileTexture("CorruptionInfectedMushroomWoodBed");
-    public override string HighlightTexture => TextureHelper.GetDynamicTileTexture("InfectedMushroomWoodBedHighlight");
+    public override string Texture => TextureHelper.DynamicTilesTextures["CorruptionInfectedMushroomWoodBed"];
+    public override string HighlightTexture => TextureHelper.DynamicTilesTextures["InfectedMushroomWoodBedHighlight"];
 
     public override void SetStaticDefaults()
     {

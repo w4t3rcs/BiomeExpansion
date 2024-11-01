@@ -11,7 +11,7 @@ namespace BiomeExpansion.Content.Items.Others;
 
 public class FearPiece : ModItem
 {
-    public override string Texture => TextureHelper.GetDynamicItemTexture("FearPiece");
+    public override string Texture => TextureHelper.DynamicItemsTextures["FearPiece"];
     
     public override void SetStaticDefaults()
     {

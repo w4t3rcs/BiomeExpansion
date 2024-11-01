@@ -2,11 +2,11 @@
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace BiomeExpansion.Content.Items.Weapons;
+namespace BiomeExpansion.Test;
 
-public class CrimsoomSword : ModItem
+public class TestSword : ModItem
 {
-    public override string Texture => TextureHelper.DynamicItemsTextures["CrimsoomSword"];
+    public override string Texture => TextureHelper.GetDynamicItemTexture("CorruptoomSword");
 
     public override void SetDefaults()
     {

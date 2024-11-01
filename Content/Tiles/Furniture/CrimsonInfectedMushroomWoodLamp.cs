@@ -11,7 +11,7 @@ namespace BiomeExpansion.Content.Tiles.Furniture;
 
 public class CrimsonInfectedMushroomWoodLamp : ModTile
 {
-    public override string Texture => TextureHelper.GetDynamicTileTexture("CrimsonInfectedMushroomWoodLamp");
+    public override string Texture => TextureHelper.DynamicTilesTextures["CrimsonInfectedMushroomWoodLamp"];
 
     public override void SetStaticDefaults()
     {

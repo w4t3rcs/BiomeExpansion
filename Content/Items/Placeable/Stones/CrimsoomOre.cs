@@ -5,7 +5,7 @@ namespace BiomeExpansion.Content.Items.Placeable.Stones;
 
 public class CrimsoomOre : ModItem
 {
-    public override string Texture => TextureHelper.GetDynamicItemTexture("CrimsoomOre");
+    public override string Texture => TextureHelper.DynamicItemsTextures["CrimsoomOre"];
     
     public override void SetStaticDefaults()
     {

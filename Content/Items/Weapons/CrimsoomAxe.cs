@@ -6,7 +6,7 @@ namespace BiomeExpansion.Content.Items.Weapons;
 
 public class CrimsoomAxe : ModItem
 {
-    public override string Texture => TextureHelper.GetDynamicItemTexture("CrimsoomAxe");
+    public override string Texture => TextureHelper.DynamicItemsTextures["CrimsoomAxe"];
 
     public override void SetDefaults()
     {

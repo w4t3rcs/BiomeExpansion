@@ -6,7 +6,7 @@ namespace BiomeExpansion.Content.Items.Placeable.Plants;
 
 public class CorruptionInfectedSmallMushroom : ModItem
 {
-    public override string Texture => TextureHelper.GetDynamicItemTexture("CorruptionInfectedSmallMushroom");
+    public override string Texture => TextureHelper.DynamicItemsTextures["CorruptionInfectedSmallMushroom"];
     
     public override void SetStaticDefaults()
     {

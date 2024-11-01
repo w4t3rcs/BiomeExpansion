@@ -8,7 +8,7 @@ namespace BiomeExpansion.Content.Tiles.Furniture;
 
 public class InfectedMushroomWoodSink : ModTile
 {
-    public override string Texture => TextureHelper.GetDynamicTileTexture("InfectedMushroomWoodSink");
+    public override string Texture => TextureHelper.DynamicTilesTextures["InfectedMushroomWoodSink"];
 
     public override void SetStaticDefaults()
     {

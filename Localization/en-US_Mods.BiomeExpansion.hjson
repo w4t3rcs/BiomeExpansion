@@ -412,4 +412,5 @@ NPCs: {
 	CrimsonInfectedSmallWormHead.DisplayName: Crimson Infected Small Worm Head
 	CrimsonInfectedSmallWormTail.DisplayName: Crimson Infected Small Worm Tail
 	CorruptionInfectedEye.DisplayName: Corruption Infected Eye
+	CrimsonInfectedEye.DisplayName: Crimson Infected Eye
 }

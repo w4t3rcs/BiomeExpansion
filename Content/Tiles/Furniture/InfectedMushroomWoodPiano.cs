@@ -8,7 +8,7 @@ namespace BiomeExpansion.Content.Tiles.Furniture;
 
 public class InfectedMushroomWoodPiano : ModTile
 {
-    public override string Texture => TextureHelper.GetDynamicTileTexture("InfectedMushroomWoodPiano");
+    public override string Texture => TextureHelper.DynamicTilesTextures["InfectedMushroomWoodPiano"];
 
     public override void SetStaticDefaults()
     {

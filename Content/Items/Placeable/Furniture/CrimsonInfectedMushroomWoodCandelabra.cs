@@ -5,7 +5,7 @@ namespace BiomeExpansion.Content.Items.Placeable.Furniture;
 
 public class CrimsonInfectedMushroomWoodCandelabra : ModItem
 {
-    public override string Texture => TextureHelper.GetDynamicItemTexture("CrimsonInfectedMushroomWoodCandelabra");
+    public override string Texture => TextureHelper.DynamicItemsTextures["CrimsonInfectedMushroomWoodCandelabra"];
     
     public override void SetStaticDefaults()
     {

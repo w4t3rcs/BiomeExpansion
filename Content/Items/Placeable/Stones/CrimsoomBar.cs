@@ -5,7 +5,7 @@ namespace BiomeExpansion.Content.Items.Placeable.Stones;
 
 public class CrimsoomBar : ModItem
 {
-    public override string Texture => TextureHelper.GetDynamicItemTexture("CrimsoomBar");
+    public override string Texture => TextureHelper.DynamicItemsTextures["CrimsoomBar"];
     
     public override void SetStaticDefaults()
     {

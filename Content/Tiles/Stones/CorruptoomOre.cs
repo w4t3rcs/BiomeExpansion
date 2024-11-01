@@ -9,7 +9,7 @@ namespace BiomeExpansion.Content.Tiles.Stones;
 
 public class CorruptoomOre : ModTile
 {
-    public override string Texture => TextureHelper.GetDynamicTileTexture("CorruptoomOre");
+    public override string Texture => TextureHelper.DynamicTilesTextures["CorruptoomOre"];
 
     public override void SetStaticDefaults()
     {

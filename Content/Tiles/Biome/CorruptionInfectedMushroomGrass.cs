@@ -10,7 +10,7 @@ namespace BiomeExpansion.Content.Tiles.Biome;
 
 public class CorruptionInfectedMushroomGrass : ModTile
 {
-    public override string Texture => TextureHelper.GetDynamicTileTexture("CorruptionInfectedMushroomGrass");
+    public override string Texture => TextureHelper.DynamicTilesTextures["CorruptionInfectedMushroomGrass"];
     
     public override void SetStaticDefaults()
     {

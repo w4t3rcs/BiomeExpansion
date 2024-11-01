@@ -8,7 +8,7 @@ namespace BiomeExpansion.Content.Tiles.Stones;
 
 public class CrimsoomBar : ModTile
 {
-    public override string Texture => TextureHelper.GetDynamicTileTexture("CrimsoomBar");
+    public override string Texture => TextureHelper.DynamicTilesTextures["CrimsoomBar"];
 
     public override void SetStaticDefaults()
     {

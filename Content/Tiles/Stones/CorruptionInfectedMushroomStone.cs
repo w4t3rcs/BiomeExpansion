@@ -9,7 +9,7 @@ namespace BiomeExpansion.Content.Tiles.Stones;
 
 public class CorruptionInfectedMushroomStone : ModTile
 {
-    public override string Texture => TextureHelper.GetDynamicTileTexture("CorruptionInfectedMushroomStone");
+    public override string Texture => TextureHelper.DynamicTilesTextures["CorruptionInfectedMushroomStone"];
 
     public override void SetStaticDefaults()
     {

@@ -5,7 +5,7 @@ namespace BiomeExpansion.Content.Items.Placeable.Stones;
 
 public class CrimsonInfectedMushroomOldStone : ModItem
 {
-    public override string Texture => TextureHelper.GetDynamicItemTexture("CrimsonInfectedMushroomOldStone");
+    public override string Texture => TextureHelper.DynamicItemsTextures["CrimsonInfectedMushroomOldStone"];
     
     public override void SetStaticDefaults()
     {

@@ -7,7 +7,7 @@ namespace BiomeExpansion.Content.Buffs;
 
 public class CrimsonSporeInfectionDebuff : ModBuff
 {
-    public override string Texture => TextureHelper.GetDynamicBuffTexture("CrimsonSporeInfectionDebuff");
+    public override string Texture => TextureHelper.DynamicBuffsTextures["CrimsonSporeInfectionDebuff"];
 
     public override void SetStaticDefaults()
     {

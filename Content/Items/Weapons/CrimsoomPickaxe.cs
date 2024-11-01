@@ -6,7 +6,7 @@ namespace BiomeExpansion.Content.Items.Weapons;
 
 public class CrimsoomPickaxe : ModItem
 {
-    public override string Texture => TextureHelper.GetDynamicItemTexture("CrimsoomPickaxe");
+    public override string Texture => TextureHelper.DynamicItemsTextures["CrimsoomPickaxe"];
 
     public override void SetDefaults()
     {

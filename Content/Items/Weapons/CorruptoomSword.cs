@@ -6,7 +6,7 @@ namespace BiomeExpansion.Content.Items.Weapons;
 
 public class CorruptoomSword : ModItem
 {
-    public override string Texture => TextureHelper.GetDynamicItemTexture("CorruptoomSword");
+    public override string Texture => TextureHelper.DynamicItemsTextures["CorruptoomSword"];
 
     public override void SetDefaults()
     {

@@ -8,7 +8,7 @@ namespace BiomeExpansion.Content.Tiles.Stones;
 
 public class CrimsonInfectedMushroomOldStone : ModTile
 {
-    public override string Texture => TextureHelper.GetDynamicTileTexture("CrimsonInfectedMushroomOldStone");
+    public override string Texture => TextureHelper.DynamicTilesTextures["CrimsonInfectedMushroomOldStone"];
 
     public override void SetStaticDefaults()
     {

@@ -8,7 +8,7 @@ namespace BiomeExpansion.Content.Walls;
 
 public class CorruptionInfectedMushroomWoodWall : ModWall
 {
-    public override string Texture => TextureHelper.GetDynamicWallTexture("CorruptionInfectedMushroomWoodWall");
+    public override string Texture => TextureHelper.DynamicWallsTextures["CorruptionInfectedMushroomWoodWall"];
 
     public override void SetStaticDefaults()
     {

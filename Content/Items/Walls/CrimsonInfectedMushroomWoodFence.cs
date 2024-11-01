@@ -5,7 +5,7 @@ namespace BiomeExpansion.Content.Items.Walls;
 
 public class CrimsonInfectedMushroomWoodFence : ModItem
 {
-    public override string Texture => TextureHelper.GetDynamicItemTexture("CrimsonInfectedMushroomWoodFence");
+    public override string Texture => TextureHelper.DynamicItemsTextures["CrimsonInfectedMushroomWoodFence"];
     
     public override void SetStaticDefaults()
     {

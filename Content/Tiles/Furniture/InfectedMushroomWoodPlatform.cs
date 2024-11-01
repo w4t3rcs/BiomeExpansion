@@ -8,7 +8,7 @@ namespace BiomeExpansion.Content.Tiles.Furniture;
 
 public class InfectedMushroomWoodPlatform : ModTile
 {
-    public override string Texture => TextureHelper.GetDynamicTileTexture("InfectedMushroomWoodPlatform");
+    public override string Texture => TextureHelper.DynamicTilesTextures["InfectedMushroomWoodPlatform"];
 
     public override void SetStaticDefaults()
     {

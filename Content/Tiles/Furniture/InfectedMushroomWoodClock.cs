@@ -11,8 +11,8 @@ namespace BiomeExpansion.Content.Tiles.Furniture;
 
 public class InfectedMushroomWoodClock : ModTile
 {
-    public override string Texture => TextureHelper.GetDynamicTileTexture("InfectedMushroomWoodClock");
-    public override string HighlightTexture => TextureHelper.GetDynamicTileTexture("InfectedMushroomWoodClockHighlight");
+    public override string Texture => TextureHelper.DynamicTilesTextures["InfectedMushroomWoodClock"];
+    public override string HighlightTexture => TextureHelper.DynamicTilesTextures["InfectedMushroomWoodClockHighlight"];
 
     public override void SetStaticDefaults()
     {

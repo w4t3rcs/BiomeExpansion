@@ -10,7 +10,7 @@ namespace BiomeExpansion.Content.Items.Others;
 
 public class CrimsonInfectedMushroomSeeds : ModItem
 {
-    public override string Texture => TextureHelper.GetDynamicItemTexture("CrimsonInfectedMushroomSeeds");
+    public override string Texture => TextureHelper.DynamicItemsTextures["CrimsonInfectedMushroomSeeds"];
     
     public override void SetStaticDefaults()
     {

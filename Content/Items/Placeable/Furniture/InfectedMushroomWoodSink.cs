@@ -5,7 +5,7 @@ namespace BiomeExpansion.Content.Items.Placeable.Furniture;
 
 public class InfectedMushroomWoodSink : ModItem
 {
-    public override string Texture => TextureHelper.GetDynamicItemTexture("InfectedMushroomWoodSink");
+    public override string Texture => TextureHelper.DynamicItemsTextures["InfectedMushroomWoodSink"];
     
     public override void SetStaticDefaults()
     {

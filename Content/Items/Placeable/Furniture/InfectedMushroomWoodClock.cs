@@ -5,7 +5,7 @@ namespace BiomeExpansion.Content.Items.Placeable.Furniture;
 
 public class InfectedMushroomWoodClock : ModItem
 {
-    public override string Texture => TextureHelper.GetDynamicItemTexture("InfectedMushroomWoodClock");
+    public override string Texture => TextureHelper.DynamicItemsTextures["InfectedMushroomWoodClock"];
     
     public override void SetStaticDefaults()
     {

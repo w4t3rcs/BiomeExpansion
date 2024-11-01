@@ -7,7 +7,7 @@ namespace BiomeExpansion.Content.Waters;
 
 public class CrimsonInfectedMushroomWaterfallStyle : ModWaterfallStyle
 {
-    public override string Texture => TextureHelper.GetDynamicWaterTexture("CrimsonInfectedMushroomWaterfallStyle");
+    public override string Texture => TextureHelper.DynamicWatersTextures["CrimsonInfectedMushroomWaterfallStyle"];
         
     public override void AddLight(int i, int j)
     {

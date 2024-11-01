@@ -7,7 +7,7 @@ namespace BiomeExpansion.Content.Buffs;
 
 public class CorruptionSporeInfectionDebuff : ModBuff
 {
-    public override string Texture => TextureHelper.GetDynamicBuffTexture("CorruptionSporeInfectionDebuff");
+    public override string Texture => TextureHelper.DynamicBuffsTextures["CorruptionSporeInfectionDebuff"];
 
     public override void SetStaticDefaults()
     {
