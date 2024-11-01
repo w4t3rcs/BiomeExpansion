@@ -405,4 +405,10 @@ NPCs: {
 	CrimsonInfectedWormBody.DisplayName: Crimson Infected Worm Body
 	CrimsonInfectedWormHead.DisplayName: Crimson Infected Worm Head
 	CrimsonInfectedWormTail.DisplayName: Crimson Infected Worm Tail
+	CorruptionInfectedSmallWormBody.DisplayName: Corruption Infected Small Worm Body
+	CorruptionInfectedSmallWormHead.DisplayName: Corruption Infected Small Worm Head
+	CorruptionInfectedSmallWormTail.DisplayName: Corruption Infected Small Worm Tail
+	CrimsonInfectedSmallWormBody.DisplayName: Crimson Infected Small Worm Body
+	CrimsonInfectedSmallWormHead.DisplayName: Crimson Infected Small Worm Head
+	CrimsonInfectedSmallWormTail.DisplayName: Crimson Infected Small Worm Tail
 }

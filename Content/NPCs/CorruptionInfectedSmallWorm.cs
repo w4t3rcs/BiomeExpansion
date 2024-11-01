@@ -8,19 +8,18 @@ using Terraria.ModLoader;
 
 namespace BiomeExpansion.Content.NPCs;
 
-internal class CorruptionInfectedWormHead : WormHead
+internal class CorruptionInfectedSmallWormHead : WormHead
 {
-    public override string Texture => TextureHelper.DynamicNPCsTextures["CorruptionInfectedWormHead"];
-    public override int BodyType => ModContent.NPCType<CorruptionInfectedWormBody>();
-    public override int TailType => ModContent.NPCType<CorruptionInfectedWormTail>();
+    public override string Texture => TextureHelper.DynamicNPCsTextures["CorruptionInfectedSmallWormHead"];
+    public override int BodyType => ModContent.NPCType<CorruptionInfectedSmallWormBody>();
+    public override int TailType => ModContent.NPCType<CorruptionInfectedSmallWormTail>();
 
     public override void SetDefaults() {
         NPC.aiStyle = -1;
-        NPC.CloneDefaults(NPCID.DuneSplicerHead);
-        NPC.damage = 41;
-        NPC.defense = 5;
-        NPC.lifeMax = 37;
-        NPC.knockBackResist = 1f;
+        NPC.CloneDefaults(NPCID.DiggerHead);
+        NPC.damage = 30;
+        NPC.defense = 2;
+        NPC.lifeMax = 30;
         NPC.value = Item.buyPrice(0, 0, 10, 0);
         Banner = NPC.type;
         SpawnModBiomes = [ModContent.GetInstance<CorruptionInfectedMushroomSurfaceBiome>().Type];
@@ -34,7 +33,7 @@ internal class CorruptionInfectedWormHead : WormHead
         bestiaryEntry.Info.AddRange(new IBestiaryInfoElement[]
         {
             BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.TheCorruption,
-            new FlavorTextBestiaryInfoElement("Mods.BiomeExpansion.Bestiary.CorruptionInfectedWorm")
+            new FlavorTextBestiaryInfoElement("Mods.BiomeExpansion.Bestiary.CorruptionInfectedSmallWorm")
         });
     }
 
@@ -73,14 +72,14 @@ internal class CorruptionInfectedWormHead : WormHead
 	}
 
 	internal static void CommonWormInit(Worm worm) {
-		worm.MoveSpeed = 7f;
-		worm.Acceleration = 0.1f;
+		worm.MoveSpeed = 6f;
+		worm.Acceleration = 0.12f;
 	}
 }
 
-internal class CorruptionInfectedWormBody : WormBody
+internal class CorruptionInfectedSmallWormBody : WormBody
 {
-    public override string Texture => TextureHelper.DynamicNPCsTextures["CorruptionInfectedWormBody"];
+    public override string Texture => TextureHelper.DynamicNPCsTextures["CorruptionInfectedSmallWormBody"];
     public override void SetStaticDefaults()
     {
         NPCID.Sets.NPCBestiaryDrawModifiers value = new NPCID.Sets.NPCBestiaryDrawModifiers() {
@@ -91,11 +90,10 @@ internal class CorruptionInfectedWormBody : WormBody
 
     public override void SetDefaults() {
 		NPC.aiStyle = -1;
-        NPC.CloneDefaults(NPCID.DuneSplicerBody);
-        NPC.damage = 25;
-        NPC.defense = 10;
-        NPC.lifeMax = 37;
-        NPC.knockBackResist = 1f;
+        NPC.CloneDefaults(NPCID.DiggerBody);
+        NPC.damage = 13;
+        NPC.defense = 7;
+        NPC.lifeMax = 30;
         NPCHelper.AdjustExpertMode(NPC);
         NPCHelper.AdjustMasterMode(NPC);
     }
@@ -115,13 +113,13 @@ internal class CorruptionInfectedWormBody : WormBody
 
     public override void Init()
     {
-        CorruptionInfectedWormHead.CommonWormInit(this);
+        CorruptionInfectedSmallWormHead.CommonWormInit(this);
     }
 }
 
-internal class CorruptionInfectedWormTail : WormTail
+internal class CorruptionInfectedSmallWormTail : WormTail
 {
-    public override string Texture => TextureHelper.DynamicNPCsTextures["CorruptionInfectedWormTail"];
+    public override string Texture => TextureHelper.DynamicNPCsTextures["CorruptionInfectedSmallWormTail"];
     public override void SetStaticDefaults()
     {
         NPCID.Sets.NPCBestiaryDrawModifiers value = new NPCID.Sets.NPCBestiaryDrawModifiers() {
@@ -132,11 +130,10 @@ internal class CorruptionInfectedWormTail : WormTail
 
     public override void SetDefaults() {
 		NPC.aiStyle = -1;
-        NPC.CloneDefaults(NPCID.DuneSplicerTail);
-        NPC.damage = 20;
-        NPC.defense = 20;
-        NPC.lifeMax = 37;
-        NPC.knockBackResist = 1f;
+        NPC.CloneDefaults(NPCID.DiggerTail);
+        NPC.damage = 15;
+        NPC.defense = 15;
+        NPC.lifeMax = 30;
         NPCHelper.AdjustExpertMode(NPC);
         NPCHelper.AdjustMasterMode(NPC);
     }
@@ -156,6 +153,6 @@ internal class CorruptionInfectedWormTail : WormTail
 
     public override void Init()
     {
-        CorruptionInfectedWormHead.CommonWormInit(this);
+        CorruptionInfectedSmallWormHead.CommonWormInit(this);
     }
 }

@@ -8,22 +8,21 @@ using Terraria.ModLoader;
 
 namespace BiomeExpansion.Content.NPCs;
 
-internal class CorruptionInfectedWormHead : WormHead
+internal class CrimsonInfectedSmallWormHead : WormHead
 {
-    public override string Texture => TextureHelper.DynamicNPCsTextures["CorruptionInfectedWormHead"];
-    public override int BodyType => ModContent.NPCType<CorruptionInfectedWormBody>();
-    public override int TailType => ModContent.NPCType<CorruptionInfectedWormTail>();
+    public override string Texture => TextureHelper.DynamicNPCsTextures["CrimsonInfectedSmallWormHead"];
+    public override int BodyType => ModContent.NPCType<CrimsonInfectedSmallWormBody>();
+    public override int TailType => ModContent.NPCType<CrimsonInfectedSmallWormTail>();
 
     public override void SetDefaults() {
         NPC.aiStyle = -1;
-        NPC.CloneDefaults(NPCID.DuneSplicerHead);
-        NPC.damage = 41;
-        NPC.defense = 5;
-        NPC.lifeMax = 37;
-        NPC.knockBackResist = 1f;
+        NPC.CloneDefaults(NPCID.DiggerHead);
+        NPC.damage = 30;
+        NPC.defense = 2;
+        NPC.lifeMax = 30;
         NPC.value = Item.buyPrice(0, 0, 10, 0);
         Banner = NPC.type;
-        SpawnModBiomes = [ModContent.GetInstance<CorruptionInfectedMushroomSurfaceBiome>().Type];
+        SpawnModBiomes = [ModContent.GetInstance<CrimsonInfectedMushroomSurfaceBiome>().Type];
         // BannerItem = ModContent.ItemType<>();
         NPCHelper.AdjustExpertMode(NPC);
         NPCHelper.AdjustMasterMode(NPC);
@@ -33,14 +32,14 @@ internal class CorruptionInfectedWormHead : WormHead
     {
         bestiaryEntry.Info.AddRange(new IBestiaryInfoElement[]
         {
-            BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.TheCorruption,
-            new FlavorTextBestiaryInfoElement("Mods.BiomeExpansion.Bestiary.CorruptionInfectedWorm")
+            BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.TheCrimson,
+            new FlavorTextBestiaryInfoElement("Mods.BiomeExpansion.Bestiary.CrimsonInfectedSmallWorm")
         });
     }
 
     public override float SpawnChance(NPCSpawnInfo spawnInfo)
     {
-        if (spawnInfo.Player.InModBiome<CorruptionInfectedMushroomSurfaceBiome>())
+        if (spawnInfo.Player.InModBiome<CrimsonInfectedMushroomSurfaceBiome>())
         {
             if (spawnInfo.Player.ZoneDirtLayerHeight || spawnInfo.Player.ZoneRockLayerHeight)
             {
@@ -57,13 +56,13 @@ internal class CorruptionInfectedWormHead : WormHead
     {
         if (hurtInfo.Damage > 0)
         {
-            target.AddBuff(ModContent.BuffType<CorruptionSporeInfectionDebuff>(), 1200, true);
+            target.AddBuff(ModContent.BuffType<CrimsonSporeInfectionDebuff>(), 1200, true);
         }
     }
 
     public override void HitEffect(NPC.HitInfo hit)
     {
-        NPCHelper.DoHitDust(NPC, hit.HitDirection, DustID.Corruption);
+        NPCHelper.DoHitDust(NPC, hit.HitDirection, DustID.Crimson);
     }
 
     public override void Init() {
@@ -73,14 +72,14 @@ internal class CorruptionInfectedWormHead : WormHead
 	}
 
 	internal static void CommonWormInit(Worm worm) {
-		worm.MoveSpeed = 7f;
-		worm.Acceleration = 0.1f;
+		worm.MoveSpeed = 6f;
+		worm.Acceleration = 0.12f;
 	}
 }
 
-internal class CorruptionInfectedWormBody : WormBody
+internal class CrimsonInfectedSmallWormBody : WormBody
 {
-    public override string Texture => TextureHelper.DynamicNPCsTextures["CorruptionInfectedWormBody"];
+    public override string Texture => TextureHelper.DynamicNPCsTextures["CrimsonInfectedSmallWormBody"];
     public override void SetStaticDefaults()
     {
         NPCID.Sets.NPCBestiaryDrawModifiers value = new NPCID.Sets.NPCBestiaryDrawModifiers() {
@@ -91,11 +90,10 @@ internal class CorruptionInfectedWormBody : WormBody
 
     public override void SetDefaults() {
 		NPC.aiStyle = -1;
-        NPC.CloneDefaults(NPCID.DuneSplicerBody);
-        NPC.damage = 25;
-        NPC.defense = 10;
-        NPC.lifeMax = 37;
-        NPC.knockBackResist = 1f;
+        NPC.CloneDefaults(NPCID.DiggerBody);
+        NPC.damage = 13;
+        NPC.defense = 7;
+        NPC.lifeMax = 30;
         NPCHelper.AdjustExpertMode(NPC);
         NPCHelper.AdjustMasterMode(NPC);
     }
@@ -104,24 +102,24 @@ internal class CorruptionInfectedWormBody : WormBody
     {
         if (hurtInfo.Damage > 0)
         {
-            target.AddBuff(ModContent.BuffType<CorruptionSporeInfectionDebuff>(), 1200, true);
+            target.AddBuff(ModContent.BuffType<CrimsonSporeInfectionDebuff>(), 1200, true);
         }
     }
 
     public override void HitEffect(NPC.HitInfo hit)
     {
-        NPCHelper.DoHitDust(NPC, hit.HitDirection, DustID.Corruption);
+        NPCHelper.DoHitDust(NPC, hit.HitDirection, DustID.Crimson);
     }
 
     public override void Init()
     {
-        CorruptionInfectedWormHead.CommonWormInit(this);
+        CrimsonInfectedSmallWormHead.CommonWormInit(this);
     }
 }
 
-internal class CorruptionInfectedWormTail : WormTail
+internal class CrimsonInfectedSmallWormTail : WormTail
 {
-    public override string Texture => TextureHelper.DynamicNPCsTextures["CorruptionInfectedWormTail"];
+    public override string Texture => TextureHelper.DynamicNPCsTextures["CrimsonInfectedSmallWormTail"];
     public override void SetStaticDefaults()
     {
         NPCID.Sets.NPCBestiaryDrawModifiers value = new NPCID.Sets.NPCBestiaryDrawModifiers() {
@@ -132,11 +130,10 @@ internal class CorruptionInfectedWormTail : WormTail
 
     public override void SetDefaults() {
 		NPC.aiStyle = -1;
-        NPC.CloneDefaults(NPCID.DuneSplicerTail);
-        NPC.damage = 20;
-        NPC.defense = 20;
-        NPC.lifeMax = 37;
-        NPC.knockBackResist = 1f;
+        NPC.CloneDefaults(NPCID.DiggerTail);
+        NPC.damage = 15;
+        NPC.defense = 15;
+        NPC.lifeMax = 30;
         NPCHelper.AdjustExpertMode(NPC);
         NPCHelper.AdjustMasterMode(NPC);
     }
@@ -145,17 +142,17 @@ internal class CorruptionInfectedWormTail : WormTail
     {
         if (hurtInfo.Damage > 0)
         {
-            target.AddBuff(ModContent.BuffType<CorruptionSporeInfectionDebuff>(), 1200, true);
+            target.AddBuff(ModContent.BuffType<CrimsonSporeInfectionDebuff>(), 1200, true);
         }
     }
 
     public override void HitEffect(NPC.HitInfo hit)
     {
-        NPCHelper.DoHitDust(NPC, hit.HitDirection, DustID.Corruption);
+        NPCHelper.DoHitDust(NPC, hit.HitDirection, DustID.Crimson);
     }
 
     public override void Init()
     {
-        CorruptionInfectedWormHead.CommonWormInit(this);
+        CrimsonInfectedSmallWormHead.CommonWormInit(this);
     }
 }

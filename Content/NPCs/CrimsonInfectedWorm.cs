@@ -44,10 +44,10 @@ internal class CrimsonInfectedWormHead : WormHead
         {
             if (spawnInfo.Player.ZoneDirtLayerHeight || spawnInfo.Player.ZoneRockLayerHeight)
             {
-                return 0.5f;
+                return 0.33f;
             }
 
-            return 0.25f;
+            return 0.15f;
         }
         
         return 0;
