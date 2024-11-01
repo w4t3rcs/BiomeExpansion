@@ -24,8 +24,8 @@ internal class CorruptionInfectedSmallWormHead : WormHead
         Banner = NPC.type;
         SpawnModBiomes = [ModContent.GetInstance<CorruptionInfectedMushroomSurfaceBiome>().Type];
         // BannerItem = ModContent.ItemType<>();
-        NPCHelper.AdjustExpertMode(NPC);
-        NPCHelper.AdjustMasterMode(NPC);
+        NPCHelper.AdjustExpertMode(NPC, false);
+        NPCHelper.AdjustMasterMode(NPC, false);
     }
 
     public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
@@ -94,8 +94,8 @@ internal class CorruptionInfectedSmallWormBody : WormBody
         NPC.damage = 13;
         NPC.defense = 7;
         NPC.lifeMax = 30;
-        NPCHelper.AdjustExpertMode(NPC);
-        NPCHelper.AdjustMasterMode(NPC);
+        NPCHelper.AdjustExpertMode(NPC, false);
+        NPCHelper.AdjustMasterMode(NPC, false);
     }
 
     public override void OnHitPlayer(Player target, Player.HurtInfo hurtInfo)
@@ -134,8 +134,8 @@ internal class CorruptionInfectedSmallWormTail : WormTail
         NPC.damage = 15;
         NPC.defense = 15;
         NPC.lifeMax = 30;
-        NPCHelper.AdjustExpertMode(NPC);
-        NPCHelper.AdjustMasterMode(NPC);
+        NPCHelper.AdjustExpertMode(NPC, false);
+        NPCHelper.AdjustMasterMode(NPC, false);
     }
 
     public override void OnHitPlayer(Player target, Player.HurtInfo hurtInfo)

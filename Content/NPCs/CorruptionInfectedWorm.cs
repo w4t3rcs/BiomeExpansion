@@ -20,13 +20,12 @@ internal class CorruptionInfectedWormHead : WormHead
         NPC.damage = 41;
         NPC.defense = 5;
         NPC.lifeMax = 37;
-        NPC.knockBackResist = 1f;
         NPC.value = Item.buyPrice(0, 0, 10, 0);
         Banner = NPC.type;
         SpawnModBiomes = [ModContent.GetInstance<CorruptionInfectedMushroomSurfaceBiome>().Type];
         // BannerItem = ModContent.ItemType<>();
-        NPCHelper.AdjustExpertMode(NPC);
-        NPCHelper.AdjustMasterMode(NPC);
+        NPCHelper.AdjustExpertMode(NPC, false);
+        NPCHelper.AdjustMasterMode(NPC, false);
     }
 
     public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
@@ -95,9 +94,8 @@ internal class CorruptionInfectedWormBody : WormBody
         NPC.damage = 25;
         NPC.defense = 10;
         NPC.lifeMax = 37;
-        NPC.knockBackResist = 1f;
-        NPCHelper.AdjustExpertMode(NPC);
-        NPCHelper.AdjustMasterMode(NPC);
+        NPCHelper.AdjustExpertMode(NPC, false);
+        NPCHelper.AdjustMasterMode(NPC, false);
     }
 
     public override void OnHitPlayer(Player target, Player.HurtInfo hurtInfo)
@@ -136,9 +134,8 @@ internal class CorruptionInfectedWormTail : WormTail
         NPC.damage = 20;
         NPC.defense = 20;
         NPC.lifeMax = 37;
-        NPC.knockBackResist = 1f;
-        NPCHelper.AdjustExpertMode(NPC);
-        NPCHelper.AdjustMasterMode(NPC);
+        NPCHelper.AdjustExpertMode(NPC, false);
+        NPCHelper.AdjustMasterMode(NPC, false);
     }
 
     public override void OnHitPlayer(Player target, Player.HurtInfo hurtInfo)
