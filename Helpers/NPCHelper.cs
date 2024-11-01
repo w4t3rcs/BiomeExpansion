@@ -9,7 +9,7 @@ public static class NPCHelper
         if (!Main.expertMode) return;
         npc.lifeMax = (int)(npc.lifeMax * 1.75f);
         npc.damage = (int)(npc.damage * 1.75f);
-        npc.knockBackResist = (int)(npc.knockBackResist + 0.1f);
+        if (npc.knockBackResist != 0f) npc.knockBackResist = (int)(npc.knockBackResist - 0.1f);
     }
 
     public static void AdjustMasterMode(NPC npc)
@@ -17,7 +17,7 @@ public static class NPCHelper
         if (!Main.masterMode) return;
         npc.lifeMax = (int)(npc.lifeMax * 2.5f);
         npc.damage = (int)(npc.damage * 2.5f);
-        npc.knockBackResist = (int)(npc.knockBackResist + 0.2f);
+        if (npc.knockBackResist != 0f) npc.knockBackResist = (int)(npc.knockBackResist - 0.2f);
     }
 
     public static void DoHitDust(NPC npc, int hitDirection, int dustType = 5, float xSpeedMultiplier = 1f, int hitDustCount = 5, int deathDustCount = 20)

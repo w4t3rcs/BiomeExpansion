@@ -52,8 +52,9 @@ public class CrimsonInfectedAnglerFish : ModNPC
     {
         if (spawnInfo.Player.InModBiome<CrimsonInfectedMushroomSurfaceBiome>() && spawnInfo.Water)
         {
-            return 1f;
+            return 0.33f;
         }
+
         return 0f;
     }
 

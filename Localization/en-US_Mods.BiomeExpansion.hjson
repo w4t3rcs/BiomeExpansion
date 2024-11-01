@@ -399,4 +399,10 @@ NPCs: {
 	CorruptionInfectedAnglerFish.DisplayName: Corruption Infected Angler Fish
 	CrimsonInfectedAnglerFish.DisplayName: Crimson Infected Angler Fish
 	InfectedAnglerFishSkeleton.DisplayName: Infected Angler Fish Skeleton
+	CorruptionInfectedWormBody.DisplayName: Corruption Infected Worm Body
+	CorruptionInfectedWormHead.DisplayName: Corruption Infected Worm Head
+	CorruptionInfectedWormTail.DisplayName: Corruption Infected Worm Tail
+	CrimsonInfectedWormBody.DisplayName: Crimson Infected Worm Body
+	CrimsonInfectedWormHead.DisplayName: Crimson Infected Worm Head
+	CrimsonInfectedWormTail.DisplayName: Crimson Infected Worm Tail
 }

@@ -52,8 +52,9 @@ public class CorruptionInfectedAnglerFish : ModNPC
     {
         if (spawnInfo.Player.InModBiome<CorruptionInfectedMushroomSurfaceBiome>() && spawnInfo.Water)
         {
-            return 1f;
+            return 0.33f;
         }
+
         return 0f;
     }
 

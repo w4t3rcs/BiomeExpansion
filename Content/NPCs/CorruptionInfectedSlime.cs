@@ -29,7 +29,7 @@ public class CorruptionInfectedSlime : ModNPC
         NPC.knockBackResist = 0.0f;
         AnimationType = NPCID.CorruptSlime;
         NPC.value = Item.buyPrice(0, 0, 1, 0);
-        NPC.alpha = 66;
+        NPC.alpha = 85;
         NPC.HitSound = SoundID.NPCHit1;
         NPC.DeathSound = SoundID.NPCDeath1;
         Banner = NPC.type;
@@ -52,9 +52,15 @@ public class CorruptionInfectedSlime : ModNPC
     {
         if (spawnInfo.Player.InModBiome<CorruptionInfectedMushroomSurfaceBiome>())
         {
-            return 1f;
+            if (spawnInfo.Player.ZoneOverworldHeight)
+            {
+                return 0.66f;
+            }
+
+            return 0.33f;
         }
-        return 0f;
+        
+        return 0;
     }
 
     public override void OnHitPlayer(Player target, Player.HurtInfo hurtInfo)
