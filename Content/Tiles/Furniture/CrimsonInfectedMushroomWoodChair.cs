@@ -49,29 +49,11 @@ public class CrimsonInfectedMushroomWoodChair : ModTile
     
     public override void ModifySittingTargetInfo(int i, int j, ref TileRestingInfo info)
     {
-	    const int nextStyleHeight = 40;
-	    info.DirectionOffset = 0;
-	    info.VisualOffset = new Vector2(-8f, 0f);
-	    Tile tile = Framing.GetTileSafely(i, j);
-	    bool frameCheck = tile.TileFrameX >= 35;
-	    info.TargetDirection = -1;
-	    if (frameCheck) info.TargetDirection = 1;
-	    int xPos = tile.TileFrameX / 18;
-	    if (xPos == 1) i--;
-	    if (xPos == 2) i++;
-	    info.AnchorTilePosition.X = i;
-	    info.AnchorTilePosition.Y = j;
-	    if (tile.TileFrameY % nextStyleHeight == 0) info.AnchorTilePosition.Y++;
+		TileInteractionHelper.ModifyChairSittingInfo(i, j, ref info);
     }
 
 	public override void MouseOver(int i, int j) {
-		Player player = Main.LocalPlayer;
-		if (!player.IsWithinSnappngRangeToTile(i, j, PlayerSittingHelper.ChairSittingMaxDistance)) return;
-		player.noThrow = 2;
-		player.cursorItemIconEnabled = true;
-		player.cursorItemIconID = ModContent.ItemType<Items.Placeable.Furniture.CrimsonInfectedMushroomWoodChair>();
-		bool frameCheck = Main.tile[i, j].TileFrameX <= 35;
-		if (frameCheck) player.cursorItemIconReversed = true;
+		TileInteractionHelper.MouseOverChair(i, j, ModContent.ItemType<Items.Placeable.Furniture.CrimsonInfectedMushroomWoodChair>());
 	}
 
 	public override bool HasSmartInteract(int i, int j, SmartInteractScanSettings settings) 
@@ -80,13 +62,7 @@ public class CrimsonInfectedMushroomWoodChair : ModTile
 	}
 
 	public override bool RightClick(int i, int j) {
-		Player player = Main.LocalPlayer;
-		if (player.IsWithinSnappngRangeToTile(i, j, PlayerSittingHelper.ChairSittingMaxDistance))
-		{
-			player.GamepadEnableGrappleCooldown();
-			player.sitting.SitDown(player, i, j);
-		}
-		return true;
+		return TileInteractionHelper.RightClickSit(i, j);
 	}
 	
     public override void NumDust(int i, int j, bool fail, ref int num)

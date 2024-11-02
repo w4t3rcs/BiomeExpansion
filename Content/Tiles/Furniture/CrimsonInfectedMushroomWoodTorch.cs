@@ -26,10 +26,7 @@ public class CrimsonInfectedMushroomWoodTorch : ModTile
 
     public override void MouseOver(int i, int j)
     {
-        Player player = Main.LocalPlayer;
-        player.noThrow = 2;
-        player.cursorItemIconEnabled = true;
-        player.cursorItemIconID = ModContent.ItemType<Items.Placeable.Furniture.CrimsonInfectedMushroomWoodTorch>();
+        TileInteractionHelper.MouseOver(ModContent.ItemType<Items.Placeable.Furniture.CrimsonInfectedMushroomWoodTorch>());
     }
 
     public override void ModifyLight(int i, int j, ref float r, ref float g, ref float b)
@@ -65,17 +62,7 @@ public class CrimsonInfectedMushroomWoodTorch : ModTile
 
     public override bool RightClick(int i, int j)
     {
-        Tile tile = Main.tile[i, j];
-        if (tile != null && tile.HasTile)
-        {
-            WorldGen.KillTile(i, j);
-            if (!tile.HasTile && Main.netMode != NetmodeID.SinglePlayer)
-            {
-                NetMessage.SendData(MessageID.TileManipulation, -1, -1, null, 0, i, j);
-            }
-        }
-        
-        return true;
+        return TileInteractionHelper.RightClickDestroy(i, j);
     }
 
     public override float GetTorchLuck(Player player)

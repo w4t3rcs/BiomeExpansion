@@ -28,6 +28,7 @@ public class CrimsoomSword : ModItem
 
     public override void OnHitNPC(Player player, NPC target, NPC.HitInfo hit, int damageDone)
     {
-        ParticleOrchestraHelper.SpawnOnHit(new TrueNightEdgeParticleOrchestraType(), player.whoAmI, target, [new Color(0.6f, 0.1f, 0.1f, 0.5f), Color.Gold], DustID.CrimsonTorch);
+        // ParticleOrchestraHelper.SpawnOnHit(new TrueNightEdgeParticleOrchestraType(), player.whoAmI, target, [new Color(0.6f, 0.1f, 0.1f, 0.5f), Color.Gold], DustID.CrimsonTorch);
+        ParticleOrchestraHelper.SpawnOnHit(new TerraBladeParticleOrchestraType(), player.whoAmI, target, [new Color(0.6f, 0.1f, 0.1f, 0.6f), new Color(0.9f, 0.6f, 0.1f, 0.6f), new Color(1.0f, 0.9f, 0.0f, 0.6f)], DustID.RedTorch);
     }
 }

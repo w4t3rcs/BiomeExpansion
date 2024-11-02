@@ -35,12 +35,7 @@ public class CrimsonInfectedMushroomWoodCampfire : ModTile
 	}
 
 	public override void MouseOver(int i, int j) {
-		Player player = Main.LocalPlayer;
-		player.noThrow = 2;
-		player.cursorItemIconEnabled = true;
-		
-		int style = TileObjectData.GetTileStyle(Main.tile[i, j]);
-		player.cursorItemIconID = TileLoader.GetItemDropFromTypeAndStyle(Type, style);
+		TileInteractionHelper.MouseOver(ModContent.ItemType<Items.Placeable.Furniture.CrimsonInfectedMushroomWoodCampfire>());
 	}
 
 	public override bool HasSmartInteract(int i, int j, SmartInteractScanSettings settings) { 
@@ -48,35 +43,11 @@ public class CrimsonInfectedMushroomWoodCampfire : ModTile
 	}
 
 	public override bool RightClick(int i, int j) {
-		SoundEngine.PlaySound(SoundID.Mech, new Vector2(i * 16, j * 16));
-		ToggleTile(i, j);
-		return true;
+		return TileInteractionHelper.RightClickMechanic(i, j);
 	}
 
 	public override void HitWire(int i, int j) {
-		ToggleTile(i, j);
-	}
-
-	public void ToggleTile(int i, int j) {
-		Tile tile = Main.tile[i, j];
-		int topX = i - tile.TileFrameX % 54 / 18;
-		int topY = j - tile.TileFrameY % 36 / 18;
-		
-		short frameAdjustment = (short)(tile.TileFrameY >= 36 ? -36 : 36);
-		
-		for (int x = topX; x < topX + 3; x++) {
-			for (int y = topY; y < topY + 2; y++) {
-				Main.tile[x, y].TileFrameY += frameAdjustment;
-				
-				if (Wiring.running) { 
-					Wiring.SkipWire(x, y);
-				}
-			}
-		}
-
-		if (Main.netMode != NetmodeID.SinglePlayer) { 
-			NetMessage.SendTileSquare(-1, topX, topY, 3, 2);
-		}
+		TileInteractionHelper.ToggleTile(i, j);
 	}
 
 	public override void AnimateTile(ref int frame, ref int frameCounter) {

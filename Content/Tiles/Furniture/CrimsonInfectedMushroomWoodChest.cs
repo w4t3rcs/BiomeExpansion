@@ -26,41 +26,12 @@ public class CrimsonInfectedMushroomWoodChest : ModTile
     }
 
 	public override void MouseOver(int i, int j) {
-        Player player = Main.LocalPlayer;
-        Tile tile = Main.tile[i, j];
-        string chestName = TileLoader.DefaultContainerName(tile.TileType, tile.TileFrameX, tile.TileFrameY);
-        int left = i;
-        int top = j;
-        if (tile.TileFrameX % 36 != 0) left--;
-        if (tile.TileFrameY != 0) top--;
-        int chest = Chest.FindChest(left, top);
-        player.cursorItemIconID = -1;
-        if (chest < 0)
-        {
-            player.cursorItemIconText = Language.GetTextValue("LegacyChestType.0");
-        }
-        else
-        {
-            player.cursorItemIconText = Main.chest[chest].name.Length > 0 ? Main.chest[chest].name : chestName;
-            if (player.cursorItemIconText == chestName)
-            {
-                player.cursorItemIconID = ModContent.ItemType<Items.Placeable.Furniture.CrimsonInfectedMushroomWoodChest>();
-                player.cursorItemIconText = "";
-            }
-        }
-        player.noThrow = 2;
-        player.cursorItemIconEnabled = true;
+        TileInteractionHelper.MouseOverChest(i, j, ModContent.ItemType<Items.Placeable.Furniture.CrimsonInfectedMushroomWoodChest>());
 	}
 
     public override void MouseOverFar(int i, int j)
     {
-        MouseOver(i, j);
-        Player player = Main.LocalPlayer;
-        if (player.cursorItemIconText == "")
-        {
-            player.cursorItemIconEnabled = false;
-            player.cursorItemIconID = 0;
-        }
+        TileInteractionHelper.MouseOverChestFar(i, j, ModContent.ItemType<Items.Placeable.Furniture.CrimsonInfectedMushroomWoodChest>());
     }
 
     public override bool HasSmartInteract(int i, int j, SmartInteractScanSettings settings) { 
@@ -69,68 +40,7 @@ public class CrimsonInfectedMushroomWoodChest : ModTile
 
 	public override bool RightClick(int i, int j) 
 	{
-        Player player = Main.LocalPlayer;
-        Tile tile = Main.tile[i, j];
-        Main.mouseRightRelease = false;
-        int left = i;
-        int top = j;
-        if (tile.TileFrameX % 36 != 0) left--;
-        if (tile.TileFrameY != 0) top--;
-        if (player.sign >= 0)
-        {
-            SoundEngine.PlaySound(SoundID.MenuClose);
-            player.sign = -1;
-            Main.editSign = false;
-            Main.npcChatText = "";
-        }
-        if (Main.editChest)
-        {
-            SoundEngine.PlaySound(SoundID.MenuTick);
-            Main.editChest = false;
-            Main.npcChatText = "";
-        }
-        if (player.editedChestName)
-        {
-            NetMessage.SendData(MessageID.SyncPlayerChest, -1, -1,
-                NetworkText.FromLiteral(Main.chest[player.chest].name), player.chest, 1f, 0f, 0f, 0, 0, 0);
-            player.editedChestName = false;
-        }
-        if (Main.netMode == NetmodeID.MultiplayerClient)
-        {
-            if (left == player.chestX && top == player.chestY && player.chest >= 0)
-            {
-                player.chest = -1;
-                Recipe.FindRecipes();
-                SoundEngine.PlaySound(SoundID.MenuClose);
-            }
-            else
-            {
-                NetMessage.SendData(MessageID.RequestChestOpen, -1, -1, null, left, (float)top, 0f, 0f, 0, 0, 0);
-                Main.stackSplit = 600;
-            }
-        }
-        else
-        {
-            int chest = Chest.FindChest(left, top);
-            if (chest < 0) return true;
-            Main.stackSplit = 600;
-            if (chest == player.chest)
-            {
-                player.chest = -1;
-                SoundEngine.PlaySound(SoundID.MenuClose);
-            }
-            else
-            {
-                player.chest = chest;
-                Main.playerInventory = true;
-                Main.recBigList = false;
-                player.chestX = left;
-                player.chestY = top;
-                SoundEngine.PlaySound(player.chest < 0 ? SoundID.MenuOpen : SoundID.MenuTick);
-            }
-            Recipe.FindRecipes();
-        }
-        return true;
+        return TileInteractionHelper.RightClickOnChest(i, j);
     }
 
 	public override LocalizedText DefaultContainerName(int frameX, int frameY)

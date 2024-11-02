@@ -28,6 +28,7 @@ public class CorruptoomSword : ModItem
 
     public override void OnHitNPC(Player player, NPC target, NPC.HitInfo hit, int damageDone)
     {
-        ParticleOrchestraHelper.SpawnOnHit(new TrueNightEdgeParticleOrchestraType(), player.whoAmI, target, [new Color(0.4f, 0.2f, 0.7f, 0.5f), new Color(0.2f, 0.9f, 0.3f, 0.5f)], DustID.GreenTorch);
+        // ParticleOrchestraHelper.SpawnOnHit(new TrueNightEdgeParticleOrchestraType(), player.whoAmI, target, [new Color(0.4f, 0.2f, 0.7f, 0.5f), new Color(0.2f, 0.9f, 0.3f, 0.5f)], DustID.GreenTorch);
+        ParticleOrchestraHelper.SpawnOnHit(new TerraBladeParticleOrchestraType(), player.whoAmI, target, [new Color(0.5f, 0.2f, 0.8f, 0.6f), new Color(0.2f, 0.9f, 0.3f, 0.6f), new Color(0.1f, 1.4f, 0.5f, 0.6f)], DustID.GreenTorch);
     }
 }

@@ -28,10 +28,7 @@ public class CrimsonInfectedMushroomWoodDoorOpen : ModTile
 
     public override void MouseOver(int i, int j)
     {
-        Player player = Main.LocalPlayer;
-        player.noThrow = 2;
-        player.cursorItemIconEnabled = true;
-        player.cursorItemIconID = ModContent.ItemType<CrimsonInfectedMushroomWoodDoor>();
+        TileInteractionHelper.MouseOver(ModContent.ItemType<CrimsonInfectedMushroomWoodDoor>());
     }
     
     public override void NumDust(int i, int j, bool fail, ref int num)

@@ -350,6 +350,16 @@ Items: {
 		DisplayName: Crimson Infected Mushroom Wood Wall
 		Tooltip: ""
 	}
+
+	CorruptionInfectedGel: {
+		DisplayName: Corruption Infected Gel
+		Tooltip: ""
+	}
+
+	CrimsonInfectedGel: {
+		DisplayName: Crimson Infected Gel
+		Tooltip: ""
+	}
 }
 
 Biomes: {

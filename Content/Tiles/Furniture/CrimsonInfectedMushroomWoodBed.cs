@@ -26,10 +26,7 @@ public class CrimsonInfectedMushroomWoodBed : ModTile
     }
 
 	public override void MouseOver(int i, int j) {
-		Player player = Main.LocalPlayer;
-		player.noThrow = 2;
-		player.cursorItemIconEnabled = true;
-		player.cursorItemIconID = ModContent.ItemType<Items.Placeable.Furniture.CrimsonInfectedMushroomWoodBed>();
+		TileInteractionHelper.MouseOver(ModContent.ItemType<Items.Placeable.Furniture.CrimsonInfectedMushroomWoodBed>());
 	}
 
 	public override bool HasSmartInteract(int i, int j, SmartInteractScanSettings settings) { 
@@ -37,33 +34,7 @@ public class CrimsonInfectedMushroomWoodBed : ModTile
 	}
 
 	public override bool RightClick(int i, int j) {
-		Player player = Main.LocalPlayer;
-		Tile tile = Main.tile[i, j];
-		int spawnX = i - tile.TileFrameX / 18 + (tile.TileFrameX >= 72 ? 5 : 2);
-		int spawnY = j + 2;
-		if (tile.TileFrameY % 38 != 0) spawnY--;
-		if (!Player.IsHoveringOverABottomSideOfABed(i, j))
-		{
-			if (!player.IsWithinSnappngRangeToTile(i, j, PlayerSleepingHelper.BedSleepingMaxDistance)) return true;
-			player.GamepadEnableGrappleCooldown();
-			player.sleeping.StartSleeping(player, i, j);
-		}
-		else
-		{
-			player.FindSpawn();
-			if (player.SpawnX == spawnX && player.SpawnY == spawnY)
-			{
-				player.RemoveSpawn();
-				Main.NewText(Language.GetTextValue("Game.SpawnPointRemoved"), byte.MaxValue, 240, 20);
-			}
-			else if (Player.CheckSpawn(spawnX, spawnY))
-			{
-				player.ChangeSpawn(spawnX, spawnY);
-				Main.NewText(Language.GetTextValue("Game.SpawnPointSet"), byte.MaxValue, 240, 20);
-			}
-		}
-
-		return true;
+		return TileInteractionHelper.RightClickOnBed(i, j);
 	}
 	
     public override void NumDust(int i, int j, bool fail, ref int num)

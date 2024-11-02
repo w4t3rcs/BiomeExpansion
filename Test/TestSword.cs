@@ -37,6 +37,10 @@ public class TestSword : ModItem
 
     public override void OnHitNPC(Player player, NPC target, NPC.HitInfo hit, int damageDone)
     {
-        ParticleOrchestraHelper.SpawnOnHit(new TrueNightEdgeParticleOrchestraType(), player.whoAmI, target, [new Color(0.4f, 0.2f, 0.4f, 0.5f), Color.BlueViolet], DustID.Corruption);
+        ParticleOrchestraSettings settings = default;
+        Vector2 positionInWorld = Main.rand.NextVector2FromRectangle(target.Hitbox);
+        settings.PositionInWorld = positionInWorld;
+        settings.IndexOfPlayerWhoInvokedThis = (byte)player.whoAmI;
+        ParticleOrchestrator.RequestParticleSpawn(clientOnly: false, ParticleOrchestraType.TerraBlade, settings);
     }
 }
