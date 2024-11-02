@@ -1,4 +1,7 @@
-﻿using BiomeExpansion.Helpers;
+﻿using BiomeExpansion.Content.Particle;
+using BiomeExpansion.Helpers;
+using Microsoft.Xna.Framework;
+using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -21,5 +24,10 @@ public class CorruptoomSword : ModItem
         Item.knockBack = 5;
         Item.crit = 6;
         Item.UseSound = SoundID.Item1;
+    }
+
+    public override void OnHitNPC(Player player, NPC target, NPC.HitInfo hit, int damageDone)
+    {
+        ParticleOrchestraHelper.SpawnOnHit(new TrueNightEdgeParticleOrchestraType(), player.whoAmI, target, [new Color(0.4f, 0.2f, 0.7f, 0.5f), new Color(0.2f, 0.9f, 0.3f, 0.5f)], DustID.GreenTorch);
     }
 }

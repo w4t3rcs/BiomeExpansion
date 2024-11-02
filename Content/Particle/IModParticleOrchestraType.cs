@@ -5,5 +5,5 @@ namespace BiomeExpansion.Content.Particle;
 
 public interface IModParticleOrchestraType
 {
-    void Spawn(ParticleOrchestraSettings settings, Color[] colors, float timeToLive);
+    void Spawn(ParticleOrchestraSettings settings, Color[] colors, int dustID, float timeToLive);
 }

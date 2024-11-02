@@ -35,13 +35,8 @@ public class TestSword : ModItem
         Item.UseSound = SoundID.Item1;
     }
 
-    public override void UseAnimation(Player player)
-    {
-        player.itemLocation += new Vector2(-12f * player.direction, 2f * player.gravDir).RotatedBy(player.itemRotation);
-    }
-
     public override void OnHitNPC(Player player, NPC target, NPC.HitInfo hit, int damageDone)
     {
-        ParticleOrchestraHelper.SpawnOnHit(new XParticleOrchestraType(), player.whoAmI, target, [Color.DarkOliveGreen, Color.Green], 30f, new ParticleOrchestraSettings());
+        ParticleOrchestraHelper.SpawnOnHit(new TrueNightEdgeParticleOrchestraType(), player.whoAmI, target, [new Color(0.4f, 0.2f, 0.4f, 0.5f), Color.BlueViolet], DustID.Corruption);
     }
 }
