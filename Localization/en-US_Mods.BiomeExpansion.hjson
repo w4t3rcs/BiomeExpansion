@@ -391,7 +391,10 @@ Buffs: {
 	}
 }
 
-Projectiles.TestMinion.DisplayName: Test Minion
+Projectiles: {
+	TestMinion.DisplayName: Test Minion
+	Melee.TestSlash.DisplayName: Test Slash
+}
 
 NPCs: {
 	CorruptionInfectedSlime.DisplayName: Corruption Infected Slime
