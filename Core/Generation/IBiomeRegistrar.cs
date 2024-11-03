@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace BiomeExpansion.Common.Generation;
+namespace BiomeExpansion.Core.Generation;
 
 public interface IBiomeRegistrar
 {

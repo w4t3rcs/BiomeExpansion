@@ -1,6 +1,6 @@
 ﻿using BiomeExpansion.Helpers;
 
-namespace BiomeExpansion.Common.Generation;
+namespace BiomeExpansion.Core.Generation;
 
 public class DefaultCaveTileGenerationStep
 {
@@ -8,18 +8,18 @@ public class DefaultCaveTileGenerationStep
     public int generationId = -1;
     public int tileType;
     public ushort[] skippedTiles;
-    
+
     public DefaultCaveTileGenerationStep(GenerationHelper.CaveBiomeBuilder caveBiomeBuilder)
     {
-        this.CaveBiomeBuilder = caveBiomeBuilder;
+        CaveBiomeBuilder = caveBiomeBuilder;
     }
-    
+
     public DefaultCaveTileGenerationStep GenerationId(int generationId)
     {
         this.generationId = generationId;
         return this;
     }
-    
+
     public DefaultCaveTileGenerationStep TileType(int tileType)
     {
         this.tileType = tileType;
@@ -31,7 +31,7 @@ public class DefaultCaveTileGenerationStep
         this.skippedTiles = skippedTiles;
         return this;
     }
-    
+
     public GenerationHelper.CaveBiomeBuilder AndCave()
     {
         CaveBiomeBuilder.DefaultCaveTileGenerationSteps.Add(this);

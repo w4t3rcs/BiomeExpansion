@@ -1,4 +1,4 @@
-﻿namespace BiomeExpansion.Common.Generation;
+﻿namespace BiomeExpansion.Core.Generation;
 
 public interface IGroundModification
 {

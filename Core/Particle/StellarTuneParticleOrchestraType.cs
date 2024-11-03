@@ -5,7 +5,7 @@ using Terraria;
 using Terraria.GameContent.Drawing;
 using Terraria.Graphics.Renderers;
 
-namespace BiomeExpansion.Content.Particle;
+namespace BiomeExpansion.Core.Particle;
 
 public class StellarTuneParticleOrchestraType : IModParticleOrchestraType
 {

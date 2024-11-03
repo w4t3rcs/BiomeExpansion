@@ -1,4 +1,4 @@
-﻿using BiomeExpansion.Common.Generation;
+﻿using BiomeExpansion.Core.Generation;
 using Terraria;
 
 namespace BiomeExpansion.Helpers;

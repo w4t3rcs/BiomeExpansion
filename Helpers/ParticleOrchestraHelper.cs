@@ -1,4 +1,4 @@
-﻿using BiomeExpansion.Content.Particle;
+﻿using BiomeExpansion.Core.Particle;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.GameContent.Drawing;

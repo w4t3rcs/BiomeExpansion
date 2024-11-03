@@ -5,9 +5,9 @@ using Terraria;
 using Terraria.GameContent.Drawing;
 using Terraria.Graphics.Renderers;
 
-namespace BiomeExpansion.Content.Particle;
+namespace BiomeExpansion.Core.Particle;
 
-public class NightEdgeParticleOrchestraType : IModParticleOrchestraType
+public class VerticalParticleOrchestraType : IModParticleOrchestraType
 {
     public void Spawn(ParticleOrchestraSettings settings, Color[] colors, int dustID, float timeToLive)
     {

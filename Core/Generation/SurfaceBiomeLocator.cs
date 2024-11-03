@@ -2,7 +2,7 @@
 using BiomeExpansion.Helpers;
 using Terraria;
 
-namespace BiomeExpansion.Common.Generation;
+namespace BiomeExpansion.Core.Generation;
 
 public class SurfaceBiomeLocator : IBiomeLocator
 {
@@ -11,21 +11,21 @@ public class SurfaceBiomeLocator : IBiomeLocator
         KeyValuePair<int, int> result = new KeyValuePair<int, int>(0, 0);
         if (nearbyTiles is not null && nearbyTiles.Length != 0)
         {
-            KeyValuePair<int,int> nearbyBiomeCoordinates = BiomeHelper.GetBiomeXCoordinates(BiomeHelper.SurfaceY, nearbyTiles);
+            KeyValuePair<int, int> nearbyBiomeCoordinates = BiomeHelper.GetBiomeXCoordinates(BiomeHelper.SurfaceY, nearbyTiles);
             if (nearbyBiomeCoordinates.Value < Main.maxTilesX / 2)
             {
-                result = !BiomeHelper.IsSpawnNear(nearbyBiomeCoordinates.Value + width, width) 
-                    ? new KeyValuePair<int, int>(nearbyBiomeCoordinates.Value, nearbyBiomeCoordinates.Value + width) 
+                result = !BiomeHelper.IsSpawnNear(nearbyBiomeCoordinates.Value + width, width)
+                    ? new KeyValuePair<int, int>(nearbyBiomeCoordinates.Value, nearbyBiomeCoordinates.Value + width)
                     : new KeyValuePair<int, int>(nearbyBiomeCoordinates.Key - width, nearbyBiomeCoordinates.Key);
             }
             else
             {
-                result = !BiomeHelper.IsSpawnNear(nearbyBiomeCoordinates.Key - width, width) 
-                    ? new KeyValuePair<int, int>(nearbyBiomeCoordinates.Key - width, nearbyBiomeCoordinates.Key) 
+                result = !BiomeHelper.IsSpawnNear(nearbyBiomeCoordinates.Key - width, width)
+                    ? new KeyValuePair<int, int>(nearbyBiomeCoordinates.Key - width, nearbyBiomeCoordinates.Key)
                     : new KeyValuePair<int, int>(nearbyBiomeCoordinates.Value, nearbyBiomeCoordinates.Value + width);
             }
         }
-        
+
         return result;
     }
 

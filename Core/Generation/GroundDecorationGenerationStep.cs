@@ -1,6 +1,6 @@
 ﻿using BiomeExpansion.Helpers;
 
-namespace BiomeExpansion.Common.Generation;
+namespace BiomeExpansion.Core.Generation;
 
 public class GroundDecorationGenerationStep
 {
@@ -20,26 +20,26 @@ public class GroundDecorationGenerationStep
 
     public GroundDecorationGenerationStep(GenerationHelper.SurfaceBiomeBuilder surfaceBiomeBuilder)
     {
-        this.SurfaceBiomeBuilder = surfaceBiomeBuilder;
+        SurfaceBiomeBuilder = surfaceBiomeBuilder;
     }
-    
+
     public GroundDecorationGenerationStep(GenerationHelper.CaveBiomeBuilder caveBiomeBuilder)
     {
-        this.CaveBiomeBuilder = caveBiomeBuilder;
+        CaveBiomeBuilder = caveBiomeBuilder;
     }
-    
+
     public GroundDecorationGenerationStep Rarity(ushort rarity)
     {
         this.rarity = rarity;
         return this;
     }
-    
+
     public GroundDecorationGenerationStep TileType(int tileType)
     {
         this.tileType = tileType;
         return this;
     }
-    
+
     public GroundDecorationGenerationStep SoilTiles(ushort[] soilTiles)
     {
         this.soilTiles = soilTiles;
@@ -51,46 +51,46 @@ public class GroundDecorationGenerationStep
         this.frameCount = frameCount;
         return this;
     }
-    
+
     public GroundDecorationGenerationStep Width(sbyte width)
     {
         this.width = width;
         return this;
     }
-    
+
     public GroundDecorationGenerationStep Height(sbyte height)
     {
         this.height = height;
         return this;
     }
-    
+
     public GroundDecorationGenerationStep IsPlant()
     {
-        this.isPlant = true;
+        isPlant = true;
         return this;
     }
-    
+
     public GroundDecorationGenerationStep IsHanging()
     {
-        this.isHanging = true;
+        isHanging = true;
         return this;
     }
-    
+
     public GroundDecorationGenerationStep IsBunch()
     {
-        this.isBunch = true;
+        isBunch = true;
         return this;
     }
 
     public GroundDecorationGenerationStep IsSeaOats()
     {
-        this.isSeaOats = true;
+        isSeaOats = true;
         return this;
     }
-    
+
     public GroundDecorationGenerationStep IsLilyPad()
     {
-        this.isLilyPad = true;
+        isLilyPad = true;
         return this;
     }
 
@@ -99,7 +99,7 @@ public class GroundDecorationGenerationStep
         SurfaceBiomeBuilder.GroundDecorationGenerationSteps.Add(this);
         return SurfaceBiomeBuilder;
     }
-    
+
     public GenerationHelper.CaveBiomeBuilder AndCave()
     {
         CaveBiomeBuilder.GroundDecorationGenerationSteps.Add(this);

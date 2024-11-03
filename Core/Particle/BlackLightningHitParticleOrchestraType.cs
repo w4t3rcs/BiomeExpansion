@@ -7,7 +7,7 @@ using Terraria.GameContent.Drawing;
 using Terraria.Graphics.Renderers;
 using Terraria.ID;
 
-namespace BiomeExpansion.Content.Particle;
+namespace BiomeExpansion.Core.Particle;
 
 public class BlackLightningHitParticleOrchestraType : IModParticleOrchestraType
 {

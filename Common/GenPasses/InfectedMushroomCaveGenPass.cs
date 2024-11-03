@@ -1,8 +1,8 @@
-﻿using BiomeExpansion.Common.Generation;
-using BiomeExpansion.Content.Tiles.Biome;
+﻿using BiomeExpansion.Content.Tiles.Biome;
 using BiomeExpansion.Content.Tiles.Plants;
 using BiomeExpansion.Content.Tiles.Stones;
 using BiomeExpansion.Content.Walls;
+using BiomeExpansion.Core.Generation;
 using BiomeExpansion.Helpers;
 using Terraria;
 using Terraria.IO;

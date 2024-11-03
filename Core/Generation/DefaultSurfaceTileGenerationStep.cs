@@ -1,6 +1,6 @@
 ﻿using BiomeExpansion.Helpers;
 
-namespace BiomeExpansion.Common.Generation;
+namespace BiomeExpansion.Core.Generation;
 
 public class DefaultSurfaceTileGenerationStep
 {
@@ -8,18 +8,18 @@ public class DefaultSurfaceTileGenerationStep
     public int generationId = -1;
     public int tileType;
     public ushort[] replacedTiles;
-    
+
     public DefaultSurfaceTileGenerationStep(GenerationHelper.SurfaceBiomeBuilder surfaceBiomeBuilder)
     {
-        this.SurfaceBiomeBuilder = surfaceBiomeBuilder;
+        SurfaceBiomeBuilder = surfaceBiomeBuilder;
     }
-    
+
     public DefaultSurfaceTileGenerationStep GenerationId(int generationId)
     {
         this.generationId = generationId;
         return this;
     }
-    
+
     public DefaultSurfaceTileGenerationStep TileType(int tileType)
     {
         this.tileType = tileType;
@@ -31,7 +31,7 @@ public class DefaultSurfaceTileGenerationStep
         this.replacedTiles = replacedTiles;
         return this;
     }
-    
+
     public GenerationHelper.SurfaceBiomeBuilder AndSurface()
     {
         SurfaceBiomeBuilder.DefaultSurfaceTileGenerationSteps.Add(this);

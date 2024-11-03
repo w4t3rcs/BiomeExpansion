@@ -1,7 +1,7 @@
 using Microsoft.Xna.Framework;
 using Terraria.GameContent.Drawing;
 
-namespace BiomeExpansion.Content.Particle;
+namespace BiomeExpansion.Core.Particle;
 
 public interface IModParticleOrchestraType
 {

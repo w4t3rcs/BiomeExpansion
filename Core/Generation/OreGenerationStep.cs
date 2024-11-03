@@ -1,6 +1,6 @@
 ﻿using BiomeExpansion.Helpers;
 
-namespace BiomeExpansion.Common.Generation;
+namespace BiomeExpansion.Core.Generation;
 
 public class OreGenerationStep
 {
@@ -13,32 +13,32 @@ public class OreGenerationStep
 
     public OreGenerationStep(GenerationHelper.SurfaceBiomeBuilder surfaceBiomeBuilder)
     {
-        this.SurfaceBiomeBuilder = surfaceBiomeBuilder;
+        SurfaceBiomeBuilder = surfaceBiomeBuilder;
     }
-    
+
     public OreGenerationStep(GenerationHelper.CaveBiomeBuilder caveBiomeBuilder)
     {
-        this.CaveBiomeBuilder = caveBiomeBuilder;
+        CaveBiomeBuilder = caveBiomeBuilder;
     }
-    
+
     public OreGenerationStep Rarity(ushort rarity)
     {
         this.rarity = rarity;
         return this;
     }
-    
+
     public OreGenerationStep TileType(int tileType)
     {
         this.tileType = tileType;
         return this;
     }
-    
+
     public OreGenerationStep Strength(float strength)
     {
         this.strength = strength;
         return this;
     }
-    
+
     public OreGenerationStep Steps(int steps)
     {
         this.steps = steps;
@@ -50,7 +50,7 @@ public class OreGenerationStep
         SurfaceBiomeBuilder.OreGenerationSteps.Add(this);
         return SurfaceBiomeBuilder;
     }
-    
+
     public GenerationHelper.CaveBiomeBuilder AndCave()
     {
         CaveBiomeBuilder.OreGenerationSteps.Add(this);

@@ -1,5 +1,5 @@
 ﻿using System.Linq;
-using BiomeExpansion.Common.Generation;
+using BiomeExpansion.Core.Generation;
 using Terraria;
 using Terraria.ID;
 

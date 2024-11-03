@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using BiomeExpansion.Common.Generation;
+using BiomeExpansion.Core.Generation;
 
 namespace BiomeExpansion.Helpers;
 

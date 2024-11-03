@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using BiomeExpansion.Helpers;
 
-namespace BiomeExpansion.Common.Generation;
+namespace BiomeExpansion.Core.Generation;
 
 public class DependentBiomeLocator : IDependentBiomeLocator
 {

@@ -1,6 +1,6 @@
 ﻿using Terraria;
 
-namespace BiomeExpansion.Common.Generation;
+namespace BiomeExpansion.Core.Generation;
 
 public class HorizontalTunnelModification : IGroundModification
 {
