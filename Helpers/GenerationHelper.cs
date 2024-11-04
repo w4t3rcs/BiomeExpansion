@@ -17,6 +17,7 @@ public class GenerationHelper
     private static readonly IBiomeRegistrar BiomeRegistrar = new BiomeRegistrar();
     private static readonly IBiomeLocator SurfaceBiomeLocator = new SurfaceBiomeLocator();
     private static readonly IDependentBiomeLocator DependentBiomeLocator = new DependentBiomeLocator();
+    private static readonly IBiomePlacer RectangleBiomePlacer = new RectangleBiomePlacer();
     
     public static SurfaceBiomeBuilder CreateSurfaceBiomeBuilder() => new();
     
@@ -93,11 +94,11 @@ public class GenerationHelper
                 KeyValuePair<int,int> yCoordinates = SurfaceBiomeLocator.GetBiomeYCoordinates(_height);
                 BiomeRegistrar.Register(_biome, xCoordinates, yCoordinates);
                 _groundModification?.Modify(BEBiomesXCoordinates[_biome].Key, BEBiomesXCoordinates[_biome].Value, BEBiomesYCoordinates[_biome].Key, BEBiomesYCoordinates[_biome].Value);
-                BiomeHelper.GenerateSurfaceBiome(_biome, 
-                    (ushort)DefaultSurfaceTileGenerationSteps[0].tileType, 
-                    (ushort)DefaultSurfaceTileGenerationSteps[1].tileType,
-                    (ushort)DefaultSurfaceTileGenerationSteps[2].tileType,
-                    (ushort)DefaultSurfaceTileGenerationSteps[3].tileType);
+                RectangleBiomePlacer.Place(_biome, [
+                        (ushort)DefaultSurfaceTileGenerationSteps[0].tileType, 
+                        (ushort)DefaultSurfaceTileGenerationSteps[1].tileType,
+                        (ushort)DefaultSurfaceTileGenerationSteps[2].tileType
+                    ], (ushort)DefaultSurfaceTileGenerationSteps[3].tileType);
                 foreach (GroundDecorationGenerationStep generationStep in GroundDecorationGenerationSteps)
                 {
                     if (generationStep.isPlant)
@@ -187,7 +188,7 @@ public class GenerationHelper
                 BiomeRegistrar.Register(_biome, xCoordinates, yCoordinates);
                 _groundModification?.Modify(BEBiomesXCoordinates[_biome].Key, BEBiomesXCoordinates[_biome].Value, BEBiomesYCoordinates[_biome].Key, BEBiomesYCoordinates[_biome].Value);
                 DefaultCaveTileGenerationSteps.Sort((step1, step2) => step1.generationId - step2.generationId);
-                BiomeHelper.GenerateDependentCaveBiome(_biome,
+                RectangleBiomePlacer.PlaceOnlyWithMainTile(_biome,
                     (ushort)DefaultCaveTileGenerationSteps[0].tileType,
                     (ushort)DefaultCaveTileGenerationSteps[1].tileType);
                 foreach (GroundDecorationGenerationStep generationStep in GroundDecorationGenerationSteps)
