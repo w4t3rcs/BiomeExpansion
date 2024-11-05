@@ -35,8 +35,8 @@ public class CrimsonInfectedMushroomCaveBulbVines : ModTile
             || tileFrameX == 162 
             || tileFrameX == 216)
             {
-                r = 0.55f;
-                g = 0.30f;
+                r = 0.97f;
+                g = 0.16f;
                 b = 0f;
             }
     }
