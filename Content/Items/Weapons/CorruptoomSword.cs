@@ -13,8 +13,8 @@ public class CorruptoomSword : ModItem
 
     public override void SetDefaults()
     {
-        Item.width = 50;
-        Item.height = 60;
+        Item.width = 60;
+        Item.height = 62;
         Item.useStyle = ItemUseStyleID.Swing;
         Item.useTime = 20;
         Item.useAnimation = 20;
