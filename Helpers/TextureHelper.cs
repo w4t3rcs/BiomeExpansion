@@ -40,13 +40,13 @@ public static class TextureHelper
         LoadDynamicTextures(ItemsAssetsLocation, DynamicItemsTextures);
         LoadDynamicTextures(TilesAssetsLocation, DynamicTilesTextures);
         LoadDynamicTextures(BuffsAssetsLocation, DynamicBuffsTextures);
-        LoadDynamicTextures(MinionsAssetsLocation, DynamicMinionsTextures);
-        LoadDynamicTextures(ProjectilesAssetsLocation, DynamicProjectilesTextures);
+        // LoadDynamicTextures(MinionsAssetsLocation, DynamicMinionsTextures);
+        // LoadDynamicTextures(ProjectilesAssetsLocation, DynamicProjectilesTextures);
         LoadDynamicTextures(RainsAssetsLocation, DynamicRainsTextures);
         LoadDynamicTextures(TreesAssetsLocation, DynamicTreesTextures);
         LoadDynamicTextures(WallsAssetsLocation, DynamicWallsTextures);
         LoadDynamicTextures(WatersAssetsLocation, DynamicWatersTextures);
-        LoadDynamicTextures(SkiesAssetsLocation, DynamicSkiesTextures);
+        // LoadDynamicTextures(SkiesAssetsLocation, DynamicSkiesTextures);
         LoadDynamicTextures(NPCsAssetsLocation, DynamicNPCsTextures);
     }
 
