@@ -432,4 +432,5 @@ NPCs: {
 	SmallFearClot.DisplayName: Small Fear Clot
 	CorruptionInfectedBeetle.DisplayName: Corruption Infected Beetle
 	WeakFearClot.DisplayName: Weak Fear Clot
+	CrimsonInfectedBeetle.DisplayName: Crimson Infected Beetle
 }

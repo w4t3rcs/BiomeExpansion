@@ -52,7 +52,7 @@ public class CrimsonInfectedMushroomWoodLantern : ModTile
     
     public override void PostDraw(int i, int j, SpriteBatch spriteBatch)
     {
-        FrameHelper.DrawFlameEffect(ModContent.Request<Texture2D>("BiomeExpansion/Assets/Tiles/Furniture/CrimsonInfectedMushroomWoodLanternFlame").Value, i, j, 0, -8);
+        // FrameHelper.DrawFlameEffect(ModContent.Request<Texture2D>("BiomeExpansion/Assets/Tiles/Furniture/CrimsonInfectedMushroomWoodLanternFlame").Value, i, j, 0, -8);
     }
 
     public override void DrawEffects(int i, int j, SpriteBatch spriteBatch, ref TileDrawInfo drawData)
