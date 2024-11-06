@@ -1,4 +1,6 @@
 ﻿using BiomeExpansion.Helpers;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -22,5 +24,10 @@ public class CorruptoomPickaxe : ModItem
         Item.UseSound = SoundID.Item1;
         Item.pick = 60;
         Item.attackSpeedOnlyAffectsWeaponAnimation = true;
+    }
+
+    public override void PostDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, float rotation, float scale, int whoAmI)
+    {
+        FrameHelper.DrawItemWithGlowMask(spriteBatch, Texture, Item, rotation);
     }
 }

@@ -1,6 +1,7 @@
 ﻿using BiomeExpansion.Core.Particle;
 using BiomeExpansion.Helpers;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -24,6 +25,11 @@ public class CrimsoomSword : ModItem
         Item.knockBack = 5;
         Item.crit = 6;
         Item.UseSound = SoundID.Item1;
+    }
+    
+    public override void PostDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, float rotation, float scale, int whoAmI)
+    {
+        FrameHelper.DrawItemWithGlowMask(spriteBatch, Texture, Item, rotation);
     }
 
     public override void OnHitNPC(Player player, NPC target, NPC.HitInfo hit, int damageDone)

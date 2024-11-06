@@ -157,6 +157,14 @@ public static class FrameHelper
         spriteBatch.Draw(glowTexture, vector, sourceRect, 
             Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f
         );
+    }
 
+    public static void DrawItemWithGlowMask(SpriteBatch spriteBatch, string itemTexture, Item item, float rotation)
+    {
+        var glowTextureLocation = $"{itemTexture}Glow";
+        var glowTexture = ModContent.Request<Texture2D>(glowTextureLocation).Value;
+        Vector2 origin = new Vector2(glowTexture.Width / 2f, glowTexture.Height / 2f);
+        Color color = new Color(250, 250, 250, item.alpha);
+        spriteBatch.Draw(glowTexture, item.Center - Main.screenPosition, null, color, rotation, origin, 1f, SpriteEffects.None, 0f);
     }
 }

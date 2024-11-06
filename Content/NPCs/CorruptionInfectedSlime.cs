@@ -26,7 +26,7 @@ public class CorruptionInfectedSlime : ModNPC
         NPC.height = 31;
         NPC.defense = 4;
         NPC.lifeMax = 40;
-        NPC.knockBackResist = 0.0f;
+        NPC.knockBackResist = 0.6f;
         AnimationType = NPCID.CorruptSlime;
         NPC.value = Item.buyPrice(0, 0, 1, 0);
         NPC.alpha = 85;

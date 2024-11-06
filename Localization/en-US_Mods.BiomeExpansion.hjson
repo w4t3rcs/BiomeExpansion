@@ -404,6 +404,7 @@ Buffs: {
 Projectiles: {
 	TestMinion.DisplayName: Test Minion
 	Melee.TestSlash.DisplayName: Test Slash
+	CorruptoomSwordProj.DisplayName: Corruptoom Sword Proj
 }
 
 NPCs: {
