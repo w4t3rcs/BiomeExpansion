@@ -427,4 +427,6 @@ NPCs: {
 	CrimsonInfectedSmallWormTail.DisplayName: Crimson Infected Small Worm Tail
 	CorruptionInfectedEye.DisplayName: Corruption Infected Eye
 	CrimsonInfectedEye.DisplayName: Crimson Infected Eye
+	CorruptionInfectedFearClot.DisplayName: Corruption Infected Fear Clot
+	FearClot.DisplayName: Fear Clot
 }
