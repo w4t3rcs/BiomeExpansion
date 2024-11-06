@@ -429,4 +429,5 @@ NPCs: {
 	CrimsonInfectedEye.DisplayName: Crimson Infected Eye
 	CorruptionInfectedFearClot.DisplayName: Corruption Infected Fear Clot
 	FearClot.DisplayName: Fear Clot
+	SmallFearClot.DisplayName: Small Fear Clot
 }

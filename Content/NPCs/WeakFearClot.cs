@@ -8,9 +8,9 @@ using Terraria.ModLoader;
 
 namespace BiomeExpansion.Content.NPCs;
 
-public class FearClot : ModNPC
+public class WeakFearClot : ModNPC
 {
-    public override string Texture => TextureHelper.DynamicNPCsTextures["FearClot"];
+    public override string Texture => TextureHelper.DynamicNPCsTextures["WeakFearClot"];
 
     public override void SetStaticDefaults()
     {
@@ -21,12 +21,12 @@ public class FearClot : ModNPC
     {
         NPC.aiStyle = NPCAIStyleID.DemonEye;
         AIType = NPCID.DemonEye;
-        NPC.damage = 21;
+        NPC.damage = 11;
         NPC.width = 54;
         NPC.height = 32;
         NPC.defense = 6;
-        NPC.lifeMax = 24;
-        NPC.knockBackResist = 0.5f;
+        NPC.lifeMax = 18;
+        NPC.knockBackResist = 0.7f;
         NPC.noGravity = true;
         AnimationType = NPCID.Pixie;
         NPC.value = Item.buyPrice(0, 0, 5, 0);
@@ -49,7 +49,7 @@ public class FearClot : ModNPC
         bestiaryEntry.Info.AddRange(new IBestiaryInfoElement[]
         {
             BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.TheCorruption,
-            new FlavorTextBestiaryInfoElement("Mods.BiomeExpansion.Bestiary.FearClot")
+            new FlavorTextBestiaryInfoElement("Mods.BiomeExpansion.Bestiary.WeakFearClot")
         });
     }
 
@@ -67,8 +67,8 @@ public class FearClot : ModNPC
     {
         if (hurtInfo.Damage > 0)
         {
-            if (WorldGen.crimson) target.AddBuff(ModContent.BuffType<CrimsonSporeInfectionDebuff>(), 2400, true);
-            else target.AddBuff(ModContent.BuffType<CorruptionSporeInfectionDebuff>(), 2400, true);
+            if (WorldGen.crimson) target.AddBuff(ModContent.BuffType<CrimsonSporeInfectionDebuff>(), 2000, true);
+            else target.AddBuff(ModContent.BuffType<CorruptionSporeInfectionDebuff>(), 2000, true);
         }
     }
 
