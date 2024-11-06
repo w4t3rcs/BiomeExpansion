@@ -430,4 +430,6 @@ NPCs: {
 	CorruptionInfectedFearClot.DisplayName: Corruption Infected Fear Clot
 	FearClot.DisplayName: Fear Clot
 	SmallFearClot.DisplayName: Small Fear Clot
+	CorruptionInfectedBeetle.DisplayName: Corruption Infected Beetle
+	WeakFearClot.DisplayName: Weak Fear Clot
 }
