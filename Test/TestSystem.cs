@@ -25,6 +25,6 @@ public class TestSystem : ModSystem
     {
         Dust.QuickBox(new Vector2(x, y) * 16, new Vector2(x + width, y + height) * 16, 2, Color.YellowGreen, null);
         WorldGen.PlaceTile(x, y, decorationTile);
-        if (frameCount != 0) FrameHelper.SetRandomFrame(x, y, width, height, frameCount);
+        if (frameCount != 0) FrameHelper.SetRandomHorizontalFrame(x, y, width, height, frameCount);
     }
 }

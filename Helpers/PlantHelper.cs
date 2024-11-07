@@ -73,12 +73,12 @@ public static class PlantHelper
                 if (!Main.tile[x + j/2, y + i/2].HasTile)
                 {
                     WorldGen.PlaceTile(x + j/2, y + i/2, plantTile);
-                    FrameHelper.SetRandomFrame(x + j/2, y + i/2, 1, frameCount);
+                    FrameHelper.SetRandomHorizontalFrame(x + j/2, y + i/2, 1, frameCount);
                 }
                 else if (!Main.tile[x - j/2, y - i/2].HasTile)
                 {
                     WorldGen.PlaceTile(x - j/2, y - i/2, plantTile);
-                    FrameHelper.SetRandomFrame(x - j/2, y - i/2, 1, frameCount);
+                    FrameHelper.SetRandomHorizontalFrame(x - j/2, y - i/2, 1, frameCount);
                 }
             }
         }
@@ -102,7 +102,7 @@ public static class PlantHelper
         if (Main.tile[x, y].TileType == TileID.LilyPad)
         {
             WorldGen.ReplaceTile(x, y, plantTile, Main.tile[x, y].TileFrameX);
-            FrameHelper.SetRandomFrame(x, y, 1, 18);
+            FrameHelper.SetRandomHorizontalFrame(x, y, 1, 18);
         }
     }
     
@@ -111,8 +111,8 @@ public static class PlantHelper
         if (!CheckTopPositionToPlace(rarity, soilTiles, x, y + 1, width, height)) return;
         WorldGen.PlaceTile(x, y, plantTile);
         if (frameCount == 0) return;
-        if (width != 1) FrameHelper.SetRandomFrame(x, y, height, frameCount);
-        else FrameHelper.SetRandomFrame(x, y, height, frameCount);
+        if (width != 1) FrameHelper.SetRandomHorizontalFrame(x, y, height, frameCount);
+        else FrameHelper.SetRandomHorizontalFrame(x, y, height, frameCount);
     }
     
     private static bool CheckTopPositionToPlace(ushort rarity, ushort[] soilTiles, int x, int y, int width = 1, int height = 1)

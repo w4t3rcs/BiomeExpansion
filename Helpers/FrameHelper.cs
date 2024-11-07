@@ -14,16 +14,37 @@ public static class FrameHelper
     public const sbyte FramePadding = 2;
     private static readonly Vector2 Zero = Main.drawToScreen ? Vector2.Zero : new Vector2(Main.offScreenRange);
 
-    public static void SetRandomFrame(int x, int y, int width, int height, int frameCount)
+    /// <summary>
+    /// Sets the horizontal frame of a tile to a random one within the given range.
+    /// </summary>
+    /// <param name="x">The x-coordinate of the tile.</param>
+    /// <param name="y">The y-coordinate of the tile.</param>
+    /// <param name="width">The width of the tile frame.</param>
+    /// <param name="height">The height of the tile frame.</param>
+    /// <param name="frameCount">The number of frames to randomly choose from.</param>
+    public static void SetRandomHorizontalFrame(int x, int y, int width, int height, int frameCount)
     {
         SetFrameX(x, y, width, height, WorldGen.genRand.Next(0, frameCount));
     }
     
-    public static void SetRandomFrame(int x, int y, int height, int frameCount)
+    /// <summary>
+    /// Sets the horizontal frame of a tile to a random one within the given range.
+    /// </summary>
+    /// <param name="x">The x-coordinate of the tile.</param>
+    /// <param name="y">The y-coordinate of the tile.</param>
+    /// <param name="height">The height of the tile frame.</param>
+    /// <param name="frameCount">The number of frames to randomly choose from.</param>
+    public static void SetRandomHorizontalFrame(int x, int y, int height, int frameCount)
     {
         SetFrameX(x, y, height, WorldGen.genRand.Next(0, frameCount));
     }
 
+    /// <summary>
+    /// Sets the horizontal frame of a Sea Oats tile to a random one within the range [1, 15).
+    /// If the chosen frame is greater than 4, it will also set the frame of the tile above it.
+    /// </summary>
+    /// <param name="x">The x-coordinate of the tile.</param>
+    /// <param name="y">The y-coordinate of the tile.</param>
     public static void SetFramingSeaOats(int x, int y)
     {
         int randomFrame = WorldGen.genRand.Next(1, 15);
@@ -31,6 +52,12 @@ public static class FrameHelper
         if (randomFrame > 4) SetFrameX(x, y - 1, randomFrame);
     }
     
+    /// <summary>
+    /// Sets the frame of a tile to match the frame of the tiles above and below it if they are all the same type.
+    /// This is used to make vines connect visually.
+    /// </summary>
+    /// <param name="x">The x-coordinate of the tile.</param>
+    /// <param name="y">The y-coordinate of the tile.</param>
     public static void SetFramingVine(int x, int y)
     {
         Tile vineTile = Main.tile[x, y];
@@ -43,6 +70,15 @@ public static class FrameHelper
         }
     }
     
+    /// <summary>
+    /// Sets the horizontal frame of a rectangular area of tiles with specified width and height.
+    /// Each tile in the area is assigned a frame based on the provided frame number.
+    /// </summary>
+    /// <param name="x">The x-coordinate of the starting tile.</param>
+    /// <param name="y">The y-coordinate of the starting tile.</param>
+    /// <param name="width">The width of the tile area.</param>
+    /// <param name="height">The height of the tile area.</param>
+    /// <param name="frameNumber">The frame number used to calculate the tile frame.</param>
     public static void SetFrameX(int x, int y, int width, int height, int frameNumber)
     {
         Tile tile = Main.tile[x - 1, y];
@@ -59,35 +95,67 @@ public static class FrameHelper
         }
     }
 
+    /// <summary>
+    /// Sets the horizontal frame of a vertical column of tiles with specified height.
+    /// Each tile in the column is assigned a frame based on the provided frame number.
+    /// </summary>
+    /// <param name="x">The x-coordinate of the tile.</param>
+    /// <param name="y">The y-coordinate of the top tile in the column.</param>
+    /// <param name="height">The height of the tile column.</param>
+    /// <param name="frameNumber">The frame number used to calculate the tile frame.</param>
     public static void SetFrameX(int x, int y, int height, int frameNumber)
     {
         for (int i = 0; i < height; i++)
             Main.tile[x, y - i].TileFrameX =(short)(frameNumber * (FrameSize + FramePadding));
     }
 
+    /// <summary>
+    /// Sets the horizontal frame of a single tile at the specified coordinates.
+    /// The frame is determined by the given frame number and is calculated using
+    /// the predefined frame size and padding.
+    /// </summary>
+    /// <param name="x">The x-coordinate of the tile.</param>
+    /// <param name="y">The y-coordinate of the tile.</param>
+    /// <param name="frameNumber">The frame number used to calculate the tile frame.</param>
     public static void SetFrameX(int x, int y, int frameNumber)
     {
         Main.tile[x, y].TileFrameX =(short)(frameNumber * (FrameSize + FramePadding));
     }
 
-    public static void DrawCampfireFlameEffect(Texture2D flameTexture, int i, int j, int offsetY = 0)
+    /// <summary>
+    /// Draws a campfire flame effect at the specified coordinates using the provided flame texture.
+    /// </summary>
+    /// <param name="flameTexture">The texture to use for the flame effect.</param>
+    /// <param name="x">The x-coordinate of the tile.</param>
+    /// <param name="y">The y-coordinate of the tile.</param>
+    /// <param name="offsetY">The vertical offset of the flame effect relative to the tile position.</param>
+    public static void DrawCampfireFlameEffect(Texture2D flameTexture, int x, int y, int offsetY = 0)
     {
         Color color = new Color(255, 255, 255, 0);
         Vector2 zero = new Vector2(Main.offScreenRange, Main.offScreenRange);
         if (Main.drawToScreen) zero = Vector2.Zero;
         int width = 16;
         int height = 16;
-        short frameX = Main.tile[i, j].TileFrameX;
-        short frameY = Main.tile[i, j].TileFrameY;
+        short frameX = Main.tile[x, y].TileFrameX;
+        short frameY = Main.tile[x, y].TileFrameY;
         int addFrX = 0;
         int addFrY = 0;
-        TileLoader.SetDrawPositions(i, j, ref width, ref offsetY, ref height, ref frameX, ref frameY);
-        TileLoader.SetAnimationFrame(Main.tile[i, j].TileType, i, j, ref addFrX, ref addFrY);
-        Rectangle drawRectangle = new Rectangle(Main.tile[i, j].TileFrameX, Main.tile[i, j].TileFrameY + addFrY, 16, 16);
-        Main.spriteBatch.Draw(flameTexture, new Vector2(i * 16 - (int)Main.screenPosition.X, j * 16 - (int)Main.screenPosition.Y + offsetY) + zero, drawRectangle, color, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
+        TileLoader.SetDrawPositions(x, y, ref width, ref offsetY, ref height, ref frameX, ref frameY);
+        TileLoader.SetAnimationFrame(Main.tile[x, y].TileType, x, y, ref addFrX, ref addFrY);
+        Rectangle drawRectangle = new Rectangle(Main.tile[x, y].TileFrameX, Main.tile[x, y].TileFrameY + addFrY, 16, 16);
+        Main.spriteBatch.Draw(flameTexture, new Vector2(x * 16 - (int)Main.screenPosition.X, y * 16 - (int)Main.screenPosition.Y + offsetY) + zero, drawRectangle, color, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
 
     }
     
+    /// <summary>
+    /// Draws a flame effect at the specified coordinates using the provided flame texture.
+    /// The flame effect is a 7-frame animation with a small amount of random shake.
+    /// </summary>
+    /// <param name="flameTexture">The texture to use for the flame effect.</param>
+    /// <param name="i">The x-coordinate of the tile.</param>
+    /// <param name="j">The y-coordinate of the tile.</param>
+    /// <param name="offsetX">The horizontal offset of the flame effect relative to the tile position.</param>
+    /// <param name="offsetY">The vertical offset of the flame effect relative to the tile position.</param>
     public static void DrawFlameEffect(Texture2D flameTexture, int i, int j, int offsetX = 0, int offsetY = 0)
     {
         const int width = 16;
@@ -106,10 +174,18 @@ public static class FrameHelper
         }
     }
     
-    public static void DrawFlameSparks(int dustType, int rarity, int i, int j)
+    /// <summary>
+    /// Creates and animates flame sparks at the specified tile coordinates.
+    /// The sparks are generated using the given dust type and rarity.
+    /// </summary>
+    /// <param name="dustType">The type of dust to use for the sparks.</param>
+    /// <param name="rarity">The rarity of the sparks, affecting their spawn rate.</param>
+    /// <param name="x">The x-coordinate of the tile where the sparks should appear.</param>
+    /// <param name="y">The y-coordinate of the tile where the sparks should appear.</param>
+    public static void DrawFlameSparks(int dustType, int rarity, int x, int y)
     {
         if (Main.gamePaused || !Main.instance.IsActive || (Lighting.UpdateEveryFrame && !Main.rand.NextBool(4)) || !Main.rand.NextBool(rarity)) return;
-        int dust = Dust.NewDust(new Vector2(i * 16 + 4, j * 16 + 2), 4, 4, dustType, 0f, 0f, 100);
+        int dust = Dust.NewDust(new Vector2(x * 16 + 4, y * 16 + 2), 4, 4, dustType, 0f, 0f, 100);
         if (!Main.rand.NextBool(3))
             Main.dust[dust].noGravity = true;
         Main.dust[dust].noLightEmittence = true;
@@ -117,15 +193,22 @@ public static class FrameHelper
         Main.dust[dust].velocity.Y -= 1.5f;
     }
     
-    //Thx Calamity Mod for this great method :)
-    public static void LightHitWire(int type, int i, int j, int tileX, int tileY)
+    /// <summary>
+    /// Toggles the frame of tiles of a specific type when a wire is activated at the specified coordinates.
+    /// </summary>
+    /// <param name="type">The type of the tile to be affected by the wire.</param>
+    /// <param name="x">The x-coordinate of the tile where the wire is activated.</param>
+    /// <param name="y">The y-coordinate of the tile where the wire is activated.</param>
+    /// <param name="tileX">The width of the tile area to be affected by the wire.</param>
+    /// <param name="tileY">The height of the tile area to be affected by the wire.</param>
+    public static void LightHitWire(int type, int x, int y, int tileX, int tileY)
     {
-        int x = i - Main.tile[i, j].TileFrameX / 18 % tileX;
-        int y = j - Main.tile[i, j].TileFrameY / 18 % tileY;
+        int frameX = x - Main.tile[x, y].TileFrameX / 18 % tileX;
+        int frameY = y - Main.tile[x, y].TileFrameY / 18 % tileY;
         int tile = 18 * tileX;
-        for (int l = x; l < x + tileX; l++)
+        for (int l = frameX; l < frameX + tileX; l++)
         {
-            for (int m = y; m < y + tileY; m++)
+            for (int m = frameY; m < frameY + tileY; m++)
             {
                 if (Main.tile[l, m].HasTile && Main.tile[l, m].TileType == type)
                     Main.tile[l, m].TileFrameX += (short)(Main.tile[l, m].TileFrameX < tile ? tile : -tile);
@@ -137,11 +220,21 @@ public static class FrameHelper
             for (int k = 0; k < tileX; k++)
             {
                 for (int l = 0; l < tileY; l++)
-                    Wiring.SkipWire(x + k, y + l);
+                    Wiring.SkipWire(frameX + k, frameY + l);
             }
         }
     }
 
+    /// <summary>
+    /// Draws a tile at the specified coordinates with its glow mask.
+    /// The tile is drawn with the color obtained from <see cref="Lighting.GetColor(int, int)"/>, and the glow mask is drawn on top of it with a white color.
+    /// </summary>
+    /// <param name="spriteBatch">The SpriteBatch to draw with.</param>
+    /// <param name="tileTexture">The name of the texture of the tile to be drawn.</param>
+    /// <param name="x">The x-coordinate of the tile to be drawn.</param>
+    /// <param name="y">The y-coordinate of the tile to be drawn.</param>
+    /// <param name="width">The width of the tile to be drawn.</param>
+    /// <param name="height">The height of the tile to be drawn.</param>
     public static void DrawTileWithGlowMask(SpriteBatch spriteBatch, string tileTexture, int x, int y, int width = 1, int height = 1)
     {
         var tile = Framing.GetTileSafely(x, y);
@@ -159,6 +252,14 @@ public static class FrameHelper
         );
     }
 
+    /// <summary>
+    /// Draws an item at its center position with a glow mask.
+    /// The glow mask is drawn with a white color and the item is drawn on top of it with its regular color and alpha.
+    /// </summary>
+    /// <param name="spriteBatch">The SpriteBatch to draw with.</param>
+    /// <param name="itemTexture">The name of the texture of the item to be drawn.</param>
+    /// <param name="item">The item to be drawn.</param>
+    /// <param name="rotation">The rotation of the item to be drawn.</param>
     public static void DrawItemWithGlowMask(SpriteBatch spriteBatch, string itemTexture, Item item, float rotation)
     {
         var glowTextureLocation = $"{itemTexture}Glow";
