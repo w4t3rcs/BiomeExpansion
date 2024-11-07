@@ -433,4 +433,18 @@ NPCs: {
 	CorruptionInfectedBeetle.DisplayName: Corruption Infected Beetle
 	WeakFearClot.DisplayName: Weak Fear Clot
 	CrimsonInfectedBeetle.DisplayName: Crimson Infected Beetle
+	CorruptionInfectedDiggerBody.DisplayName: Corruption Infected Digger Body
+	CorruptionInfectedDiggerHead.DisplayName: Corruption Infected Digger Head
+	CorruptionInfectedDiggerTail.DisplayName: Corruption Infected Digger Tail
+	CorruptionInfectedSmallDiggerBody.DisplayName: Corruption Infected Small Digger Body
+	CorruptionInfectedSmallDiggerHead.DisplayName: Corruption Infected Small Digger Head
+	CorruptionInfectedSmallDiggerTail.DisplayName: Corruption Infected Small Digger Tail
+	CrimsonInfectedDiggerBody.DisplayName: Crimson Infected Digger Body
+	CrimsonInfectedDiggerHead.DisplayName: Crimson Infected Digger Head
+	CrimsonInfectedDiggerTail.DisplayName: Crimson Infected Digger Tail
+	CrimsonInfectedSmallDiggerBody.DisplayName: Crimson Infected Small Digger Body
+	CrimsonInfectedSmallDiggerHead.DisplayName: Crimson Infected Small Digger Head
+	CrimsonInfectedSmallDiggerTail.DisplayName: Crimson Infected Small Digger Tail
+	TerrorGhost.DisplayName: Terror Ghost
+	TerrorGhostHand.DisplayName: Terror Ghost Hand
 }

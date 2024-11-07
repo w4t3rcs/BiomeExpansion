@@ -26,7 +26,7 @@ public class WeakFearClot : ModNPC
         NPC.height = 32;
         NPC.defense = 6;
         NPC.lifeMax = 18;
-        NPC.knockBackResist = 0.7f;
+        NPC.knockBackResist = 0f;
         NPC.noGravity = true;
         AnimationType = NPCID.Pixie;
         NPC.value = Item.buyPrice(0, 0, 5, 0);
@@ -74,7 +74,6 @@ public class WeakFearClot : ModNPC
 
     public override void HitEffect(NPC.HitInfo hit)
     {
-        if (WorldGen.crimson) NPCHelper.DoHitDust(NPC, hit.HitDirection, DustID.Crimson);
-        else NPCHelper.DoHitDust(NPC, hit.HitDirection, DustID.Corruption);
+        NPCHelper.DoHitDust(NPC, hit.HitDirection, DustID.PurpleTorch);
     }
 }
