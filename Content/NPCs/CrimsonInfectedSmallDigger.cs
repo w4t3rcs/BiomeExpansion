@@ -8,11 +8,11 @@ using Terraria.ModLoader;
 
 namespace BiomeExpansion.Content.NPCs;
 
-internal class CrimsonInfectedSmallWormHead : WormHead
+internal class CrimsonInfectedSmallDiggerHead : WormHead
 {
-    public override string Texture => TextureHelper.DynamicNPCsTextures["CrimsonInfectedSmallWormHead"];
-    public override int BodyType => ModContent.NPCType<CrimsonInfectedSmallWormBody>();
-    public override int TailType => ModContent.NPCType<CrimsonInfectedSmallWormTail>();
+    public override string Texture => TextureHelper.DynamicNPCsTextures["CrimsonInfectedSmallDiggerHead"];
+    public override int BodyType => ModContent.NPCType<CrimsonInfectedSmallDiggerBody>();
+    public override int TailType => ModContent.NPCType<CrimsonInfectedSmallDiggerTail>();
 
     public override void SetDefaults() {
         NPC.aiStyle = -1;
@@ -33,7 +33,7 @@ internal class CrimsonInfectedSmallWormHead : WormHead
         bestiaryEntry.Info.AddRange(new IBestiaryInfoElement[]
         {
             BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.TheCrimson,
-            new FlavorTextBestiaryInfoElement("Mods.BiomeExpansion.Bestiary.CrimsonInfectedSmallWorm")
+            new FlavorTextBestiaryInfoElement("Mods.BiomeExpansion.Bestiary.CrimsonInfectedSmallDigger")
         });
     }
 
@@ -77,9 +77,9 @@ internal class CrimsonInfectedSmallWormHead : WormHead
 	}
 }
 
-internal class CrimsonInfectedSmallWormBody : WormBody
+internal class CrimsonInfectedSmallDiggerBody : WormBody
 {
-    public override string Texture => TextureHelper.DynamicNPCsTextures["CrimsonInfectedSmallWormBody"];
+    public override string Texture => TextureHelper.DynamicNPCsTextures["CrimsonInfectedSmallDiggerBody"];
     public override void SetStaticDefaults()
     {
         NPCID.Sets.NPCBestiaryDrawModifiers value = new NPCID.Sets.NPCBestiaryDrawModifiers() {
@@ -113,13 +113,13 @@ internal class CrimsonInfectedSmallWormBody : WormBody
 
     public override void Init()
     {
-        CrimsonInfectedSmallWormHead.CommonWormInit(this);
+        CrimsonInfectedSmallDiggerHead.CommonWormInit(this);
     }
 }
 
-internal class CrimsonInfectedSmallWormTail : WormTail
+internal class CrimsonInfectedSmallDiggerTail : WormTail
 {
-    public override string Texture => TextureHelper.DynamicNPCsTextures["CrimsonInfectedSmallWormTail"];
+    public override string Texture => TextureHelper.DynamicNPCsTextures["CrimsonInfectedSmallDiggerTail"];
     public override void SetStaticDefaults()
     {
         NPCID.Sets.NPCBestiaryDrawModifiers value = new NPCID.Sets.NPCBestiaryDrawModifiers() {
@@ -153,6 +153,6 @@ internal class CrimsonInfectedSmallWormTail : WormTail
 
     public override void Init()
     {
-        CrimsonInfectedSmallWormHead.CommonWormInit(this);
+        CrimsonInfectedSmallDiggerHead.CommonWormInit(this);
     }
 }

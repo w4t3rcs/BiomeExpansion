@@ -21,7 +21,7 @@ public class CorruptionInfectedBeetle : ModNPC
     public override void SetDefaults()
     {
         NPC.aiStyle = NPCAIStyleID.Fighter;
-        AIType = NPCID.CyanBeetle;
+        AIType = NPCID.LarvaeAntlion;
         NPC.damage = 30;
         NPC.width = 34;
         NPC.height = 48;
