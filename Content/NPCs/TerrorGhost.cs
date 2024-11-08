@@ -59,7 +59,7 @@ public class TerrorGhost : ModNPC
         { 
             leftHandID = NPC.NewNPC(NPC.GetSource_FromAI(), (int)NPC.Center.X - 40, (int)NPC.Bottom.Y + 20, ModContent.NPCType<TerrorGhostHand>(), ai0: NPC.whoAmI);
             Main.npc[leftHandID].realLife = NPC.whoAmI;
-            rightHandID = NPC.NewNPC(NPC.GetSource_FromAI(), (int)NPC.Center.X + 40, (int)NPC.Bottom.Y + 20, ModContent.NPCType<TerrorGhostHand>(), ai0: NPC.whoAmI);
+            rightHandID = NPC.NewNPC(NPC.GetSource_FromAI(), (int)NPC.Center.X + 40, (int)NPC.Bottom.Y + 20, ModContent.NPCType<TerrorGhostHand>(), ai0: NPC.whoAmI, ai1: 1);
             Main.npc[rightHandID].realLife = NPC.whoAmI;
             NPC.ai[0] = 1;
         }
@@ -127,6 +127,11 @@ public class TerrorGhostHand : ModNPC
         NPC parent = Main.npc[parentId];
         if (NPC.ai[0] != 0 && parent != null && parent.active)
         {
+            bool isRightHand = NPC.ai[1] == 1;
+            if (isRightHand)
+            {
+
+            }
         }
         else
         {
