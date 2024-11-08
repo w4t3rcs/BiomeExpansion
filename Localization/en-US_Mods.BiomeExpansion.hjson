@@ -448,4 +448,7 @@ NPCs: {
 	TerrorGhost.DisplayName: Terror Ghost
 	TerrorGhostHand.DisplayName: Terror Ghost Hand
 	CorruptionInfectedFlyNPC.DisplayName: Corruption Infected Fly N P C
+	CorruptionInfectedFly.DisplayName: Corruption Infected Fly
+	CorruptionInfectedSnail.DisplayName: Corruption Infected Snail
+	SmallCorruptionInfectedFly.DisplayName: Small Corruption Infected Fly
 }

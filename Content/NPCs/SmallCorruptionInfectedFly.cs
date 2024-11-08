@@ -12,11 +12,11 @@ using Terraria.ModLoader;
 
 namespace BiomeExpansion.Content.NPCs
 {
-    public class CorruptionInfectedFly : ModNPC
+    public class SmallCorruptionInfectedFly : ModNPC
     {
         private const int ClonedNPCID = NPCID.Butterfly;
 
-        public override string Texture => TextureHelper.DynamicNPCsTextures["CorruptionInfectedFlyNPC"];
+        public override string Texture => TextureHelper.DynamicNPCsTextures["SmallCorruptionInfectedFlyNPC"];
 
         public override void SetStaticDefaults()
         {
