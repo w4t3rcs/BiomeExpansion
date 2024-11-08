@@ -14,7 +14,7 @@ namespace BiomeExpansion.Content.NPCs
 {
     public class CorruptionInfectedFly : ModNPC
     {
-        public override string Texture => TextureHelper.DynamicNPCsTextures["CorruptionInfectedFlyNPC"];
+        public override string Texture => TextureHelper.DynamicNPCsTextures["CorruptionInfectedFly"];
 
         public override void SetStaticDefaults()
         {

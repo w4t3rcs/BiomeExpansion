@@ -14,16 +14,14 @@ namespace BiomeExpansion.Content.NPCs
 {
     public class CorruptionInfectedSnail : ModNPC
     {
-        public override string Texture => TextureHelper.DynamicNPCsTextures["CorruptionInfectedSnailNPC"];
+        public override string Texture => TextureHelper.DynamicNPCsTextures["CorruptionInfectedSnail"];
 
         public override void SetStaticDefaults()
         {
             Main.npcFrameCount[NPC.type] = 6;
             Main.npcCatchable[NPC.type] = true;
-
             NPCID.Sets.CountsAsCritter[NPC.type] = true;
             NPCID.Sets.TakesDamageFromHostilesWithoutBeingFriendly[NPC.type] = true;
-
             // Change and uncomment the next line if the snail should be immune to anything
             //NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.INSERT_DEBUFF_HERE] = true;
         }

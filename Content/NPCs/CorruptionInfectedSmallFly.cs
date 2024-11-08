@@ -12,9 +12,9 @@ using Terraria.ModLoader;
 
 namespace BiomeExpansion.Content.NPCs
 {
-    public class SmallCorruptionInfectedFly : ModNPC
+    public class CorruptionInfectedSmallFly : ModNPC
     {
-        public override string Texture => TextureHelper.DynamicNPCsTextures["SmallCorruptionInfectedFlyNPC"];
+        public override string Texture => TextureHelper.DynamicNPCsTextures["CorruptionInfectedSmallFly"];
 
         public override void SetStaticDefaults()
         {
