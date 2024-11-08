@@ -14,18 +14,14 @@ namespace BiomeExpansion.Content.NPCs
 {
     public class CorruptionInfectedDragonfly : ModNPC
     {
-        //private const int ClonedNPCID = NPCID.BlackDragonfly;
-
-        public override string Texture => TextureHelper.DynamicNPCsTextures["CorruptionInfectedDragonflyNPC"];
+        public override string Texture => TextureHelper.DynamicNPCsTextures["CorruptionInfectedDragonfly"];
 
         public override void SetStaticDefaults()
         {
             Main.npcFrameCount[NPC.type] = 4;
             Main.npcCatchable[NPC.type] = true;
-
             NPCID.Sets.CountsAsCritter[NPC.type] = true;
             NPCID.Sets.TakesDamageFromHostilesWithoutBeingFriendly[NPC.type] = true;
-
             // Change and uncomment the next line if the fly should be immune to anything
             //NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.INSERT_DEBUFF_HERE] = true;
         }
@@ -34,12 +30,10 @@ namespace BiomeExpansion.Content.NPCs
         public override void SetDefaults()
         {
             // Set NPC.catchItem here
-            SpawnModBiomes = [ModContent.GetInstance<CorruptionInfectedMushroomSurfaceBiome>().Type];
             NPC.CloneDefaults(NPCID.BlackDragonfly);
-
             AIType = NPCID.BlackDragonfly;
             AnimationType = NPCID.BlackDragonfly;
-
+            SpawnModBiomes = [ModContent.GetInstance<CorruptionInfectedMushroomSurfaceBiome>().Type];
             // When an item sprite is made, uncomment the next line
             //NPC.catchItem = ModContent.ItemType<CorruptionInfectedFlyNPC>();
         }
@@ -48,15 +42,19 @@ namespace BiomeExpansion.Content.NPCs
         {
             bestiaryEntry.Info.AddRange(new IBestiaryInfoElement[]
             {
-            BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.TheCorruption,
-            new FlavorTextBestiaryInfoElement("Mods.BiomeExpansion.Bestiary.CorruptionInfectedFly")
+                BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.TheCorruption,
+                new FlavorTextBestiaryInfoElement("Mods.BiomeExpansion.Bestiary.CorruptionInfectedFly")
             });
         }
+
+        public override float SpawnChance(NPCSpawnInfo spawnInfo)
+        {
+            if (spawnInfo.Player.InModBiome<CorruptionInfectedMushroomSurfaceBiome>() && spawnInfo.Player.ZoneOverworldHeight)
+            {
+                return 0.1f;
+            }
+
+            return 0f;
+        }
     }
-
-    // Uncomment this code and put some stuff in when an item sprite is made
-    //public class CorruptionInfectedFlyItem : ModItem
-    //{
-
-    //}
 }
