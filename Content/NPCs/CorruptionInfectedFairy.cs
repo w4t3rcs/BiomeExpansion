@@ -31,14 +31,6 @@ namespace BiomeExpansion.Content.NPCs
             base.SetStaticDefaults();
         }
 
-        public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
-        {
-            bestiaryEntry.Info.AddRange(new IBestiaryInfoElement[]
-            {
-            BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.TheCorruption,
-            new FlavorTextBestiaryInfoElement("Mods.BiomeExpansion.Bestiary.CorruptionInfectedFairy")
-            });
-        }
 
         public override void SetDefaults()
         {
@@ -46,6 +38,15 @@ namespace BiomeExpansion.Content.NPCs
 
             AIType = ClonedNPCID;
             AnimationType = ClonedNPCID;
+        }
+
+        public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
+        {
+            bestiaryEntry.Info.AddRange(new IBestiaryInfoElement[]
+            {
+            BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.TheCorruption,
+            new FlavorTextBestiaryInfoElement("Mods.BiomeExpansion.Bestiary.CorruptionInfectedFairy")
+            });
         }
     }
 }
