@@ -74,7 +74,7 @@ namespace BiomeExpansion.Content.NPCs
         {
             if (spawnInfo.Player.InModBiome<CorruptionInfectedMushroomSurfaceBiome>() && spawnInfo.Player.ZoneOverworldHeight)
             {
-                return 0.1f;
+                return 0.2f;
             }
 
             return 0f;

@@ -453,4 +453,5 @@ NPCs: {
 	SmallCorruptionInfectedFly.DisplayName: Small Corruption Infected Fly
 	CorruptionInfectedFairy.DisplayName: Corruption Infected Fairy
 	CorruptionInfectedDragonfly.DisplayName: Corruption Infected Dragonfly
+	CorruptionInfectedSmallFly.DisplayName: Corruption Infected Small Fly
 }

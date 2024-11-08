@@ -57,7 +57,7 @@ public class FearClot : ModNPC
     {
         if (spawnInfo.Player.InModBiome<CorruptionInfectedMushroomSurfaceBiome>() || spawnInfo.Player.InModBiome<CrimsonInfectedMushroomSurfaceBiome>())
         {
-            return 0.10f;
+            return 0.1f;
         }
 
         return 0f;
