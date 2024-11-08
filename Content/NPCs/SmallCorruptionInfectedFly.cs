@@ -33,14 +33,6 @@ namespace BiomeExpansion.Content.NPCs
             NPC.frame.Y = frameHeight * ((int)NPC.frameCounter % 20 / 5);
         }
 
-        public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
-        {
-            bestiaryEntry.Info.AddRange(new IBestiaryInfoElement[]
-            {
-                BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.TheCorruption,
-                new FlavorTextBestiaryInfoElement("Mods.BiomeExpansion.Bestiary.CorruptionInfectedFly")
-            });
-        }
 
         public override void SetDefaults()
         {
@@ -51,6 +43,14 @@ namespace BiomeExpansion.Content.NPCs
             SpawnModBiomes = [ModContent.GetInstance<CorruptionInfectedMushroomSurfaceBiome>().Type];
             // When an item sprite is made, uncomment the next line
             //NPC.catchItem = ModContent.ItemType<CorruptionInfectedFlyNPC>();
+        }
+        public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
+        {
+            bestiaryEntry.Info.AddRange(new IBestiaryInfoElement[]
+            {
+            BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.TheCorruption,
+            new FlavorTextBestiaryInfoElement("Mods.BiomeExpansion.Bestiary.CorruptionInfectedFly")
+            });
         }
 
         public override void AI()
