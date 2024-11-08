@@ -218,7 +218,6 @@ namespace BiomeExpansion.Content.NPCs
                 foreach (var player in Main.ActivePlayers)
                 {
                     Rectangle areaCheck;
-
                     if (ForcedTargetPosition is Vector2 target)
                         areaCheck = new Rectangle((int)target.X - maxDistance, (int)target.Y - maxDistance, maxDistance * 2, maxDistance * 2);
                     else if (!player.dead && !player.ghost)

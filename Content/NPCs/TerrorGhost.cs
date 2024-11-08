@@ -28,7 +28,7 @@ public class TerrorGhost : ModNPC
         NPC.width = 46;
         NPC.height = 60;
         NPC.defense = 6;
-        NPC.lifeMax = 26;
+        NPC.lifeMax = 51;
         NPC.knockBackResist = 0f;
         NPC.noGravity = true;
         NPC.noTileCollide = true;
@@ -54,14 +54,17 @@ public class TerrorGhost : ModNPC
     public override void AI()
     {   
         Lighting.AddLight(NPC.Center, 0.6f, 0.0f, 0.6f);
-        if (!Main.npc.IndexInRange(leftHandID) || !Main.npc[leftHandID].active || Main.npc[leftHandID].type != ModContent.NPCType<TerrorGhostHand>())
-        {
-            leftHandID = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X - 40, (int)NPC.Bottom.Y, ModContent.NPCType<TerrorGhostHand>(), ai0: NPC.whoAmI, ai1: leftHandID);
+        NPC.realLife = NPC.whoAmI;
+        if (NPC.ai[0] == 0)
+        { 
+            leftHandID = NPC.NewNPC(NPC.GetSource_FromAI(), (int)NPC.Center.X - 40, (int)NPC.Bottom.Y + 20, ModContent.NPCType<TerrorGhostHand>(), ai0: NPC.whoAmI);
+            Main.npc[leftHandID].realLife = NPC.whoAmI;
+            rightHandID = NPC.NewNPC(NPC.GetSource_FromAI(), (int)NPC.Center.X + 40, (int)NPC.Bottom.Y + 20, ModContent.NPCType<TerrorGhostHand>(), ai0: NPC.whoAmI);
+            Main.npc[rightHandID].realLife = NPC.whoAmI;
+            NPC.ai[0] = 1;
         }
-        if (!Main.npc.IndexInRange(rightHandID) || !Main.npc[rightHandID].active || Main.npc[rightHandID].type != ModContent.NPCType<TerrorGhostHand>())
-        {
-            rightHandID = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X + 40, (int)NPC.Bottom.Y, ModContent.NPCType<TerrorGhostHand>(), ai0: NPC.whoAmI, ai1: leftHandID);
-        }
+        
+        NPC.netUpdate = true;
         NPC.TargetClosest(true);
     }
 
@@ -106,11 +109,11 @@ public class TerrorGhostHand : ModNPC
     public override void SetDefaults()
     {
         NPC.aiStyle = -1;
-        NPC.lifeMax = 100;
+        NPC.lifeMax = 10;
         NPC.damage = 30;
         NPC.width = 32;
         NPC.height = 24;
-        NPC.knockBackResist = 0f;
+        NPC.knockBackResist = 0.8f;
         NPC.noGravity = true;
         NPC.noTileCollide = true;
         NPCHelper.AdjustExpertMode(NPC);
@@ -120,8 +123,9 @@ public class TerrorGhostHand : ModNPC
     public override void AI()
     {   
         Lighting.AddLight(NPC.Center, 0.6f, 0.0f, 0.6f);
-        NPC parent = Main.npc[(int)NPC.ai[0]];
-        if (parent != null && parent.active)
+        int parentId = (int)NPC.ai[0];
+        NPC parent = Main.npc[parentId];
+        if (NPC.ai[0] != 0 && parent != null && parent.active)
         {
         }
         else
@@ -130,5 +134,24 @@ public class TerrorGhostHand : ModNPC
         }
 
         NPC.TargetClosest(true);
+    }
+    
+    public override void OnHitPlayer(Player target, Player.HurtInfo hurtInfo)
+    {
+        if (hurtInfo.Damage > 0)
+        {
+            if (WorldGen.crimson) target.AddBuff(ModContent.BuffType<CrimsonSporeInfectionDebuff>(), 2400, true);
+            else target.AddBuff(ModContent.BuffType<CorruptionSporeInfectionDebuff>(), 2400, true);
+        }
+    }
+
+    public override void HitEffect(NPC.HitInfo hit)
+    {
+        NPCHelper.DoHitDust(NPC, hit.HitDirection, DustID.PinkTorch);
+    }
+
+    public override bool? DrawHealthBar(byte hbPosition, ref float scale, ref Vector2 position)
+    {
+        return false;
     }
 }
