@@ -447,4 +447,5 @@ NPCs: {
 	CrimsonInfectedSmallDiggerTail.DisplayName: Crimson Infected Small Digger Tail
 	TerrorGhost.DisplayName: Terror Ghost
 	TerrorGhostHand.DisplayName: Terror Ghost Hand
+	CorruptionInfectedFlyNPC.DisplayName: Corruption Infected Fly N P C
 }
