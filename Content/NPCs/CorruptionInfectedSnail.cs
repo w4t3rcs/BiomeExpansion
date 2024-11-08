@@ -41,16 +41,6 @@ namespace BiomeExpansion.Content.NPCs
 
         public override void SetDefaults()
         {
-            //NPC.width = 16;
-            //NPC.height = 18;
-            //NPC.defense = 0;
-            //NPC.damage = 0;
-            //NPC.lifeMax = 5;
-            //NPC.knockBackResist = 0f;
-            //NPC.HitSound = SoundID.NPCHit1;
-            //NPC.DeathSound = SoundID.NPCDeath1; // Either NPCDeath1 or NPCDeath 12 sounds like it could fit
-
-            NPC.aiStyle = NPCAIStyleID.Butterfly;
             // Set NPC.catchItem here
             SpawnModBiomes = [ModContent.GetInstance<CorruptionInfectedMushroomSurfaceBiome>().Type];
             NPC.CloneDefaults(ClonedNPCID);
