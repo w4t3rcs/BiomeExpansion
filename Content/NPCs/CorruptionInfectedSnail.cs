@@ -14,8 +14,6 @@ namespace BiomeExpansion.Content.NPCs
 {
     public class CorruptionInfectedSnail : ModNPC
     {
-        private const int ClonedNPCID = NPCID.Snail;
-
         public override string Texture => TextureHelper.DynamicNPCsTextures["CorruptionInfectedSnailNPC"];
 
         public override void SetStaticDefaults()
@@ -34,24 +32,29 @@ namespace BiomeExpansion.Content.NPCs
         {
             bestiaryEntry.Info.AddRange(new IBestiaryInfoElement[]
             {
-            BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.TheCorruption,
-            new FlavorTextBestiaryInfoElement("Mods.BiomeExpansion.Bestiary.CorruptionInfectedSnail")
+                BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.TheCorruption,
+                new FlavorTextBestiaryInfoElement("Mods.BiomeExpansion.Bestiary.CorruptionInfectedSnail")
             });
         }
 
         public override void SetDefaults()
         {
-            // Set NPC.catchItem here
+            NPC.CloneDefaults(NPCID.Snail);
+            AIType = NPCID.Snail;
+            AnimationType = NPCID.Snail;
             SpawnModBiomes = [ModContent.GetInstance<CorruptionInfectedMushroomSurfaceBiome>().Type];
-            NPC.CloneDefaults(ClonedNPCID);
-
-            AIType = ClonedNPCID;
-            AnimationType = ClonedNPCID;
-
             // When an item sprite is made, uncomment the next line
             //NPC.catchItem = ModContent.ItemType<CorruptionInfectedFlyNPC>();
         }
 
+        public override float SpawnChance(NPCSpawnInfo spawnInfo)
+        {
+            if (spawnInfo.Player.InModBiome<CorruptionInfectedMushroomSurfaceBiome>() && spawnInfo.Player.ZoneOverworldHeight)
+            {
+                return 0.1f;
+            }
 
+            return 0f;
+        }
     }
 }
