@@ -28,32 +28,26 @@ namespace BiomeExpansion.Content.NPCs
             NPC.CloneDefaults(NPCID.Grubby);
             AnimationType = NPCID.Grubby;
             AIType = NPCID.Grubby;
-            NPC.aiStyle = 66; // The NPCAIStyleID for Passive Worm AI style
+            NPC.aiStyle = NPCAIStyleID.CritterWorm;
             SpawnModBiomes = [ModContent.GetInstance<CorruptionInfectedMushroomSurfaceBiome>().Type];
         }
 
         public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
         {
-            bestiaryEntry.Info.AddRange(new IBestiaryInfoElement[]
-            {
-            BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.TheCorruption,
-            new FlavorTextBestiaryInfoElement("Mods.BiomeExpansion.Bestiary.CorruptionInfectedButterfly")
-            });
+            bestiaryEntry.Info.AddRange([
+                BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.TheCorruption,
+                new FlavorTextBestiaryInfoElement("Mods.BiomeExpansion.Bestiary.CorruptionInfectedButterfly")
+            ]);
         }
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            //if (spawnInfo.Player.InModBiome<CorruptionInfectedMushroomSurfaceBiome>() && spawnInfo.Player.ZoneOverworldHeight)
-            //{
-            //    return 0.1f;
-            //}
+            if (spawnInfo.Player.InModBiome<CorruptionInfectedMushroomSurfaceBiome>())
+            {
+                return 0.2f;
+            }
 
-            //return 0f;
-
-
-            // this isn't final, we still need to change the biome its in
-            return SpawnCondition.WormCritter.Chance * 0.1f;
-
+            return 0f;
         }
     }
 }

@@ -41,11 +41,10 @@ public class CrimsonInfectedBeetle : ModNPC
 
     public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
     {
-        bestiaryEntry.Info.AddRange(new IBestiaryInfoElement[]
-        {
+        bestiaryEntry.Info.AddRange([
             BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.TheCrimson,
             new FlavorTextBestiaryInfoElement("Mods.BiomeExpansion.Bestiary.CrimsonInfectedBeetle")
-        });
+        ]);
     }
 
     public override float SpawnChance(NPCSpawnInfo spawnInfo)
@@ -54,10 +53,10 @@ public class CrimsonInfectedBeetle : ModNPC
         {
             if (spawnInfo.Player.ZoneRockLayerHeight)
             {
-                return 0.25f;
+                return 0.35f;
             }
 
-            return 0.1f;
+            return 0.2f;
         }
         
         return 0;

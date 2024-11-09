@@ -41,11 +41,10 @@ public class InfectedAnglerFishSkeleton : ModNPC
 
     public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
     {
-        bestiaryEntry.Info.AddRange(new IBestiaryInfoElement[]
-        {
+        bestiaryEntry.Info.AddRange([
             BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.Caverns,
             new FlavorTextBestiaryInfoElement("Mods.BiomeExpansion.Bestiary.InfectedAnglerFishSkeleton")
-        });
+        ]);
     }
 
     public override float SpawnChance(NPCSpawnInfo spawnInfo)

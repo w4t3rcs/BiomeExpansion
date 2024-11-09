@@ -46,18 +46,17 @@ public class WeakFearClot : ModNPC
 
     public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
     {
-        bestiaryEntry.Info.AddRange(new IBestiaryInfoElement[]
-        {
+        bestiaryEntry.Info.AddRange([
             BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.TheCorruption,
             new FlavorTextBestiaryInfoElement("Mods.BiomeExpansion.Bestiary.WeakFearClot")
-        });
+        ]);
     }
 
     public override float SpawnChance(NPCSpawnInfo spawnInfo)
     {
         if (spawnInfo.Player.InModBiome<CorruptionInfectedMushroomSurfaceBiome>() || spawnInfo.Player.InModBiome<CrimsonInfectedMushroomSurfaceBiome>())
         {
-            return 0.10f;
+            return 0.2f;
         }
 
         return 0f;

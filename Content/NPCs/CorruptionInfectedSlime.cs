@@ -41,11 +41,10 @@ public class CorruptionInfectedSlime : ModNPC
 
     public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
     {
-        bestiaryEntry.Info.AddRange(new IBestiaryInfoElement[]
-        {
+        bestiaryEntry.Info.AddRange([
             BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.TheCorruption,
             new FlavorTextBestiaryInfoElement("Mods.BiomeExpansion.Bestiary.CorruptionInfectedSlime")
-        });
+        ]);
     }
 
     public override float SpawnChance(NPCSpawnInfo spawnInfo)
@@ -54,10 +53,10 @@ public class CorruptionInfectedSlime : ModNPC
         {
             if (spawnInfo.Player.ZoneOverworldHeight)
             {
-                return 0.66f;
+                return 0.2f;
             }
 
-            return 0.33f;
+            return 0.1f;
         }
         
         return 0;

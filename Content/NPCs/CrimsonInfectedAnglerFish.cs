@@ -41,18 +41,17 @@ public class CrimsonInfectedAnglerFish : ModNPC
 
     public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
     {
-        bestiaryEntry.Info.AddRange(new IBestiaryInfoElement[]
-        {
+        bestiaryEntry.Info.AddRange([
             BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.TheCrimson,
             new FlavorTextBestiaryInfoElement("Mods.BiomeExpansion.Bestiary.CrimsonInfectedAnglerFish")
-        });
+        ]);
     }
 
     public override float SpawnChance(NPCSpawnInfo spawnInfo)
     {
         if (spawnInfo.Player.InModBiome<CrimsonInfectedMushroomSurfaceBiome>() && spawnInfo.Water)
         {
-            return 0.33f;
+            return 0.5f;
         }
 
         return 0f;

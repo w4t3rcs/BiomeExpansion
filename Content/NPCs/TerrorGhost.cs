@@ -11,12 +11,11 @@ namespace BiomeExpansion.Content.NPCs;
 
 public class TerrorGhost : ModNPC
 {
-    protected const float baseSpeed = 1.5f; 
-    protected const float baseAcceleration = 0.05f; 
+    public override string Texture => TextureHelper.DynamicNPCsTextures["TerrorGhost"];
+    private const float _baseSpeed = 1.5f; 
+    private const float _baseAcceleration = 0.05f; 
     protected int leftHandID = -1;
     protected int rightHandID = -1;
-    
-    public override string Texture => TextureHelper.DynamicNPCsTextures["TerrorGhost"];
 
     public override void SetStaticDefaults()
     {
@@ -71,9 +70,9 @@ public class TerrorGhost : ModNPC
         {
             Vector2 direction = Main.player[NPC.target].Center - NPC.Center;
             direction.Normalize();
-            direction *= baseSpeed;
-            NPC.velocity.X = (NPC.velocity.X * (1f - baseAcceleration)) + (direction.X * baseAcceleration);
-            NPC.velocity.Y = (NPC.velocity.Y * (1f - baseAcceleration)) + (direction.Y * baseAcceleration);
+            direction *= _baseSpeed;
+            NPC.velocity.X = (NPC.velocity.X * (1f - _baseAcceleration)) + (direction.X * _baseAcceleration);
+            NPC.velocity.Y = (NPC.velocity.Y * (1f - _baseAcceleration)) + (direction.Y * _baseAcceleration);
         }
 
 
@@ -82,18 +81,17 @@ public class TerrorGhost : ModNPC
 
     public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
     {
-        bestiaryEntry.Info.AddRange(new IBestiaryInfoElement[]
-        {
+        bestiaryEntry.Info.AddRange([
             BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.TheCorruption,
             new FlavorTextBestiaryInfoElement("Mods.BiomeExpansion.Bestiary.TerrorGhost")
-        });
+        ]);
     }
 
     public override float SpawnChance(NPCSpawnInfo spawnInfo)
     {
         if (spawnInfo.Player.InModBiome<CorruptionInfectedMushroomSurfaceBiome>() || spawnInfo.Player.InModBiome<CrimsonInfectedMushroomSurfaceBiome>())
         {
-            return 0.10f;
+            return 0.25f;
         }
 
         return 0f;
@@ -117,6 +115,8 @@ public class TerrorGhost : ModNPC
 public class TerrorGhostHand : ModNPC
 {
     public override string Texture => TextureHelper.DynamicNPCsTextures["TerrorGhostHand"];
+    private const float _baseSpeed = 2f; 
+    private const float _baseAcceleration = 0.05f; 
 
     public override void SetDefaults()
     {
@@ -141,11 +141,15 @@ public class TerrorGhostHand : ModNPC
         {
             bool isRightHand = NPC.ai[1] == 1;
             NPC.TargetClosest(true);
-            NPC.velocity = parent.velocity * 1.175f;
-            NPC.velocity.Y = parent.velocity.Y * 1.25f;
-            NPC.spriteDirection = NPC.direction = NPC.velocity.X > 0 ? 1 : -1;
-            if (NPC.direction == 1 && isRightHand) NPC.velocity *= 1.25f;
-            else if (NPC.direction == -1 && !isRightHand) NPC.velocity *= 1.25f;
+            if (NPC.HasValidTarget)
+            {
+                Vector2 direction = Main.player[NPC.target].Center - NPC.Center;
+                direction.Normalize();
+                direction *= _baseSpeed;
+                NPC.velocity.X = (NPC.velocity.X * (1f - _baseAcceleration)) + (direction.X * _baseAcceleration);
+                NPC.velocity.Y = (NPC.velocity.Y * (1f - _baseAcceleration)) + (direction.Y * _baseAcceleration);
+                NPC.spriteDirection = NPC.direction = NPC.velocity.X > 0 ? 1 : -1;
+            }
         }
         else
         {

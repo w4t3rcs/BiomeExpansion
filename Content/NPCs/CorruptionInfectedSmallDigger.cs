@@ -30,11 +30,10 @@ internal class CorruptionInfectedSmallDiggerHead : WormHead
 
     public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
     {
-        bestiaryEntry.Info.AddRange(new IBestiaryInfoElement[]
-        {
+        bestiaryEntry.Info.AddRange([
             BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.TheCorruption,
             new FlavorTextBestiaryInfoElement("Mods.BiomeExpansion.Bestiary.CorruptionInfectedSmallDigger")
-        });
+        ]);
     }
 
     public override float SpawnChance(NPCSpawnInfo spawnInfo)
@@ -43,10 +42,10 @@ internal class CorruptionInfectedSmallDiggerHead : WormHead
         {
             if (spawnInfo.Player.ZoneDirtLayerHeight || spawnInfo.Player.ZoneRockLayerHeight)
             {
-                return 0.1f;
+                return 0.2f;
             }
 
-            return 0.05f;
+            return 0.1f;
         }
         
         return 0;
