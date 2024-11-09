@@ -11,6 +11,8 @@ namespace BiomeExpansion.Content.NPCs;
 
 public class TerrorGhost : ModNPC
 {
+    protected const float baseSpeed = 1.5f; 
+    protected const float baseAcceleration = 0.05f; 
     protected int leftHandID = -1;
     protected int rightHandID = -1;
     
@@ -63,9 +65,19 @@ public class TerrorGhost : ModNPC
             Main.npc[rightHandID].realLife = NPC.whoAmI;
             NPC.ai[0] = 1;
         }
-        
-        NPC.netUpdate = true;
+
         NPC.TargetClosest(true);
+        if (NPC.HasValidTarget)
+        {
+            Vector2 direction = Main.player[NPC.target].Center - NPC.Center;
+            direction.Normalize();
+            direction *= baseSpeed;
+            NPC.velocity.X = (NPC.velocity.X * (1f - baseAcceleration)) + (direction.X * baseAcceleration);
+            NPC.velocity.Y = (NPC.velocity.Y * (1f - baseAcceleration)) + (direction.Y * baseAcceleration);
+        }
+
+
+        NPC.netUpdate = true;
     }
 
     public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
@@ -122,23 +134,24 @@ public class TerrorGhostHand : ModNPC
     
     public override void AI()
     {   
-        Lighting.AddLight(NPC.Center, 0.6f, 0.0f, 0.6f);
+        Lighting.AddLight(NPC.Center, 0.4f, 0.0f, 0.4f);
         int parentId = (int)NPC.ai[0];
         NPC parent = Main.npc[parentId];
         if (NPC.ai[0] != 0 && parent != null && parent.active)
         {
             bool isRightHand = NPC.ai[1] == 1;
-            if (isRightHand)
-            {
-
-            }
+            NPC.TargetClosest(true);
+            NPC.velocity = parent.velocity * 1.175f;
+            NPC.velocity.Y = parent.velocity.Y * 1.25f;
+            NPC.spriteDirection = NPC.direction = NPC.velocity.X > 0 ? 1 : -1;
+            if (NPC.direction == 1 && isRightHand) NPC.velocity *= 1.25f;
+            else if (NPC.direction == -1 && !isRightHand) NPC.velocity *= 1.25f;
         }
         else
         {
             NPC.active = false;
         }
 
-        NPC.TargetClosest(true);
     }
     
     public override void OnHitPlayer(Player target, Player.HurtInfo hurtInfo)
