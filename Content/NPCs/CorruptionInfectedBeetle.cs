@@ -54,10 +54,10 @@ public class CorruptionInfectedBeetle : ModNPC
         {
             if (spawnInfo.Player.ZoneRockLayerHeight)
             {
-                return 0.50f;
+                return 0.25f;
             }
 
-            return 0.25f;
+            return 0.1f;
         }
         
         return 0;

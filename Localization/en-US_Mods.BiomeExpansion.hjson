@@ -450,7 +450,6 @@ NPCs: {
 	CorruptionInfectedFlyNPC.DisplayName: Corruption Infected Fly N P C
 	CorruptionInfectedFly.DisplayName: Corruption Infected Fly
 	CorruptionInfectedSnail.DisplayName: Corruption Infected Snail
-	SmallCorruptionInfectedFly.DisplayName: Small Corruption Infected Fly
 	CorruptionInfectedFairy.DisplayName: Corruption Infected Fairy
 	CorruptionInfectedDragonfly.DisplayName: Corruption Infected Dragonfly
 	CorruptionInfectedRat.DisplayName: Corruption Infected Rat

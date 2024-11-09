@@ -72,9 +72,9 @@ namespace BiomeExpansion.Content.NPCs
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            if (spawnInfo.Player.InModBiome<CorruptionInfectedMushroomSurfaceBiome>() && spawnInfo.Player.ZoneOverworldHeight)
+            if (spawnInfo.Player.InModBiome<CorruptionInfectedMushroomSurfaceBiome>() && (spawnInfo.Player.ZoneOverworldHeight || spawnInfo.Player.ZoneDirtLayerHeight))
             {
-                return 0.1f;
+                return 0.2f;
             }
 
             return 0f;

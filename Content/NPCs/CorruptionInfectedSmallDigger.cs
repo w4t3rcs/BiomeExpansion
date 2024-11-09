@@ -43,10 +43,10 @@ internal class CorruptionInfectedSmallDiggerHead : WormHead
         {
             if (spawnInfo.Player.ZoneDirtLayerHeight || spawnInfo.Player.ZoneRockLayerHeight)
             {
-                return 0.33f;
+                return 0.1f;
             }
 
-            return 0.15f;
+            return 0.05f;
         }
         
         return 0;
