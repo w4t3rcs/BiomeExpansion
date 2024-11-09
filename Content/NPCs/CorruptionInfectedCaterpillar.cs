@@ -28,7 +28,7 @@ namespace BiomeExpansion.Content.NPCs
             NPC.CloneDefaults(NPCID.Grubby);
             AnimationType = NPCID.Grubby;
             AIType = NPCID.Grubby;
-            NPC.aiStyle = 66;
+            NPC.aiStyle = 66; // The NPCAIStyleID for Passive Worm AI style
             SpawnModBiomes = [ModContent.GetInstance<CorruptionInfectedMushroomSurfaceBiome>().Type];
         }
 
