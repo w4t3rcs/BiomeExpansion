@@ -1,4 +1,5 @@
-﻿using BiomeExpansion.Helpers;
+﻿using BiomeExpansion.Content.NPCs;
+using BiomeExpansion.Helpers;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
@@ -20,7 +21,7 @@ public class CorruptionInfectedMushroomRock : ModTile
         DustType = DustID.Corruption;
         AddMapEntry(Color.Purple);
     }
-    
+
     public override void NumDust(int i, int j, bool fail, ref int num)
     {
         num = fail ? 1 : 4;
@@ -36,6 +37,16 @@ public class CorruptionInfectedMushroomRock : ModTile
             Main.npc[worm].velocity.X = Main.rand.NextFloat(0f, 2.6f) * -Main.npc[worm].direction;
             Main.npc[worm].direction *= -1;
             Main.npc[worm].netUpdate = true;
+        }
+        
+        if (NPC.CountNPCS(ModContent.NPCType<CorruptionInfectedCaterpillar>()) < 5 && Main.rand.NextBool(6))
+        {
+            int caterpillar = NPC.NewNPC(new EntitySource_TileBreak(i, j), i * 16 + 10, j * 16, ModContent.NPCType<CorruptionInfectedCaterpillar>());
+            Main.npc[caterpillar].TargetClosest();
+            Main.npc[caterpillar].velocity.Y = Main.rand.NextFloat(-5f, -2.1f);
+            Main.npc[caterpillar].velocity.X = Main.rand.NextFloat(0f, 2.6f) * -Main.npc[caterpillar].direction;
+            Main.npc[caterpillar].direction *= -1;
+            Main.npc[caterpillar].netUpdate = true;
         }
     }
 
