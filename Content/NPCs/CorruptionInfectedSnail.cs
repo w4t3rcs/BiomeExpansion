@@ -29,9 +29,10 @@ namespace BiomeExpansion.Content.NPCs
 
         public override void SetDefaults()
         {
-            NPC.CloneDefaults(NPCID.Snail);
-            AIType = NPCID.Snail;
-            AnimationType = NPCID.Snail;
+            NPC.CloneDefaults(NPCID.GlowingSnail);
+            AIType = NPCID.GlowingSnail;
+            AnimationType = NPCID.GlowingSnail;
+            NPC.aiStyle = NPCAIStyleID.Snail;
             SpawnModBiomes = [ModContent.GetInstance<CorruptionInfectedMushroomSurfaceBiome>().Type];
             // When an item sprite is made, uncomment the next line
             //NPC.catchItem = ModContent.ItemType<CorruptionInfectedFlyNPC>();
