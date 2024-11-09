@@ -456,4 +456,6 @@ NPCs: {
 	CorruptionInfectedSmallFly.DisplayName: Corruption Infected Small Fly
 	CorruptionInfectedButterfly.DisplayName: Corruption Infected Butterfly
 	CorruptionInfectedCaterpillar.DisplayName: Corruption Infected Caterpillar
+	CorruptionInfectedLadybug.DisplayName: Corruption Infected Ladybug
+	CorruptionInfectedStagBeetle.DisplayName: Corruption Infected Stag Beetle
 }
