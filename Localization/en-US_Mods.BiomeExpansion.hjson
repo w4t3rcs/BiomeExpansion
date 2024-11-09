@@ -455,4 +455,6 @@ NPCs: {
 	CorruptionInfectedDragonfly.DisplayName: Corruption Infected Dragonfly
 	CorruptionInfectedRat.DisplayName: Corruption Infected Rat
 	CorruptionInfectedSmallFly.DisplayName: Corruption Infected Small Fly
+	CorruptionInfectedButterfly.DisplayName: Corruption Infected Butterfly
+	CorruptionInfectedCaterpillar.DisplayName: Corruption Infected Caterpillar
 }
