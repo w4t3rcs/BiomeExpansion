@@ -1,8 +1,11 @@
+using System;
 using BiomeExpansion.Content.Biomes;
 using BiomeExpansion.Content.Buffs;
 using BiomeExpansion.Helpers;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.GameContent;
 using Terraria.GameContent.Bestiary;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -12,7 +15,7 @@ namespace BiomeExpansion.Content.NPCs;
 public class TerrorGhost : ModNPC
 {
     public override string Texture => TextureHelper.DynamicNPCsTextures["TerrorGhost"];
-    private const float _baseSpeed = 1.5f; 
+    private const float _baseSpeed = 3f; 
     private const float _baseAcceleration = 0.05f; 
     protected int leftHandID = -1;
     protected int rightHandID = -1;
@@ -34,8 +37,8 @@ public class TerrorGhost : ModNPC
         NPC.noGravity = true;
         NPC.noTileCollide = true;
         NPC.value = Item.buyPrice(0, 0, 5, 0);
-        NPC.HitSound = SoundID.NPCHit5;
-        NPC.DeathSound = SoundID.NPCDeath7;
+        NPC.HitSound = SoundID.NPCHit36;
+        NPC.DeathSound = SoundID.NPCDeath39;
         Banner = NPC.type;
         SpawnModBiomes = [ModContent.GetInstance<CorruptionInfectedMushroomSurfaceBiome>().Type, ModContent.GetInstance<CrimsonInfectedMushroomSurfaceBiome>().Type];
         // BannerItem = ModContent.ItemType<>();
@@ -62,20 +65,30 @@ public class TerrorGhost : ModNPC
             Main.npc[leftHandID].realLife = NPC.whoAmI;
             rightHandID = NPC.NewNPC(NPC.GetSource_FromAI(), (int)NPC.Center.X + 40, (int)NPC.Bottom.Y + 20, ModContent.NPCType<TerrorGhostHand>(), ai0: NPC.whoAmI, ai1: 1);
             Main.npc[rightHandID].realLife = NPC.whoAmI;
+            Main.npc[leftHandID].ai[2] = rightHandID;
+            Main.npc[rightHandID].ai[2] = leftHandID;
             NPC.ai[0] = 1;
         }
 
         NPC.TargetClosest(true);
         if (NPC.HasValidTarget)
         {
-            Vector2 direction = Main.player[NPC.target].Center - NPC.Center;
-            direction.Normalize();
-            direction *= _baseSpeed;
-            NPC.velocity.X = (NPC.velocity.X * (1f - _baseAcceleration)) + (direction.X * _baseAcceleration);
-            NPC.velocity.Y = (NPC.velocity.Y * (1f - _baseAcceleration)) + (direction.Y * _baseAcceleration);
+            if (!NPC.Center.WithinRange(Main.player[NPC.target].Center, 20f)) 
+            {
+                Vector2 direction = Main.player[NPC.target].Center - NPC.Center;
+                direction.Normalize();
+                direction *= _baseSpeed;
+                NPC.velocity.X = (NPC.velocity.X * (1f - _baseAcceleration)) + (direction.X * _baseAcceleration);
+                NPC.velocity.Y = (NPC.velocity.Y * (1f - _baseAcceleration)) + (direction.Y * _baseAcceleration);
+            }
+            else
+            {
+                NPC.damage = 0;
+                Lighting.AddLight(NPC.Center, 1.2f, 0.0f, 1.2f);
+            }
         }
 
-
+        
         NPC.netUpdate = true;
     }
 
@@ -115,23 +128,31 @@ public class TerrorGhost : ModNPC
 public class TerrorGhostHand : ModNPC
 {
     public override string Texture => TextureHelper.DynamicNPCsTextures["TerrorGhostHand"];
-    private const float _baseSpeed = 2f; 
-    private const float _baseAcceleration = 0.05f; 
+    private const float _baseSpeed = 5f; 
+    private const float _baseAcceleration = 0.05f;
+    private const float _curveAmplitude = 0.145f;
+    private const float _curveFrequency = 0.085f;
 
     public override void SetDefaults()
     {
         NPC.aiStyle = -1;
         NPC.lifeMax = 10;
-        NPC.damage = 30;
+        NPC.damage = 20;
         NPC.width = 32;
         NPC.height = 24;
         NPC.knockBackResist = 0.8f;
         NPC.noGravity = true;
         NPC.noTileCollide = true;
+        NPC.HitSound = SoundID.NPCHit36;
         NPCHelper.AdjustExpertMode(NPC);
         NPCHelper.AdjustMasterMode(NPC);
     }
-    
+
+    public override void DrawBehind(int index)
+    {
+        Main.instance.DrawCacheNPCsOverPlayers.Add(index);
+    }
+
     public override void AI()
     {   
         Lighting.AddLight(NPC.Center, 0.4f, 0.0f, 0.4f);
@@ -143,12 +164,30 @@ public class TerrorGhostHand : ModNPC
             NPC.TargetClosest(true);
             if (NPC.HasValidTarget)
             {
-                Vector2 direction = Main.player[NPC.target].Center - NPC.Center;
+                Player player = Main.player[NPC.target];
+                Vector2 direction = player.Center - NPC.Center;
+                NPC.rotation = direction.ToRotation();
                 direction.Normalize();
                 direction *= _baseSpeed;
                 NPC.velocity.X = (NPC.velocity.X * (1f - _baseAcceleration)) + (direction.X * _baseAcceleration);
                 NPC.velocity.Y = (NPC.velocity.Y * (1f - _baseAcceleration)) + (direction.Y * _baseAcceleration);
-                NPC.spriteDirection = NPC.direction = NPC.velocity.X > 0 ? 1 : -1;
+                if (!NPC.Center.WithinRange(player.Center, 20f))
+                {
+                    float curveOffset = (float)(Math.Sin(Main.GameUpdateCount * _curveFrequency) * _curveAmplitude);
+                    NPC.velocity.Y += isRightHand ? curveOffset : -curveOffset;
+                    NPC.velocity.X += isRightHand ? -curveOffset : curveOffset;
+                }
+                else
+                {
+                    Main.npc[(int)NPC.ai[2]].Center = NPC.Center;
+                    NPC.damage = 30;
+                    NPC.defense = 20;
+                    NPC.rotation = 0;
+                    NPC.spriteDirection = NPC.direction = NPC.velocity.X > 0 ? 1 : -1;
+                    player.velocity *= 0;
+                    player.Center = NPC.Center;
+                    Lighting.AddLight(NPC.Center, 1f, 0.0f, 1f);
+                }
             }
         }
         else
