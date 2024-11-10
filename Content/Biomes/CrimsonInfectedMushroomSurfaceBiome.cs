@@ -13,6 +13,8 @@ namespace BiomeExpansion.Content.Biomes
         public override CaptureBiome.TileColorStyle TileColorStyle => CaptureBiome.TileColorStyle.Crimson;
         public override ModSurfaceBackgroundStyle SurfaceBackgroundStyle => ModContent.GetInstance<СrimsonInfectedMushroomSurfaceBiomeBGStyle>();
         public override ModUndergroundBackgroundStyle UndergroundBackgroundStyle => ModContent.GetInstance<СrimsonInfectedMushroomSurfaceBiomeBGUGStyle>();
+        public override string BestiaryIcon => TextureHelper.DynamicBestiaryTextures["CrimsonInfectedMushroomSurfaceBiomeBestiaryIcon"];
+        public override string MapBackground => TextureHelper.DynamicBackgroundsTextures["CrimsonInfectedMushroomSurfaceBiomeMap"];
         public override int BiomeCampfireItemType => ModContent.ItemType<Items.Placeable.Furniture.CrimsonInfectedMushroomWoodCampfire>();
         public override int BiomeTorchItemType => ModContent.ItemType<Items.Placeable.Furniture.CrimsonInfectedMushroomWoodTorch>();
         public override int Music => MusicID.Mushrooms;

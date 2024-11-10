@@ -360,6 +360,36 @@ Items: {
 		DisplayName: Crimson Infected Gel
 		Tooltip: ""
 	}
+
+	CorruptionInfectedMushroomGrassWall: {
+		DisplayName: Corruption Infected Mushroom Grass Wall
+		Tooltip: ""
+	}
+
+	CorruptionInfectedMushroomOldStoneWall: {
+		DisplayName: Corruption Infected Mushroom Old Stone Wall
+		Tooltip: ""
+	}
+
+	CorruptionInfectedMushroomStoneWall: {
+		DisplayName: Corruption Infected Mushroom Stone Wall
+		Tooltip: ""
+	}
+
+	CrimsonInfectedMushroomGrassWall: {
+		DisplayName: Crimson Infected Mushroom Grass Wall
+		Tooltip: ""
+	}
+
+	CrimsonInfectedMushroomOldStoneWall: {
+		DisplayName: Crimson Infected Mushroom Old Stone Wall
+		Tooltip: ""
+	}
+
+	CrimsonInfectedMushroomStoneWall: {
+		DisplayName: Crimson Infected Mushroom Stone Wall
+		Tooltip: ""
+	}
 }
 
 Biomes: {

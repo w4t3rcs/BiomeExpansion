@@ -17,6 +17,8 @@ public static class TextureHelper
     public static readonly Dictionary<string, string> DynamicWatersTextures = [];
     public static readonly Dictionary<string, string> DynamicSkiesTextures = [];
     public static readonly Dictionary<string, string> DynamicNPCsTextures = [];
+    public static readonly Dictionary<string, string> DynamicBackgroundsTextures = [];
+    public static readonly Dictionary<string, string> DynamicBestiaryTextures = [];
     public const string AssetsLocation = "BiomeExpansion/Assets";
     public const string ItemsAssetsLocation = $"{AssetsLocation}/Items";
     public const string TilesAssetsLocation = $"{AssetsLocation}/Tiles";
@@ -29,6 +31,8 @@ public static class TextureHelper
     public const string WatersAssetsLocation = $"{AssetsLocation}/Waters";
     public const string SkiesAssetsLocation = $"{AssetsLocation}/Skies";
     public const string NPCsAssetsLocation = $"{AssetsLocation}/NPCs";
+    public const string BackgroundsAssetsLocation = $"{AssetsLocation}/Backgrounds";
+    public const string BestiaryAssetsLocation = $"{AssetsLocation}/Bestiary";
     public static readonly string ModSourcesDirectory = ModLoader.ModPath.Replace("Mods", "ModSources");
     
     public static void LoadDynamicTextures()
@@ -44,6 +48,8 @@ public static class TextureHelper
         LoadDynamicTextures(WatersAssetsLocation, DynamicWatersTextures);
         // LoadDynamicTextures(SkiesAssetsLocation, DynamicSkiesTextures);
         LoadDynamicTextures(NPCsAssetsLocation, DynamicNPCsTextures);
+        LoadDynamicTextures(BackgroundsAssetsLocation, DynamicBackgroundsTextures);
+        LoadDynamicTextures(BestiaryAssetsLocation, DynamicBestiaryTextures);
     }
 
     public static void LoadDynamicTextures(string location, Dictionary<string, string> cache)

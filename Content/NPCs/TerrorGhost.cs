@@ -76,7 +76,7 @@ public class TerrorGhost : ModNPC
             else
             {
                 NPC.damage = 0;
-                Lighting.AddLight(NPC.Center, 1.2f, 0.0f, 1.2f);
+                Lighting.AddLight(NPC.Center, 2f, 0.0f, 2f);
             }
         }
 
@@ -181,9 +181,10 @@ public class TerrorGhostHand : ModNPC
                     NPC.spriteDirection = NPC.direction = NPC.velocity.X > 0 ? 1 : -1;
                     player.velocity *= 0;
                     player.Center = NPC.Center;
-                    Lighting.AddLight(NPC.Center, 1f, 0.0f, 1f);
+                    Lighting.AddLight(NPC.Center, 1.7f, 0.0f, 1.7f);
                 }
             }
+            NPC.netUpdate = true;
         }
         else
         {
