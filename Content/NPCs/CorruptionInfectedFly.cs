@@ -1,14 +1,4 @@
-﻿using System.IO;
-using System.Numerics;
-using BiomeExpansion.Content.Biomes;
-using BiomeExpansion.Content.Buffs;
-using BiomeExpansion.Helpers;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Design;
-using Terraria;
-using Terraria.GameContent.Bestiary;
-using Terraria.ID;
-using Terraria.ModLoader;
+﻿using BiomeExpansion.Content.Biomes;
 
 namespace BiomeExpansion.Content.NPCs
 {

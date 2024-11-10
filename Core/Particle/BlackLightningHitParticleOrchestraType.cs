@@ -1,11 +1,7 @@
 using System;
-using BiomeExpansion.Helpers;
-using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.GameContent;
 using Terraria.GameContent.Drawing;
 using Terraria.Graphics.Renderers;
-using Terraria.ID;
 
 namespace BiomeExpansion.Core.Particle;
 

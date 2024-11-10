@@ -1,6 +1,4 @@
 ﻿using BiomeExpansion.Content.Tiles.Furniture;
-using BiomeExpansion.Helpers;
-using Terraria.ModLoader;
 
 namespace BiomeExpansion.Content.Items.Placeable.Furniture;
 

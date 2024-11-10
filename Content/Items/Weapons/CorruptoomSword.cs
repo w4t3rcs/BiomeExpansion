@@ -1,13 +1,4 @@
-﻿using System;
-using System.IO;
-using BiomeExpansion.Core.Particle;
-using BiomeExpansion.Helpers;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using ReLogic.Content;
-using Terraria;
-using Terraria.ID;
-using Terraria.ModLoader;
+﻿using BiomeExpansion.Core.Particle;
 
 namespace BiomeExpansion.Content.Items.Weapons;
 

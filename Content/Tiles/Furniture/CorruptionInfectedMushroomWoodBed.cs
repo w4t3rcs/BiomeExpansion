@@ -1,11 +1,4 @@
-﻿using BiomeExpansion.Helpers;
-using Microsoft.Xna.Framework;
-using Terraria;
-using Terraria.GameContent;
-using Terraria.GameContent.ObjectInteractions;
-using Terraria.ID;
-using Terraria.Localization;
-using Terraria.ModLoader;
+﻿using Terraria.GameContent.ObjectInteractions;
 using Terraria.ObjectData;
 
 namespace BiomeExpansion.Content.Tiles.Furniture;

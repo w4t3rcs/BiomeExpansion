@@ -1,7 +1,4 @@
-﻿using BiomeExpansion.Helpers;
-using Terraria.ModLoader;
-
-namespace BiomeExpansion.Content.Items.Placeable.Furniture;
+﻿namespace BiomeExpansion.Content.Items.Placeable.Furniture;
 
 public class CrimsonInfectedMushroomWoodChest : ModItem
 {

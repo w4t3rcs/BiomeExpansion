@@ -1,7 +1,4 @@
-﻿using BiomeExpansion.Helpers;
-using Terraria.ModLoader;
-
-namespace BiomeExpansion.Content.Items.Walls;
+﻿namespace BiomeExpansion.Content.Items.Walls;
 
 public class CrimsonInfectedMushroomWoodFence : ModItem
 {

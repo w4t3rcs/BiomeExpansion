@@ -1,8 +1,4 @@
-﻿using BiomeExpansion.Helpers;
-using Terraria.ID;
-using Terraria.ModLoader;
-
-namespace BiomeExpansion.Content.Items.Weapons;
+﻿namespace BiomeExpansion.Content.Items.Weapons;
 
 public class CorruptoomAxe : ModItem
 {

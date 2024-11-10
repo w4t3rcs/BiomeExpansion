@@ -1,6 +1,4 @@
-﻿using Terraria;
-
-namespace BiomeExpansion.Core.Generation;
+﻿namespace BiomeExpansion.Core.Generation;
 
 public class RightDiagonalTunnelModification : IGroundModification
 {

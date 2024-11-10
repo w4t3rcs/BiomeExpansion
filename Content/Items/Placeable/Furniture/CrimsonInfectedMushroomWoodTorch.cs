@@ -1,10 +1,4 @@
-﻿using BiomeExpansion.Helpers;
-using Microsoft.Xna.Framework;
-using Terraria;
-using Terraria.ID;
-using Terraria.ModLoader;
-
-namespace BiomeExpansion.Content.Items.Placeable.Furniture;
+﻿namespace BiomeExpansion.Content.Items.Placeable.Furniture;
 
 public class CrimsonInfectedMushroomWoodTorch : ModItem
 {

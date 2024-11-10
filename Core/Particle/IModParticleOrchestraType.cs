@@ -1,4 +1,3 @@
-using Microsoft.Xna.Framework;
 using Terraria.GameContent.Drawing;
 
 namespace BiomeExpansion.Core.Particle;

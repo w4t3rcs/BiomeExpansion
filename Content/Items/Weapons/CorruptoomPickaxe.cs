@@ -1,11 +1,4 @@
-﻿using BiomeExpansion.Helpers;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using Terraria;
-using Terraria.ID;
-using Terraria.ModLoader;
-
-namespace BiomeExpansion.Content.Items.Weapons;
+﻿namespace BiomeExpansion.Content.Items.Weapons;
 
 public class CorruptoomPickaxe : ModItem
 {

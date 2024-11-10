@@ -1,7 +1,4 @@
-﻿using BiomeExpansion.Helpers;
-using Terraria.GameContent;
-using Terraria.ID;
-using Terraria.ModLoader;
+﻿using Terraria.GameContent;
 
 namespace BiomeExpansion.Content.Waters;
 

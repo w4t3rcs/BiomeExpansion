@@ -1,10 +1,4 @@
-﻿using System.Collections.Generic;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using Terraria;
-using Terraria.GameContent;
-using Terraria.ModLoader;
-using Terraria.ObjectData;
+﻿using Terraria.ObjectData;
 
 namespace BiomeExpansion.Helpers;
 

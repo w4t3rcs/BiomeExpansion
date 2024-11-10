@@ -1,6 +1,4 @@
 ﻿using System.Collections.Generic;
-using BiomeExpansion.Helpers;
-using Terraria;
 
 namespace BiomeExpansion.Core.Generation;
 

@@ -1,9 +1,4 @@
-﻿using BiomeExpansion.Helpers;
-using Microsoft.Xna.Framework.Graphics;
-using Terraria;
-using Terraria.ModLoader;
-
-namespace BiomeExpansion.Content.Backgrounds;
+﻿namespace BiomeExpansion.Content.Backgrounds;
 
 public class СorruptionInfectedMushroomSurfaceBiomeBGStyle : ModSurfaceBackgroundStyle
 { 

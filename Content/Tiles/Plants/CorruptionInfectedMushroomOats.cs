@@ -1,12 +1,4 @@
 ﻿using BiomeExpansion.Content.Tiles.Biome;
-using BiomeExpansion.Helpers;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using ReLogic.Content;
-using Terraria;
-using Terraria.GameContent;
-using Terraria.ID;
-using Terraria.ModLoader;
 using Terraria.ObjectData;
 
 namespace BiomeExpansion.Content.Tiles.Plants;

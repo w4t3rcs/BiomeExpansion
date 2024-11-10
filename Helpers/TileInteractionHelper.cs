@@ -1,13 +1,8 @@
 ﻿using System.Globalization;
-using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.Audio;
 using Terraria.DataStructures;
 using Terraria.GameContent;
-using Terraria.ID;
 using Terraria.Localization;
-using Terraria.ModLoader;
-using Terraria.ObjectData;
 
 namespace BiomeExpansion.Helpers;
 

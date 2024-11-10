@@ -1,13 +1,4 @@
-﻿using BiomeExpansion.Content.Tiles.Biome;
-using BiomeExpansion.Helpers;
-using Microsoft.Xna.Framework;
-using Terraria;
-using Terraria.Audio;
-using Terraria.DataStructures;
-using Terraria.ID;
-using Terraria.ModLoader;
-
-namespace BiomeExpansion.Content.Items.Others;
+﻿namespace BiomeExpansion.Content.Items.Others;
 
 public class CorruptionInfectedGel : ModItem
 {

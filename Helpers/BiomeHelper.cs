@@ -1,8 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using BiomeExpansion.Core.Generation;
-using Terraria;
-using Terraria.ID;
 
 namespace BiomeExpansion.Helpers;
 

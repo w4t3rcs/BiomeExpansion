@@ -1,14 +1,8 @@
-﻿using BiomeExpansion.Helpers;
-using Microsoft.Xna.Framework;
-using Terraria;
-using Terraria.ID;
-using Terraria.ModLoader;
+﻿namespace BiomeExpansion.Content.Walls;
 
-namespace BiomeExpansion.Content.Walls;
-
-public class CrimsonInfectedMushroomWall : ModWall
+public class CrimsonInfectedMushroomGrassWall : ModWall
 {
-    public override string Texture => TextureHelper.DynamicWallsTextures["CrimsonInfectedMushroomWall"];
+    public override string Texture => TextureHelper.DynamicWallsTextures["CrimsonInfectedMushroomGrassWall"];
 
     public override void SetStaticDefaults()
     {

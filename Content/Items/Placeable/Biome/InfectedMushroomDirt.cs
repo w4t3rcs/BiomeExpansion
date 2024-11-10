@@ -1,7 +1,4 @@
-﻿using BiomeExpansion.Helpers;
-using Terraria.ModLoader;
-
-namespace BiomeExpansion.Content.Items.Placeable.Biome;
+﻿namespace BiomeExpansion.Content.Items.Placeable.Biome;
 
 public class InfectedMushroomDirt : ModItem
 {

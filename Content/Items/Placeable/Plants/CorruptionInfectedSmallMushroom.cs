@@ -1,8 +1,4 @@
-﻿using BiomeExpansion.Helpers;
-using Terraria;
-using Terraria.ModLoader;
-
-namespace BiomeExpansion.Content.Items.Placeable.Plants;
+﻿namespace BiomeExpansion.Content.Items.Placeable.Plants;
 
 public class CorruptionInfectedSmallMushroom : ModItem
 {

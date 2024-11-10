@@ -1,6 +1,5 @@
 ﻿using System.Linq;
 using BiomeExpansion.Core.Generation;
-using Terraria;
 
 namespace BiomeExpansion.Helpers;
 

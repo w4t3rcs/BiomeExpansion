@@ -1,10 +1,5 @@
 ﻿using BiomeExpansion.Content.Tiles.Stones;
 using BiomeExpansion.Content.Waters;
-using BiomeExpansion.Helpers;
-using Microsoft.Xna.Framework;
-using Terraria;
-using Terraria.ID;
-using Terraria.ModLoader;
 
 namespace BiomeExpansion.Content.Tiles.Biome;
 

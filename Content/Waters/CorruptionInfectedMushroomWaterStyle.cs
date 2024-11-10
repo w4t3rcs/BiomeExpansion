@@ -1,17 +1,11 @@
-﻿using BiomeExpansion.Helpers;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using ReLogic.Content;
-using Terraria;
-using Terraria.ID;
-using Terraria.ModLoader;
+﻿using ReLogic.Content;
 
 namespace BiomeExpansion.Content.Waters;
 
 public class CorruptionInfectedMushroomWaterStyle : ModWaterStyle
 {
     public override string Texture => TextureHelper.DynamicWatersTextures["CorruptionInfectedMushroomWaterStyle"];
-        
+
     public override int ChooseWaterfallStyle()
     {
         return ModContent.GetInstance<CorruptionInfectedMushroomWaterfallStyle>().Slot;

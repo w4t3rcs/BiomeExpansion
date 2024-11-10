@@ -1,9 +1,4 @@
-﻿using BiomeExpansion.Helpers;
-using Terraria;
-using Terraria.ID;
-using Terraria.ModLoader;
-
-namespace BiomeExpansion.Content.Buffs;
+﻿namespace BiomeExpansion.Content.Buffs;
 
 public class CorruptionSporeInfectionDebuff : ModBuff
 {

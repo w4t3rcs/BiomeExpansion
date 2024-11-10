@@ -1,10 +1,4 @@
-﻿using BiomeExpansion.Helpers;
-using Microsoft.Xna.Framework;
-using Terraria;
-using Terraria.ID;
-using Terraria.ModLoader;
-
-namespace BiomeExpansion.Content.Walls;
+﻿namespace BiomeExpansion.Content.Walls;
 
 public class CrimsonInfectedMushroomWoodWall : ModWall
 {

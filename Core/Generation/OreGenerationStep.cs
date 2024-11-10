@@ -1,6 +1,4 @@
-﻿using BiomeExpansion.Helpers;
-
-namespace BiomeExpansion.Core.Generation;
+﻿namespace BiomeExpansion.Core.Generation;
 
 public class OreGenerationStep
 {

@@ -11,7 +11,7 @@ public static class ShaderHelper
     /// </summary>
     public static void LoadNewShader(string shaderName, Filter filter)
     {
-        Filters.Scene[shaderName] = filter;
-        Filters.Scene[shaderName].Load();
+        Terraria.Graphics.Effects.Filters.Scene[shaderName] = filter;
+        Terraria.Graphics.Effects.Filters.Scene[shaderName].Load();
     }
 }

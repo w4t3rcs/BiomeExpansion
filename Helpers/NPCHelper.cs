@@ -1,6 +1,3 @@
-using Terraria;
-using Terraria.ID;
-
 namespace BiomeExpansion.Helpers;
 
 public static class NPCHelper
