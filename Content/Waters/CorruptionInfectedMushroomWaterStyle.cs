@@ -30,7 +30,7 @@ public class CorruptionInfectedMushroomWaterStyle : ModWaterStyle
 
     public override Color BiomeHairColor()
     {
-        return Color.White;
+        return Color.Lerp(Color.MediumPurple, Color.Purple, 0.75f);
     }
 
     public override Asset<Texture2D> GetRainTexture()

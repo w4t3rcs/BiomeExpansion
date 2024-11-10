@@ -2,37 +2,33 @@
 
 namespace BiomeExpansion.Content.NPCs
 {
-    public class CorruptionInfectedDragonfly : ModNPC
+    public class CorruptionInfectedGrasshopper : ModNPC
     {
-        public override string Texture => TextureHelper.DynamicNPCsTextures["CorruptionInfectedDragonfly"];
+        public override string Texture => TextureHelper.DynamicNPCsTextures["CorruptionInfectedGrasshopper"];
 
         public override void SetStaticDefaults()
         {
-            Main.npcFrameCount[NPC.type] = 4;
+            Main.npcFrameCount[NPC.type] = 2;
             Main.npcCatchable[NPC.type] = true;
             NPCID.Sets.CountsAsCritter[NPC.type] = true;
             NPCID.Sets.TakesDamageFromHostilesWithoutBeingFriendly[NPC.type] = true;
-            // Change and uncomment the next line if the fly should be immune to anything
-            //NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.INSERT_DEBUFF_HERE] = true;
-        }
 
+        }
 
         public override void SetDefaults()
         {
-            // Set NPC.catchItem here
-            NPC.CloneDefaults(NPCID.BlackDragonfly);
-            AIType = NPCID.BlackDragonfly;
-            AnimationType = NPCID.BlackDragonfly;
+            NPC.CloneDefaults(NPCID.Grasshopper);
+            AnimationType = NPCID.Grasshopper;
+            AIType = NPCID.Grasshopper;
+            NPC.aiStyle = NPCAIStyleID.Slime;
             SpawnModBiomes = [ModContent.GetInstance<CorruptionInfectedMushroomSurfaceBiome>().Type];
-            // When an item sprite is made, uncomment the next line
-            //NPC.catchItem = ModContent.ItemType<CorruptionInfectedFlyNPC>();
         }
 
         public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
         {
             bestiaryEntry.Info.AddRange([
                 BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.TheCorruption,
-                new FlavorTextBestiaryInfoElement("Mods.BiomeExpansion.Bestiary.CorruptionInfectedDragonfly")
+                new FlavorTextBestiaryInfoElement("Mods.BiomeExpansion.Bestiary.CorruptionInfectedGrasshopper")
             ]);
         }
 

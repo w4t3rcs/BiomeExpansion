@@ -24,17 +24,16 @@ public class CorruptionInfectedMushroomLyingStem : ModTile
 
     public override void DropCritterChance(int i, int j, ref int wormChance, ref int grassHopperChance, ref int jungleGrubChance)
     {
-        if (NPC.CountNPCS(NPCID.EnchantedNightcrawler) < 5 && Main.rand.NextBool(6))
+        if (NPC.CountNPCS(ModContent.NPCType<CorruptionInfectedGrasshopper>()) < 5 && Main.rand.NextBool(10))
         {
-            int worm = NPC.NewNPC(new EntitySource_TileBreak(i, j), i * 16 + 10, j * 16, NPCID.EnchantedNightcrawler);
-            Main.npc[worm].TargetClosest();
-            Main.npc[worm].velocity.Y = Main.rand.NextFloat(-5f, -2.1f);
-            Main.npc[worm].velocity.X = Main.rand.NextFloat(0f, 2.6f) * -Main.npc[worm].direction;
-            Main.npc[worm].direction *= -1;
-            Main.npc[worm].netUpdate = true;
+            int grasshopper = NPC.NewNPC(new EntitySource_TileBreak(i, j), i * 16 + 10, j * 16, ModContent.NPCType<CorruptionInfectedGrasshopper>());
+            Main.npc[grasshopper].TargetClosest();
+            Main.npc[grasshopper].velocity.Y = Main.rand.NextFloat(-5f, -2.1f);
+            Main.npc[grasshopper].velocity.X = Main.rand.NextFloat(0f, 2.6f) * -Main.npc[grasshopper].direction;
+            Main.npc[grasshopper].direction *= -1;
+            Main.npc[grasshopper].netUpdate = true;
         }
-
-        if (NPC.CountNPCS(ModContent.NPCType<CorruptionInfectedCaterpillar>()) < 5 && Main.rand.NextBool(6))
+        if (NPC.CountNPCS(ModContent.NPCType<CorruptionInfectedCaterpillar>()) < 5 && Main.rand.NextBool(10))
         {
             int caterpillar = NPC.NewNPC(new EntitySource_TileBreak(i, j), i * 16 + 10, j * 16, ModContent.NPCType<CorruptionInfectedCaterpillar>());
             Main.npc[caterpillar].TargetClosest();

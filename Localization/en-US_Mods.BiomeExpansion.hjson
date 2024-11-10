@@ -458,4 +458,6 @@ NPCs: {
 	CorruptionInfectedCaterpillar.DisplayName: Corruption Infected Caterpillar
 	CorruptionInfectedLadybug.DisplayName: Corruption Infected Ladybug
 	CorruptionInfectedStagBeetle.DisplayName: Corruption Infected Stag Beetle
+	CorruptionInfectedCrab.DisplayName: Corruption Infected Crab
+	CorruptionInfectedGrasshopper.DisplayName: Corruption Infected Grasshopper
 }

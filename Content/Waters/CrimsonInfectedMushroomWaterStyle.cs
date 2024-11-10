@@ -30,7 +30,7 @@ public class CrimsonInfectedMushroomWaterStyle : ModWaterStyle
 
     public override Color BiomeHairColor()
     {
-        return Color.White;
+        return Color.Lerp(Color.Crimson, Color.DarkRed, 0.75f);
     }
 
     public override Asset<Texture2D> GetRainTexture()
