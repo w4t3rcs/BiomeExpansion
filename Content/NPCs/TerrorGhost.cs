@@ -87,7 +87,6 @@ public class TerrorGhost : ModNPC
     public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
     {
         bestiaryEntry.Info.AddRange([
-            BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.TheCorruption,
             new FlavorTextBestiaryInfoElement("Mods.BiomeExpansion.Bestiary.TerrorGhost")
         ]);
     }

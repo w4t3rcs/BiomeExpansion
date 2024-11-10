@@ -14,6 +14,7 @@ public class CorruptionInfectedMushroomSurfaceBiome : ModBiome
     public override ModSurfaceBackgroundStyle SurfaceBackgroundStyle => ModContent.GetInstance<СorruptionInfectedMushroomSurfaceBiomeBGStyle>();
     public override ModUndergroundBackgroundStyle UndergroundBackgroundStyle => ModContent.GetInstance<СorruptionInfectedMushroomSurfaceBiomeBGUGStyle>();
     public override string BestiaryIcon => TextureHelper.DynamicBestiaryTextures["CorruptionInfectedMushroomSurfaceBiomeBestiaryIcon"];
+    public override string BackgroundPath => TextureHelper.DynamicBackgroundsTextures["CorruptionInfectedMushroomSurfaceBiomeMap"];
     public override string MapBackground => TextureHelper.DynamicBackgroundsTextures["CorruptionInfectedMushroomSurfaceBiomeMap"];
     public override int BiomeCampfireItemType => ModContent.ItemType<Items.Placeable.Furniture.CorruptionInfectedMushroomWoodCampfire>();
     public override int BiomeTorchItemType => ModContent.ItemType<Items.Placeable.Furniture.CorruptionInfectedMushroomWoodTorch>();
