@@ -2,6 +2,7 @@
 using BiomeExpansion.Content.Biomes;
 using BiomeExpansion.Content.Buffs;
 using BiomeExpansion.Helpers;
+using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.GameContent.Bestiary;
 using Terraria.ID;
@@ -24,10 +25,21 @@ namespace BiomeExpansion.Content.NPCs
         public override void SetDefaults()
         {
             NPC.CloneDefaults(NPCID.Butterfly);
-            AnimationType = NPCID.Butterfly;
             AIType = NPCID.Butterfly;
             NPC.aiStyle = NPCAIStyleID.Butterfly;
             SpawnModBiomes = [ModContent.GetInstance<CorruptionInfectedMushroomSurfaceBiome>().Type];
+        }
+
+        public override void FindFrame(int frameHeight)
+        {
+            Vector2 direction = NPC.velocity;
+            direction.Normalize();
+            NPC.spriteDirection = NPC.direction = NPC.velocity.X > 0 ? 1 : -1;
+            if (++NPC.frameCounter >= 6)
+            {
+                NPC.frameCounter = 0;
+                NPC.frame.Y = (NPC.frame.Y + frameHeight) % (frameHeight * 3);
+            }
         }
 
         public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)

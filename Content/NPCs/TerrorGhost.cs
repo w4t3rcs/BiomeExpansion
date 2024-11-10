@@ -132,6 +132,7 @@ public class TerrorGhostHand : ModNPC
     private const float _baseAcceleration = 0.05f;
     private const float _curveAmplitude = 0.145f;
     private const float _curveFrequency = 0.085f;
+    private int _damage;
 
     public override void SetDefaults()
     {
@@ -146,6 +147,7 @@ public class TerrorGhostHand : ModNPC
         NPC.HitSound = SoundID.NPCHit36;
         NPCHelper.AdjustExpertMode(NPC);
         NPCHelper.AdjustMasterMode(NPC);
+        _damage = NPC.damage;
     }
 
     public override void DrawBehind(int index)
@@ -171,16 +173,17 @@ public class TerrorGhostHand : ModNPC
                 direction *= _baseSpeed;
                 NPC.velocity.X = (NPC.velocity.X * (1f - _baseAcceleration)) + (direction.X * _baseAcceleration);
                 NPC.velocity.Y = (NPC.velocity.Y * (1f - _baseAcceleration)) + (direction.Y * _baseAcceleration);
-                if (!NPC.Center.WithinRange(player.Center, 20f))
+                if (!NPC.Center.WithinRange(player.Center, 15f))
                 {
                     float curveOffset = (float)(Math.Sin(Main.GameUpdateCount * _curveFrequency) * _curveAmplitude);
                     NPC.velocity.Y += isRightHand ? curveOffset : -curveOffset;
                     NPC.velocity.X += isRightHand ? -curveOffset : curveOffset;
+                    NPC.damage = 0;
                 }
                 else
                 {
                     Main.npc[(int)NPC.ai[2]].Center = NPC.Center;
-                    NPC.damage = 30;
+                    NPC.damage = _damage;
                     NPC.defense = 20;
                     NPC.rotation = 0;
                     NPC.spriteDirection = NPC.direction = NPC.velocity.X > 0 ? 1 : -1;
@@ -194,7 +197,6 @@ public class TerrorGhostHand : ModNPC
         {
             NPC.active = false;
         }
-
     }
     
     public override void OnHitPlayer(Player target, Player.HurtInfo hurtInfo)
