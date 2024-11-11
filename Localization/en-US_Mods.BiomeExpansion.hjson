@@ -532,4 +532,5 @@ NPCs: {
 	CrimsonInfectedSmallFly.DisplayName: Crimson Infected Small Fly
 	CrimsonInfectedSnail.DisplayName: Crimson Infected Snail
 	CrimsonInfectedStagBeetle.DisplayName: Crimson Infected Stag Beetle
+	SmallTerrorGhost.DisplayName: Small Terror Ghost
 }

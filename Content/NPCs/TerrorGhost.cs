@@ -45,24 +45,35 @@ public class TerrorGhost : ModNPC
     }
 
     public override void AI()
-    {   
-        Lighting.AddLight(NPC.Center, 0.6f, 0.0f, 0.6f);
+    {
+        InitializeAI();
+        TargetClosest();
+        NPC.netUpdate = true;
+    }
+
+    private void InitializeAI()
+    {
+        Lighting.AddLight(NPC.Center, 0.8f, 0.0f, 0.6f);
         NPC.realLife = NPC.whoAmI;
         if (NPC.ai[0] == 0)
-        { 
-            leftHandID = NPC.NewNPC(NPC.GetSource_FromAI(), (int)NPC.Center.X - 40, (int)NPC.Bottom.Y + 20, ModContent.NPCType<TerrorGhostHand>(), ai0: NPC.whoAmI);
+        {
+            var source = NPC.GetSource_FromAI();
+            leftHandID = NPC.NewNPC(source, (int)NPC.Center.X - 40, (int)NPC.Bottom.Y + 20, ModContent.NPCType<TerrorGhostHand>(), ai0: NPC.whoAmI);
             Main.npc[leftHandID].realLife = NPC.whoAmI;
-            rightHandID = NPC.NewNPC(NPC.GetSource_FromAI(), (int)NPC.Center.X + 40, (int)NPC.Bottom.Y + 20, ModContent.NPCType<TerrorGhostHand>(), ai0: NPC.whoAmI, ai1: 1);
+            rightHandID = NPC.NewNPC(source, (int)NPC.Center.X + 40, (int)NPC.Bottom.Y + 20, ModContent.NPCType<TerrorGhostHand>(), ai0: NPC.whoAmI, ai1: 1);
             Main.npc[rightHandID].realLife = NPC.whoAmI;
             Main.npc[leftHandID].ai[2] = rightHandID;
             Main.npc[rightHandID].ai[2] = leftHandID;
             NPC.ai[0] = 1;
         }
+    }
 
+    private void TargetClosest()
+    {
         NPC.TargetClosest(true);
         if (NPC.HasValidTarget)
         {
-            if (!NPC.Center.WithinRange(Main.player[NPC.target].Center, 20f)) 
+            if (!NPC.Center.WithinRange(Main.player[NPC.target].Center, 20f))
             {
                 Vector2 direction = Main.player[NPC.target].Center - NPC.Center;
                 direction.Normalize();
@@ -73,12 +84,9 @@ public class TerrorGhost : ModNPC
             else
             {
                 NPC.damage = 0;
-                Lighting.AddLight(NPC.Center, 2f, 0.0f, 2f);
+                Lighting.AddLight(NPC.Center, 2.2f, 0.0f, 2f);
             }
         }
-
-        
-        NPC.netUpdate = true;
     }
 
     public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
@@ -118,9 +126,10 @@ public class TerrorGhostHand : ModNPC
     public override string Texture => TextureHelper.DynamicNPCsTextures["TerrorGhostHand"];
     private const float _baseSpeed = 5f; 
     private const float _baseAcceleration = 0.05f;
-    private const float _curveAmplitude = 0.145f;
+    private const float _curveAmplitude = 0.165f;
     private const float _curveFrequency = 0.085f;
     private int _damage;
+    private bool _isPressed;
 
     public override void SetDefaults()
     {
@@ -148,7 +157,7 @@ public class TerrorGhostHand : ModNPC
 
     public override void AI()
     {   
-        Lighting.AddLight(NPC.Center, 0.4f, 0.0f, 0.4f);
+        Lighting.AddLight(NPC.Center, 0.6f, 0.0f, 0.4f);
         int parentId = (int)NPC.ai[0];
         NPC parent = Main.npc[parentId];
         if (NPC.ai[0] != 0 && parent != null && parent.active)
@@ -158,29 +167,16 @@ public class TerrorGhostHand : ModNPC
             if (NPC.HasValidTarget)
             {
                 Player player = Main.player[NPC.target];
-                Vector2 direction = player.Center - NPC.Center;
-                NPC.rotation = direction.ToRotation();
-                direction.Normalize();
-                direction *= _baseSpeed;
-                NPC.velocity.X = (NPC.velocity.X * (1f - _baseAcceleration)) + (direction.X * _baseAcceleration);
-                NPC.velocity.Y = (NPC.velocity.Y * (1f - _baseAcceleration)) + (direction.Y * _baseAcceleration);
+                MoveTowardsPlayer(player);
                 if (!NPC.Center.WithinRange(player.Center, 15f))
                 {
-                    float curveOffset = (float)(Math.Sin(Main.GameUpdateCount * _curveFrequency) * _curveAmplitude);
-                    NPC.velocity.Y += isRightHand ? curveOffset : -curveOffset;
-                    NPC.velocity.X += isRightHand ? -curveOffset : curveOffset;
                     NPC.damage = 0;
+                    UndoPress();
+                    CurveMovement(isRightHand);
                 }
                 else
                 {
-                    Main.npc[(int)NPC.ai[2]].Center = NPC.Center;
-                    NPC.damage = _damage;
-                    NPC.defense = 20;
-                    NPC.rotation = 0;
-                    NPC.spriteDirection = NPC.direction = NPC.velocity.X > 0 ? 1 : -1;
-                    player.velocity *= 0;
-                    player.Center = NPC.Center;
-                    Lighting.AddLight(NPC.Center, 1.7f, 0.0f, 1.7f);
+                    PressPlayer(player);
                 }
             }
             NPC.netUpdate = true;
@@ -190,7 +186,47 @@ public class TerrorGhostHand : ModNPC
             NPC.active = false;
         }
     }
-    
+
+    private void MoveTowardsPlayer(Player player)
+    {
+        Vector2 direction = player.Center - NPC.Center;
+        NPC.rotation = direction.ToRotation();
+        direction.Normalize();
+        direction *= _baseSpeed;
+        NPC.velocity.X = (NPC.velocity.X * (1f - _baseAcceleration)) + (direction.X * _baseAcceleration);
+        NPC.velocity.Y = (NPC.velocity.Y * (1f - _baseAcceleration)) + (direction.Y * _baseAcceleration);
+    }
+
+    private void UndoPress()
+    {
+        if (_isPressed)
+        {
+            _isPressed = false;
+            NPC.scale = 1f;
+            NPC.spriteDirection = -1;
+        }
+    }
+
+    private void CurveMovement(bool isRightHand)
+    {
+        float curveOffset = (float)(Math.Sin(Main.GameUpdateCount * _curveFrequency) * _curveAmplitude);
+        NPC.velocity.Y += isRightHand ? curveOffset : -curveOffset;
+    }
+
+    private void PressPlayer(Player player)
+    {
+        _isPressed = true;
+        NPC.damage = _damage;
+        NPC.scale = 1.25f;
+        Main.npc[(int)NPC.ai[2]].Center = NPC.Center;
+        NPC.defense = 20;
+        NPC.rotation = 0;
+        NPC.spriteDirection = NPC.direction = NPC.velocity.X > 0 ? 1 : -1;
+        player.velocity *= 0;
+        player.Center = NPC.Center;
+        Lighting.AddLight(NPC.Center, 1.9f, 0.0f, 1.7f);
+    }
+
     public override void OnHitPlayer(Player target, Player.HurtInfo hurtInfo)
     {
         if (hurtInfo.Damage > 0)
