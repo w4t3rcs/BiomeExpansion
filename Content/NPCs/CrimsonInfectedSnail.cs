@@ -30,7 +30,7 @@ namespace BiomeExpansion.Content.NPCs
 
         public override void AI()
         {
-            Lighting.AddLight(NPC.Center, 0.4f, 0.0f, 0.4f);
+            Lighting.AddLight(NPC.Center, 0.4f, 0.0f, 0.1f);
         }
 
         public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
