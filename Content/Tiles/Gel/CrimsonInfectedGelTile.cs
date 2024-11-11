@@ -10,7 +10,7 @@ namespace BiomeExpansion.Content.Tiles.Gel
 {
     public class CrimsonInfectedGelTile : ModTile
     {
-        public override string Texture => TextureHelper.DynamicTilesTextures["CrimsonInfectedGel"];
+        public override string Texture => TextureHelper.DynamicTilesTextures["CrimsonInfectedGelTiles"];
 
         public override void SetStaticDefaults()
         {
@@ -19,7 +19,7 @@ namespace BiomeExpansion.Content.Tiles.Gel
             Main.tileMergeDirt[Type] = true;
             Main.tileBlockLight[Type] = true;
             HitSound = SoundID.Dig;
-            DustType = DustID.Crimslime;
+            DustType = DustID.Crimson;
             AddMapEntry(Color.Crimson);
             RegisterItemDrop(ModContent.ItemType<Items.Placeable.Gel.CrimsonInfectedGelItem>());
         }

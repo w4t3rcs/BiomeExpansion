@@ -2,7 +2,7 @@
 
 public class CrimsonInfectedGelItem : ModItem
 {
-    public override string Texture => TextureHelper.DynamicItemsTextures["CrimsonInfectedGel"];
+    public override string Texture => TextureHelper.DynamicItemsTextures["CrimsonInfectedGelItem"];
 
     public override void SetStaticDefaults()
     {
