@@ -410,6 +410,16 @@ Items: {
 		DisplayName: Crimson Infected Gel Platform
 		Tooltip: ""
 	}
+
+	CorruptionInfectedGelWall: {
+		DisplayName: Corruption Infected Gel Wall
+		Tooltip: ""
+	}
+
+	CrimsonInfectedGelWall: {
+		DisplayName: Crimson Infected Gel Wall
+		Tooltip: ""
+	}
 }
 
 Biomes: {
