@@ -1,8 +1,8 @@
 ﻿namespace BiomeExpansion.Content.Items.Placeable.Gel;
 
-public class CorruptionInfectedGelItem : ModItem
+public class CrimsonInfectedGel : ModItem
 {
-    public override string Texture => TextureHelper.DynamicItemsTextures["CorruptionInfectedGelItem"];
+    public override string Texture => TextureHelper.DynamicItemsTextures["CrimsonInfectedGel"];
 
     public override void SetStaticDefaults()
     {
@@ -11,7 +11,7 @@ public class CorruptionInfectedGelItem : ModItem
 
     public override void SetDefaults()
     {
-        Item.DefaultToPlaceableTile(ModContent.TileType<Tiles.Gel.CorruptionInfectedGelTile>());
+        Item.DefaultToPlaceableTile(ModContent.TileType<Tiles.Gel.CrimsonInfectedGel>());
         Item.width = 12;
         Item.height = 12;
     }

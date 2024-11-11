@@ -17,7 +17,8 @@ public class InfectedMushroomDirt : ModTile
         Main.tileMerge[Type][ModContent.TileType<CrimsonInfectedMushroomStone>()] = true;
         Main.tileMerge[Type][ModContent.TileType<CorruptoomOre>()] = true;
         Main.tileMerge[Type][ModContent.TileType<CrimsoomOre>()] = true;
-        Main.tileMerge[Type][ModContent.TileType<CrimsonInfectedGelTile>()] = true;
+        Main.tileMerge[Type][ModContent.TileType<CorruptionInfectedGel>()] = true;
+        Main.tileMerge[Type][ModContent.TileType<CrimsonInfectedGel>()] = true;
         Main.tileMergeDirt[Type] = true;
         Main.tileBlockLight[Type] = true;
         Main.tileLighted[Type] = true;

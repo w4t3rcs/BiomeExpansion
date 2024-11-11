@@ -1,18 +1,18 @@
-﻿namespace BiomeExpansion.Content.Items.Others;
+﻿namespace BiomeExpansion.Content.Items.Placeable.Gel;
 
 public class CorruptionInfectedGel : ModItem
 {
     public override string Texture => TextureHelper.DynamicItemsTextures["CorruptionInfectedGel"];
-    
+
     public override void SetStaticDefaults()
     {
-        Item.ResearchUnlockCount = 100;
+        Item.ResearchUnlockCount = 25;
     }
 
     public override void SetDefaults()
     {
-        Item.CloneDefaults(ItemID.Gel);
-        Item.color = Color.White;
-        Item.alpha = 15;
+        Item.DefaultToPlaceableTile(ModContent.TileType<Tiles.Gel.CorruptionInfectedGel>());
+        Item.width = 12;
+        Item.height = 12;
     }
 }
