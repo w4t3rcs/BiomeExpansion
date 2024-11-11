@@ -395,6 +395,11 @@ Items: {
 		DisplayName: Crimson Infected Gel Item
 		Tooltip: ""
 	}
+
+	CorruptionInfectedGelItem: {
+		DisplayName: Corruption Infected Gel Item
+		Tooltip: ""
+	}
 }
 
 Biomes: {
