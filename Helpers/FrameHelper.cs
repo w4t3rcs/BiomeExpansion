@@ -262,4 +262,13 @@ public static class FrameHelper
         Color color = new Color(250, 250, 250, item.alpha);
         spriteBatch.Draw(glowTexture, item.Center - Main.screenPosition, null, color, rotation, origin, 1f, SpriteEffects.None, 0f);
     }
+
+    public static void AnimateNPC(NPC npc, int frameHeight, int animationSpeed, int frameCount = 2)
+    {
+        if (++npc.frameCounter >= animationSpeed)
+        {
+            npc.frameCounter = 0;
+            npc.frame.Y = (npc.frame.Y + frameHeight) % (frameHeight * frameCount);
+        }
+    }
 }

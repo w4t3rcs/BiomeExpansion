@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using BiomeExpansion.Content.Biomes;
 using BiomeExpansion.Content.Buffs;
 
@@ -40,11 +41,7 @@ public class TerrorGhost : ModNPC
 
     public override void FindFrame(int frameHeight)
     {
-        if (++NPC.frameCounter >= 6)
-        {
-            NPC.frameCounter = 0;
-            NPC.frame.Y = (NPC.frame.Y + frameHeight) % (frameHeight * 3);
-        }
+        FrameHelper.AnimateNPC(NPC, frameHeight, 6, 3);
     }
 
     public override void AI()
@@ -143,7 +140,10 @@ public class TerrorGhostHand : ModNPC
 
     public override void DrawBehind(int index)
     {
-        Main.instance.DrawCacheNPCsOverPlayers.Add(index);
+        Main main = Main.instance;
+        List<int> drawCacheNPCsOverPlayers = main.DrawCacheNPCsOverPlayers;
+        if (drawCacheNPCsOverPlayers.Contains(index)) return;
+        drawCacheNPCsOverPlayers.Add(index);
     }
 
     public override void AI()
