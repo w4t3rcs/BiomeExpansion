@@ -18,9 +18,7 @@ namespace BiomeExpansion.Content.NPCs
 
         public override void FindFrame(int frameHeight)
         {
-            NPC.frameCounter += 1.0;
-            NPC.frameCounter %= 120.0;
-            NPC.frame.Y = frameHeight * ((int)NPC.frameCounter % 20 / 5);
+            FrameHelper.AnimateNPC(NPC, frameHeight, 6, 4);
         }
 
 

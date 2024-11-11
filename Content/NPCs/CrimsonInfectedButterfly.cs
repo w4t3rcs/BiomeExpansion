@@ -2,9 +2,9 @@
 
 namespace BiomeExpansion.Content.NPCs
 {
-    public class CorruptionInfectedButterfly : ModNPC
+    public class CrimsonInfectedButterfly : ModNPC
     {
-        public override string Texture => TextureHelper.DynamicNPCsTextures["CorruptionInfectedButterfly"];
+        public override string Texture => TextureHelper.DynamicNPCsTextures["CrimsonInfectedButterfly"];
 
         public override void SetStaticDefaults()
         {
@@ -19,7 +19,7 @@ namespace BiomeExpansion.Content.NPCs
             NPC.CloneDefaults(NPCID.Butterfly);
             AIType = NPCID.Butterfly;
             NPC.aiStyle = NPCAIStyleID.Butterfly;
-            SpawnModBiomes = [ModContent.GetInstance<CorruptionInfectedMushroomSurfaceBiome>().Type];
+            SpawnModBiomes = [ModContent.GetInstance<CrimsonInfectedMushroomSurfaceBiome>().Type];
         }
 
         public override void FindFrame(int frameHeight)
@@ -33,13 +33,13 @@ namespace BiomeExpansion.Content.NPCs
         public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
         {
             bestiaryEntry.Info.AddRange([
-                new FlavorTextBestiaryInfoElement("Mods.BiomeExpansion.Bestiary.CorruptionInfectedButterfly")
+                new FlavorTextBestiaryInfoElement("Mods.BiomeExpansion.Bestiary.CrimsonInfectedButterfly")
             ]);
         }
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            if (spawnInfo.Player.InModBiome<CorruptionInfectedMushroomSurfaceBiome>())
+            if (spawnInfo.Player.InModBiome<CrimsonInfectedMushroomSurfaceBiome>())
             {
                 return 0.2f;
             }

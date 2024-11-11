@@ -490,4 +490,16 @@ NPCs: {
 	CorruptionInfectedStagBeetle.DisplayName: Corruption Infected Stag Beetle
 	CorruptionInfectedCrab.DisplayName: Corruption Infected Crab
 	CorruptionInfectedGrasshopper.DisplayName: Corruption Infected Grasshopper
+	CrimsonInfectedButterfly.DisplayName: Crimson Infected Butterfly
+	CrimsonInfectedCaterpillar.DisplayName: Crimson Infected Caterpillar
+	CrimsonInfectedCrab.DisplayName: Crimson Infected Crab
+	CrimsonInfectedDragonfly.DisplayName: Crimson Infected Dragonfly
+	CrimsonInfectedFairy.DisplayName: Crimson Infected Fairy
+	CrimsonInfectedFly.DisplayName: Crimson Infected Fly
+	CrimsonInfectedGrasshopper.DisplayName: Crimson Infected Grasshopper
+	CrimsonInfectedLadybug.DisplayName: Crimson Infected Ladybug
+	CrimsonInfectedRat.DisplayName: Crimson Infected Rat
+	CrimsonInfectedSmallFly.DisplayName: Crimson Infected Small Fly
+	CrimsonInfectedSnail.DisplayName: Crimson Infected Snail
+	CrimsonInfectedStagBeetle.DisplayName: Crimson Infected Stag Beetle
 }
