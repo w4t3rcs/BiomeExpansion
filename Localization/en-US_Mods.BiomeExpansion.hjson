@@ -400,6 +400,16 @@ Items: {
 		DisplayName: Corruption Infected Gel Item
 		Tooltip: ""
 	}
+
+	CorruptionInfectedGelPlatform: {
+		DisplayName: Corruption Infected Gel Platform
+		Tooltip: ""
+	}
+
+	CrimsonInfectedGelPlatform: {
+		DisplayName: Crimson Infected Gel Platform
+		Tooltip: ""
+	}
 }
 
 Biomes: {
