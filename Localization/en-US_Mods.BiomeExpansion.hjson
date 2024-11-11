@@ -390,6 +390,11 @@ Items: {
 		DisplayName: Crimson Infected Mushroom Stone Wall
 		Tooltip: ""
 	}
+
+	CrimsonInfectedGelItem: {
+		DisplayName: Crimson Infected Gel Item
+		Tooltip: ""
+	}
 }
 
 Biomes: {

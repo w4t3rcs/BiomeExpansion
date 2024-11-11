@@ -1,4 +1,5 @@
-﻿using BiomeExpansion.Content.Tiles.Stones;
+﻿using BiomeExpansion.Content.Tiles.Gel;
+using BiomeExpansion.Content.Tiles.Stones;
 using BiomeExpansion.Content.Waters;
 
 namespace BiomeExpansion.Content.Tiles.Biome;
@@ -16,6 +17,7 @@ public class InfectedMushroomDirt : ModTile
         Main.tileMerge[Type][ModContent.TileType<CrimsonInfectedMushroomStone>()] = true;
         Main.tileMerge[Type][ModContent.TileType<CorruptoomOre>()] = true;
         Main.tileMerge[Type][ModContent.TileType<CrimsoomOre>()] = true;
+        Main.tileMerge[Type][ModContent.TileType<CrimsonInfectedGelTile>()] = true;
         Main.tileMergeDirt[Type] = true;
         Main.tileBlockLight[Type] = true;
         Main.tileLighted[Type] = true;
