@@ -15,4 +15,11 @@ public class CrimsonInfectedGelPlatform : ModItem
         Item.width = 12;
         Item.height = 12;
     }
+
+    public override void AddRecipes()
+    {
+        CreateRecipe(2)
+            .AddIngredient<CrimsonInfectedGel>()
+            .Register();
+    }
 }

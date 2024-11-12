@@ -15,4 +15,11 @@ public class CorruptionInfectedGelPlatform : ModItem
         Item.width = 12;
         Item.height = 12;
     }
+
+    public override void AddRecipes()
+    {
+        CreateRecipe(2)
+            .AddIngredient<CorruptionInfectedGel>()
+            .Register();
+    }
 }

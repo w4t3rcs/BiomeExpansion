@@ -410,66 +410,6 @@ Items: {
 		DisplayName: Crimson Infected Gel Platform
 		Tooltip: ""
 	}
-
-	CorruptionInfectedButterfly: {
-		DisplayName: Corruption Infected Butterfly
-		Tooltip: ""
-	}
-
-	CorruptionInfectedFairy: {
-		DisplayName: Corruption Infected Fairy
-		Tooltip: ""
-	}
-
-	CorruptionInfectedFly: {
-		DisplayName: Corruption Infected Fly
-		Tooltip: ""
-	}
-
-	CorruptionInfectedLadybug: {
-		DisplayName: Corruption Infected Ladybug
-		Tooltip: ""
-	}
-
-	CorruptionInfectedStagBeetle: {
-		DisplayName: Corruption Infected Stag Beetle
-		Tooltip: ""
-	}
-
-	CrimsonInfectedButterfly: {
-		DisplayName: Crimson Infected Butterfly
-		Tooltip: ""
-	}
-
-	CrimsonInfectedFairy: {
-		DisplayName: Crimson Infected Fairy
-		Tooltip: ""
-	}
-
-	CrimsonInfectedFly: {
-		DisplayName: Crimson Infected Fly
-		Tooltip: ""
-	}
-
-	CrimsonInfectedLadybug: {
-		DisplayName: Crimson Infected Ladybug
-		Tooltip: ""
-	}
-
-	CrimsonInfectedStagBeetle: {
-		DisplayName: Crimson Infected Stag Beetle
-		Tooltip: ""
-	}
-
-	CorruptionInfectedCaterpillar: {
-		DisplayName: Corruption Infected Caterpillar
-		Tooltip: ""
-	}
-
-	CrimsonInfectedCaterpillar: {
-		DisplayName: Crimson Infected Caterpillar
-		Tooltip: ""
-	}
 }
 
 Biomes: {
