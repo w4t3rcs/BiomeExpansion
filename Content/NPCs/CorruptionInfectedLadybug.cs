@@ -21,6 +21,7 @@ namespace BiomeExpansion.Content.NPCs
             AnimationType = NPCID.LadyBug;
             AIType = NPCID.LadyBug;
             NPC.aiStyle = NPCAIStyleID.Ladybug;
+            NPC.catchItem = ModContent.ItemType<Items.NPCs.Critters.CorruptionInfectedLadybug>();
             SpawnModBiomes = [ModContent.GetInstance<CorruptionInfectedMushroomSurfaceBiome>().Type];
         }
 

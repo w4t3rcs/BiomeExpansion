@@ -23,6 +23,7 @@ namespace BiomeExpansion.Content.NPCs
             NPC.CloneDefaults(NPCID.FairyCritterBlue);
             AIType = NPCID.FairyCritterBlue;
             AnimationType = NPCID.FairyCritterBlue;
+            NPC.catchItem = ModContent.ItemType<Items.NPCs.Critters.CorruptionInfectedFairy>();
             SpawnModBiomes = [ModContent.GetInstance<CorruptionInfectedMushroomSurfaceBiome>().Type];
         }
 

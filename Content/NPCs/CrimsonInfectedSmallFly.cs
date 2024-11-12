@@ -28,9 +28,8 @@ namespace BiomeExpansion.Content.NPCs
             NPC.CloneDefaults(NPCID.Butterfly);
             AIType = NPCID.Butterfly;
             AnimationType = NPC.type;
+            NPC.catchItem = ModContent.ItemType<Items.NPCs.Critters.CrimsonInfectedFly>();
             SpawnModBiomes = [ModContent.GetInstance<CrimsonInfectedMushroomSurfaceBiome>().Type];
-            // When an item sprite is made, uncomment the next line
-            //NPC.catchItem = ModContent.ItemType<CrimsonInfectedFlyNPC>();
         }
         public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
         {

@@ -29,6 +29,7 @@ namespace BiomeExpansion.Content.NPCs
             NPC.aiStyle = NPCAIStyleID.Butterfly;
             AIType = NPCID.Butterfly;
             AnimationType = NPC.type;
+            NPC.catchItem = ModContent.ItemType<Items.NPCs.Critters.CorruptionInfectedFly>();
             SpawnModBiomes = [ModContent.GetInstance<CorruptionInfectedMushroomSurfaceBiome>().Type];
             //NPC.catchItem = ModContent.ItemType<CorruptionInfectedFlyNPC>();
         }

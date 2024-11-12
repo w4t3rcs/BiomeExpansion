@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using BiomeExpansion.Content.Biomes;
 using BiomeExpansion.Content.Buffs;
+using Terraria.GameContent;
 
 namespace BiomeExpansion.Content.NPCs;
 
@@ -87,6 +88,11 @@ public class TerrorGhost : ModNPC
                 Lighting.AddLight(NPC.Center, 2.2f, 0.0f, 2f);
             }
         }
+    }
+
+    public override void PostDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
+    {
+        spriteBatch.Draw(TextureAssets.Npc[NPC.type].Value, NPC.Center - screenPos, NPC.frame, Color.White * 0.6f, NPC.rotation, NPC.frame.Size() / 2f, NPC.scale, NPC.spriteDirection == 1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0);
     }
 
     public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
@@ -225,6 +231,11 @@ public class TerrorGhostHand : ModNPC
         player.velocity *= 0;
         player.Center = NPC.Center;
         Lighting.AddLight(NPC.Center, 1.9f, 0.0f, 1.7f);
+    }
+
+    public override void PostDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
+    {
+        spriteBatch.Draw(TextureAssets.Npc[NPC.type].Value, NPC.Center - screenPos, NPC.frame, Color.White * 0.6f, NPC.rotation, NPC.frame.Size() / 2f, NPC.scale, NPC.spriteDirection == 1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0);
     }
 
     public override void OnHitPlayer(Player target, Player.HurtInfo hurtInfo)

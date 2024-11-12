@@ -19,6 +19,7 @@ namespace BiomeExpansion.Content.NPCs
             NPC.CloneDefaults(NPCID.Butterfly);
             AIType = NPCID.Butterfly;
             NPC.aiStyle = NPCAIStyleID.Butterfly;
+            NPC.catchItem = ModContent.ItemType<Items.NPCs.Critters.CrimsonInfectedButterfly>();
             SpawnModBiomes = [ModContent.GetInstance<CrimsonInfectedMushroomSurfaceBiome>().Type];
         }
 

@@ -21,6 +21,7 @@ namespace BiomeExpansion.Content.NPCs
             AnimationType = NPCID.Grubby;
             AIType = NPCID.Grubby;
             NPC.aiStyle = NPCAIStyleID.CritterWorm;
+            NPC.catchItem = ModContent.ItemType<Items.NPCs.Critters.CrimsonInfectedCaterpillar>();
             SpawnModBiomes = [ModContent.GetInstance<CrimsonInfectedMushroomSurfaceBiome>().Type];
         }
 
