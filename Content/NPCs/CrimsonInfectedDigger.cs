@@ -56,6 +56,7 @@ internal class CrimsonInfectedDiggerHead : WormHead
     public override void HitEffect(NPC.HitInfo hit)
     {
         NPCHelper.DoHitDust(NPC, hit.HitDirection, DustID.Crimson);
+        NPCHelper.CreateGoreOnDeath(NPC, "CrimsonInfectedDiggerHeadGore");
     }
 
     public override void Init() {
@@ -102,6 +103,7 @@ internal class CrimsonInfectedDiggerBody : WormBody
     public override void HitEffect(NPC.HitInfo hit)
     {
         NPCHelper.DoHitDust(NPC, hit.HitDirection, DustID.Crimson);
+        NPCHelper.CreateGoreOnDeath(NPC, "CrimsonInfectedDiggerBodyGore");
     }
 
     public override void Init()
@@ -142,6 +144,7 @@ internal class CrimsonInfectedDiggerTail : WormTail
     public override void HitEffect(NPC.HitInfo hit)
     {
         NPCHelper.DoHitDust(NPC, hit.HitDirection, DustID.Crimson);
+        NPCHelper.CreateGoreOnDeath(NPC, "CrimsonInfectedDiggerTailGore");
     }
 
     public override void Init()

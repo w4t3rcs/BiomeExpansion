@@ -31,6 +31,7 @@ public static class TextureHelper
     public const string WatersAssetsLocation = $"{AssetsLocation}/Waters";
     public const string SkiesAssetsLocation = $"{AssetsLocation}/Skies";
     public const string NPCsAssetsLocation = $"{AssetsLocation}/NPCs";
+    public const string GoresAssetsLocation = $"{AssetsLocation}/Gores";
     public const string BackgroundsAssetsLocation = $"{AssetsLocation}/Backgrounds";
     public const string BestiaryAssetsLocation = $"{AssetsLocation}/Bestiary";
     public static readonly string ModSourcesDirectory = ModLoader.ModPath.Replace("Mods", "ModSources");
