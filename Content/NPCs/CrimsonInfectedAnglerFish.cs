@@ -62,5 +62,8 @@ public class CrimsonInfectedAnglerFish : ModNPC
     public override void HitEffect(NPC.HitInfo hit)
     {
         NPCHelper.DoHitDust(NPC, hit.HitDirection, DustID.Crimson);
+        NPCHelper.CreateGoreOnDeath(NPC, "CrimsonInfectedAnglerFishGore1");
+        NPCHelper.CreateGoreOnDeath(NPC, "CrimsonInfectedAnglerFishGore2");
+        NPCHelper.CreateGoreOnDeath(NPC, "CrimsonInfectedAnglerFishGore3");
     }
 }

@@ -53,5 +53,8 @@ public class InfectedAnglerFishSkeleton : ModNPC
     public override void HitEffect(NPC.HitInfo hit)
     {
         NPCHelper.DoHitDust(NPC, hit.HitDirection, DustID.Bone);
+        NPCHelper.CreateGoreOnDeath(NPC, "InfectedAnglerFishSkeletonGore1");
+        NPCHelper.CreateGoreOnDeath(NPC, "InfectedAnglerFishSkeletonGore2");
+        NPCHelper.CreateGoreOnDeath(NPC, "InfectedAnglerFishSkeletonGore3");
     }
 }

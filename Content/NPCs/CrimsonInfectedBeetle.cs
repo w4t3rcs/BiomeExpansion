@@ -66,6 +66,8 @@ public class CrimsonInfectedBeetle : ModNPC
     public override void HitEffect(NPC.HitInfo hit)
     {
         NPCHelper.DoHitDust(NPC, hit.HitDirection, DustID.Crimson);
+        NPCHelper.CreateGoreOnDeath(NPC, "CrimsonInfectedBeetleGore1");
+        NPCHelper.CreateGoreOnDeath(NPC, "CrimsonInfectedBeetleGore2");
     }
 
     // public override void ModifyNPCLoot(NPCLoot npcLoot) => npcLoot.Add(ModContent.ItemType<>(), 1, 10, 26);
