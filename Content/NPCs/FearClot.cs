@@ -60,8 +60,16 @@ public class FearClot : ModNPC
     {
         if (hurtInfo.Damage > 0)
         {
-            if (WorldGen.crimson) target.AddBuff(ModContent.BuffType<CrimsonSporeInfectionDebuff>(), 2400, true);
-            else target.AddBuff(ModContent.BuffType<CorruptionSporeInfectionDebuff>(), 2400, true);
+            if (WorldGen.crimson)
+            {
+                target.AddBuff(ModContent.BuffType<CrimsonSporeInfectionDebuff>(), 2400, true);
+                //target.AddBuff(ModContent.BuffType<CrimsonSpawnrateDebuff>(), 1800, true);
+            }
+            else
+            {
+                target.AddBuff(ModContent.BuffType<CorruptionSporeInfectionDebuff>(), 2400, true);
+                target.AddBuff(ModContent.BuffType<CorruptionSpawnrateDebuff>(), 1800, true);
+            }
         }
     }
 

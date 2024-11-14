@@ -23,10 +23,12 @@ namespace BiomeExpansion
 	public class BiomeExpansionPlayer : ModPlayer
 	{
 		public bool isSporeInfected = false;
+		public bool spawnRateIncrease = false;
 
 		public override void ResetEffects()
 		{
 			isSporeInfected = false;
+			spawnRateIncrease = false;
 		}
 
 		public override void UpdateBadLifeRegen()
@@ -53,4 +55,17 @@ namespace BiomeExpansion
 			}
 		}
 	}
+
+	public class BiomeExpansionNPC : GlobalNPC
+	{
+        public override void EditSpawnRate(Player player, ref int spawnRate, ref int maxSpawns)
+        {
+			spawnRate -= spawnRate / 5;
+			maxSpawns -= maxSpawns / 5;
+
+			//Main.NewText(spawnRate.ToString());
+
+            //base.EditSpawnRate(player, ref spawnRate, ref maxSpawns);
+        }
+    }
 }
