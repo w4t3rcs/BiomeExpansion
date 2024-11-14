@@ -18,7 +18,7 @@ public class CorruptionInfectedGelWall : ModItem
 
     public override void SetDefaults()
     {
-        Item.DefaultToPlaceableWall(ModContent.WallType<BiomeExpansion.Content.Walls.CorruptionInfectedGelWall>());
+        Item.DefaultToPlaceableWall(ModContent.WallType<Content.Walls.CorruptionInfectedGelWall>());
     }
 
     public override void AddRecipes()

@@ -62,7 +62,9 @@ namespace BiomeExpansion
 			spawnRate -= spawnRate / 5;
 			maxSpawns -= maxSpawns / 5;
 
-            base.EditSpawnRate(player, ref spawnRate, ref maxSpawns);
+			//Main.NewText(spawnRate.ToString());
+
+            //base.EditSpawnRate(player, ref spawnRate, ref maxSpawns);
         }
     }
 }

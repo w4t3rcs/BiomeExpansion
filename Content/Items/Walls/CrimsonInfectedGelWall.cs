@@ -18,7 +18,7 @@ public class CrimsonInfectedGelWall : ModItem
 
     public override void SetDefaults()
     {
-        Item.DefaultToPlaceableWall(ModContent.WallType<BiomeExpansion.Content.Walls.CrimsonInfectedGelWall>());
+        Item.DefaultToPlaceableWall(ModContent.WallType<Content.Walls.CrimsonInfectedGelWall>());
     }
 
     public override void AddRecipes()

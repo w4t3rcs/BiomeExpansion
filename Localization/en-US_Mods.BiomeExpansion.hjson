@@ -410,6 +410,76 @@ Items: {
 		DisplayName: Crimson Infected Gel Platform
 		Tooltip: ""
 	}
+
+	CorruptionInfectedLadybug: {
+		DisplayName: Corruption Infected Ladybug
+		Tooltip: ""
+	}
+
+	CorruptionInfectedFly: {
+		Tooltip: ""
+		DisplayName: Corruption Infected Fly
+	}
+
+	CorruptionInfectedFairy: {
+		Tooltip: ""
+		DisplayName: Corruption Infected Fairy
+	}
+
+	CorruptionInfectedCaterpillar: {
+		Tooltip: ""
+		DisplayName: Corruption Infected Caterpillar
+	}
+
+	CorruptionInfectedButterfly: {
+		Tooltip: ""
+		DisplayName: Corruption Infected Butterfly
+	}
+
+	CorruptionInfectedStagBeetle: {
+		DisplayName: Corruption Infected Stag Beetle
+		Tooltip: ""
+	}
+
+	CrimsonInfectedButterfly: {
+		DisplayName: Crimson Infected Butterfly
+		Tooltip: ""
+	}
+
+	CrimsonInfectedCaterpillar: {
+		DisplayName: Crimson Infected Caterpillar
+		Tooltip: ""
+	}
+
+	CrimsonInfectedFairy: {
+		DisplayName: Crimson Infected Fairy
+		Tooltip: ""
+	}
+
+	CrimsonInfectedFly: {
+		DisplayName: Crimson Infected Fly
+		Tooltip: ""
+	}
+
+	CrimsonInfectedLadybug: {
+		DisplayName: Crimson Infected Ladybug
+		Tooltip: ""
+	}
+
+	CrimsonInfectedStagBeetle: {
+		DisplayName: Crimson Infected Stag Beetle
+		Tooltip: ""
+	}
+
+	CorruptionInfectedGelWall: {
+		DisplayName: Corruption Infected Gel Wall
+		Tooltip: ""
+	}
+
+	CrimsonInfectedGelWall: {
+		DisplayName: Crimson Infected Gel Wall
+		Tooltip: ""
+	}
 }
 
 Biomes: {
@@ -448,6 +518,11 @@ Buffs: {
 	CrimsonSporeInfectionDebuff: {
 		DisplayName: Crimson Spore Infection Debuff
 		Description: Mods.BiomeExpansion.Buffs.CrimsonSporeInfectionDebuff.Description
+	}
+
+	CorruptionSpawnrateDebuff: {
+		Description: Mods.BiomeExpansion.Buffs.CorruptionSpawnrateDebuff.Description
+		DisplayName: Corruption Spawnrate Debuff
 	}
 }
 
