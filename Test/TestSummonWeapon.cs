@@ -72,7 +72,7 @@ public class TestMinion : ModProjectile
 		Projectile.tileCollide = false; // Makes the minion go through tiles freely
 
 		Projectile.aiStyle = ProjAIStyleID.EnchantedDagger;
-		AIType = ProjectileID.MagicDagger;
+		AIType = ProjectileID.Smolstar;
 		Projectile.friendly = true; // Only controls if it deals damage to enemies on contact (more on that later)
 		Projectile.minion = true; // Declares this as a minion (has many effects)
 		Projectile.DamageType = DamageClass.Summon; // Declares the damage type (needed for it to deal damage)
