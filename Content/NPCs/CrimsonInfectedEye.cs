@@ -63,6 +63,8 @@ public class CrimsonInfectedEye : ModNPC
     public override void HitEffect(NPC.HitInfo hit)
     {
         NPCHelper.DoHitDust(NPC, hit.HitDirection, DustID.Crimson);
+        NPCHelper.CreateGoreOnDeath(NPC, "CrimsonInfectedEyeGore1");
+        NPCHelper.CreateGoreOnDeath(NPC, "CrimsonInfectedEyeGore2");
     }
 
     public override void ModifyNPCLoot(NPCLoot npcLoot) => npcLoot.Add(new CommonDrop(ItemID.Lens, 2, 1, 1));

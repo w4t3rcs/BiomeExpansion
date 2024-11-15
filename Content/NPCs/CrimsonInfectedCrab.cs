@@ -14,12 +14,19 @@ namespace BiomeExpansion.Content.NPCs
         public override void SetDefaults()
         {
             NPC.CloneDefaults(NPCID.Crab);
-            AnimationType = NPCID.Crab;
             AIType = NPCID.Crab;
             NPC.aiStyle = NPCAIStyleID.Fighter;
             SpawnModBiomes = [ModContent.GetInstance<CrimsonInfectedMushroomSurfaceBiome>().Type];
             NPCHelper.AdjustExpertMode(NPC);
             NPCHelper.AdjustMasterMode(NPC);
+        }
+
+        public override void FindFrame(int frameHeight)
+        {
+            Vector2 direction = NPC.velocity;
+            direction.Normalize();
+            NPC.spriteDirection = NPC.direction = NPC.velocity.X > 0 ? 1 : -1;
+            FrameHelper.AnimateNPC(NPC, frameHeight, 6, 5);
         }
 
         public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)

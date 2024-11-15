@@ -116,15 +116,31 @@ public class TerrorGhost : ModNPC
     {
         if (hurtInfo.Damage > 0)
         {
-            if (WorldGen.crimson)
+            if (Main.hardMode)
             {
-                target.AddBuff(ModContent.BuffType<CrimsonSporeInfectionDebuff>(), 2400, true);
-                //target.AddBuff(ModContent.BuffType<CrimsonSpawnrateDebuff>(), 1800, true);
+                if (WorldGen.crimson)
+                {
+                    target.AddBuff(ModContent.BuffType<CrimsonSporeInfectionDebuff>(), 2400, true);
+                    target.AddBuff(ModContent.BuffType<CrimsonSpawnrateDebuffTier2>(), 2400, true);
+                }
+                else
+                {
+                    target.AddBuff(ModContent.BuffType<CorruptionSporeInfectionDebuff>(), 2400, true);
+                    target.AddBuff(ModContent.BuffType<CorruptionSpawnrateDebuffTier2>(), 2400, true);
+                }
             }
             else
             {
-                target.AddBuff(ModContent.BuffType<CorruptionSporeInfectionDebuff>(), 2400, true);
-                target.AddBuff(ModContent.BuffType<CorruptionSpawnrateDebuff>(), 1800, true);
+                if (WorldGen.crimson)
+                {
+                    target.AddBuff(ModContent.BuffType<CrimsonSporeInfectionDebuff>(), 2400, true);
+                    target.AddBuff(ModContent.BuffType<CrimsonSpawnrateDebuffTier1>(), 1800, true);
+                }
+                else
+                {
+                    target.AddBuff(ModContent.BuffType<CorruptionSporeInfectionDebuff>(), 2400, true);
+                    target.AddBuff(ModContent.BuffType<CorruptionSpawnrateDebuffTier1>(), 1800, true);
+                }
             }
         }
     }
