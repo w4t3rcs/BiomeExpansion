@@ -1,8 +1,8 @@
 ﻿namespace BiomeExpansion.Content.Buffs
 {
-    public class CrimsonSpawnrateDebuff : ModBuff
+    public class CorruptionSpawnrateDebuffTier1 : ModBuff
     {
-        public override string Texture => TextureHelper.DynamicBuffsTextures["CrimsonSpawnrateDebuff"];
+        public override string Texture => TextureHelper.DynamicBuffsTextures["CorruptionSpawnrateDebuffTier1"];
 
         public override void SetStaticDefaults()
         {
@@ -11,7 +11,5 @@
             Main.buffNoSave[Type] = true;
             BuffID.Sets.LongerExpertDebuff[Type] = true;
         }
-
-
     }
 }
