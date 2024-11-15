@@ -58,7 +58,7 @@ namespace BiomeExpansion
         }
     }
 
-    public class BiomeExpansionNPC : GlobalNPC // Only here to increase spawnrates for the debuffs
+    public class BiomeExpansionNPC : GlobalNPC // Only here to increase spawnrates for the debuffs (so far)
     {
         public override void EditSpawnRate(Player player, ref int spawnRate, ref int maxSpawns)
         {
@@ -72,13 +72,6 @@ namespace BiomeExpansion
                 spawnRate -= spawnRate / 6;
                 maxSpawns -= maxSpawns / 6;
             }
-
-            if (player.GetModPlayer<BiomeExpansionPlayer>().spawnRateIncrease1)
-            {
-                Main.NewText(spawnRate.ToString());
-            }
-
-            //base.EditSpawnRate(player, ref spawnRate, ref maxSpawns);
         }
     }
 }

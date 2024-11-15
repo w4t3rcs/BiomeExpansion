@@ -524,6 +524,26 @@ Buffs: {
 		Description: Mods.BiomeExpansion.Buffs.CorruptionSpawnrateDebuff.Description
 		DisplayName: Corruption Spawnrate Debuff
 	}
+
+	CorruptionSpawnrateDebuffTier1: {
+		DisplayName: Corruption Spawnrate Debuff Tier1
+		Description: Mods.BiomeExpansion.Buffs.CorruptionSpawnrateDebuffTier1.Description
+	}
+
+	CorruptionSpawnrateDebuffTier2: {
+		DisplayName: Corruption Spawnrate Debuff Tier2
+		Description: Mods.BiomeExpansion.Buffs.CorruptionSpawnrateDebuffTier2.Description
+	}
+
+	CrimsonSpawnrateDebuffTier1: {
+		DisplayName: Crimson Spawnrate Debuff Tier1
+		Description: Mods.BiomeExpansion.Buffs.CrimsonSpawnrateDebuffTier1.Description
+	}
+
+	CrimsonSpawnrateDebuffTier2: {
+		DisplayName: Crimson Spawnrate Debuff Tier2
+		Description: Mods.BiomeExpansion.Buffs.CrimsonSpawnrateDebuffTier2.Description
+	}
 }
 
 Projectiles: {
