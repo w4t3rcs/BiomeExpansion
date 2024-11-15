@@ -66,6 +66,8 @@ public class CorruptionInfectedBeetle : ModNPC
     public override void HitEffect(NPC.HitInfo hit)
     {
         NPCHelper.DoHitDust(NPC, hit.HitDirection, DustID.Corruption);
+        NPCHelper.CreateGoreOnDeath(NPC, "CorruptionInfectedBeetleGore1");
+        NPCHelper.CreateGoreOnDeath(NPC, "CorruptionInfectedBeetleGore2");
     }
 
     // public override void ModifyNPCLoot(NPCLoot npcLoot) => npcLoot.Add(ModContent.ItemType<>(), 1, 10, 26);

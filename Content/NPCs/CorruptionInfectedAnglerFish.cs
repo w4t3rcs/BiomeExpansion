@@ -62,5 +62,8 @@ public class CorruptionInfectedAnglerFish : ModNPC
     public override void HitEffect(NPC.HitInfo hit)
     {
         NPCHelper.DoHitDust(NPC, hit.HitDirection, DustID.Corruption);
+        NPCHelper.CreateGoreOnDeath(NPC, "CorruptionInfectedAnglerFishGore1");
+        NPCHelper.CreateGoreOnDeath(NPC, "CorruptionInfectedAnglerFishGore2");
+        NPCHelper.CreateGoreOnDeath(NPC, "CorruptionInfectedAnglerFishGore3");
     }
 }

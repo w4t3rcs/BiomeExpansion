@@ -63,6 +63,8 @@ public class CorruptionInfectedEye : ModNPC
     public override void HitEffect(NPC.HitInfo hit)
     {
         NPCHelper.DoHitDust(NPC, hit.HitDirection, DustID.Corruption);
+        NPCHelper.CreateGoreOnDeath(NPC, "CorruptionInfectedEyeGore1");
+        NPCHelper.CreateGoreOnDeath(NPC, "CorruptionInfectedEyeGore2");
     }
 
     public override void ModifyNPCLoot(NPCLoot npcLoot) => npcLoot.Add(new CommonDrop(ItemID.Lens, 2, 1, 1));

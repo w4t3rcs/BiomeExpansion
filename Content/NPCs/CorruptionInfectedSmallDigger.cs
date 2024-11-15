@@ -56,6 +56,7 @@ internal class CorruptionInfectedSmallDiggerHead : WormHead
     public override void HitEffect(NPC.HitInfo hit)
     {
         NPCHelper.DoHitDust(NPC, hit.HitDirection, DustID.Corruption);
+        NPCHelper.CreateGoreOnDeath(NPC, "CorruptionInfectedSmallDiggerHeadGore");
     }
 
     public override void Init() {
@@ -102,6 +103,7 @@ internal class CorruptionInfectedSmallDiggerBody : WormBody
     public override void HitEffect(NPC.HitInfo hit)
     {
         NPCHelper.DoHitDust(NPC, hit.HitDirection, DustID.Corruption);
+        NPCHelper.CreateGoreOnDeath(NPC, "CorruptionInfectedSmallDiggerBodyGore");
     }
 
     public override void Init()
@@ -142,6 +144,7 @@ internal class CorruptionInfectedSmallDiggerTail : WormTail
     public override void HitEffect(NPC.HitInfo hit)
     {
         NPCHelper.DoHitDust(NPC, hit.HitDirection, DustID.Corruption);
+        NPCHelper.CreateGoreOnDeath(NPC, "CorruptionInfectedSmallDiggerTailGore");
     }
 
     public override void Init()
