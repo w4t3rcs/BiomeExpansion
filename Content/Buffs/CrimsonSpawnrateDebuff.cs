@@ -1,8 +1,8 @@
 ﻿namespace BiomeExpansion.Content.Buffs
 {
-    public class CorruptionSpawnrateDebuff : ModBuff
+    public class CrimsonSpawnrateDebuff : ModBuff
     {
-        public override string Texture => TextureHelper.DynamicBuffsTextures["CorruptionSpawnrateDebuff"];
+        public override string Texture => TextureHelper.DynamicBuffsTextures["CrimsonSpawnrateDebuff"];
 
         public override void SetStaticDefaults()
         {

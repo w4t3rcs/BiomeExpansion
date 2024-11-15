@@ -63,7 +63,7 @@ public class FearClot : ModNPC
             if (WorldGen.crimson)
             {
                 target.AddBuff(ModContent.BuffType<CrimsonSporeInfectionDebuff>(), 2400, true);
-                //target.AddBuff(ModContent.BuffType<CrimsonSpawnrateDebuff>(), 1800, true);
+                target.AddBuff(ModContent.BuffType<CrimsonSpawnrateDebuff>(), 1800, true);
             }
             else
             {
