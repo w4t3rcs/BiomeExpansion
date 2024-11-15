@@ -74,4 +74,12 @@ public static class NPCHelper
     {
         Dust.NewDust(npc.position, npc.width, npc.height, dustType, hitDirection * xSpeedMultiplier, -1f);
     }
+
+    public static void CreateGoreOnDeath(NPC npc, string textureName = "")
+    {
+        if (Main.netMode != NetmodeID.Server && npc.life <= 0) {
+			int gore = ModContent.GetInstance<BiomeExpansion>().Find<ModGore>(textureName).Type;
+			Gore.NewGoreDirect(npc.GetSource_Death(), npc.position, npc.velocity, gore, 1f);
+		}
+    }
 }

@@ -271,4 +271,18 @@ public static class FrameHelper
             npc.frame.Y = (npc.frame.Y + frameHeight) % (frameHeight * frameCount);
         }
     }
+
+
+    public static void AnimateProjectile(Projectile projectile, int animationSpeed)
+    {
+		projectile.frameCounter++;
+		if (projectile.frameCounter >= animationSpeed) {
+			projectile.frameCounter = 0;
+			projectile.frame++;
+
+			if (projectile.frame >= Main.projFrames[projectile.type]) {
+				projectile.frame = 0;
+			}
+		}
+    }
 }
