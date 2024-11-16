@@ -526,22 +526,22 @@ Buffs: {
 	}
 
 	CorruptionSpawnrateDebuffTier1: {
-		DisplayName: Corruption Spawnrate Debuff Tier1
+		DisplayName: Corruption Spawnrate Debuff Tier 1
 		Description: Mods.BiomeExpansion.Buffs.CorruptionSpawnrateDebuffTier1.Description
 	}
 
 	CorruptionSpawnrateDebuffTier2: {
-		DisplayName: Corruption Spawnrate Debuff Tier2
+		DisplayName: Corruption Spawnrate Debuff Tier 2
 		Description: Mods.BiomeExpansion.Buffs.CorruptionSpawnrateDebuffTier2.Description
 	}
 
 	CrimsonSpawnrateDebuffTier1: {
-		DisplayName: Crimson Spawnrate Debuff Tier1
+		DisplayName: Crimson Spawnrate Debuff Tier 1
 		Description: Mods.BiomeExpansion.Buffs.CrimsonSpawnrateDebuffTier1.Description
 	}
 
 	CrimsonSpawnrateDebuffTier2: {
-		DisplayName: Crimson Spawnrate Debuff Tier2
+		DisplayName: Crimson Spawnrate Debuff Tier 2
 		Description: Mods.BiomeExpansion.Buffs.CrimsonSpawnrateDebuffTier2.Description
 	}
 }
