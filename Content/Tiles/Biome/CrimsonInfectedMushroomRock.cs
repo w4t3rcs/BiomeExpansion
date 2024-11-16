@@ -1,4 +1,4 @@
-﻿using BiomeExpansion.Content.NPCs;
+﻿using BiomeExpansion.Content.NPCs.Critters;
 using Terraria.DataStructures;
 using Terraria.ObjectData;
 

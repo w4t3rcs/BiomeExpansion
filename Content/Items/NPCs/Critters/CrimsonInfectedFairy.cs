@@ -15,7 +15,7 @@ public class CrimsonInfectedFairy : ModItem
 
     public override void SetDefaults()
     {
-        Item.DefaultToCapturedCritter(ModContent.NPCType<Content.NPCs.CrimsonInfectedFairy>());
+        Item.DefaultToCapturedCritter(ModContent.NPCType<BiomeExpansion.Content.NPCs.Critters.CrimsonInfectedFairy>());
         Item.width = 16;
         Item.height = 18;
     }

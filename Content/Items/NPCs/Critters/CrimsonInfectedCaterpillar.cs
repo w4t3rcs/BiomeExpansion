@@ -11,7 +11,7 @@ public class CrimsonInfectedCaterpillar : ModItem
 
     public override void SetDefaults()
     {
-        Item.DefaultToCapturedCritter(ModContent.NPCType<Content.NPCs.CrimsonInfectedCaterpillar>());
+        Item.DefaultToCapturedCritter(ModContent.NPCType<BiomeExpansion.Content.NPCs.Critters.CrimsonInfectedCaterpillar>());
         Item.width = 12;
         Item.height = 12;
     }
