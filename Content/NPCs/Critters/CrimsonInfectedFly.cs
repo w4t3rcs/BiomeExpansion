@@ -12,16 +12,12 @@ namespace BiomeExpansion.Content.NPCs.Critters
             Main.npcCatchable[NPC.type] = true;
             NPCID.Sets.CountsAsCritter[NPC.type] = true;
             NPCID.Sets.TakesDamageFromHostilesWithoutBeingFriendly[NPC.type] = true;
-
-            // Change and uncomment the next line if the fly should be immune to anything
-            //NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.INSERT_DEBUFF_HERE] = true;
         }
 
         public override void FindFrame(int frameHeight)
         {
-            FrameHelper.AnimateNPC(NPC, frameHeight, 6, 4);
+            FrameHelper.AnimateNPCWithDirection(NPC, frameHeight, 6);
         }
-
 
         public override void SetDefaults()
         {
@@ -38,22 +34,6 @@ namespace BiomeExpansion.Content.NPCs.Critters
             bestiaryEntry.Info.AddRange([
                 new FlavorTextBestiaryInfoElement("Mods.BiomeExpansion.Bestiary.CrimsonInfectedFly")
             ]);
-        }
-
-        public override void AI()
-        {
-            base.AI();
-
-            if (NPC.velocity.X > 0)
-            {
-                NPC.direction = 1;
-                NPC.spriteDirection = 1;
-            }
-            else
-            {
-                NPC.direction = -1;
-                NPC.spriteDirection = -1;
-            }
         }
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)

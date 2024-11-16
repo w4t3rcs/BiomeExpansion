@@ -263,6 +263,19 @@ public static class FrameHelper
         spriteBatch.Draw(glowTexture, item.Center - Main.screenPosition, null, color, rotation, origin, 1f, SpriteEffects.None, 0f);
     }
 
+    public static void AnimateNPCWithDirection(NPC npc, int frameHeight, int animationSpeed)
+    {
+        Vector2 direction = npc.velocity;
+        direction.Normalize();
+        npc.spriteDirection = npc.direction = npc.velocity.X > 0 ? 1 : -1;
+        AnimateNPC(npc, frameHeight, animationSpeed);
+    }
+
+    public static void AnimateNPC(NPC npc, int frameHeight, int animationSpeed)
+    {
+        AnimateNPC(npc, frameHeight, animationSpeed, Main.npcFrameCount[npc.type]);
+    }
+
     public static void AnimateNPC(NPC npc, int frameHeight, int animationSpeed, int frameCount = 2)
     {
         if (++npc.frameCounter >= animationSpeed)
@@ -271,7 +284,6 @@ public static class FrameHelper
             npc.frame.Y = (npc.frame.Y + frameHeight) % (frameHeight * frameCount);
         }
     }
-
 
     public static void AnimateProjectile(Projectile projectile, int animationSpeed)
     {

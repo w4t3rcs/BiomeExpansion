@@ -25,10 +25,7 @@ namespace BiomeExpansion.Content.NPCs.Critters
 
         public override void FindFrame(int frameHeight)
         {
-            Vector2 direction = NPC.velocity;
-            direction.Normalize();
-            NPC.spriteDirection = NPC.direction = NPC.velocity.X > 0 ? 1 : -1;
-            FrameHelper.AnimateNPC(NPC, frameHeight, 6, 4);
+            FrameHelper.AnimateNPCWithDirection(NPC, frameHeight, 6);
         }
 
         public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)

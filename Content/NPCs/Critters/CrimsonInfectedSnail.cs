@@ -12,10 +12,7 @@ namespace BiomeExpansion.Content.NPCs.Critters
             Main.npcCatchable[NPC.type] = true;
             NPCID.Sets.CountsAsCritter[NPC.type] = true;
             NPCID.Sets.TakesDamageFromHostilesWithoutBeingFriendly[NPC.type] = true;
-            // Change and uncomment the next line if the snail should be immune to anything
-            //NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.INSERT_DEBUFF_HERE] = true;
         }
-
 
         public override void SetDefaults()
         {
@@ -24,8 +21,6 @@ namespace BiomeExpansion.Content.NPCs.Critters
             AnimationType = NPCID.Snail;
             NPC.aiStyle = NPCAIStyleID.Snail;
             SpawnModBiomes = [ModContent.GetInstance<CrimsonInfectedMushroomSurfaceBiome>().Type];
-            // When an item sprite is made, uncomment the next line
-            //NPC.catchItem = ModContent.ItemType<CrimsonInfectedFlyNPC>();
         }
 
         public override void AI()

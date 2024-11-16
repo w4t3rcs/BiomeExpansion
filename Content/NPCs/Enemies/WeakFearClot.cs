@@ -60,8 +60,28 @@ public class WeakFearClot : ModNPC
     {
         if (hurtInfo.Damage > 0)
         {
-            if (WorldGen.crimson) target.AddBuff(ModContent.BuffType<CrimsonSporeInfectionDebuff>(), 2000, true);
-            else target.AddBuff(ModContent.BuffType<CorruptionSporeInfectionDebuff>(), 2000, true);
+            if (Main.hardMode)
+            {
+                if (WorldGen.crimson)
+                {
+                    target.AddBuff(ModContent.BuffType<CrimsonSpawnrateDebuffTier2>(), 2400, true);
+                }
+                else
+                {
+                    target.AddBuff(ModContent.BuffType<CorruptionSpawnrateDebuffTier2>(), 2400, true);
+                }
+            }
+            else
+            {
+                if (WorldGen.crimson)
+                {
+                    target.AddBuff(ModContent.BuffType<CrimsonSpawnrateDebuffTier1>(), 1800, true);
+                }
+                else
+                {
+                    target.AddBuff(ModContent.BuffType<CorruptionSpawnrateDebuffTier1>(), 1800, true);
+                }
+            }
         }
     }
 

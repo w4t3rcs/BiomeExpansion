@@ -12,9 +12,6 @@ namespace BiomeExpansion.Content.NPCs.Critters
             Main.npcCatchable[NPC.type] = true;
             NPCID.Sets.CountsAsCritter[NPC.type] = true;
             NPCID.Sets.TakesDamageFromHostilesWithoutBeingFriendly[NPC.type] = true;
-
-            // Change and uncomment the next line if the fairy should be immune to anything
-            //NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.INSERT_DEBUFF_HERE] = true;
         }
 
 
