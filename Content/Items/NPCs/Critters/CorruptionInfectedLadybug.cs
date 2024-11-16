@@ -11,7 +11,7 @@ public class CorruptionInfectedLadybug : ModItem
 
     public override void SetDefaults()
     {
-        Item.DefaultToCapturedCritter(ModContent.NPCType<BiomeExpansion.Content.NPCs.Critters.CorruptionInfectedLadybug>());
+        Item.DefaultToCapturedCritter(ModContent.NPCType<Content.NPCs.Critters.CorruptionInfectedLadybug>());
         Item.width = 12;
         Item.height = 12;
     }

@@ -14,7 +14,7 @@ public class CorruptionInfectedFairy : ModItem
 
     public override void SetDefaults()
     {
-        Item.DefaultToCapturedCritter(ModContent.NPCType<BiomeExpansion.Content.NPCs.Critters.CorruptionInfectedFairy>());
+        Item.DefaultToCapturedCritter(ModContent.NPCType<Content.NPCs.Critters.CorruptionInfectedFairy>());
         Item.width = 16;
         Item.height = 18;
     }
