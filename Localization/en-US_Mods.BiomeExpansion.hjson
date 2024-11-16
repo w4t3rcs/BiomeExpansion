@@ -480,6 +480,16 @@ Items: {
 		Tooltip: ""
 		DisplayName: Corruption Infected Butterfly
 	}
+
+	Layer2Stone1: {
+		DisplayName: Layer2 Stone1
+		Tooltip: ""
+	}
+
+	Layer2Stone2: {
+		DisplayName: Layer2 Stone2
+		Tooltip: ""
+	}
 }
 
 Biomes: {
