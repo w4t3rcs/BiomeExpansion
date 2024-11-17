@@ -1,5 +1,6 @@
 using BiomeExpansion.Content.Biomes;
 using BiomeExpansion.Content.Buffs;
+using BiomeExpansion.Content.Items.Placeable.Banners;
 
 namespace BiomeExpansion.Content.NPCs.Enemies;
 
@@ -29,7 +30,7 @@ public class CrimsonInfectedSlime : ModNPC
         NPC.DeathSound = SoundID.NPCDeath1;
         Banner = NPC.type;
         SpawnModBiomes = [ModContent.GetInstance<CrimsonInfectedMushroomSurfaceBiome>().Type];
-        // BannerItem = ModContent.ItemType<>();
+        BannerItem = ModContent.ItemType<CrimsonInfectedSlimeBanner>();
         NPCHelper.AdjustExpertMode(NPC);
         NPCHelper.AdjustMasterMode(NPC);
     }

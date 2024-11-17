@@ -530,6 +530,11 @@ Items: {
 		DisplayName: Crimson Infected Mushroom Fountain
 		Tooltip: ""
 	}
+
+	Placeables: {
+		FormattedBannerName: Mods.BiomeExpansion.Items.Placeables.FormattedBannerName
+		FormattedBannerTooltip: Mods.BiomeExpansion.Items.Placeables.FormattedBannerTooltip
+	}
 }
 
 Biomes: {

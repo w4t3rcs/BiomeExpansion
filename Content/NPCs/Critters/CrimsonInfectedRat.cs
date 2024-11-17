@@ -1,6 +1,6 @@
 ﻿using BiomeExpansion.Content.Biomes;
 
-namespace BiomeExpansion.Content.NPCs.Enemies
+namespace BiomeExpansion.Content.NPCs.Critters
 {
     public class CrimsonInfectedRat : ModNPC
     {

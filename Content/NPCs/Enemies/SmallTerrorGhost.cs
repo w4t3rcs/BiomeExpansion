@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using BiomeExpansion.Content.Biomes;
 using BiomeExpansion.Content.Buffs;
+using BiomeExpansion.Content.Items.Placeable.Banners;
 using Terraria.GameContent;
 
 namespace BiomeExpansion.Content.NPCs.Enemies;
@@ -33,7 +34,7 @@ public class SmallTerrorGhost : ModNPC
         NPC.DeathSound = SoundID.NPCDeath39;
         Banner = NPC.type;
         SpawnModBiomes = [ModContent.GetInstance<CorruptionInfectedMushroomSurfaceBiome>().Type, ModContent.GetInstance<CrimsonInfectedMushroomSurfaceBiome>().Type];
-        // BannerItem = ModContent.ItemType<>();
+        BannerItem = ModContent.ItemType<SmallTerrorGhostBanner>();
         NPCHelper.AdjustExpertMode(NPC);
         NPCHelper.AdjustMasterMode(NPC);
     }

@@ -1,5 +1,6 @@
 using BiomeExpansion.Content.Biomes;
 using BiomeExpansion.Content.Buffs;
+using BiomeExpansion.Content.Items.Placeable.Banners;
 
 namespace BiomeExpansion.Content.NPCs.Enemies;
 
@@ -19,7 +20,7 @@ internal class CorruptionInfectedDiggerHead : WormHead
         NPC.value = Item.buyPrice(0, 0, 10, 0);
         Banner = NPC.type;
         SpawnModBiomes = [ModContent.GetInstance<CorruptionInfectedMushroomSurfaceBiome>().Type];
-        // BannerItem = ModContent.ItemType<>();
+        BannerItem = ModContent.ItemType<CorruptionInfectedDiggerBanner>();
         NPCHelper.AdjustExpertMode(NPC, false);
         NPCHelper.AdjustMasterMode(NPC, false);
     }

@@ -1,5 +1,6 @@
 using BiomeExpansion.Content.Biomes;
 using BiomeExpansion.Content.Buffs;
+using BiomeExpansion.Content.Items.Placeable.Banners;
 using Terraria.GameContent.ItemDropRules;
 
 namespace BiomeExpansion.Content.NPCs.Enemies;
@@ -30,7 +31,7 @@ public class CorruptionInfectedEye : ModNPC
         NPC.DeathSound = SoundID.NPCDeath1;
         Banner = NPC.type;
         SpawnModBiomes = [ModContent.GetInstance<CorruptionInfectedMushroomSurfaceBiome>().Type];
-        // BannerItem = ModContent.ItemType<>();
+        BannerItem = ModContent.ItemType<CorruptionInfectedEyeBanner>();
         NPCHelper.AdjustExpertMode(NPC);
         NPCHelper.AdjustMasterMode(NPC);
     }

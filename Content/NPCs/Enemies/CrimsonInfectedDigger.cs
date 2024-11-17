@@ -1,5 +1,6 @@
 using BiomeExpansion.Content.Biomes;
 using BiomeExpansion.Content.Buffs;
+using BiomeExpansion.Content.Items.Placeable.Banners;
 
 namespace BiomeExpansion.Content.NPCs.Enemies;
 
@@ -19,7 +20,7 @@ internal class CrimsonInfectedDiggerHead : WormHead
         NPC.value = Item.buyPrice(0, 0, 10, 0);
         Banner = NPC.type;
         SpawnModBiomes = [ModContent.GetInstance<CrimsonInfectedMushroomSurfaceBiome>().Type];
-        // BannerItem = ModContent.ItemType<>();
+        BannerItem = ModContent.ItemType<CrimsonInfectedDiggerBanner>();
         NPCHelper.AdjustExpertMode(NPC, false);
         NPCHelper.AdjustMasterMode(NPC, false);
     }

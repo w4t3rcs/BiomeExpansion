@@ -1,5 +1,6 @@
 using BiomeExpansion.Content.Biomes;
 using BiomeExpansion.Content.Buffs;
+using BiomeExpansion.Content.Items.Placeable.Banners;
 
 namespace BiomeExpansion.Content.NPCs.Enemies;
 
@@ -29,7 +30,7 @@ public class FearClot : ModNPC
         NPC.DeathSound = SoundID.NPCDeath7;
         Banner = NPC.type;
         SpawnModBiomes = [ModContent.GetInstance<CorruptionInfectedMushroomSurfaceBiome>().Type, ModContent.GetInstance<CrimsonInfectedMushroomSurfaceBiome>().Type];
-        // BannerItem = ModContent.ItemType<>();
+        BannerItem = ModContent.ItemType<FearClotBanner>();
         NPCHelper.AdjustExpertMode(NPC);
         NPCHelper.AdjustMasterMode(NPC);
     }

@@ -250,7 +250,6 @@ public static class TileHelper
         Main.tileFrameImportant[tile.Type] = true;
         Main.tileLavaDeath[tile.Type] = true;
         Main.tileWaterDeath[tile.Type] = false;
-        TileID.Sets.SwaysInWindBasic[tile.Type] = true;
         TileID.Sets.DisableSmartCursor[tile.Type] = true;
         TileObjectData.newTile.CopyFrom(TileObjectData.Style1x2Top);
         TileObjectData.newTile.LavaDeath = true;
@@ -632,7 +631,27 @@ public static class TileHelper
         Main.tileLavaDeath[tile.Type] = true;
         TileObjectData.newTile.CopyFrom(TileObjectData.Style2x2);
         TileObjectData.newTile.CopyFrom(TileObjectData.GetTileData(jarType, 0));
-        tile.DustType = DustID.WoodFurniture;
+    }
+
+    public static void SetBanner(ModTile tile)
+    {
+        Main.tileFrameImportant[tile.Type] = true;
+        Main.tileLavaDeath[tile.Type] = true;
+        Main.tileFrameImportant[tile.Type] = true;
+        Main.tileNoAttach[tile.Type] = true;
+        Main.tileLavaDeath[tile.Type] = true;
+        TileObjectData.newTile.CopyFrom(TileObjectData.Style1x2Top);
+        TileObjectData.newTile.Height = 3;
+        TileObjectData.newTile.CoordinateHeights = [16, 16, 16];
+        TileObjectData.newTile.StyleHorizontal = true;
+        TileObjectData.newTile.AnchorTop = new AnchorData(AnchorType.SolidTile | AnchorType.SolidSide | AnchorType.SolidBottom | AnchorType.PlanterBox, TileObjectData.newTile.Width, 0);
+        TileObjectData.newTile.DrawYOffset = -2;
+        TileObjectData.newAlternate.CopyFrom(TileObjectData.newTile);
+        TileObjectData.newAlternate.AnchorTop = new AnchorData(AnchorType.Platform, TileObjectData.newTile.Width, 0);
+        TileObjectData.newAlternate.DrawYOffset = -10;
+        TileObjectData.addAlternate(0);
+        TileID.Sets.DisableSmartCursor[tile.Type] = true;
+        tile.AdjTiles = [TileID.Banners];
     }
     
     public static void Set3X2BiomeSurfaceDecoration(ushort type)
