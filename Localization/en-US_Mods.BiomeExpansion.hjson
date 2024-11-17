@@ -490,6 +490,46 @@ Items: {
 		DisplayName: Layer2 Stone2
 		Tooltip: ""
 	}
+
+	CorruptionInfectedButterflyJar: {
+		DisplayName: Corruption Infected Butterfly Jar
+		Tooltip: ""
+	}
+
+	CorruptionInfectedDragonflyJar: {
+		DisplayName: Corruption Infected Dragonfly Jar
+		Tooltip: ""
+	}
+
+	CorruptionInfectedFairyLantern: {
+		DisplayName: Corruption Infected Fairy Lantern
+		Tooltip: ""
+	}
+
+	CrimsonInfectedButterflyJar: {
+		DisplayName: Crimson Infected Butterfly Jar
+		Tooltip: ""
+	}
+
+	CrimsonInfectedDragonflyJar: {
+		DisplayName: Crimson Infected Dragonfly Jar
+		Tooltip: ""
+	}
+
+	CrimsonInfectedFairyLantern: {
+		DisplayName: Crimson Infected Fairy Lantern
+		Tooltip: ""
+	}
+
+	CorruptionInfectedMushroomFountain: {
+		DisplayName: Corruption Infected Mushroom Fountain
+		Tooltip: ""
+	}
+
+	CrimsonInfectedMushroomFountain: {
+		DisplayName: Crimson Infected Mushroom Fountain
+		Tooltip: ""
+	}
 }
 
 Biomes: {

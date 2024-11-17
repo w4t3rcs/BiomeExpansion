@@ -16,9 +16,9 @@ namespace BiomeExpansion.Content.NPCs.Critters
 
         public override void SetDefaults()
         {
-            NPC.CloneDefaults(NPCID.FairyCritterBlue);
-            AIType = NPCID.FairyCritterBlue;
-            AnimationType = NPCID.FairyCritterBlue;
+            NPC.CloneDefaults(NPCID.FairyCritterPink);
+            AIType = NPCID.FairyCritterPink;
+            AnimationType = NPCID.FairyCritterPink;
             NPC.catchItem = ModContent.ItemType<Items.NPCs.Critters.CrimsonInfectedFairy>();
             SpawnModBiomes = [ModContent.GetInstance<CrimsonInfectedMushroomSurfaceBiome>().Type];
         }

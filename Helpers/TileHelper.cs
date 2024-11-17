@@ -250,6 +250,7 @@ public static class TileHelper
         Main.tileFrameImportant[tile.Type] = true;
         Main.tileLavaDeath[tile.Type] = true;
         Main.tileWaterDeath[tile.Type] = false;
+        TileID.Sets.SwaysInWindBasic[tile.Type] = true;
         TileID.Sets.DisableSmartCursor[tile.Type] = true;
         TileObjectData.newTile.CopyFrom(TileObjectData.Style1x2Top);
         TileObjectData.newTile.LavaDeath = true;
@@ -521,7 +522,6 @@ public static class TileHelper
         TileObjectData.newTile.UsesCustomCanPlace = true;
         TileObjectData.newTile.AnchorBottom = new AnchorData(AnchorType.SolidTile | AnchorType.SolidWithTop, 2, 0);
         TileObjectData.newTile.StyleLineSkip = 2;
-        tile.AnimationFrameHeight = 72;
     }
     
     public static void SetPiano(ModTile tile)
@@ -623,6 +623,15 @@ public static class TileHelper
         TileObjectData.newTile.CopyFrom(TileObjectData.Style3x3Wall);
         TileID.Sets.DisableSmartCursor[tile.Type] = true;
         TileID.Sets.FramesOnKillWall[tile.Type] = true;
+        tile.DustType = DustID.WoodFurniture;
+    }
+
+    public static void SetJar(ModTile tile, ushort jarType = TileID.MonarchButterflyJar)
+    {
+        Main.tileFrameImportant[tile.Type] = true;
+        Main.tileLavaDeath[tile.Type] = true;
+        TileObjectData.newTile.CopyFrom(TileObjectData.Style2x2);
+        TileObjectData.newTile.CopyFrom(TileObjectData.GetTileData(jarType, 0));
         tile.DustType = DustID.WoodFurniture;
     }
     

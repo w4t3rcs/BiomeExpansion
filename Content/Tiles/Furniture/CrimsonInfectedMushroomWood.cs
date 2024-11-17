@@ -12,6 +12,7 @@ public class CrimsonInfectedMushroomWood : ModTile
         Main.tileMerge[Type][ModContent.TileType<CrimsonInfectedMushroomGrass>()] = true;
         Main.tileMerge[Type][ModContent.TileType<InfectedMushroomDirt>()] = true;
         HitSound = SoundID.Dig;
+        DustType = DustID.Crimson;
         AddMapEntry(Color.DarkCyan);
         RegisterItemDrop(ModContent.ItemType<Items.Placeable.Furniture.CrimsonInfectedMushroomWood>());
     }

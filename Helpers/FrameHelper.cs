@@ -297,4 +297,29 @@ public static class FrameHelper
 			}
 		}
     }
+
+    public static void AnimateTile(ref int frame, ref int frameCounter, int frameCount, int animationSpeed)
+    {
+        frameCounter++;
+        if (frameCounter >= animationSpeed)
+        {
+            frame++;
+            frameCounter = 0;
+        }
+        if (frame >= frameCount)
+        {
+            frame = 0;
+        }
+    }
+
+    public static int GetAnimationOffset(ModTile tile, int x, int y, int frameCount, int width, int height, int animationFrameLength)
+    {
+        int frameSizeWithPadding = FrameSize + FramePadding;
+        int frameX = Main.tile[x, y].TileFrameX % (frameCount * width);
+        int frameY = Main.tile[x, y].TileFrameY % (frameSizeWithPadding * height);
+        x -= frameX / frameSizeWithPadding;
+        y -= frameY / frameSizeWithPadding;
+        int uniqueAnimationFrame = (Main.tileFrame[tile.Type] + y + ((x % 2 + x % 3 + x % 4 + y % 2 + y % 3 + y % 4) * 3)) % frameCount;
+        return uniqueAnimationFrame * animationFrameLength;
+    }
 }
