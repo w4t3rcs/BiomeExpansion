@@ -633,6 +633,18 @@ public static class TileHelper
         tile.DustType = DustID.WoodFurniture;
     }
 
+    public static void SetCrate(ModTile tile)
+    {
+        Main.tileSolidTop[tile.Type] = true;
+        Main.tileLighted[tile.Type] = true;
+        Main.tileFrameImportant[tile.Type] = true;
+        Main.tileNoAttach[tile.Type] = true;
+        Main.tileTable[tile.Type] = true;
+        Main.tileLavaDeath[tile.Type] = true;
+        Main.tileWaterDeath[tile.Type] = false;
+        TileObjectData.newTile.CopyFrom(TileObjectData.Style2x2);
+    }
+
     public static void SetJar(ModTile tile, ushort jarType = TileID.MonarchButterflyJar)
     {
         Main.tileFrameImportant[tile.Type] = true;
