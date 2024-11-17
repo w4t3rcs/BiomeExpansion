@@ -36,6 +36,14 @@ public static class TileHelper
         TileID.Sets.CanBeClearedDuringOreRunner[type] = true;
     }
     
+    public static void SetBrick(ushort type)
+    {
+        Main.tileSolid[type] = true;
+        Main.tileBlockLight[type] = true;
+        Main.tileBrick[type] = true;
+        Main.tileMergeDirt[type] = true;
+    }
+
     public static void SetOre(ushort type)
     {
         Main.tileSolid[type] = true;

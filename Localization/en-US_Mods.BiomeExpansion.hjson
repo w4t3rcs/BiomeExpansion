@@ -535,6 +535,26 @@ Items: {
 		FormattedBannerName: Mods.BiomeExpansion.Items.Placeables.FormattedBannerName
 		FormattedBannerTooltip: Mods.BiomeExpansion.Items.Placeables.FormattedBannerTooltip
 	}
+
+	CorruptionInfectedMushroomStoneBrick: {
+		DisplayName: Corruption Infected Mushroom Stone Brick
+		Tooltip: ""
+	}
+
+	CrimsonInfectedMushroomStoneBrick: {
+		DisplayName: Crimson Infected Mushroom Stone Brick
+		Tooltip: ""
+	}
+
+	CorruptionInfectedMushroomStoneBrickWall: {
+		DisplayName: Corruption Infected Mushroom Stone Brick Wall
+		Tooltip: ""
+	}
+
+	CrimsonInfectedMushroomStoneBrickWall: {
+		DisplayName: Crimson Infected Mushroom Stone Brick Wall
+		Tooltip: ""
+	}
 }
 
 Biomes: {
