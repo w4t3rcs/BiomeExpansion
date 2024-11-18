@@ -1,4 +1,5 @@
 ﻿using BiomeExpansion.Content.Tiles.Biome;
+using Terraria.ObjectData;
 
 namespace BiomeExpansion.Content.Tiles.Crates;
 
@@ -9,6 +10,7 @@ public class CrimsonInfectedMushroomCrate : ModTile
     public override void SetStaticDefaults()
     {
         TileHelper.SetCrate(this);
+        TileObjectData.addTile(Type);
         HitSound = SoundID.Dig;
         DustType = DustID.Crimson;
         AddMapEntry(Color.Crimson);

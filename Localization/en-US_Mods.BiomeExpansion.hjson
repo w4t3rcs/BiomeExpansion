@@ -555,6 +555,26 @@ Items: {
 		DisplayName: Crimson Infected Mushroom Stone Brick Wall
 		Tooltip: ""
 	}
+
+	CorruptionInfectedMushroomFish: {
+		DisplayName: Corruption Infected Mushroom Fish
+		Tooltip: ""
+	}
+
+	CrimsonInfectedMushroomFish: {
+		DisplayName: Crimson Infected Mushroom Fish
+		Tooltip: ""
+	}
+
+	CorruptionInfectedMushroomCrate: {
+		DisplayName: Corruption Infected Mushroom Crate
+		Tooltip: ""
+	}
+
+	CrimsonInfectedMushroomCrate: {
+		DisplayName: Crimson Infected Mushroom Crate
+		Tooltip: ""
+	}
 }
 
 Biomes: {
