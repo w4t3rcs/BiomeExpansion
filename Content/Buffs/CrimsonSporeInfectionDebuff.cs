@@ -1,4 +1,6 @@
-﻿namespace BiomeExpansion.Content.Buffs;
+﻿using BiomeExpansion.Common.PlayerCalls;
+
+namespace BiomeExpansion.Content.Buffs;
 
 public class CrimsonSporeInfectionDebuff : ModBuff
 {
@@ -14,6 +16,6 @@ public class CrimsonSporeInfectionDebuff : ModBuff
 
     public override void Update(Player player, ref int buffIndex)
     {
-        player.GetModPlayer<BiomeExpansionPlayer>().isSporeInfected = true;
+        player.GetModPlayer<BuffedPlayer>().isSporeInfected = true;
     }
 }

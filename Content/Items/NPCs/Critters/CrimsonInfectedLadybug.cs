@@ -15,5 +15,6 @@ public class CrimsonInfectedLadybug : ModItem
         Item.DefaultToCapturedCritter(ModContent.NPCType<Content.NPCs.Critters.CrimsonInfectedLadybug>());
         Item.width = 12;
         Item.height = 12;
+        Item.bait = 25;
     }
 }

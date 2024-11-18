@@ -2,12 +2,12 @@
 using Terraria.Audio;
 using Terraria.DataStructures;
 
-namespace BiomeExpansion.Content.Items.Others;
+namespace BiomeExpansion.Content.Items.Fishes;
 
 public class CrimsonInfectedMushroomFish : ModItem
 {
     public override string Texture => TextureHelper.DynamicItemsTextures["CrimsonInfectedMushroomFish"];
-    
+
     public override void SetStaticDefaults()
     {
         Item.ResearchUnlockCount = 3;

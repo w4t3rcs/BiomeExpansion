@@ -14,5 +14,6 @@ public class CorruptionInfectedStagBeetle : ModItem
         Item.DefaultToCapturedCritter(ModContent.NPCType<Content.NPCs.Critters.CorruptionInfectedStagBeetle>());
         Item.width = 12;
         Item.height = 12;
+        Item.bait = 25;
     }
 }

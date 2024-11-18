@@ -14,5 +14,6 @@ public class CorruptionInfectedButterfly : ModItem
         Item.DefaultToCapturedCritter(ModContent.NPCType<Content.NPCs.Critters.CorruptionInfectedButterfly>());
         Item.width = 12;
         Item.height = 12;
+        Item.bait = 25;
     }
 }

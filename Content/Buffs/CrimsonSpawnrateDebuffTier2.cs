@@ -1,4 +1,6 @@
-﻿namespace BiomeExpansion.Content.Buffs
+﻿using BiomeExpansion.Common.PlayerCalls;
+
+namespace BiomeExpansion.Content.Buffs
 {
     public class CrimsonSpawnrateDebuffTier2 : ModBuff
     {
@@ -10,6 +12,11 @@
             Main.pvpBuff[Type] = true;
             Main.buffNoSave[Type] = true;
             BuffID.Sets.LongerExpertDebuff[Type] = true;
+        }
+        
+        public override void Update(Player player, ref int buffIndex)
+        {
+            player.GetModPlayer<BuffedPlayer>().spawnRateIncrease2 = true;
         }
     }
 }

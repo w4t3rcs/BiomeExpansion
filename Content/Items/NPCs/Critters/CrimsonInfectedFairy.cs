@@ -18,5 +18,6 @@ public class CrimsonInfectedFairy : ModItem
         Item.DefaultToCapturedCritter(ModContent.NPCType<Content.NPCs.Critters.CrimsonInfectedFairy>());
         Item.width = 16;
         Item.height = 18;
+        Item.bait = 25;
     }
 }

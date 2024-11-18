@@ -33,25 +33,11 @@ public class CrimsonInfectedMushroomCrate : ModItem
 	public override void ModifyItemLoot(ItemLoot itemLoot) {
 		itemLoot.Add(ItemDropRule.Common(ItemID.GoldCoin, 4, 5, 13));
 		IItemDropRule[] oreTypes = [
-			ItemDropRule.Common(ItemID.CopperOre, 1, 30, 50),
-			ItemDropRule.Common(ItemID.TinOre, 1, 30, 50),
-			ItemDropRule.Common(ItemID.IronOre, 1, 30, 50),
-			ItemDropRule.Common(ItemID.LeadOre, 1, 30, 50),
-			ItemDropRule.Common(ItemID.SilverOre, 1, 30, 50),
-			ItemDropRule.Common(ItemID.TungstenOre, 1, 30, 50),
-			ItemDropRule.Common(ItemID.GoldOre, 1, 30, 50),
-			ItemDropRule.Common(ItemID.PlatinumOre, 1, 30, 50),
-			ItemDropRule.Common(ModContent.ItemType<CrimsoomOre>(), 1, 30, 50),
+			ItemDropRule.Common(ModContent.ItemType<CrimsoomOre>(), 1, 4, 11),
 		];
 		itemLoot.Add(new OneFromRulesRule(7, oreTypes));
 		IItemDropRule[] oreBars = [
-			ItemDropRule.Common(ItemID.IronBar, 1, 10, 21),
-			ItemDropRule.Common(ItemID.LeadBar, 1, 10, 21),
-			ItemDropRule.Common(ItemID.SilverBar, 1, 10, 21),
-			ItemDropRule.Common(ItemID.TungstenBar, 1, 10, 21),
-			ItemDropRule.Common(ItemID.GoldBar, 1, 10, 21),
-			ItemDropRule.Common(ItemID.PlatinumBar, 1, 10, 21),
-			ItemDropRule.Common(ModContent.ItemType<CrimsoomBar>(), 1, 10, 21),
+			ItemDropRule.Common(ModContent.ItemType<CrimsoomBar>(), 1, 3, 7),
 		];
 		itemLoot.Add(new OneFromRulesRule(4, oreBars));
 		IItemDropRule[] explorationPotions = [

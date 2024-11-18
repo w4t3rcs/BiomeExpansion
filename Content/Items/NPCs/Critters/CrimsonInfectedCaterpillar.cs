@@ -14,5 +14,6 @@ public class CrimsonInfectedCaterpillar : ModItem
         Item.DefaultToCapturedCritter(ModContent.NPCType<Content.NPCs.Critters.CrimsonInfectedCaterpillar>());
         Item.width = 12;
         Item.height = 12;
+        Item.bait = 25;
     }
 }
