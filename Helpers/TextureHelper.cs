@@ -42,7 +42,7 @@ public static class TextureHelper
         LoadDynamicTextures(TilesAssetsLocation, DynamicTilesTextures);
         LoadDynamicTextures(BuffsAssetsLocation, DynamicBuffsTextures);
         // LoadDynamicTextures(MinionsAssetsLocation, DynamicMinionsTextures);
-        // LoadDynamicTextures(ProjectilesAssetsLocation, DynamicProjectilesTextures);
+        LoadDynamicTextures(ProjectilesAssetsLocation, DynamicProjectilesTextures);
         LoadDynamicTextures(RainsAssetsLocation, DynamicRainsTextures);
         LoadDynamicTextures(TreesAssetsLocation, DynamicTreesTextures);
         LoadDynamicTextures(WallsAssetsLocation, DynamicWallsTextures);

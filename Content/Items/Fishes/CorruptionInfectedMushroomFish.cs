@@ -1,8 +1,4 @@
-﻿using BiomeExpansion.Content.Tiles.Biome;
-using Terraria.Audio;
-using Terraria.DataStructures;
-
-namespace BiomeExpansion.Content.Items.Fishes;
+﻿namespace BiomeExpansion.Content.Items.Fishes;
 
 public class CorruptionInfectedMushroomFish : ModItem
 {

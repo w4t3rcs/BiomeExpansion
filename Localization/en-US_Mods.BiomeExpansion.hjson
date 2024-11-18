@@ -575,6 +575,36 @@ Items: {
 		DisplayName: Crimson Infected Mushroom Crate
 		Tooltip: ""
 	}
+
+	CorruptionInfectedMushroomCactus: {
+		DisplayName: Corruption Infected Mushroom Cactus
+		Tooltip: ""
+	}
+
+	CorruptionInfectedMushroomHardenedSand: {
+		DisplayName: Corruption Infected Mushroom Hardened Sand
+		Tooltip: ""
+	}
+
+	CorruptionInfectedMushroomSand: {
+		DisplayName: Corruption Infected Mushroom Sand
+		Tooltip: ""
+	}
+
+	CrimsonInfectedMushroomCactus: {
+		DisplayName: Crimson Infected Mushroom Cactus
+		Tooltip: ""
+	}
+
+	CrimsonInfectedMushroomHardenedSand: {
+		DisplayName: Crimson Infected Mushroom Hardened Sand
+		Tooltip: ""
+	}
+
+	CrimsonInfectedMushroomSand: {
+		DisplayName: Crimson Infected Mushroom Sand
+		Tooltip: ""
+	}
 }
 
 Biomes: {
@@ -645,6 +675,10 @@ Projectiles: {
 	TestMinion.DisplayName: Test Minion
 	Melee.TestSlash.DisplayName: Test Slash
 	CorruptoomSwordProj.DisplayName: Corruptoom Sword Proj
+	CorruptionInfectedMushroomFallingSandProjectile.DisplayName: Corruption Infected Mushroom Falling Sand Projectile
+	CorruptionInfectedMushroomSandGunProjectile.DisplayName: Corruption Infected Mushroom Sand Gun Projectile
+	CrimsonInfectedMushroomFallingSandProjectile.DisplayName: Crimson Infected Mushroom Falling Sand Projectile
+	CrimsonInfectedMushroomSandGunProjectile.DisplayName: Crimson Infected Mushroom Sand Gun Projectile
 }
 
 NPCs: {

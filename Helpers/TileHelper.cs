@@ -35,6 +35,24 @@ public static class TileHelper
         TileID.Sets.Conversion.Stone[type] = true;
         TileID.Sets.CanBeClearedDuringOreRunner[type] = true;
     }
+
+    public static void SetSand(ModTile tile, int sandBallFallingProjectile, int fallDamage = 10, float mineResist = 0.5f)
+    {
+        Main.tileSolid[tile.Type] = true;
+        Main.tileBlockLight[tile.Type] = true;
+        Main.tileMergeDirt[tile.Type] = true;
+        Main.tileSand[tile.Type] = true;
+        TileID.Sets.Conversion.Sand[tile.Type] = true;
+        TileID.Sets.ForAdvancedCollision.ForSandshark[tile.Type] = true;
+		TileID.Sets.CanBeDugByShovel[tile.Type] = true;
+		TileID.Sets.Falling[tile.Type] = true;
+		TileID.Sets.Suffocate[tile.Type] = true;
+		TileID.Sets.FallingBlockProjectile[tile.Type] = new TileID.Sets.FallingBlockProjectileInfo(sandBallFallingProjectile, fallDamage); // Tells which falling projectile to spawn when the tile should fall.
+		TileID.Sets.CanBeClearedDuringOreRunner[tile.Type] = true;
+		TileID.Sets.GeneralPlacementTiles[tile.Type] = false;
+		TileID.Sets.ChecksForMerge[tile.Type] = true;
+		tile.MineResist = mineResist;
+    }
     
     public static void SetBrick(ushort type)
     {

@@ -18,15 +18,17 @@ public class FishingPlayer : ModPlayer
 		bool inCorruptionInfectedMushroomBiome = Player.InModBiome<CorruptionInfectedMushroomSurfaceBiome>();
 		bool inCrimsonInfectedMushroomBiome = Player.InModBiome<CrimsonInfectedMushroomSurfaceBiome>();
         if (npcSpawn > 0) return;
+        if (itemDrop == ItemID.OldShoe || itemDrop == ItemID.FishingSeaweed || itemDrop == ItemID.TinCan) return;
+
 		if (inWater && (inCorruptionInfectedMushroomBiome || inCrimsonInfectedMushroomBiome)) {
-			if (attempt.crate && attempt.rare && Main.rand.NextBool()) {
+			if (attempt.crate && attempt.uncommon) {
 				itemDrop = inCorruptionInfectedMushroomBiome 
                     ? ModContent.ItemType<Content.Items.Placeable.Crates.CorruptionInfectedMushroomCrate>() 
                     : ModContent.ItemType<Content.Items.Placeable.Crates.CrimsonInfectedMushroomCrate>();
 				return;
 			}
 
-            if (!attempt.crate && attempt.common && Main.rand.NextBool())
+            if (attempt.common)
             {
                 itemDrop = inCorruptionInfectedMushroomBiome 
                     ? ModContent.ItemType<Content.Items.Fishes.CorruptionInfectedMushroomFish>() 
