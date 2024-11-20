@@ -5,30 +5,28 @@ namespace BiomeExpansion.Core.Generation;
 
 public class RectangleBiomePlacer : IBiomePlacer
 {
-    public void Place(BEBiome biome, ushort[] tiles, ushort mainWall)
+    public void Place(BEBiome biome, ushort[] tiles)
     {
         if (tiles.Length == 0) return;
         var (leftX, rightX) = GenerationHelper.BEBiomesXCoordinates[biome];
         var (startY, endY) = GenerationHelper.BEBiomesYCoordinates[biome];
         for (int i = leftX; i < rightX; i++)
-            GenerateBiomeVertically(i, startY, endY, tiles[0], tiles[1], tiles[2], mainWall, 
-                tiles.Length > 3 ? tiles[3] : (ushort)0);
+            GenerateBiomeVertically(i, startY, endY, tiles[0], tiles[1], tiles[2], tiles[3]);
         for (int i = startY; i < endY; i++)
-            GenerateBiomeTransition(i, leftX, rightX, tiles[0], tiles[1], tiles[2], mainWall, 
-                tiles.Length > 3 ? tiles[3] : (ushort)0);
+            GenerateBiomeTransition(i, leftX, rightX, tiles[0], tiles[1], tiles[2], tiles[3]);
     }
 
-    public void PlaceOnlyWithMainTile(BEBiome biome, ushort mainTile, ushort mainWall)
+    public void PlaceOnlyWithMainTile(BEBiome biome, ushort mainTile)
     {
         var (leftX, rightX) = GenerationHelper.BEBiomesXCoordinates[biome];
         var (startY, endY) = GenerationHelper.BEBiomesYCoordinates[biome];
         for (int i = leftX; i < rightX; i++)
-            GenerateBiomeVertically(i, startY, endY, mainTile, mainWall);
+            GenerateBiomeVertically(i, startY, endY, mainTile);
         for (int i = startY; i < endY; i++)
-            GenerateBiomeTransition(i, leftX, rightX, mainTile, mainWall);
+            GenerateBiomeTransition(i, leftX, rightX, mainTile);
     }
     
-    private void GenerateBiomeVertically(int x, int startY, int endY, ushort dirt, ushort grass, ushort stone, ushort wall, ushort sand = 0) 
+    private void GenerateBiomeVertically(int x, int startY, int endY, ushort dirt, ushort grass, ushort stone, ushort sand = 0) 
     {
         for (int y = startY; y < endY + Main.rand.Next(BiomeHelper.MaximumBiomeTransitionLength); y++)
         {
@@ -36,20 +34,18 @@ public class RectangleBiomePlacer : IBiomePlacer
             PlaceGrass(x, y, dirt, grass);
             if (sand != 0) PlaceSand(x, y, sand);
             PlaceStone(x, y, stone);
-            PlaceWall(x, y, wall);
         }
     }
 
-    private void GenerateBiomeVertically(int x, int startY, int endY, ushort mainTile, ushort wall) 
+    private void GenerateBiomeVertically(int x, int startY, int endY, ushort mainTile) 
     {
         for (int y = startY; y < endY + Main.rand.Next(BiomeHelper.MaximumBiomeTransitionLength); y++)
         {
             PlaceMainTile(x, y, mainTile);
-            PlaceWall(x, y, wall);
         }
     }
 
-    private void GenerateBiomeTransition(int y, int leftX, int rightX, ushort dirt, ushort grass, ushort stone, ushort wall, ushort sand = 0) 
+    private void GenerateBiomeTransition(int y, int leftX, int rightX, ushort dirt, ushort grass, ushort stone, ushort sand = 0) 
     {
         for (int x = leftX - Main.rand.Next(BiomeHelper.MaximumBiomeTransitionLength); x < leftX; x++)
         {
@@ -57,7 +53,6 @@ public class RectangleBiomePlacer : IBiomePlacer
             PlaceGrass(x, y, dirt, grass);
             if (sand != 0) PlaceSand(x, y, sand);
             PlaceStone(x, y, stone);
-            PlaceWall(x, y, wall);
         }
 
         for (int x = rightX ; x < rightX + Main.rand.Next(BiomeHelper.MaximumBiomeTransitionLength); x++)
@@ -66,22 +61,19 @@ public class RectangleBiomePlacer : IBiomePlacer
             PlaceGrass(x, y, dirt, grass);
             if (sand != 0) PlaceSand(x, y, sand);
             PlaceStone(x, y, stone);
-            PlaceWall(x, y, wall);
         }
     }
 
-    private void GenerateBiomeTransition(int y, int leftX, int rightX, ushort mainTile, ushort wall) 
+    private void GenerateBiomeTransition(int y, int leftX, int rightX, ushort mainTile) 
     {
         for (int x = leftX - Main.rand.Next(BiomeHelper.MaximumBiomeTransitionLength); x < leftX; x++)
         {
             PlaceMainTile(x, y, mainTile);
-            PlaceWall(x, y, wall);
         }
 
         for (int x = rightX ; x < rightX + Main.rand.Next(BiomeHelper.MaximumBiomeTransitionLength); x++)
         {
             PlaceMainTile(x, y, mainTile);
-            PlaceWall(x, y, wall);
         }
     }
     
@@ -111,10 +103,5 @@ public class RectangleBiomePlacer : IBiomePlacer
     private void PlaceMainTile(int x, int y, ushort tileType)
     {
         WorldGen.ReplaceTile(x, y, tileType, Main.tile[x, y].TileFrameX);
-    }
-    
-    private void PlaceWall(int x, int y, ushort wall)
-    {
-        WorldGen.ReplaceWall(x, y, wall);
     }
 }
