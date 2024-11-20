@@ -605,6 +605,16 @@ Items: {
 		DisplayName: Crimson Infected Mushroom Sand
 		Tooltip: ""
 	}
+
+	CorruptionInfectedMushroomSandWall: {
+		DisplayName: Corruption Infected Mushroom Sand Wall
+		Tooltip: ""
+	}
+
+	CrimsonInfectedMushroomSandWall: {
+		DisplayName: Crimson Infected Mushroom Sand Wall
+		Tooltip: ""
+	}
 }
 
 Biomes: {
