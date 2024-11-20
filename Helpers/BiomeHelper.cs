@@ -7,6 +7,7 @@ public static class BiomeHelper
 {
     public static readonly int SurfaceY = Main.maxTilesY/8 + 10;
     public static readonly ushort[] StoneTiles = [TileID.CorruptSandstone, TileID.Ebonstone, TileID.CrimsonSandstone, TileID.Crimstone, TileID.Stone];
+    public static readonly ushort[] SandTiles = [TileID.Sand, TileID.Ebonsand, TileID.Crimsand];
     public static readonly ushort[] EvilGroundTiles = [TileID.CorruptGrass, TileID.CorruptSandstone, TileID.Ebonsand, TileID.Ebonstone, TileID.CrimsonGrass, TileID.CrimsonSandstone, TileID.Crimsand, TileID.Crimstone];
     public const int MaximumBiomeTileDistance = 10;
     public const int MaximumBiomeTransitionLength = 15;

@@ -2,12 +2,12 @@
 
 public class OreGenerationStep
 {
-    public GenerationHelper.SurfaceBiomeBuilder SurfaceBiomeBuilder;
-    public GenerationHelper.CaveBiomeBuilder CaveBiomeBuilder;
-    public ushort rarity;
-    public int tileType;
-    public float strength;
-    public int steps;
+    public readonly GenerationHelper.SurfaceBiomeBuilder SurfaceBiomeBuilder;
+    public readonly GenerationHelper.CaveBiomeBuilder CaveBiomeBuilder;
+    public ushort rarity {get; private set;}
+    public int tileType {get; private set;}
+    public float strength {get; private set;}
+    public int steps {get; private set;}
 
     public OreGenerationStep(GenerationHelper.SurfaceBiomeBuilder surfaceBiomeBuilder)
     {

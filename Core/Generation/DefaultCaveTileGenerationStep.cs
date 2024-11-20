@@ -2,10 +2,10 @@
 
 public class DefaultCaveTileGenerationStep
 {
-    public GenerationHelper.CaveBiomeBuilder CaveBiomeBuilder;
-    public int generationId = -1;
-    public int tileType;
-    public ushort[] skippedTiles;
+    public readonly GenerationHelper.CaveBiomeBuilder CaveBiomeBuilder;
+    public int generationId {get; private set;} = -1;
+    public int tileType {get; private set;}
+    public ushort[] skippedTiles {get; private set;}
 
     public DefaultCaveTileGenerationStep(GenerationHelper.CaveBiomeBuilder caveBiomeBuilder)
     {

@@ -11,6 +11,7 @@ public class CrimsonInfectedMushroomSand : ModTile
     public override void SetStaticDefaults()
     {
         TileHelper.SetSand(this, ModContent.ProjectileType<CrimsonInfectedMushroomFallingSandProjectile>());
+        Main.tileSand[Type] = false;
         Main.tileMerge[Type][ModContent.TileType<InfectedMushroomDirt>()] = true;
         Main.tileMerge[Type][ModContent.TileType<CrimsonInfectedMushroomGrass>()] = true;
         Main.tileMerge[Type][ModContent.TileType<CrimsonInfectedMushroomStone>()] = true;

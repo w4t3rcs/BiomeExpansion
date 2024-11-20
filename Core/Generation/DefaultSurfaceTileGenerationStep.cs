@@ -2,10 +2,10 @@
 
 public class DefaultSurfaceTileGenerationStep
 {
-    public GenerationHelper.SurfaceBiomeBuilder SurfaceBiomeBuilder;
-    public int generationId = -1;
-    public int tileType;
-    public ushort[] replacedTiles;
+    public readonly GenerationHelper.SurfaceBiomeBuilder SurfaceBiomeBuilder;
+    public int generationId {get; private set;} = 1;
+    public int tileType {get; private set;}
+    public ushort[] replacedTiles {get; private set;}
 
     public DefaultSurfaceTileGenerationStep(GenerationHelper.SurfaceBiomeBuilder surfaceBiomeBuilder)
     {

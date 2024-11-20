@@ -11,6 +11,7 @@ public class CorruptionInfectedMushroomSand : ModTile
     public override void SetStaticDefaults()
     {
         TileHelper.SetSand(this, ModContent.ProjectileType<CorruptionInfectedMushroomFallingSandProjectile>());
+        Main.tileSand[Type] = false;
         Main.tileMerge[Type][ModContent.TileType<InfectedMushroomDirt>()] = true;
         Main.tileMerge[Type][ModContent.TileType<CorruptionInfectedMushroomGrass>()] = true;
         Main.tileMerge[Type][ModContent.TileType<CorruptionInfectedMushroomStone>()] = true;

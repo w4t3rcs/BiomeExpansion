@@ -10,6 +10,7 @@ public class GenerationHelper
     public const int GrassGenerationId = 2;
     public const int StoneGenerationId = 3;
     public const int WallGenerationId = 4;
+    public const int SandGenerationId = 5;
     public static readonly IGroundModification HorizontalTunnelModification = new HorizontalTunnelModification();
     public static readonly IGroundModification TwoDirectionDiagonalTunnelModification = new TwoDirectionDiagonalTunnelModification();
     public static readonly Dictionary<BEBiome, KeyValuePair<int, int>> BEBiomesXCoordinates = new();
@@ -95,10 +96,11 @@ public class GenerationHelper
                 BiomeRegistrar.Register(_biome, xCoordinates, yCoordinates);
                 _groundModification?.Modify(BEBiomesXCoordinates[_biome].Key, BEBiomesXCoordinates[_biome].Value, BEBiomesYCoordinates[_biome].Key, BEBiomesYCoordinates[_biome].Value);
                 RectangleBiomePlacer.Place(_biome, [
-                        (ushort)DefaultSurfaceTileGenerationSteps[0].tileType, 
-                        (ushort)DefaultSurfaceTileGenerationSteps[1].tileType,
-                        (ushort)DefaultSurfaceTileGenerationSteps[2].tileType
-                    ], (ushort)DefaultSurfaceTileGenerationSteps[3].tileType);
+                    (ushort)DefaultSurfaceTileGenerationSteps[0].tileType, 
+                    (ushort)DefaultSurfaceTileGenerationSteps[1].tileType,
+                    (ushort)DefaultSurfaceTileGenerationSteps[2].tileType,
+                    DefaultSurfaceTileGenerationSteps.Count > 4 ? (ushort)DefaultSurfaceTileGenerationSteps[4].tileType : (ushort)0,
+                ], (ushort)DefaultSurfaceTileGenerationSteps[3].tileType);
                 foreach (GroundDecorationGenerationStep generationStep in GroundDecorationGenerationSteps)
                 {
                     if (generationStep.isPlant)

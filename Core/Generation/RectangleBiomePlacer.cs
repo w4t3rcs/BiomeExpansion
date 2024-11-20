@@ -5,33 +5,36 @@ namespace BiomeExpansion.Core.Generation;
 
 public class RectangleBiomePlacer : IBiomePlacer
 {
-    public void Place(BEBiome biome, ushort[] tiles, ushort wall)
+    public void Place(BEBiome biome, ushort[] tiles, ushort mainWall)
     {
         if (tiles.Length == 0) return;
         var (leftX, rightX) = GenerationHelper.BEBiomesXCoordinates[biome];
         var (startY, endY) = GenerationHelper.BEBiomesYCoordinates[biome];
         for (int i = leftX; i < rightX; i++)
-            GenerateBiomeVertically(i, startY, endY, tiles[0], tiles[1], tiles[2], wall);
+            GenerateBiomeVertically(i, startY, endY, tiles[0], tiles[1], tiles[2], mainWall, 
+                tiles.Length > 3 ? tiles[3] : (ushort)0);
         for (int i = startY; i < endY; i++)
-            GenerateBiomeTransition(i, leftX, rightX, tiles[0], tiles[1], tiles[2], wall);
+            GenerateBiomeTransition(i, leftX, rightX, tiles[0], tiles[1], tiles[2], mainWall, 
+                tiles.Length > 3 ? tiles[3] : (ushort)0);
     }
 
-    public void PlaceOnlyWithMainTile(BEBiome biome, ushort mainTile, ushort wall)
+    public void PlaceOnlyWithMainTile(BEBiome biome, ushort mainTile, ushort mainWall)
     {
         var (leftX, rightX) = GenerationHelper.BEBiomesXCoordinates[biome];
         var (startY, endY) = GenerationHelper.BEBiomesYCoordinates[biome];
         for (int i = leftX; i < rightX; i++)
-            GenerateBiomeVertically(i, startY, endY, mainTile, wall);
+            GenerateBiomeVertically(i, startY, endY, mainTile, mainWall);
         for (int i = startY; i < endY; i++)
-            GenerateBiomeTransition(i, leftX, rightX, mainTile, wall);
+            GenerateBiomeTransition(i, leftX, rightX, mainTile, mainWall);
     }
     
-    private void GenerateBiomeVertically(int x, int startY, int endY, ushort dirt, ushort grass, ushort stone, ushort wall) 
+    private void GenerateBiomeVertically(int x, int startY, int endY, ushort dirt, ushort grass, ushort stone, ushort wall, ushort sand = 0) 
     {
         for (int y = startY; y < endY + Main.rand.Next(BiomeHelper.MaximumBiomeTransitionLength); y++)
         {
             PlaceDirt(x, y, dirt);
             PlaceGrass(x, y, dirt, grass);
+            if (sand != 0) PlaceSand(x, y, sand);
             PlaceStone(x, y, stone);
             PlaceWall(x, y, wall);
         }
@@ -46,12 +49,13 @@ public class RectangleBiomePlacer : IBiomePlacer
         }
     }
 
-    private void GenerateBiomeTransition(int y, int leftX, int rightX, ushort dirt, ushort grass, ushort stone, ushort wall) 
+    private void GenerateBiomeTransition(int y, int leftX, int rightX, ushort dirt, ushort grass, ushort stone, ushort wall, ushort sand = 0) 
     {
         for (int x = leftX - Main.rand.Next(BiomeHelper.MaximumBiomeTransitionLength); x < leftX; x++)
         {
             PlaceDirt(x, y, dirt);
             PlaceGrass(x, y, dirt, grass);
+            if (sand != 0) PlaceSand(x, y, sand);
             PlaceStone(x, y, stone);
             PlaceWall(x, y, wall);
         }
@@ -60,6 +64,7 @@ public class RectangleBiomePlacer : IBiomePlacer
         {
             PlaceDirt(x, y, dirt);
             PlaceGrass(x, y, dirt, grass);
+            if (sand != 0) PlaceSand(x, y, sand);
             PlaceStone(x, y, stone);
             PlaceWall(x, y, wall);
         }
@@ -82,13 +87,19 @@ public class RectangleBiomePlacer : IBiomePlacer
     
     private void PlaceDirt(int x, int y, ushort tileType)
     {
-        if (!BiomeHelper.StoneTiles.Contains(Main.tile[x, y].TileType))
+        if (!BiomeHelper.StoneTiles.Contains(Main.tile[x, y].TileType) && !BiomeHelper.SandTiles.Contains(Main.tile[x, y].TileType))
             WorldGen.ReplaceTile(x, y, tileType, Main.tile[x, y].TileFrameX);
     }
     
     private void PlaceGrass(int x, int y, ushort dirt, ushort grass)
     {
         WorldGen.SpreadGrass(x, y, dirt, grass);
+    }
+
+    private void PlaceSand(int x, int y, ushort tileType)
+    {
+        if (BiomeHelper.SandTiles.Contains(Main.tile[x, y].TileType))
+            WorldGen.ReplaceTile(x, y, tileType, Main.tile[x, y].TileFrameX);
     }
     
     private void PlaceStone(int x, int y, ushort tileType)
