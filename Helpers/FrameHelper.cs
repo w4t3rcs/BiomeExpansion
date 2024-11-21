@@ -263,6 +263,19 @@ public static class FrameHelper
         spriteBatch.Draw(glowTexture, item.Center - Main.screenPosition, null, color, rotation, origin, 1f, SpriteEffects.None, 0f);
     }
 
+    public static void AnimateNPCWithDirection(NPC npc, int frameHeight, int animationSpeed)
+    {
+        Vector2 direction = npc.velocity;
+        direction.Normalize();
+        npc.spriteDirection = npc.direction = npc.velocity.X > 0 ? 1 : -1;
+        AnimateNPC(npc, frameHeight, animationSpeed);
+    }
+
+    public static void AnimateNPC(NPC npc, int frameHeight, int animationSpeed)
+    {
+        AnimateNPC(npc, frameHeight, animationSpeed, Main.npcFrameCount[npc.type]);
+    }
+
     public static void AnimateNPC(NPC npc, int frameHeight, int animationSpeed, int frameCount = 2)
     {
         if (++npc.frameCounter >= animationSpeed)
@@ -271,7 +284,6 @@ public static class FrameHelper
             npc.frame.Y = (npc.frame.Y + frameHeight) % (frameHeight * frameCount);
         }
     }
-
 
     public static void AnimateProjectile(Projectile projectile, int animationSpeed)
     {
@@ -284,5 +296,30 @@ public static class FrameHelper
 				projectile.frame = 0;
 			}
 		}
+    }
+
+    public static void AnimateTile(ref int frame, ref int frameCounter, int frameCount, int animationSpeed)
+    {
+        frameCounter++;
+        if (frameCounter >= animationSpeed)
+        {
+            frame++;
+            frameCounter = 0;
+        }
+        if (frame >= frameCount)
+        {
+            frame = 0;
+        }
+    }
+
+    public static int GetAnimationOffset(ModTile tile, int x, int y, int frameCount, int width, int height, int animationFrameLength)
+    {
+        int frameSizeWithPadding = FrameSize + FramePadding;
+        int frameX = Main.tile[x, y].TileFrameX % (frameCount * width);
+        int frameY = Main.tile[x, y].TileFrameY % (frameSizeWithPadding * height);
+        x -= frameX / frameSizeWithPadding;
+        y -= frameY / frameSizeWithPadding;
+        int uniqueAnimationFrame = (Main.tileFrame[tile.Type] + y + ((x % 2 + x % 3 + x % 4 + y % 2 + y % 3 + y % 4) * 3)) % frameCount;
+        return uniqueAnimationFrame * animationFrameLength;
     }
 }

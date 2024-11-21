@@ -35,7 +35,33 @@ public static class TileHelper
         TileID.Sets.Conversion.Stone[type] = true;
         TileID.Sets.CanBeClearedDuringOreRunner[type] = true;
     }
+
+    public static void SetSand(ModTile tile, int sandBallFallingProjectile, int fallDamage = 10, float mineResist = 0.5f)
+    {
+        Main.tileSolid[tile.Type] = true;
+        Main.tileBlockLight[tile.Type] = true;
+        Main.tileMergeDirt[tile.Type] = true;
+        Main.tileSand[tile.Type] = true;
+        TileID.Sets.Conversion.Sand[tile.Type] = true;
+        TileID.Sets.ForAdvancedCollision.ForSandshark[tile.Type] = true;
+		TileID.Sets.CanBeDugByShovel[tile.Type] = true;
+		TileID.Sets.Falling[tile.Type] = true;
+		TileID.Sets.Suffocate[tile.Type] = true;
+		TileID.Sets.FallingBlockProjectile[tile.Type] = new TileID.Sets.FallingBlockProjectileInfo(sandBallFallingProjectile, fallDamage); // Tells which falling projectile to spawn when the tile should fall.
+		TileID.Sets.CanBeClearedDuringOreRunner[tile.Type] = true;
+		TileID.Sets.GeneralPlacementTiles[tile.Type] = false;
+		TileID.Sets.ChecksForMerge[tile.Type] = true;
+		tile.MineResist = mineResist;
+    }
     
+    public static void SetBrick(ushort type)
+    {
+        Main.tileSolid[type] = true;
+        Main.tileBlockLight[type] = true;
+        Main.tileBrick[type] = true;
+        Main.tileMergeDirt[type] = true;
+    }
+
     public static void SetOre(ushort type)
     {
         Main.tileSolid[type] = true;
@@ -521,7 +547,6 @@ public static class TileHelper
         TileObjectData.newTile.UsesCustomCanPlace = true;
         TileObjectData.newTile.AnchorBottom = new AnchorData(AnchorType.SolidTile | AnchorType.SolidWithTop, 2, 0);
         TileObjectData.newTile.StyleLineSkip = 2;
-        tile.AnimationFrameHeight = 72;
     }
     
     public static void SetPiano(ModTile tile)
@@ -624,6 +649,47 @@ public static class TileHelper
         TileID.Sets.DisableSmartCursor[tile.Type] = true;
         TileID.Sets.FramesOnKillWall[tile.Type] = true;
         tile.DustType = DustID.WoodFurniture;
+    }
+
+    public static void SetCrate(ModTile tile)
+    {
+        Main.tileSolidTop[tile.Type] = true;
+        Main.tileLighted[tile.Type] = true;
+        Main.tileFrameImportant[tile.Type] = true;
+        Main.tileNoAttach[tile.Type] = true;
+        Main.tileTable[tile.Type] = true;
+        Main.tileLavaDeath[tile.Type] = true;
+        Main.tileWaterDeath[tile.Type] = false;
+        TileObjectData.newTile.CopyFrom(TileObjectData.Style2x2);
+    }
+
+    public static void SetJar(ModTile tile, ushort jarType = TileID.MonarchButterflyJar)
+    {
+        Main.tileFrameImportant[tile.Type] = true;
+        Main.tileLavaDeath[tile.Type] = true;
+        TileObjectData.newTile.CopyFrom(TileObjectData.Style2x2);
+        TileObjectData.newTile.CopyFrom(TileObjectData.GetTileData(jarType, 0));
+    }
+
+    public static void SetBanner(ModTile tile)
+    {
+        Main.tileFrameImportant[tile.Type] = true;
+        Main.tileLavaDeath[tile.Type] = true;
+        Main.tileFrameImportant[tile.Type] = true;
+        Main.tileNoAttach[tile.Type] = true;
+        Main.tileLavaDeath[tile.Type] = true;
+        TileObjectData.newTile.CopyFrom(TileObjectData.Style1x2Top);
+        TileObjectData.newTile.Height = 3;
+        TileObjectData.newTile.CoordinateHeights = [16, 16, 16];
+        TileObjectData.newTile.StyleHorizontal = true;
+        TileObjectData.newTile.AnchorTop = new AnchorData(AnchorType.SolidTile | AnchorType.SolidSide | AnchorType.SolidBottom | AnchorType.PlanterBox, TileObjectData.newTile.Width, 0);
+        TileObjectData.newTile.DrawYOffset = -2;
+        TileObjectData.newAlternate.CopyFrom(TileObjectData.newTile);
+        TileObjectData.newAlternate.AnchorTop = new AnchorData(AnchorType.Platform, TileObjectData.newTile.Width, 0);
+        TileObjectData.newAlternate.DrawYOffset = -10;
+        TileObjectData.addAlternate(0);
+        TileID.Sets.DisableSmartCursor[tile.Type] = true;
+        tile.AdjTiles = [TileID.Banners];
     }
     
     public static void Set3X2BiomeSurfaceDecoration(ushort type)

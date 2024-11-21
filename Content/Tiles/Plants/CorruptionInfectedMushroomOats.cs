@@ -1,4 +1,5 @@
 ﻿using BiomeExpansion.Content.Tiles.Biome;
+using BiomeExpansion.Content.Tiles.Sands;
 using Terraria.ObjectData;
 
 namespace BiomeExpansion.Content.Tiles.Plants;
@@ -10,7 +11,7 @@ public class CorruptionInfectedMushroomOats : ModTile
     public override void SetStaticDefaults()
     {
         TileHelper.SetSeaOats(Type);
-        TileObjectData.newTile.AnchorValidTiles = [ModContent.TileType<CorruptionInfectedMushroomGrass>()];
+        TileObjectData.newTile.AnchorValidTiles = [ModContent.TileType<CorruptionInfectedMushroomGrass>(), ModContent.TileType<CorruptionInfectedMushroomSand>()];
         TileObjectData.addTile(Type);
         HitSound = SoundID.Grass;
         DustType = DustID.CorruptPlants;

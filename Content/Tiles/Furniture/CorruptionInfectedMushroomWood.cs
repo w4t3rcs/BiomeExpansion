@@ -12,6 +12,7 @@ public class CorruptionInfectedMushroomWood : ModTile
         Main.tileMerge[Type][ModContent.TileType<CorruptionInfectedMushroomGrass>()] = true;
         Main.tileMerge[Type][ModContent.TileType<InfectedMushroomDirt>()] = true;
         HitSound = SoundID.Dig;
+        DustType = DustID.Corruption;
         AddMapEntry(Color.DarkCyan);
         RegisterItemDrop(ModContent.ItemType<Items.Placeable.Furniture.CorruptionInfectedMushroomWood>());
     }

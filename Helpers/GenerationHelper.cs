@@ -9,15 +9,16 @@ public class GenerationHelper
     public const int DirtGenerationId = 1;
     public const int GrassGenerationId = 2;
     public const int StoneGenerationId = 3;
-    public const int WallGenerationId = 4;
+    public const int SandGenerationId = 4;
+    public static readonly IBiomePlacer RectangleBiomePlacer = new RectangleBiomePlacer();
     public static readonly IGroundModification HorizontalTunnelModification = new HorizontalTunnelModification();
     public static readonly IGroundModification TwoDirectionDiagonalTunnelModification = new TwoDirectionDiagonalTunnelModification();
+    public static readonly IWallPlacer SimpleWallPlacer = new SimpleWallPlacer();
     public static readonly Dictionary<BEBiome, KeyValuePair<int, int>> BEBiomesXCoordinates = new();
     public static readonly Dictionary<BEBiome, KeyValuePair<int, int>> BEBiomesYCoordinates = new();
     private static readonly IBiomeRegistrar BiomeRegistrar = new BiomeRegistrar();
     private static readonly IBiomeLocator SurfaceBiomeLocator = new SurfaceBiomeLocator();
     private static readonly IDependentBiomeLocator DependentBiomeLocator = new DependentBiomeLocator();
-    private static readonly IBiomePlacer RectangleBiomePlacer = new RectangleBiomePlacer();
     
     public static SurfaceBiomeBuilder CreateSurfaceBiomeBuilder() => new();
     
@@ -34,11 +35,13 @@ public class GenerationHelper
         public readonly List<DefaultSurfaceTileGenerationStep> DefaultSurfaceTileGenerationSteps = [];
         public readonly List<OreGenerationStep> OreGenerationSteps = [];
         public readonly List<GroundDecorationGenerationStep> GroundDecorationGenerationSteps = [];
+        public readonly List<WallGenerationStep> WallGenerationSteps = [];
         private BEBiome _biome;
         private bool _isNearEvil;
         private int _width;
         private int _height;
         private IGroundModification _groundModification;
+        private IBiomePlacer _biomePlacer;
         
         public SurfaceBiomeBuilder Biome(BEBiome biome)
         {
@@ -69,6 +72,12 @@ public class GenerationHelper
             _groundModification = groundModification;
             return this;
         }
+
+        public SurfaceBiomeBuilder BiomePlacer(IBiomePlacer biomePlacer)
+        {
+            _biomePlacer = biomePlacer;
+            return this;
+        }
         
         public DefaultSurfaceTileGenerationStep DefaultBiomeTileGenerationStep()
         {
@@ -85,6 +94,11 @@ public class GenerationHelper
             return new OreGenerationStep(this);
         }
 
+        public WallGenerationStep WallGenerationStep()
+        {
+            return new WallGenerationStep(this);
+        }
+
         public void Generate()
         {
             DefaultSurfaceTileGenerationSteps.Sort((step1, step2) => step1.generationId - step2.generationId);
@@ -94,11 +108,12 @@ public class GenerationHelper
                 KeyValuePair<int,int> yCoordinates = SurfaceBiomeLocator.GetBiomeYCoordinates(_height);
                 BiomeRegistrar.Register(_biome, xCoordinates, yCoordinates);
                 _groundModification?.Modify(BEBiomesXCoordinates[_biome].Key, BEBiomesXCoordinates[_biome].Value, BEBiomesYCoordinates[_biome].Key, BEBiomesYCoordinates[_biome].Value);
-                RectangleBiomePlacer.Place(_biome, [
-                        (ushort)DefaultSurfaceTileGenerationSteps[0].tileType, 
-                        (ushort)DefaultSurfaceTileGenerationSteps[1].tileType,
-                        (ushort)DefaultSurfaceTileGenerationSteps[2].tileType
-                    ], (ushort)DefaultSurfaceTileGenerationSteps[3].tileType);
+                _biomePlacer.Place(_biome, [
+                    (ushort)DefaultSurfaceTileGenerationSteps[0].tileType, 
+                    (ushort)DefaultSurfaceTileGenerationSteps[1].tileType,
+                    (ushort)DefaultSurfaceTileGenerationSteps[2].tileType,
+                    DefaultSurfaceTileGenerationSteps.Count > 3 ? (ushort)DefaultSurfaceTileGenerationSteps[3].tileType : (ushort)0,
+                ]);
                 foreach (GroundDecorationGenerationStep generationStep in GroundDecorationGenerationSteps)
                 {
                     if (generationStep.isPlant)
@@ -116,9 +131,12 @@ public class GenerationHelper
                 foreach (OreGenerationStep generationStep in OreGenerationSteps)
                     OreHelper.GenerateOre(_biome, generationStep.rarity, 
                         generationStep.strength, generationStep.steps, (ushort)generationStep.tileType);
+                foreach (WallGenerationStep generationStep in WallGenerationSteps)
+                    generationStep.wallPlacer.PlaceWall(_biome, (ushort)generationStep.wallType, (ushort)generationStep.tileBehindWall);
                 DefaultSurfaceTileGenerationSteps.Clear();
                 GroundDecorationGenerationSteps.Clear();
                 OreGenerationSteps.Clear();
+                WallGenerationSteps.Clear();
             }
         }
     }
@@ -128,11 +146,13 @@ public class GenerationHelper
         public readonly List<DefaultCaveTileGenerationStep> DefaultCaveTileGenerationSteps = [];
         public readonly List<OreGenerationStep> OreGenerationSteps = [];
         public readonly List<GroundDecorationGenerationStep> GroundDecorationGenerationSteps = [];
+        public readonly List<WallGenerationStep> WallGenerationSteps = [];
         private BEBiome _biome;
         private bool _isDependentBiome;
         private BEBiome _aboveBiome;
         private int _deepness;
         private IGroundModification _groundModification;
+        private IBiomePlacer _biomePlacer;
 
         public CaveBiomeBuilder Biome(BEBiome biome)
         {
@@ -164,6 +184,12 @@ public class GenerationHelper
             return this;
         }
 
+        public CaveBiomeBuilder BiomePlacer(IBiomePlacer biomePlacer)
+        {
+            _biomePlacer = biomePlacer;
+            return this;
+        }
+
         public DefaultCaveTileGenerationStep DefaultCaveTileGenerationStep()
         {
             return new DefaultCaveTileGenerationStep(this);
@@ -179,6 +205,11 @@ public class GenerationHelper
             return new OreGenerationStep(this);
         }
 
+        public WallGenerationStep WallGenerationStep()
+        {
+            return new WallGenerationStep(this);
+        }
+
         public void Generate()
         {
             if (_isDependentBiome)
@@ -188,9 +219,7 @@ public class GenerationHelper
                 BiomeRegistrar.Register(_biome, xCoordinates, yCoordinates);
                 _groundModification?.Modify(BEBiomesXCoordinates[_biome].Key, BEBiomesXCoordinates[_biome].Value, BEBiomesYCoordinates[_biome].Key, BEBiomesYCoordinates[_biome].Value);
                 DefaultCaveTileGenerationSteps.Sort((step1, step2) => step1.generationId - step2.generationId);
-                RectangleBiomePlacer.PlaceOnlyWithMainTile(_biome,
-                    (ushort)DefaultCaveTileGenerationSteps[0].tileType,
-                    (ushort)DefaultCaveTileGenerationSteps[1].tileType);
+                _biomePlacer.PlaceOnlyWithMainTile(_biome, (ushort)DefaultCaveTileGenerationSteps[0].tileType);
                 foreach (GroundDecorationGenerationStep generationStep in GroundDecorationGenerationSteps)
                 {
                     if (generationStep.isPlant)
@@ -208,9 +237,12 @@ public class GenerationHelper
                 foreach (OreGenerationStep generationStep in OreGenerationSteps)
                     OreHelper.GenerateOre(_biome, generationStep.rarity, 
                         generationStep.strength, generationStep.steps, (ushort)generationStep.tileType);
+                foreach (WallGenerationStep generationStep in WallGenerationSteps)
+                    generationStep.wallPlacer.PlaceWall(_biome, (ushort)generationStep.wallType, (ushort)generationStep.tileBehindWall);
                 DefaultCaveTileGenerationSteps.Clear();
                 GroundDecorationGenerationSteps.Clear();
                 OreGenerationSteps.Clear();
+                WallGenerationSteps.Clear();
             }
         }
     }

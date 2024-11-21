@@ -11,8 +11,9 @@ public class CorruptionInfectedCaterpillar : ModItem
 
     public override void SetDefaults()
     {
-        Item.DefaultToCapturedCritter(ModContent.NPCType<Content.NPCs.CorruptionInfectedCaterpillar>());
+        Item.DefaultToCapturedCritter(ModContent.NPCType<Content.NPCs.Critters.CorruptionInfectedCaterpillar>());
         Item.width = 12;
         Item.height = 12;
+        Item.bait = 25;
     }
 }

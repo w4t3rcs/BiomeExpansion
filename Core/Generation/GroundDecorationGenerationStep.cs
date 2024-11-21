@@ -2,19 +2,19 @@
 
 public class GroundDecorationGenerationStep
 {
-    public GenerationHelper.SurfaceBiomeBuilder SurfaceBiomeBuilder;
-    public GenerationHelper.CaveBiomeBuilder CaveBiomeBuilder;
-    public ushort rarity = 1;
-    public int tileType;
-    public ushort[] soilTiles = [];
-    public sbyte frameCount = 0;
-    public sbyte width = 1;
-    public sbyte height = 1;
-    public bool isPlant = false;
-    public bool isHanging = false;
-    public bool isBunch = false;
-    public bool isSeaOats = false;
-    public bool isLilyPad = false;
+    public readonly GenerationHelper.SurfaceBiomeBuilder SurfaceBiomeBuilder;
+    public readonly GenerationHelper.CaveBiomeBuilder CaveBiomeBuilder;
+    public ushort rarity {get; private set;} = 1;
+    public int tileType {get; private set;}
+    public ushort[] soilTiles {get; private set;} = [];
+    public sbyte frameCount {get; private set;} = 0;
+    public sbyte width {get; private set;} = 1;
+    public sbyte height {get; private set;} = 1;
+    public bool isPlant {get; private set;} = false;
+    public bool isHanging {get; private set;} = false;
+    public bool isBunch {get; private set;} = false;
+    public bool isSeaOats {get; private set;} = false;
+    public bool isLilyPad {get; private set;} = false;
 
     public GroundDecorationGenerationStep(GenerationHelper.SurfaceBiomeBuilder surfaceBiomeBuilder)
     {

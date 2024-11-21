@@ -1,6 +1,7 @@
 ﻿using BiomeExpansion.Content.Items.Placeable.Furniture;
 using BiomeExpansion.Content.Tiles.Biome;
 using BiomeExpansion.Content.Tiles.Plants;
+using BiomeExpansion.Content.Tiles.Sands;
 using ReLogic.Content;
 using Terraria.GameContent;
 
