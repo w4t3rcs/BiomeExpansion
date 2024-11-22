@@ -1,5 +1,6 @@
 ﻿using BiomeExpansion.Content.NPCs.Critters;
 using BiomeExpansion.Content.Tiles.Stones;
+using BiomeExpansion.Core.Generation;
 using Terraria.DataStructures;
 using Terraria.ObjectData;
 
@@ -13,6 +14,7 @@ public class CrimsonInfectedMushroomCaveRock : ModTile
     {
         TileHelper.SetCustomXCustomBiomeSurfaceDecoration(Type, 3, 2, true, 3);
         TileObjectData.newTile.AnchorValidTiles = [ModContent.TileType<CrimsonInfectedMushroomStone>(), ModContent.TileType<CrimsonInfectedMushroomOldStone>()];
+        this.AddGenerationTileData(TileObjectData.newTile);
         TileObjectData.addTile(Type);
         HitSound = SoundID.Dig;
         DustType = DustID.CrimsonPlants;

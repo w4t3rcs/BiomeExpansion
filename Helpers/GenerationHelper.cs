@@ -14,6 +14,11 @@ public class GenerationHelper
     public static readonly IGroundModification HorizontalTunnelModification = new HorizontalTunnelModification();
     public static readonly IGroundModification TwoDirectionDiagonalTunnelModification = new TwoDirectionDiagonalTunnelModification();
     public static readonly IWallPlacer SimpleWallPlacer = new SimpleWallPlacer();
+    public static readonly ISurfaceDecorationPlacer SimpleDecorationPlacer = new SimpleDecorationPlacer();
+    public static readonly ISurfaceDecorationPlacer SimplePlantPlacer = new SimplePlantPlacer();
+    public static readonly ISurfaceDecorationPlacer VinePlacer = new VinePlacer();
+    public static readonly ISurfaceDecorationPlacer SeaOatsPlacer = new SeaOatsPlacer();
+    public static readonly ISurfaceDecorationPlacer BunchPlacer = new BunchPlacer();
     public static readonly Dictionary<BEBiome, KeyValuePair<int, int>> BEBiomesXCoordinates = new();
     public static readonly Dictionary<BEBiome, KeyValuePair<int, int>> BEBiomesYCoordinates = new();
     private static readonly IBiomeRegistrar BiomeRegistrar = new BiomeRegistrar();
@@ -115,19 +120,7 @@ public class GenerationHelper
                     DefaultSurfaceTileGenerationSteps.Count > 3 ? (ushort)DefaultSurfaceTileGenerationSteps[3].tileType : (ushort)0,
                 ]);
                 foreach (GroundDecorationGenerationStep generationStep in GroundDecorationGenerationSteps)
-                {
-                    if (generationStep.isPlant)
-                    {
-                        PlantHelper.GeneratePlant(_biome, generationStep.rarity, (ushort)generationStep.tileType, generationStep.soilTiles, 
-                            generationStep.frameCount, generationStep.width, generationStep.height, 
-                            generationStep.isHanging, generationStep.isBunch, generationStep.isSeaOats, generationStep.isLilyPad);
-                    }
-                    else
-                    {
-                        GroundDecorationHelper.GenerateGroundDecoration(_biome, generationStep.rarity, (ushort)generationStep.tileType,
-                            generationStep.width, generationStep.height, generationStep.frameCount, generationStep.soilTiles);
-                    }
-                }
+                    generationStep.decorationPlacer.PlaceSurfaceDecoration(_biome, generationStep.rarity, (ushort)generationStep.tileType, generationStep.frameCount);
                 foreach (OreGenerationStep generationStep in OreGenerationSteps)
                     OreHelper.GenerateOre(_biome, generationStep.rarity, 
                         generationStep.strength, generationStep.steps, (ushort)generationStep.tileType);
@@ -221,19 +214,7 @@ public class GenerationHelper
                 DefaultCaveTileGenerationSteps.Sort((step1, step2) => step1.generationId - step2.generationId);
                 _biomePlacer.PlaceOnlyWithMainTile(_biome, (ushort)DefaultCaveTileGenerationSteps[0].tileType);
                 foreach (GroundDecorationGenerationStep generationStep in GroundDecorationGenerationSteps)
-                {
-                    if (generationStep.isPlant)
-                    {
-                        PlantHelper.GeneratePlant(_biome, generationStep.rarity, (ushort)generationStep.tileType, generationStep.soilTiles, 
-                            generationStep.frameCount, generationStep.width, generationStep.height, 
-                            generationStep.isHanging, generationStep.isBunch, generationStep.isSeaOats, generationStep.isLilyPad);
-                    }
-                    else
-                    {
-                        GroundDecorationHelper.GenerateGroundDecoration(_biome, generationStep.rarity, (ushort)generationStep.tileType,
-                            generationStep.width, generationStep.height, generationStep.frameCount, generationStep.soilTiles);
-                    }
-                }
+                    generationStep.decorationPlacer.PlaceSurfaceDecoration(_biome, generationStep.rarity, (ushort)generationStep.tileType, generationStep.frameCount);
                 foreach (OreGenerationStep generationStep in OreGenerationSteps)
                     OreHelper.GenerateOre(_biome, generationStep.rarity, 
                         generationStep.strength, generationStep.steps, (ushort)generationStep.tileType);

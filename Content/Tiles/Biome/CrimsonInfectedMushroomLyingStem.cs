@@ -1,4 +1,5 @@
 ﻿using BiomeExpansion.Content.NPCs.Critters;
+using BiomeExpansion.Core.Generation;
 using Terraria.DataStructures;
 using Terraria.ObjectData;
 
@@ -11,6 +12,7 @@ public class CrimsonInfectedMushroomLyingStem : ModTile
     public override void SetStaticDefaults()
     {
         TileHelper.Set3X2BiomeSurfaceDecoration(Type);
+        this.AddGenerationTileData(TileObjectData.newTile);
         TileObjectData.addTile(Type);
         HitSound = SoundID.Dig;
         DustType = DustID.Crimson;

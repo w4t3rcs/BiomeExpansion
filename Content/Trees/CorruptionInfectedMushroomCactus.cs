@@ -11,6 +11,7 @@ public class CorruptionInfectedMushroomCactus : ModCactus
 {
     public override Asset<Texture2D> GetTexture() => ModContent.Request<Texture2D>("BiomeExpansion/Assets/Trees/CorruptionInfectedMushroomCactus");
     public override Asset<Texture2D> GetFruitTexture() => null;
+    public new int PlantTileId => ModContent.TileType<Tiles.Sands.CorruptionInfectedMushroomCactus>();
     
     public override void SetStaticDefaults() 
     {

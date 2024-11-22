@@ -1,4 +1,5 @@
 ﻿using BiomeExpansion.Content.Tiles.Stones;
+using BiomeExpansion.Core.Generation;
 using Terraria.ObjectData;
 
 namespace BiomeExpansion.Content.Tiles.Plants;
@@ -11,6 +12,7 @@ public class CorruptionInfectedMushroomCaveBigMushroom : ModTile
     {
         TileHelper.SetCustomXCustomFramedPlant(Type, 2, true, 3, 3, true, true, false);
         TileObjectData.newTile.AnchorValidTiles = [ModContent.TileType<CorruptionInfectedMushroomStone>(), ModContent.TileType<CorruptionInfectedMushroomOldStone>()];
+        this.AddGenerationTileData(TileObjectData.newTile);
         TileObjectData.addTile(Type);
         HitSound = SoundID.Grass;
         DustType = DustID.CorruptPlants;

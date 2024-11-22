@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using BiomeExpansion.Content.Items.Others;
 using BiomeExpansion.Content.Tiles.Biome;
+using BiomeExpansion.Core.Generation;
 using Terraria.ObjectData;
 
 namespace BiomeExpansion.Content.Tiles.Plants;
@@ -14,6 +15,7 @@ public class CrimsonInfectedMushroomTallGrass : ModTile
         TileHelper.SetCustomXCustomFramedPlant(Type, 9);
         TileID.Sets.SwaysInWindBasic[Type] = true;
         TileObjectData.newTile.AnchorValidTiles = [ModContent.TileType<CrimsonInfectedMushroomGrass>()];
+        this.AddGenerationTileData(TileObjectData.newTile);
         TileObjectData.addTile(Type);
         HitSound = SoundID.Grass;
         DustType = DustID.CrimsonPlants;
