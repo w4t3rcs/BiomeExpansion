@@ -6,7 +6,10 @@ public class WallGenerationStep
     public readonly GenerationHelper.CaveBiomeBuilder CaveBiomeBuilder;
     public int wallType { get; private set; }
     public int tileBehindWall { get; private set; } = 0;
+    public int[] replacedWall { get; private set; } = [];
+    public int[] highPriorityWalls { get; private set; } = [];
     public IWallPlacer wallPlacer { get; private set; }
+
 
     public WallGenerationStep(GenerationHelper.SurfaceBiomeBuilder surfaceBiomeBuilder)
     {
@@ -24,9 +27,21 @@ public class WallGenerationStep
         return this;
     }
 
+    public WallGenerationStep HighPriorityWalls(int[] highPriorityWalls)
+    {
+        this.highPriorityWalls = highPriorityWalls;
+        return this;
+    }
+
     public WallGenerationStep TileBehindWall(int tileBehindWall)
     {
         this.tileBehindWall = tileBehindWall;
+        return this;
+    }
+
+    public WallGenerationStep ReplacedWalls(int[] replacedWall)
+    {
+        this.replacedWall = replacedWall;
         return this;
     }
 

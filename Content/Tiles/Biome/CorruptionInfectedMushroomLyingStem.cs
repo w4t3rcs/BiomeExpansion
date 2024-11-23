@@ -1,4 +1,5 @@
 ﻿using BiomeExpansion.Content.NPCs.Critters;
+using BiomeExpansion.Content.Tiles.Stones;
 using BiomeExpansion.Core.Generation;
 using Terraria.DataStructures;
 using Terraria.ObjectData;
@@ -12,6 +13,7 @@ public class CorruptionInfectedMushroomLyingStem : ModTile
     public override void SetStaticDefaults()
     {
         TileHelper.Set3X2BiomeSurfaceDecoration(Type);
+        TileObjectData.newTile.AnchorValidTiles = [ModContent.TileType<CorruptionInfectedMushroomGrass>(), ModContent.TileType<CorruptionInfectedMushroomStone>()];
         this.AddGenerationTileData(TileObjectData.newTile);
         TileObjectData.addTile(Type);
         HitSound = SoundID.Dig;

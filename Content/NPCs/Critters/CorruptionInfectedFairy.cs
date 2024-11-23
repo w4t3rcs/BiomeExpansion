@@ -24,6 +24,11 @@ namespace BiomeExpansion.Content.NPCs.Critters
             SpawnModBiomes = [ModContent.GetInstance<CorruptionInfectedMushroomSurfaceBiome>().Type];
         }
 
+        public override void FindFrame(int frameHeight)
+        {
+            FrameHelper.AnimateNPCWithDirection(NPC, frameHeight, 6);
+        }
+
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
             if (spawnInfo.Player.InModBiome<CorruptionInfectedMushroomSurfaceBiome>())

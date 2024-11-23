@@ -14,6 +14,7 @@ public class GenerationHelper
     public static readonly IGroundModification HorizontalTunnelModification = new HorizontalTunnelModification();
     public static readonly IGroundModification TwoDirectionDiagonalTunnelModification = new TwoDirectionDiagonalTunnelModification();
     public static readonly IWallPlacer SimpleWallPlacer = new SimpleWallPlacer();
+    public static readonly IWallPlacer ForcedWallPlacer = new ForcedWallPlacer();
     public static readonly ISurfaceDecorationPlacer SimpleDecorationPlacer = new SimpleDecorationPlacer();
     public static readonly ISurfaceDecorationPlacer SimplePlantPlacer = new SimplePlantPlacer();
     public static readonly ISurfaceDecorationPlacer VinePlacer = new VinePlacer();
@@ -125,7 +126,8 @@ public class GenerationHelper
                     OreHelper.GenerateOre(_biome, generationStep.rarity, 
                         generationStep.strength, generationStep.steps, (ushort)generationStep.tileType);
                 foreach (WallGenerationStep generationStep in WallGenerationSteps)
-                    generationStep.wallPlacer.PlaceWall(_biome, (ushort)generationStep.wallType, (ushort)generationStep.tileBehindWall);
+                    generationStep.wallPlacer.PlaceWall(_biome, (ushort)generationStep.wallType, 
+                        (ushort)generationStep.tileBehindWall, generationStep.replacedWall, generationStep.highPriorityWalls);
                 DefaultSurfaceTileGenerationSteps.Clear();
                 GroundDecorationGenerationSteps.Clear();
                 OreGenerationSteps.Clear();
@@ -219,7 +221,8 @@ public class GenerationHelper
                     OreHelper.GenerateOre(_biome, generationStep.rarity, 
                         generationStep.strength, generationStep.steps, (ushort)generationStep.tileType);
                 foreach (WallGenerationStep generationStep in WallGenerationSteps)
-                    generationStep.wallPlacer.PlaceWall(_biome, (ushort)generationStep.wallType, (ushort)generationStep.tileBehindWall);
+                    generationStep.wallPlacer.PlaceWall(_biome, (ushort)generationStep.wallType, 
+                        (ushort)generationStep.tileBehindWall, generationStep.replacedWall, generationStep.highPriorityWalls);                
                 DefaultCaveTileGenerationSteps.Clear();
                 GroundDecorationGenerationSteps.Clear();
                 OreGenerationSteps.Clear();

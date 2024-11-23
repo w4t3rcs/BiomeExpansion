@@ -23,7 +23,7 @@ public class SimplePlantPlacer : ISurfaceDecorationPlacer
     {
         WorldGen.PlaceTile(x, y, plantTile);
         if (frameCount == 0) return;
-        if (width != 1) FrameHelper.SetRandomHorizontalFrame(x, y, height, frameCount);
+        if (width != 1) FrameHelper.SetRandomHorizontalFrame(x, y, width, height, frameCount);
         else FrameHelper.SetRandomHorizontalFrame(x, y, height, frameCount);
     }
 }

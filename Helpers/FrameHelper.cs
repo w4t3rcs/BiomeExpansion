@@ -75,11 +75,15 @@ public static class FrameHelper
     /// <param name="frameNumber">The frame number used to calculate the tile frame.</param>
     public static void SetFrameX(int x, int y, int width, int height, int frameNumber)
     {
-        Tile tile = Main.tile[x - 1, y];
-        short currentFrame = (short)(frameNumber * (FrameSize + FramePadding) * width);
+        short currentFrame;
+        int start = -1;
+        if (width == 5) start = -2;
+        Tile tile = Main.tile[x + start, y];
+        currentFrame = (short)(frameNumber * (FrameSize + FramePadding) * width);
         tile.TileFrameX = currentFrame;
-        for (int j = 1; j < height; j++) Main.tile[x - 1, y - j].TileFrameX = currentFrame;
-        for (int i = 0; i < width; i++)
+        for (int j = 1; j < height; j++) 
+            Main.tile[x + start, y - j].TileFrameX = currentFrame;
+        for (int i = start + 1; i <= width; i++)
         {
             currentFrame += FrameSize + FramePadding;
             for (int j = 0; j < height; j++)
@@ -232,9 +236,8 @@ public static class FrameHelper
     public static void DrawTileWithGlowMask(SpriteBatch spriteBatch, string tileTexture, int x, int y, int width = 1, int height = 1)
     {
         var tile = Framing.GetTileSafely(x, y);
-        var frameSizeWithPadding = FrameSize + FramePadding;
         var glowTextureLocation = $"{tileTexture}Glow";
-        var sourceRect = new Rectangle(tile.TileFrameX, tile.TileFrameY, width * frameSizeWithPadding, height * frameSizeWithPadding);
+        var sourceRect = new Rectangle(tile.TileFrameX, tile.TileFrameY, FrameSize, FrameSize);
         var texture = ModContent.Request<Texture2D>(tileTexture).Value;
         var glowTexture = ModContent.Request<Texture2D>(glowTextureLocation).Value;
         var vector = new Vector2(x * FrameSize - (int)Main.screenPosition.X, y * FrameSize - (int)Main.screenPosition.Y) + Zero;
