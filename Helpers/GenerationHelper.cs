@@ -1,5 +1,13 @@
 ﻿using System.Collections.Generic;
 using BiomeExpansion.Core.Generation;
+using BiomeExpansion.Core.Generation.Cleaners;
+using BiomeExpansion.Core.Generation.Locators;
+using BiomeExpansion.Core.Generation.Modifications;
+using BiomeExpansion.Core.Generation.Placers.Biomes;
+using BiomeExpansion.Core.Generation.Placers.Decorations;
+using BiomeExpansion.Core.Generation.Placers.Walls;
+using BiomeExpansion.Core.Generation.Registrars;
+using BiomeExpansion.Core.Generation.Steps;
 
 namespace BiomeExpansion.Helpers;
 
@@ -25,6 +33,7 @@ public class GenerationHelper
     private static readonly IBiomeRegistrar BiomeRegistrar = new BiomeRegistrar();
     private static readonly IBiomeLocator SurfaceBiomeLocator = new SurfaceBiomeLocator();
     private static readonly IDependentBiomeLocator DependentBiomeLocator = new DependentBiomeLocator();
+    private static readonly ITileCleaner TileCleaner = new SimpleTileCleaner();
     
     public static SurfaceBiomeBuilder CreateSurfaceBiomeBuilder() => new();
     
@@ -48,6 +57,7 @@ public class GenerationHelper
         private int _height;
         private IGroundModification _groundModification;
         private IBiomePlacer _biomePlacer;
+        private int[] _tilesToKill = [];
         
         public SurfaceBiomeBuilder Biome(BEBiome biome)
         {
@@ -85,6 +95,12 @@ public class GenerationHelper
             return this;
         }
         
+        public SurfaceBiomeBuilder TilesToKill(int[] tilesToKill)
+        {
+            _tilesToKill = tilesToKill;
+            return this;
+        }
+
         public DefaultSurfaceTileGenerationStep DefaultBiomeTileGenerationStep()
         {
             return new DefaultSurfaceTileGenerationStep(this);
@@ -128,6 +144,7 @@ public class GenerationHelper
                 foreach (WallGenerationStep generationStep in WallGenerationSteps)
                     generationStep.wallPlacer.PlaceWall(_biome, (ushort)generationStep.wallType, 
                         (ushort)generationStep.tileBehindWall, generationStep.replacedWall, generationStep.highPriorityWalls);
+                TileCleaner.Clean(BEBiomesXCoordinates[_biome].Key, BEBiomesXCoordinates[_biome].Value, BEBiomesYCoordinates[_biome].Key, BEBiomesYCoordinates[_biome].Value, _tilesToKill);
                 DefaultSurfaceTileGenerationSteps.Clear();
                 GroundDecorationGenerationSteps.Clear();
                 OreGenerationSteps.Clear();
@@ -148,6 +165,7 @@ public class GenerationHelper
         private int _deepness;
         private IGroundModification _groundModification;
         private IBiomePlacer _biomePlacer;
+        private int[] _tilesToKill = [];
 
         public CaveBiomeBuilder Biome(BEBiome biome)
         {
@@ -185,6 +203,12 @@ public class GenerationHelper
             return this;
         }
 
+        public CaveBiomeBuilder TilesToKill(int[] tilesToKill)
+        {
+            _tilesToKill = tilesToKill;
+            return this;
+        }
+
         public DefaultCaveTileGenerationStep DefaultCaveTileGenerationStep()
         {
             return new DefaultCaveTileGenerationStep(this);
@@ -213,7 +237,6 @@ public class GenerationHelper
                 KeyValuePair<int,int> yCoordinates = DependentBiomeLocator.GetBiomeYCoordinates(_aboveBiome, _deepness);
                 BiomeRegistrar.Register(_biome, xCoordinates, yCoordinates);
                 _groundModification?.Modify(BEBiomesXCoordinates[_biome].Key, BEBiomesXCoordinates[_biome].Value, BEBiomesYCoordinates[_biome].Key, BEBiomesYCoordinates[_biome].Value);
-                DefaultCaveTileGenerationSteps.Sort((step1, step2) => step1.generationId - step2.generationId);
                 _biomePlacer.PlaceOnlyWithMainTile(_biome, (ushort)DefaultCaveTileGenerationSteps[0].tileType);
                 foreach (GroundDecorationGenerationStep generationStep in GroundDecorationGenerationSteps)
                     generationStep.decorationPlacer.PlaceSurfaceDecoration(_biome, generationStep.rarity, (ushort)generationStep.tileType, generationStep.frameCount);
@@ -223,6 +246,7 @@ public class GenerationHelper
                 foreach (WallGenerationStep generationStep in WallGenerationSteps)
                     generationStep.wallPlacer.PlaceWall(_biome, (ushort)generationStep.wallType, 
                         (ushort)generationStep.tileBehindWall, generationStep.replacedWall, generationStep.highPriorityWalls);                
+                TileCleaner.Clean(BEBiomesXCoordinates[_biome].Key, BEBiomesXCoordinates[_biome].Value, BEBiomesYCoordinates[_biome].Key, BEBiomesYCoordinates[_biome].Value, _tilesToKill);
                 DefaultCaveTileGenerationSteps.Clear();
                 GroundDecorationGenerationSteps.Clear();
                 OreGenerationSteps.Clear();
