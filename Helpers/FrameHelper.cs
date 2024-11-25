@@ -83,7 +83,7 @@ public static class FrameHelper
         tile.TileFrameX = currentFrame;
         for (int j = 1; j < height; j++) 
             Main.tile[x + start, y - j].TileFrameX = currentFrame;
-        for (int i = start + 1; i <= width; i++)
+        for (int i = start + 1; i < width + start; i++)
         {
             currentFrame += FrameSize + FramePadding;
             for (int j = 0; j < height; j++)
@@ -294,7 +294,6 @@ public static class FrameHelper
 		if (projectile.frameCounter >= animationSpeed) {
 			projectile.frameCounter = 0;
 			projectile.frame++;
-
 			if (projectile.frame >= Main.projFrames[projectile.type]) {
 				projectile.frame = 0;
 			}

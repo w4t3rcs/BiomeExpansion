@@ -51,6 +51,7 @@ public static class TileHelper
 		TileID.Sets.CanBeClearedDuringOreRunner[tile.Type] = true;
 		TileID.Sets.GeneralPlacementTiles[tile.Type] = false;
 		TileID.Sets.ChecksForMerge[tile.Type] = true;
+        TileMaterials.SetForTileId(tile.Type, TileMaterials._materialsByName["Sand"]);
 		tile.MineResist = mineResist;
     }
     
