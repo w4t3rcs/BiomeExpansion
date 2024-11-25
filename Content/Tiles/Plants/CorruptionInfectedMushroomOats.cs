@@ -12,7 +12,7 @@ public class CorruptionInfectedMushroomOats : ModTile
     public override void SetStaticDefaults()
     {
         TileHelper.SetSeaOats(Type);
-        TileObjectData.newTile.AnchorValidTiles = [ModContent.TileType<CorruptionInfectedMushroomGrass>(), ModContent.TileType<CorruptionInfectedMushroomSand>()];
+        TileObjectData.newTile.AnchorValidTiles = [ModContent.TileType<CorruptionInfectedMushroomSand>()];
         this.AddGenerationTileData(TileObjectData.newTile);
         TileObjectData.addTile(Type);
         HitSound = SoundID.Grass;

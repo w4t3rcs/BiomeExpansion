@@ -266,6 +266,14 @@ public static class FrameHelper
         spriteBatch.Draw(glowTexture, item.Center - Main.screenPosition, null, color, rotation, origin, 1f, SpriteEffects.None, 0f);
     }
 
+    public static void DrawNPCWithGlowMask(SpriteBatch spriteBatch, string npcTexture, NPC npc, Vector2 screenPos)
+    {
+        var glowTextureLocation = $"{npcTexture}Glow";
+        glowTextureLocation = TextureHelper.DynamicNPCsTextures.ContainsKey(glowTextureLocation) ? glowTextureLocation : npcTexture;
+        var glowTexture = ModContent.Request<Texture2D>(glowTextureLocation).Value;
+        spriteBatch.Draw(glowTexture, npc.Center - screenPos, npc.frame, Color.White * 0.6f, npc.rotation, new Vector2(npc.width/2, npc.height/2 - 2), npc.scale, npc.spriteDirection == 1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0);
+    }
+
     public static void AnimateNPCWithDirection(NPC npc, int frameHeight, int animationSpeed)
     {
         Vector2 direction = npc.velocity;
