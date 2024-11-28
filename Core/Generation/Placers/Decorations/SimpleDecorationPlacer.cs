@@ -5,18 +5,11 @@ namespace BiomeExpansion.Core.Generation.Placers.Decorations;
 
 public class SimpleDecorationPlacer : ISurfaceDecorationPlacer
 {
-    public void PlaceSurfaceDecoration(BEBiome biome, ushort rarity, ushort tile, sbyte frameCount = 0)
+    public void PlaceSurfaceDecoration(int x, int y, ushort rarity, ushort tile, sbyte frameCount = 0)
     {
-        var (leftX, rightX) = GenerationHelper.BEBiomesXCoordinates[biome];
-        var (startY, endY) = GenerationHelper.BEBiomesYCoordinates[biome];
-        for (int x = leftX; x < rightX; x++)
-        {
-            for (int y = startY; y < endY; y++)
-            {
-                if (CheckPositionToPlace(rarity, x, y, GenerationTileData.Widths[tile], GenerationTileData.Heights[tile], GenerationTileData.ValidTiles[tile]))
-                    PlaceDecoration(tile, x, y - 1, frameCount, GenerationTileData.Widths[tile], GenerationTileData.Heights[tile]);
-            }
-        }
+        if (!CheckPositionToPlace(rarity, x, y + 1, GenerationTileData.Widths[tile], GenerationTileData.Heights[tile], GenerationTileData.ValidTiles[tile])) return;
+        WorldGen.PlaceTile(x, y, tile);
+        if (frameCount != 0) FrameHelper.SetRandomHorizontalFrame(x, y, GenerationTileData.Widths[tile], GenerationTileData.Heights[tile], frameCount);
     }
 
     private static bool CheckPositionToPlace(ushort rarity, int x, int y, int width, int height, int[] allowedTiles)
@@ -41,11 +34,5 @@ public class SimpleDecorationPlacer : ISurfaceDecorationPlacer
         }
 
         return false;
-    }
-
-    private static void PlaceDecoration(ushort decorationTile, int x, int y, int frameCount, int width, int height)
-    {
-        WorldGen.PlaceTile(x, y, decorationTile);
-        if (frameCount != 0) FrameHelper.SetRandomHorizontalFrame(x, y, width, height, frameCount);
     }
 }

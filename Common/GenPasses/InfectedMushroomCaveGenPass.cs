@@ -26,9 +26,9 @@ public class InfectedMushroomCaveGenPass(string name, double loadWeight) : GenPa
         if (!WorldGen.crimson)
         {
             caveBiomeBuilder = caveBiomeBuilder
-                .DefaultCaveTileGenerationStep()
-                    .GenerationId(GenerationHelper.MainGenerationId)
+                .TileGenerationStep()
                     .TileType(ModContent.TileType<CrimsonInfectedMushroomStone>())
+                    .TilePlacer(GenerationHelper.MainTilePlacer)
                     .AndCave()
                 .WallGenerationStep()
                     .WallType(ModContent.WallType<CrimsonInfectedMushroomStoneWall>())
@@ -79,7 +79,7 @@ public class InfectedMushroomCaveGenPass(string name, double loadWeight) : GenPa
                     .AndCave()
                 .OreGenerationStep()
                     .TileType(ModContent.TileType<CrimsonInfectedMushroomOldStone>())
-                    .Rarity(325)
+                    .Rarity(275)
                     .Strength(WorldGen.genRand.Next(9, 16))
                     .Steps(WorldGen.genRand.Next(10, 18))
                     .AndCave()
@@ -93,9 +93,9 @@ public class InfectedMushroomCaveGenPass(string name, double loadWeight) : GenPa
         else 
         {
             caveBiomeBuilder = caveBiomeBuilder
-                .DefaultCaveTileGenerationStep()
-                    .GenerationId(GenerationHelper.MainGenerationId)
+                .TileGenerationStep()
                     .TileType(ModContent.TileType<CorruptionInfectedMushroomStone>())
+                    .TilePlacer(GenerationHelper.MainTilePlacer)
                     .AndCave()
                 .WallGenerationStep()
                     .WallType(ModContent.WallType<CorruptionInfectedMushroomStoneWall>())
@@ -146,7 +146,7 @@ public class InfectedMushroomCaveGenPass(string name, double loadWeight) : GenPa
                     .AndCave()
                 .OreGenerationStep()
                     .TileType(ModContent.TileType<CorruptionInfectedMushroomOldStone>())
-                    .Rarity(325)
+                    .Rarity(275)
                     .Strength(WorldGen.genRand.Next(9, 16))
                     .Steps(WorldGen.genRand.Next(10, 18))
                     .AndCave()

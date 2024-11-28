@@ -4,26 +4,13 @@ namespace BiomeExpansion.Core.Generation.Placers.Decorations;
 
 public class VinePlacer : ISurfaceDecorationPlacer
 {
-    public void PlaceSurfaceDecoration(BEBiome biome, ushort rarity, ushort tile, sbyte frameCount = 0)
-    {
-        var (leftX, rightX) = GenerationHelper.BEBiomesXCoordinates[biome];
-        var (startY, endY) = GenerationHelper.BEBiomesYCoordinates[biome];
-        for (int x = leftX; x < rightX; x++)
-        {
-            for (int y = startY; y < endY + 12; y++)
-            {
-                PlaceVine(tile, x, y, rarity, GenerationTileData.ValidTiles[tile]);
-            }
-        }
-    }
-
-    private static void PlaceVine(ushort plantTile, int x, int y, ushort rarity, int[] soilTiles)
+    public void PlaceSurfaceDecoration(int x, int y, ushort rarity, ushort tile, sbyte frameCount = 0)
     {
         int range = WorldGen.genRand.Next(2, 12);
-        if (!PlantHelper.CheckBottomPositionToPlace(rarity, soilTiles, x, y, range)) return;
+        if (!PlantHelper.CheckBottomPositionToPlace(rarity, GenerationTileData.ValidTiles[tile], x, y, range)) return;
         for (int i = y; i < y + range; i++)
         {
-            WorldGen.PlaceTile(x, i, plantTile);
+            WorldGen.PlaceTile(x, i, tile);
         }
 
         for (int i = y; i < y + range; i++)

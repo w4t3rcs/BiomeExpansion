@@ -1,4 +1,6 @@
-﻿namespace BiomeExpansion.Core.Generation.Steps;
+﻿using BiomeExpansion.Core.Generation.Placers.Ores;
+
+namespace BiomeExpansion.Core.Generation.Steps;
 
 public class OreGenerationStep
 {
@@ -8,6 +10,7 @@ public class OreGenerationStep
     public int tileType { get; private set; }
     public float strength { get; private set; }
     public int steps { get; private set; }
+    public IOrePlacer orePlacer { get; private set; } = GenerationHelper.SimpleOrePlacer;
 
     public OreGenerationStep(GenerationHelper.SurfaceBiomeBuilder surfaceBiomeBuilder)
     {
@@ -40,6 +43,12 @@ public class OreGenerationStep
     public OreGenerationStep Steps(int steps)
     {
         this.steps = steps;
+        return this;
+    }
+
+    public OreGenerationStep OrePlacer(IOrePlacer orePlacer)
+    {
+        this.orePlacer = orePlacer;
         return this;
     }
 

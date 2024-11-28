@@ -615,6 +615,26 @@ Items: {
 		Tooltip: ""
 		DisplayName: Corruption Infected Mushroom Fish
 	}
+
+	CorruptionDeadWood: {
+		DisplayName: Corruption Dead Wood
+		Tooltip: ""
+	}
+
+	CorruptionDeadWoodPlatform: {
+		DisplayName: Corruption Dead Wood Platform
+		Tooltip: ""
+	}
+
+	CrimsonDeadWood: {
+		DisplayName: Crimson Dead Wood
+		Tooltip: ""
+	}
+
+	CrimsonDeadWoodPlatform: {
+		DisplayName: Crimson Dead Wood Platform
+		Tooltip: ""
+	}
 }
 
 Biomes: {
