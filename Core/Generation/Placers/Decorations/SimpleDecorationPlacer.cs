@@ -5,11 +5,12 @@ namespace BiomeExpansion.Core.Generation.Placers.Decorations;
 
 public class SimpleDecorationPlacer : ISurfaceDecorationPlacer
 {
-    public void PlaceSurfaceDecoration(int x, int y, ushort rarity, ushort tile, sbyte frameCount = 0)
+    public bool PlaceSurfaceDecoration(int x, int y, ushort rarity, ushort tile, sbyte frameCount = 0)
     {
-        if (!CheckPositionToPlace(rarity, x, y + 1, GenerationTileData.Widths[tile], GenerationTileData.Heights[tile], GenerationTileData.ValidTiles[tile])) return;
+        if (!CheckPositionToPlace(rarity, x, y + 1, GenerationTileData.Widths[tile], GenerationTileData.Heights[tile], GenerationTileData.ValidTiles[tile])) return false;
         WorldGen.PlaceTile(x, y, tile);
         if (frameCount != 0) FrameHelper.SetRandomHorizontalFrame(x, y, GenerationTileData.Widths[tile], GenerationTileData.Heights[tile], frameCount);
+        return true;
     }
 
     private static bool CheckPositionToPlace(ushort rarity, int x, int y, int width, int height, int[] allowedTiles)
@@ -19,7 +20,7 @@ public class SimpleDecorationPlacer : ISurfaceDecorationPlacer
         else firstCheck = !Main.tile[x, y].BottomSlope && allowedTiles.Contains(Main.tile[x, y].TileType) && WorldGen.genRand.NextBool(rarity);
         if (firstCheck)
         {
-            for (int i = 0; i < width; i++)
+            for (int i = -width/2; i < width/2; i++)
             {
                 for (int j = 1; j <= height; j++)
                 {

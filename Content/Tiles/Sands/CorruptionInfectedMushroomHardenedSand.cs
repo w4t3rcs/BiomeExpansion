@@ -14,7 +14,9 @@ public class CorruptionInfectedMushroomHardenedSand : ModTile
         Main.tileBrick[Type] = true;
         Main.tileMergeDirt[Type] = true;
         Main.tileMerge[Type][ModContent.TileType<InfectedMushroomDirt>()] = true;
-        Main.tileMerge[Type][ModContent.TileType<CorruptionInfectedMushroomGrass>()] = true;
+        Main.tileMerge[Type][ModContent.TileType<CorruptionInfectedMushroomStone>()] = true;
+        Main.tileMerge[Type][ModContent.TileType<CorruptionInfectedMushroomOldStone>()] = true;
+        Main.tileMerge[Type][ModContent.TileType<CorruptionInfectedMushroomSand>()] = true;
         HitSound = SoundID.Dig;
         DustType = DustID.Corruption;
         AddMapEntry(Color.Purple);

@@ -61,7 +61,10 @@ public class RectangleBiomePlacer : IBiomePlacer
     {
         if (groundDecorationSteps != null)
             foreach (var groundDecorationStep in groundDecorationSteps)
-                groundDecorationStep.decorationPlacer.PlaceSurfaceDecoration(x, y, groundDecorationStep.rarity, (ushort)groundDecorationStep.tileType, groundDecorationStep.frameCount);
+            {
+                bool isPlaced = groundDecorationStep.decorationPlacer.PlaceSurfaceDecoration(x, y, groundDecorationStep.rarity, (ushort)groundDecorationStep.tileType, groundDecorationStep.frameCount);
+                if (isPlaced) break;
+            }
         if (wallSteps != null)
             foreach (var wallStep in wallSteps)
                 wallStep.wallPlacer.PlaceWall(x, y, (ushort)wallStep.wallType, (ushort)wallStep.tileBehindWall, wallStep.replacedWalls, wallStep.highPriorityWalls);

@@ -4,9 +4,9 @@ namespace BiomeExpansion.Core.Generation.Placers.Decorations;
 
 public class BunchPlacer : ISurfaceDecorationPlacer
 {
-    public void PlaceSurfaceDecoration(int x, int y, ushort rarity, ushort tile, sbyte frameCount = 0)
+    public bool PlaceSurfaceDecoration(int x, int y, ushort rarity, ushort tile, sbyte frameCount = 0)
     {
-        if (!PlantHelper.CheckTopPositionToPlace(rarity, GenerationTileData.ValidTiles[tile], x, y + 1)) return;
+        if (!PlantHelper.CheckTopPositionToPlace(rarity, GenerationTileData.ValidTiles[tile], x, y + 1)) return false;
         int horizontalRange = WorldGen.genRand.Next(4, 12);
         int verticalRange = WorldGen.genRand.Next(2, 6);
         for (int i = 0; i < verticalRange; i++)
@@ -25,5 +25,7 @@ public class BunchPlacer : ISurfaceDecorationPlacer
                 }
             }
         }
+
+        return true;
     }
 }
