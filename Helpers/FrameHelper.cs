@@ -19,6 +19,7 @@ public static class FrameHelper
     public static void SetRandomHorizontalFrame(int x, int y, int width, int height, int frameCount)
     {
         SetFrameX(x, y, width, height, WorldGen.genRand.Next(0, frameCount));
+        NetMessage.SendTileSquare(-1, x, y, width, height);
     }
     
     /// <summary>
@@ -31,6 +32,7 @@ public static class FrameHelper
     public static void SetRandomHorizontalFrame(int x, int y, int height, int frameCount)
     {
         SetFrameX(x, y, height, WorldGen.genRand.Next(0, frameCount));
+        NetMessage.SendTileSquare(-1, x, y, 1, height);
     }
 
     /// <summary>
@@ -44,6 +46,7 @@ public static class FrameHelper
         int randomFrame = WorldGen.genRand.Next(1, 15);
         SetFrameX(x, y, randomFrame);
         if (randomFrame > 4) SetFrameX(x, y - 1, randomFrame);
+        NetMessage.SendTileSquare(-1, x, y, 1, 2);
     }
     
     /// <summary>
@@ -142,7 +145,6 @@ public static class FrameHelper
         TileLoader.SetAnimationFrame(Main.tile[x, y].TileType, x, y, ref addFrX, ref addFrY);
         Rectangle drawRectangle = new Rectangle(Main.tile[x, y].TileFrameX, Main.tile[x, y].TileFrameY + addFrY, 16, 16);
         Main.spriteBatch.Draw(flameTexture, new Vector2(x * 16 - (int)Main.screenPosition.X, y * 16 - (int)Main.screenPosition.Y + offsetY) + zero, drawRectangle, color, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
-
     }
     
     /// <summary>

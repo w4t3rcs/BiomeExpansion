@@ -65,6 +65,11 @@ public class InfectedMushroomSurfaceGenPass(string name, double loadWeight) : Ge
                     .HighPriorityWalls([ModContent.WallType<CrimsonInfectedMushroomSandWall>(), ModContent.WallType<CrimsonInfectedMushroomGrassWall>()])
                     .AndSurface()
                 .GroundDecorationGenerationStep()
+                    .TileType(ModContent.TileType<CrimsonInfectedMushroomVines>())
+                    .Rarity(2)
+                    .DecorationPlacer(GenerationHelper.VinePlacer)
+                    .AndSurface()
+                .GroundDecorationGenerationStep()
                     .TileType(ModContent.TileType<GiantDeadCrimsonInfectedMushroom>())
                     .Rarity(2)
                     .DecorationPlacer(GenerationHelper.SimpleDecorationPlacer)
@@ -96,11 +101,6 @@ public class InfectedMushroomSurfaceGenPass(string name, double loadWeight) : Ge
                     .Rarity(2)
                     .DecorationPlacer(GenerationHelper.SimplePlantPlacer)
                     .FrameCount(9)
-                    .AndSurface()
-                .GroundDecorationGenerationStep()
-                    .TileType(ModContent.TileType<CrimsonInfectedMushroomVines>())
-                    .Rarity(2)
-                    .DecorationPlacer(GenerationHelper.VinePlacer)
                     .AndSurface();
         }
         else 
@@ -144,6 +144,11 @@ public class InfectedMushroomSurfaceGenPass(string name, double loadWeight) : Ge
                     .HighPriorityWalls([ModContent.WallType<CorruptionInfectedMushroomSandWall>(), ModContent.WallType<CorruptionInfectedMushroomGrassWall>()])
                     .AndSurface()
                 .GroundDecorationGenerationStep()
+                    .TileType(ModContent.TileType<CorruptionInfectedMushroomVines>())
+                    .Rarity(2)
+                    .DecorationPlacer(GenerationHelper.VinePlacer)
+                    .AndSurface()
+                .GroundDecorationGenerationStep()
                     .TileType(ModContent.TileType<GiantDeadCorruptionInfectedMushroom>())
                     .Rarity(2)
                     .DecorationPlacer(GenerationHelper.SimpleDecorationPlacer)
@@ -175,11 +180,6 @@ public class InfectedMushroomSurfaceGenPass(string name, double loadWeight) : Ge
                     .Rarity(2)
                     .DecorationPlacer(GenerationHelper.SimplePlantPlacer)
                     .FrameCount(9)
-                    .AndSurface()
-                .GroundDecorationGenerationStep()
-                    .TileType(ModContent.TileType<CorruptionInfectedMushroomVines>())
-                    .Rarity(2)
-                    .DecorationPlacer(GenerationHelper.VinePlacer)
                     .AndSurface();
         }
         
