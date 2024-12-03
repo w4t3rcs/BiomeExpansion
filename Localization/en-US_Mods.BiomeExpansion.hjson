@@ -502,13 +502,8 @@ Items: {
 	}
 
 	CrimsonInfectedFairy: {
-<<<<<<< HEAD
 		DisplayName: Crimson Infected Fairy
 		Tooltip: ""
-=======
-		Tooltip: ""
-		DisplayName: Crimson Infected Fairy
->>>>>>> c955f79a6118905220e5e405c7afab52f3783da9
 	}
 
 	CrimsonInfectedDragonflyJar: {
