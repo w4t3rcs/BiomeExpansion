@@ -60,7 +60,7 @@ public class SmallTerrorGhost : ModNPC
 
     public override void PostDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
     {
-        spriteBatch.Draw(TextureAssets.Npc[NPC.type].Value, NPC.Center - screenPos, NPC.frame, Color.White * 0.6f, NPC.rotation, NPC.frame.Size() / 2f, NPC.scale, NPC.spriteDirection == 1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0);
+        FrameHelper.DrawNPCWithGlowMask(spriteBatch, Texture, NPC, screenPos);
     }
 
     public override void FindFrame(int frameHeight)

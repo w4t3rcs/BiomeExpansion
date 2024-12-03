@@ -502,8 +502,13 @@ Items: {
 	}
 
 	CrimsonInfectedFairy: {
+<<<<<<< HEAD
 		DisplayName: Crimson Infected Fairy
 		Tooltip: ""
+=======
+		Tooltip: ""
+		DisplayName: Crimson Infected Fairy
+>>>>>>> c955f79a6118905220e5e405c7afab52f3783da9
 	}
 
 	CrimsonInfectedDragonflyJar: {
@@ -517,8 +522,13 @@ Items: {
 	}
 
 	CrimsonInfectedButterfly: {
+<<<<<<< HEAD
 		DisplayName: Crimson Infected Butterfly
 		Tooltip: ""
+=======
+		Tooltip: ""
+		DisplayName: Crimson Infected Butterfly
+>>>>>>> c955f79a6118905220e5e405c7afab52f3783da9
 	}
 
 	CorruptionInfectedMushroomFountain: {
@@ -532,8 +542,13 @@ Items: {
 	}
 
 	CorruptionInfectedFairy: {
+<<<<<<< HEAD
 		DisplayName: Corruption Infected Fairy
 		Tooltip: ""
+=======
+		Tooltip: ""
+		DisplayName: Corruption Infected Fairy
+>>>>>>> c955f79a6118905220e5e405c7afab52f3783da9
 	}
 
 	CorruptionInfectedDragonflyJar: {
@@ -547,8 +562,13 @@ Items: {
 	}
 
 	CorruptionInfectedButterfly: {
+<<<<<<< HEAD
 		DisplayName: Corruption Infected Butterfly
 		Tooltip: ""
+=======
+		Tooltip: ""
+		DisplayName: Corruption Infected Butterfly
+>>>>>>> c955f79a6118905220e5e405c7afab52f3783da9
 	}
 
 	CrimsonInfectedMushroomCrate: {
@@ -576,6 +596,7 @@ Items: {
 		DisplayName: Crimson Infected Ladybug
 	}
 
+<<<<<<< HEAD
 	CorruptionInfectedMushroomFish: {
 		DisplayName: Corruption Infected Mushroom Fish
 		Tooltip: ""
@@ -613,6 +634,65 @@ Items: {
 
 	CrimsonInfectedFly: {
 		DisplayName: Crimson Infected Fly
+=======
+	CrimsonInfectedFly: {
+		Tooltip: ""
+		DisplayName: Crimson Infected Fly
+	}
+
+	CrimsonInfectedCaterpillar: {
+		Tooltip: ""
+		DisplayName: Crimson Infected Caterpillar
+	}
+
+	CorruptionInfectedStagBeetle: {
+		Tooltip: ""
+		DisplayName: Corruption Infected Stag Beetle
+	}
+
+	CorruptionInfectedLadybug: {
+		Tooltip: ""
+		DisplayName: Corruption Infected Ladybug
+	}
+
+	CorruptionInfectedFly: {
+		Tooltip: ""
+		DisplayName: Corruption Infected Fly
+	}
+
+	CorruptionInfectedCaterpillar: {
+		Tooltip: ""
+		DisplayName: Corruption Infected Caterpillar
+	}
+
+	CrimsonInfectedMushroomFish: {
+		Tooltip: ""
+		DisplayName: Crimson Infected Mushroom Fish
+	}
+
+	CorruptionInfectedMushroomFish: {
+		Tooltip: ""
+		DisplayName: Corruption Infected Mushroom Fish
+	}
+
+	CorruptionDeadWood: {
+		DisplayName: Corruption Dead Wood
+		Tooltip: ""
+	}
+
+	CorruptionDeadWoodPlatform: {
+		DisplayName: Corruption Dead Wood Platform
+		Tooltip: ""
+	}
+
+	CrimsonDeadWood: {
+		DisplayName: Crimson Dead Wood
+		Tooltip: ""
+	}
+
+	CrimsonDeadWoodPlatform: {
+		DisplayName: Crimson Dead Wood Platform
+>>>>>>> c955f79a6118905220e5e405c7afab52f3783da9
 		Tooltip: ""
 	}
 }
@@ -660,6 +740,7 @@ Buffs: {
 		DisplayName: Corruption Spawnrate Debuff
 	}
 
+<<<<<<< HEAD
 	CorruptionSpawnrateDebuffTier1: {
 		DisplayName: Corruption Spawnrate Debuff Tier1
 		Description: Mods.BiomeExpansion.Buffs.CorruptionSpawnrateDebuffTier1.Description
@@ -678,6 +759,26 @@ Buffs: {
 	CrimsonSpawnrateDebuffTier2: {
 		DisplayName: Crimson Spawnrate Debuff Tier2
 		Description: Mods.BiomeExpansion.Buffs.CrimsonSpawnrateDebuffTier2.Description
+=======
+	CrimsonSpawnrateDebuffTier2: {
+		Description: Mods.BiomeExpansion.Buffs.CrimsonSpawnrateDebuffTier2.Description
+		DisplayName: Crimson Spawnrate Debuff Tier2
+	}
+
+	CrimsonSpawnrateDebuffTier1: {
+		Description: Mods.BiomeExpansion.Buffs.CrimsonSpawnrateDebuffTier1.Description
+		DisplayName: Crimson Spawnrate Debuff Tier1
+	}
+
+	CorruptionSpawnrateDebuffTier2: {
+		Description: Mods.BiomeExpansion.Buffs.CorruptionSpawnrateDebuffTier2.Description
+		DisplayName: Corruption Spawnrate Debuff Tier2
+	}
+
+	CorruptionSpawnrateDebuffTier1: {
+		Description: Mods.BiomeExpansion.Buffs.CorruptionSpawnrateDebuffTier1.Description
+		DisplayName: Corruption Spawnrate Debuff Tier1
+>>>>>>> c955f79a6118905220e5e405c7afab52f3783da9
 	}
 }
 

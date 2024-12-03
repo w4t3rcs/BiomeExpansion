@@ -15,10 +15,12 @@ public class TestSystem : ModSystem
     }
 
     public override void PostUpdateWorld() {
-        if (JustPressed(Keys.K)) 
+        if (JustPressed(Keys.J)) 
             PlaceDecoration((ushort)ModContent.TileType<CorruptionInfectedMushroomCaveBigMushroom>(), (int)Main.MouseWorld.X / 16, (int)Main.MouseWorld.Y / 16, 2, 3, 3); 
-        else if (JustPressed(Keys.L)) 
+        else if (JustPressed(Keys.K)) 
             PlaceDecoration((ushort)ModContent.TileType<CorruptionInfectedMushroomCaveRock>(), (int)Main.MouseWorld.X / 16, (int)Main.MouseWorld.Y / 16, 3, 3, 2);
+        if (JustPressed(Keys.L)) 
+            PlaceDecoration((ushort)ModContent.TileType<GiantDeadCorruptionInfectedMushroom>(), (int)Main.MouseWorld.X / 16, (int)Main.MouseWorld.Y / 16, 4, 5, 5); 
     }
     
     private static void PlaceDecoration(ushort decorationTile, int x, int y, int frameCount, int width, int height)

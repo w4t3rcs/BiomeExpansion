@@ -1,4 +1,7 @@
-﻿using Terraria.DataStructures;
+﻿using BiomeExpansion.Content.Tiles.Biome;
+using BiomeExpansion.Core.Generation;
+using Terraria.DataStructures;
+using Terraria.ObjectData;
 
 namespace BiomeExpansion.Content.Tiles.Plants;
 
@@ -9,6 +12,7 @@ public class CorruptionInfectedMushroomVines : ModTile
     public override void SetStaticDefaults()
     {
         TileHelper.SetVine(Type);
+        GenerationTileData.ValidTiles.Add(Type, [ModContent.TileType<CorruptionInfectedMushroomGrass>()]);
         HitSound = SoundID.Grass;
         DustType = DustID.CorruptPlants;
         AddMapEntry(Color.Purple);

@@ -14,7 +14,9 @@ public class CrimsonInfectedMushroomHardenedSand : ModTile
         Main.tileBrick[Type] = true;
         Main.tileMergeDirt[Type] = true;
         Main.tileMerge[Type][ModContent.TileType<InfectedMushroomDirt>()] = true;
-        Main.tileMerge[Type][ModContent.TileType<CrimsonInfectedMushroomGrass>()] = true;
+        Main.tileMerge[Type][ModContent.TileType<CrimsonInfectedMushroomStone>()] = true;
+        Main.tileMerge[Type][ModContent.TileType<CrimsonInfectedMushroomOldStone>()] = true;
+        Main.tileMerge[Type][ModContent.TileType<CrimsonInfectedMushroomSand>()] = true;
         HitSound = SoundID.Dig;
         DustType = DustID.Crimson;
         AddMapEntry(Color.Crimson);

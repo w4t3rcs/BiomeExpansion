@@ -19,6 +19,7 @@ public static class FrameHelper
     public static void SetRandomHorizontalFrame(int x, int y, int width, int height, int frameCount)
     {
         SetFrameX(x, y, width, height, WorldGen.genRand.Next(0, frameCount));
+        NetMessage.SendTileSquare(-1, x, y, width, height);
     }
     
     /// <summary>
@@ -31,6 +32,7 @@ public static class FrameHelper
     public static void SetRandomHorizontalFrame(int x, int y, int height, int frameCount)
     {
         SetFrameX(x, y, height, WorldGen.genRand.Next(0, frameCount));
+        NetMessage.SendTileSquare(-1, x, y, 1, height);
     }
 
     /// <summary>
@@ -44,6 +46,7 @@ public static class FrameHelper
         int randomFrame = WorldGen.genRand.Next(1, 15);
         SetFrameX(x, y, randomFrame);
         if (randomFrame > 4) SetFrameX(x, y - 1, randomFrame);
+        NetMessage.SendTileSquare(-1, x, y, 1, 2);
     }
     
     /// <summary>
@@ -75,11 +78,15 @@ public static class FrameHelper
     /// <param name="frameNumber">The frame number used to calculate the tile frame.</param>
     public static void SetFrameX(int x, int y, int width, int height, int frameNumber)
     {
-        Tile tile = Main.tile[x - 1, y];
-        short currentFrame = (short)(frameNumber * (FrameSize + FramePadding) * width);
+        short currentFrame;
+        int start = -1;
+        if (width == 5) start = -2;
+        Tile tile = Main.tile[x + start, y];
+        currentFrame = (short)(frameNumber * (FrameSize + FramePadding) * width);
         tile.TileFrameX = currentFrame;
-        for (int j = 1; j < height; j++) Main.tile[x - 1, y - j].TileFrameX = currentFrame;
-        for (int i = 0; i < width; i++)
+        for (int j = 1; j < height; j++) 
+            Main.tile[x + start, y - j].TileFrameX = currentFrame;
+        for (int i = start + 1; i < width + start; i++)
         {
             currentFrame += FrameSize + FramePadding;
             for (int j = 0; j < height; j++)
@@ -138,7 +145,6 @@ public static class FrameHelper
         TileLoader.SetAnimationFrame(Main.tile[x, y].TileType, x, y, ref addFrX, ref addFrY);
         Rectangle drawRectangle = new Rectangle(Main.tile[x, y].TileFrameX, Main.tile[x, y].TileFrameY + addFrY, 16, 16);
         Main.spriteBatch.Draw(flameTexture, new Vector2(x * 16 - (int)Main.screenPosition.X, y * 16 - (int)Main.screenPosition.Y + offsetY) + zero, drawRectangle, color, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
-
     }
     
     /// <summary>
@@ -232,9 +238,8 @@ public static class FrameHelper
     public static void DrawTileWithGlowMask(SpriteBatch spriteBatch, string tileTexture, int x, int y, int width = 1, int height = 1)
     {
         var tile = Framing.GetTileSafely(x, y);
-        var frameSizeWithPadding = FrameSize + FramePadding;
         var glowTextureLocation = $"{tileTexture}Glow";
-        var sourceRect = new Rectangle(tile.TileFrameX, tile.TileFrameY, width * frameSizeWithPadding, height * frameSizeWithPadding);
+        var sourceRect = new Rectangle(tile.TileFrameX, tile.TileFrameY, FrameSize, FrameSize);
         var texture = ModContent.Request<Texture2D>(tileTexture).Value;
         var glowTexture = ModContent.Request<Texture2D>(glowTextureLocation).Value;
         var vector = new Vector2(x * FrameSize - (int)Main.screenPosition.X, y * FrameSize - (int)Main.screenPosition.Y) + Zero;
@@ -261,6 +266,14 @@ public static class FrameHelper
         Vector2 origin = new Vector2(glowTexture.Width / 2f, glowTexture.Height / 2f);
         Color color = new Color(250, 250, 250, item.alpha);
         spriteBatch.Draw(glowTexture, item.Center - Main.screenPosition, null, color, rotation, origin, 1f, SpriteEffects.None, 0f);
+    }
+
+    public static void DrawNPCWithGlowMask(SpriteBatch spriteBatch, string npcTexture, NPC npc, Vector2 screenPos)
+    {
+        var glowTextureLocation = $"{npcTexture}Glow";
+        glowTextureLocation = TextureHelper.DynamicNPCsTextures.ContainsKey(glowTextureLocation) ? glowTextureLocation : npcTexture;
+        var glowTexture = ModContent.Request<Texture2D>(glowTextureLocation).Value;
+        spriteBatch.Draw(glowTexture, npc.Center - screenPos, npc.frame, Color.White * 0.6f, npc.rotation, new Vector2(npc.width/2, npc.height/2 - 2), npc.scale, npc.spriteDirection == 1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0);
     }
 
     public static void AnimateNPCWithDirection(NPC npc, int frameHeight, int animationSpeed)
@@ -291,7 +304,6 @@ public static class FrameHelper
 		if (projectile.frameCounter >= animationSpeed) {
 			projectile.frameCounter = 0;
 			projectile.frame++;
-
 			if (projectile.frame >= Main.projFrames[projectile.type]) {
 				projectile.frame = 0;
 			}

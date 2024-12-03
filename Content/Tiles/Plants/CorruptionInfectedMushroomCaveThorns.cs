@@ -1,4 +1,8 @@
-﻿namespace BiomeExpansion.Content.Tiles.Plants;
+﻿using BiomeExpansion.Content.Tiles.Stones;
+using BiomeExpansion.Core.Generation;
+using Terraria.ObjectData;
+
+namespace BiomeExpansion.Content.Tiles.Plants;
 
 public class CorruptionInfectedMushroomCaveThorns : ModTile
 {
@@ -7,6 +11,7 @@ public class CorruptionInfectedMushroomCaveThorns : ModTile
     public override void SetStaticDefaults()
     {
         TileHelper.SetPlantThorns(Type);
+        GenerationTileData.ValidTiles.Add(Type, [ModContent.TileType<CorruptionInfectedMushroomStone>(), ModContent.TileType<CorruptionInfectedMushroomOldStone>()]);
         HitSound = SoundID.Grass;
         DustType = DustID.CorruptionThorns;
         AddMapEntry(Color.Purple);

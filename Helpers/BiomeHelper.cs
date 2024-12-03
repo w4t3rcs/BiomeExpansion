@@ -6,9 +6,10 @@ namespace BiomeExpansion.Helpers;
 public static class BiomeHelper
 {
     public static readonly int SurfaceY = Main.maxTilesY/8 + 10;
-    public static readonly ushort[] StoneTiles = [TileID.CorruptSandstone, TileID.Ebonstone, TileID.CrimsonSandstone, TileID.Crimstone, TileID.Stone];
+    public static readonly ushort[] StoneTiles = [TileID.CorruptSandstone, TileID.Ebonstone, TileID.CrimsonSandstone, TileID.Crimstone, TileID.Stone, TileID.Sandstone, TileID.CorruptSandstone, TileID.CrimsonSandstone, TileID.HardenedSand, TileID.CorruptHardenedSand, TileID.CrimsonHardenedSand];
     public static readonly ushort[] SandTiles = [TileID.Sand, TileID.Ebonsand, TileID.Crimsand];
     public static readonly ushort[] EvilGroundTiles = [TileID.CorruptGrass, TileID.CorruptSandstone, TileID.Ebonsand, TileID.Ebonstone, TileID.CrimsonGrass, TileID.CrimsonSandstone, TileID.Crimsand, TileID.Crimstone];
+    public static readonly int[] GrassWalls = [WallID.Grass, WallID.GrassUnsafe, WallID.CorruptGrassEcho, WallID.CorruptGrassUnsafe, WallID.CrimsonGrassEcho, WallID.CrimsonGrassUnsafe, WallID.HallowedGrassEcho, WallID.HallowedGrassUnsafe, WallID.Dirt, WallID.Dirt1Echo, WallID.Dirt2Echo, WallID.Dirt3Echo, WallID.Dirt4Echo, WallID.DirtUnsafe, WallID.DirtUnsafe1, WallID.DirtUnsafe2, WallID.DirtUnsafe3, WallID.DirtUnsafe4, WallID.LivingLeaf];
     public const int MaximumBiomeTileDistance = 10;
     public const int MaximumBiomeTransitionLength = 15;
 
