@@ -24,6 +24,7 @@ public class GenerationHelper
     public static readonly ITilePlacer SandstoneTilePlacer = new SandstoneTilePlacer();
     public static readonly IGroundModification HorizontalTunnelModification = new HorizontalTunnelModification();
     public static readonly IGroundModification TwoDirectionDiagonalTunnelModification = new TwoDirectionDiagonalTunnelModification();
+    public static readonly IGroundModification MossyCaveModification = new MossyCaveModification();
     public static readonly ISurfaceDecorationPlacer SimpleDecorationPlacer = new SimpleDecorationPlacer();
     public static readonly ISurfaceDecorationPlacer SimplePlantPlacer = new SimplePlantPlacer();
     public static readonly ISurfaceDecorationPlacer VinePlacer = new VinePlacer();

@@ -15,6 +15,7 @@ public class WorldGenSystem : ModSystem
         {
             tasks.Insert(++biomeGenIndex, new InfectedMushroomSurfaceGenPass("Surface Infected Mushroom Biome", 100f));
             tasks.Insert(++biomeGenIndex, new InfectedMushroomCaveGenPass("Cave Infected Mushroom Biome", 100f));
+            tasks.Insert(++biomeGenIndex, new MossyCaveGenPass("Mossy Cave Biome", 100f));
             GenerationHelper.Clear();
         }
     }
