@@ -410,6 +410,211 @@ Items: {
 		DisplayName: Crimson Infected Gel Platform
 		Tooltip: ""
 	}
+
+	CrimsonInfectedMushroomStoneBrickWall: {
+		Tooltip: ""
+		DisplayName: Crimson Infected Mushroom Stone Brick Wall
+	}
+
+	CrimsonInfectedMushroomStoneBrick: {
+		Tooltip: ""
+		DisplayName: Crimson Infected Mushroom Stone Brick
+	}
+
+	CrimsonInfectedMushroomSandWall: {
+		Tooltip: ""
+		DisplayName: Crimson Infected Mushroom Sand Wall
+	}
+
+	CrimsonInfectedMushroomSand: {
+		Tooltip: ""
+		DisplayName: Crimson Infected Mushroom Sand
+	}
+
+	CrimsonInfectedGelWall: {
+		Tooltip: ""
+		DisplayName: Crimson Infected Gel Wall
+	}
+
+	CorruptionInfectedMushroomStoneBrickWall: {
+		Tooltip: ""
+		DisplayName: Corruption Infected Mushroom Stone Brick Wall
+	}
+
+	CorruptionInfectedMushroomStoneBrick: {
+		Tooltip: ""
+		DisplayName: Corruption Infected Mushroom Stone Brick
+	}
+
+	CorruptionInfectedMushroomSandWall: {
+		Tooltip: ""
+		DisplayName: Corruption Infected Mushroom Sand Wall
+	}
+
+	CorruptionInfectedMushroomSand: {
+		Tooltip: ""
+		DisplayName: Corruption Infected Mushroom Sand
+	}
+
+	CorruptionInfectedGelWall: {
+		Tooltip: ""
+		DisplayName: Corruption Infected Gel Wall
+	}
+
+	Layer2Stone2: {
+		Tooltip: ""
+		DisplayName: Layer2 Stone2
+	}
+
+	Layer2Stone1: {
+		Tooltip: ""
+		DisplayName: Layer2 Stone1
+	}
+
+	CrimsonInfectedMushroomHardenedSand: {
+		Tooltip: ""
+		DisplayName: Crimson Infected Mushroom Hardened Sand
+	}
+
+	CrimsonInfectedMushroomCactus: {
+		Tooltip: ""
+		DisplayName: Crimson Infected Mushroom Cactus
+	}
+
+	CorruptionInfectedMushroomHardenedSand: {
+		Tooltip: ""
+		DisplayName: Corruption Infected Mushroom Hardened Sand
+	}
+
+	CorruptionInfectedMushroomCactus: {
+		Tooltip: ""
+		DisplayName: Corruption Infected Mushroom Cactus
+	}
+
+	CrimsonInfectedMushroomFountain: {
+		Tooltip: ""
+		DisplayName: Crimson Infected Mushroom Fountain
+	}
+
+	CrimsonInfectedFairyLantern: {
+		Tooltip: ""
+		DisplayName: Crimson Infected Fairy Lantern
+	}
+
+	CrimsonInfectedFairy: {
+		DisplayName: Crimson Infected Fairy
+		Tooltip: ""
+	}
+
+	CrimsonInfectedDragonflyJar: {
+		Tooltip: ""
+		DisplayName: Crimson Infected Dragonfly Jar
+	}
+
+	CrimsonInfectedButterflyJar: {
+		Tooltip: ""
+		DisplayName: Crimson Infected Butterfly Jar
+	}
+
+	CrimsonInfectedButterfly: {
+		DisplayName: Crimson Infected Butterfly
+		Tooltip: ""
+	}
+
+	CorruptionInfectedMushroomFountain: {
+		Tooltip: ""
+		DisplayName: Corruption Infected Mushroom Fountain
+	}
+
+	CorruptionInfectedFairyLantern: {
+		Tooltip: ""
+		DisplayName: Corruption Infected Fairy Lantern
+	}
+
+	CorruptionInfectedFairy: {
+		DisplayName: Corruption Infected Fairy
+		Tooltip: ""
+	}
+
+	CorruptionInfectedDragonflyJar: {
+		Tooltip: ""
+		DisplayName: Corruption Infected Dragonfly Jar
+	}
+
+	CorruptionInfectedButterflyJar: {
+		Tooltip: ""
+		DisplayName: Corruption Infected Butterfly Jar
+	}
+
+	CorruptionInfectedButterfly: {
+		DisplayName: Corruption Infected Butterfly
+		Tooltip: ""
+	}
+
+	CrimsonInfectedMushroomCrate: {
+		Tooltip: ""
+		DisplayName: Crimson Infected Mushroom Crate
+	}
+
+	CorruptionInfectedMushroomCrate: {
+		Tooltip: ""
+		DisplayName: Corruption Infected Mushroom Crate
+	}
+
+	Placeables: {
+		FormattedBannerTooltip: Mods.BiomeExpansion.Items.Placeables.FormattedBannerTooltip
+		FormattedBannerName: Mods.BiomeExpansion.Items.Placeables.FormattedBannerName
+	}
+
+	CrimsonInfectedStagBeetle: {
+		Tooltip: ""
+		DisplayName: Crimson Infected Stag Beetle
+	}
+
+	CrimsonInfectedLadybug: {
+		Tooltip: ""
+		DisplayName: Crimson Infected Ladybug
+	}
+
+	CorruptionInfectedMushroomFish: {
+		DisplayName: Corruption Infected Mushroom Fish
+		Tooltip: ""
+	}
+
+	CrimsonInfectedMushroomFish: {
+		DisplayName: Crimson Infected Mushroom Fish
+		Tooltip: ""
+	}
+
+	CorruptionInfectedCaterpillar: {
+		DisplayName: Corruption Infected Caterpillar
+		Tooltip: ""
+	}
+
+	CorruptionInfectedFly: {
+		DisplayName: Corruption Infected Fly
+		Tooltip: ""
+	}
+
+	CorruptionInfectedLadybug: {
+		DisplayName: Corruption Infected Ladybug
+		Tooltip: ""
+	}
+
+	CorruptionInfectedStagBeetle: {
+		DisplayName: Corruption Infected Stag Beetle
+		Tooltip: ""
+	}
+
+	CrimsonInfectedCaterpillar: {
+		DisplayName: Crimson Infected Caterpillar
+		Tooltip: ""
+	}
+
+	CrimsonInfectedFly: {
+		DisplayName: Crimson Infected Fly
+		Tooltip: ""
+	}
 }
 
 Biomes: {
@@ -453,6 +658,26 @@ Buffs: {
 	CorruptionSpawnrateDebuff: {
 		Description: Mods.BiomeExpansion.Buffs.CorruptionSpawnrateDebuff.Description
 		DisplayName: Corruption Spawnrate Debuff
+	}
+
+	CorruptionSpawnrateDebuffTier1: {
+		DisplayName: Corruption Spawnrate Debuff Tier1
+		Description: Mods.BiomeExpansion.Buffs.CorruptionSpawnrateDebuffTier1.Description
+	}
+
+	CorruptionSpawnrateDebuffTier2: {
+		DisplayName: Corruption Spawnrate Debuff Tier2
+		Description: Mods.BiomeExpansion.Buffs.CorruptionSpawnrateDebuffTier2.Description
+	}
+
+	CrimsonSpawnrateDebuffTier1: {
+		DisplayName: Crimson Spawnrate Debuff Tier1
+		Description: Mods.BiomeExpansion.Buffs.CrimsonSpawnrateDebuffTier1.Description
+	}
+
+	CrimsonSpawnrateDebuffTier2: {
+		DisplayName: Crimson Spawnrate Debuff Tier2
+		Description: Mods.BiomeExpansion.Buffs.CrimsonSpawnrateDebuffTier2.Description
 	}
 }
 
