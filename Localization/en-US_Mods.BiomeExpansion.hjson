@@ -1,0 +1,721 @@
+Biomes: {
+	CorruptionInfectedMushroomSurfaceBiome: {
+		DisplayName: Corruption Infected Mushroom Surface Biome
+		TownNPCDialogueName: the Corruption Infected Mushroom Surface Biome
+	}
+
+	CrimsonInfectedMushroomSurfaceBiome: {
+		DisplayName: Crimson Infected Mushroom Surface Biome
+		TownNPCDialogueName: the Crimson Infected Mushroom Surface Biome
+	}
+}
+
+Buffs: {
+	CorruptionSpawnrateDebuffTier1: {
+		DisplayName: Corruption Spawnrate Debuff Tier1
+		Description: Mods.BiomeExpansion.Buffs.CorruptionSpawnrateDebuffTier1.Description
+	}
+
+	CorruptionSpawnrateDebuffTier2: {
+		DisplayName: Corruption Spawnrate Debuff Tier2
+		Description: Mods.BiomeExpansion.Buffs.CorruptionSpawnrateDebuffTier2.Description
+	}
+
+	CorruptionSporeInfectionDebuff: {
+		DisplayName: Corruption Spore Infection Debuff
+		Description: Mods.BiomeExpansion.Buffs.CorruptionSporeInfectionDebuff.Description
+	}
+
+	CrimsonSpawnrateDebuffTier1: {
+		DisplayName: Crimson Spawnrate Debuff Tier1
+		Description: Mods.BiomeExpansion.Buffs.CrimsonSpawnrateDebuffTier1.Description
+	}
+
+	CrimsonSpawnrateDebuffTier2: {
+		DisplayName: Crimson Spawnrate Debuff Tier2
+		Description: Mods.BiomeExpansion.Buffs.CrimsonSpawnrateDebuffTier2.Description
+	}
+
+	CrimsonSporeInfectionDebuff: {
+		DisplayName: Crimson Spore Infection Debuff
+		Description: Mods.BiomeExpansion.Buffs.CrimsonSporeInfectionDebuff.Description
+	}
+
+	TestMinionBuff: {
+		DisplayName: Test Minion Buff
+		Description: Mods.BiomeExpansion.Buffs.TestMinionBuff.Description
+	}
+}
+
+Items: {
+	CorruptionInfectedMushroomFish: {
+		DisplayName: Corruption Infected Mushroom Fish
+		Tooltip: ""
+	}
+
+	CrimsonInfectedMushroomFish: {
+		DisplayName: Crimson Infected Mushroom Fish
+		Tooltip: ""
+	}
+
+	CorruptionInfectedButterfly: {
+		DisplayName: Corruption Infected Butterfly
+		Tooltip: ""
+	}
+
+	CorruptionInfectedCaterpillar: {
+		DisplayName: Corruption Infected Caterpillar
+		Tooltip: ""
+	}
+
+	CorruptionInfectedFairy: {
+		DisplayName: Corruption Infected Fairy
+		Tooltip: ""
+	}
+
+	CorruptionInfectedFly: {
+		DisplayName: Corruption Infected Fly
+		Tooltip: ""
+	}
+
+	CorruptionInfectedLadybug: {
+		DisplayName: Corruption Infected Ladybug
+		Tooltip: ""
+	}
+
+	CorruptionInfectedStagBeetle: {
+		DisplayName: Corruption Infected Stag Beetle
+		Tooltip: ""
+	}
+
+	CrimsonInfectedButterfly: {
+		DisplayName: Crimson Infected Butterfly
+		Tooltip: ""
+	}
+
+	CrimsonInfectedCaterpillar: {
+		DisplayName: Crimson Infected Caterpillar
+		Tooltip: ""
+	}
+
+	CrimsonInfectedFairy: {
+		DisplayName: Crimson Infected Fairy
+		Tooltip: ""
+	}
+
+	CrimsonInfectedFly: {
+		DisplayName: Crimson Infected Fly
+		Tooltip: ""
+	}
+
+	CrimsonInfectedLadybug: {
+		DisplayName: Crimson Infected Ladybug
+		Tooltip: ""
+	}
+
+	CrimsonInfectedStagBeetle: {
+		DisplayName: Crimson Infected Stag Beetle
+		Tooltip: ""
+	}
+
+	CorruptionInfectedMushroomSeeds: {
+		DisplayName: Corruption Infected Mushroom Seeds
+		Tooltip: ""
+	}
+
+	CrimsonInfectedMushroomSeeds: {
+		DisplayName: Crimson Infected Mushroom Seeds
+		Tooltip: ""
+	}
+
+	FearPiece: {
+		DisplayName: Fear Piece
+		Tooltip: ""
+	}
+
+	Placeables: {
+		FormattedBannerName: Mods.BiomeExpansion.Items.Placeables.FormattedBannerName
+		FormattedBannerTooltip: Mods.BiomeExpansion.Items.Placeables.FormattedBannerTooltip
+	}
+
+	InfectedMushroomDirt: {
+		DisplayName: Infected Mushroom Dirt
+		Tooltip: ""
+	}
+
+	CorruptionInfectedMushroomStoneBrick: {
+		DisplayName: Corruption Infected Mushroom Stone Brick
+		Tooltip: ""
+	}
+
+	CorruptionInfectedMushroomStone: {
+		DisplayName: Corruption Infected Mushroom Stone
+		Tooltip: ""
+	}
+
+	CrimsonInfectedMushroomStoneBrick: {
+		DisplayName: Crimson Infected Mushroom Stone Brick
+		Tooltip: ""
+	}
+
+	CrimsonInfectedMushroomStone: {
+		DisplayName: Crimson Infected Mushroom Stone
+		Tooltip: ""
+	}
+
+	CorruptionInfectedMushroomCrate: {
+		DisplayName: Corruption Infected Mushroom Crate
+		Tooltip: ""
+	}
+
+	CrimsonInfectedMushroomCrate: {
+		DisplayName: Crimson Infected Mushroom Crate
+		Tooltip: ""
+	}
+
+	CorruptionDeadWood: {
+		DisplayName: Corruption Dead Wood
+		Tooltip: ""
+	}
+
+	CorruptionDeadWoodPlatform: {
+		DisplayName: Corruption Dead Wood Platform
+		Tooltip: ""
+	}
+
+	CorruptionInfectedButterflyJar: {
+		DisplayName: Corruption Infected Butterfly Jar
+		Tooltip: ""
+	}
+
+	CorruptionInfectedDragonflyJar: {
+		DisplayName: Corruption Infected Dragonfly Jar
+		Tooltip: ""
+	}
+
+	CorruptionInfectedFairyLantern: {
+		DisplayName: Corruption Infected Fairy Lantern
+		Tooltip: ""
+	}
+
+	CorruptionInfectedMushroomFountain: {
+		DisplayName: Corruption Infected Mushroom Fountain
+		Tooltip: ""
+	}
+
+	CorruptionInfectedMushroomWood: {
+		DisplayName: Corruption Infected Mushroom Wood
+		Tooltip: ""
+	}
+
+	CorruptionInfectedMushroomWoodBath: {
+		DisplayName: Corruption Infected Mushroom Wood Bath
+		Tooltip: ""
+	}
+
+	CorruptionInfectedMushroomWoodBed: {
+		DisplayName: Corruption Infected Mushroom Wood Bed
+		Tooltip: ""
+	}
+
+	CorruptionInfectedMushroomWoodBench: {
+		DisplayName: Corruption Infected Mushroom Wood Bench
+		Tooltip: ""
+	}
+
+	CorruptionInfectedMushroomWoodCampfire: {
+		DisplayName: Corruption Infected Mushroom Wood Campfire
+		Tooltip: ""
+	}
+
+	CorruptionInfectedMushroomWoodCandelabra: {
+		DisplayName: Corruption Infected Mushroom Wood Candelabra
+		Tooltip: ""
+	}
+
+	CorruptionInfectedMushroomWoodCandle: {
+		DisplayName: Corruption Infected Mushroom Wood Candle
+		Tooltip: ""
+	}
+
+	CorruptionInfectedMushroomWoodChair: {
+		DisplayName: Corruption Infected Mushroom Wood Chair
+		Tooltip: ""
+	}
+
+	CorruptionInfectedMushroomWoodChandelier: {
+		DisplayName: Corruption Infected Mushroom Wood Chandelier
+		Tooltip: ""
+	}
+
+	CorruptionInfectedMushroomWoodChest: {
+		DisplayName: Corruption Infected Mushroom Wood Chest
+		Tooltip: ""
+	}
+
+	CorruptionInfectedMushroomWoodDoor: {
+		DisplayName: Corruption Infected Mushroom Wood Door
+		Tooltip: ""
+	}
+
+	CorruptionInfectedMushroomWoodLamp: {
+		DisplayName: Corruption Infected Mushroom Wood Lamp
+		Tooltip: ""
+	}
+
+	CorruptionInfectedMushroomWoodLantern: {
+		DisplayName: Corruption Infected Mushroom Wood Lantern
+		Tooltip: ""
+	}
+
+	CorruptionInfectedMushroomWoodTable: {
+		DisplayName: Corruption Infected Mushroom Wood Table
+		Tooltip: ""
+	}
+
+	CorruptionInfectedMushroomWoodTorch: {
+		DisplayName: Corruption Infected Mushroom Wood Torch
+		Tooltip: ""
+	}
+
+	CorruptionInfectedMushroomWoodWorkbench: {
+		DisplayName: Corruption Infected Mushroom Wood Workbench
+		Tooltip: ""
+	}
+
+	CrimsonDeadWood: {
+		DisplayName: Crimson Dead Wood
+		Tooltip: ""
+	}
+
+	CrimsonDeadWoodPlatform: {
+		DisplayName: Crimson Dead Wood Platform
+		Tooltip: ""
+	}
+
+	CrimsonInfectedButterflyJar: {
+		DisplayName: Crimson Infected Butterfly Jar
+		Tooltip: ""
+	}
+
+	CrimsonInfectedDragonflyJar: {
+		DisplayName: Crimson Infected Dragonfly Jar
+		Tooltip: ""
+	}
+
+	CrimsonInfectedFairyLantern: {
+		DisplayName: Crimson Infected Fairy Lantern
+		Tooltip: ""
+	}
+
+	CrimsonInfectedMushroomFountain: {
+		DisplayName: Crimson Infected Mushroom Fountain
+		Tooltip: ""
+	}
+
+	CrimsonInfectedMushroomWood: {
+		DisplayName: Crimson Infected Mushroom Wood
+		Tooltip: ""
+	}
+
+	CrimsonInfectedMushroomWoodBath: {
+		DisplayName: Crimson Infected Mushroom Wood Bath
+		Tooltip: ""
+	}
+
+	CrimsonInfectedMushroomWoodBed: {
+		DisplayName: Crimson Infected Mushroom Wood Bed
+		Tooltip: ""
+	}
+
+	CrimsonInfectedMushroomWoodBench: {
+		DisplayName: Crimson Infected Mushroom Wood Bench
+		Tooltip: ""
+	}
+
+	CrimsonInfectedMushroomWoodCampfire: {
+		DisplayName: Crimson Infected Mushroom Wood Campfire
+		Tooltip: ""
+	}
+
+	CrimsonInfectedMushroomWoodCandelabra: {
+		DisplayName: Crimson Infected Mushroom Wood Candelabra
+		Tooltip: ""
+	}
+
+	CrimsonInfectedMushroomWoodCandle: {
+		DisplayName: Crimson Infected Mushroom Wood Candle
+		Tooltip: ""
+	}
+
+	CrimsonInfectedMushroomWoodChair: {
+		DisplayName: Crimson Infected Mushroom Wood Chair
+		Tooltip: ""
+	}
+
+	CrimsonInfectedMushroomWoodChandelier: {
+		DisplayName: Crimson Infected Mushroom Wood Chandelier
+		Tooltip: ""
+	}
+
+	CrimsonInfectedMushroomWoodChest: {
+		DisplayName: Crimson Infected Mushroom Wood Chest
+		Tooltip: ""
+	}
+
+	CrimsonInfectedMushroomWoodDoor: {
+		DisplayName: Crimson Infected Mushroom Wood Door
+		Tooltip: ""
+	}
+
+	CrimsonInfectedMushroomWoodLamp: {
+		DisplayName: Crimson Infected Mushroom Wood Lamp
+		Tooltip: ""
+	}
+
+	CrimsonInfectedMushroomWoodLantern: {
+		DisplayName: Crimson Infected Mushroom Wood Lantern
+		Tooltip: ""
+	}
+
+	CrimsonInfectedMushroomWoodTable: {
+		DisplayName: Crimson Infected Mushroom Wood Table
+		Tooltip: ""
+	}
+
+	CrimsonInfectedMushroomWoodTorch: {
+		DisplayName: Crimson Infected Mushroom Wood Torch
+		Tooltip: ""
+	}
+
+	CrimsonInfectedMushroomWoodWorkbench: {
+		DisplayName: Crimson Infected Mushroom Wood Workbench
+		Tooltip: ""
+	}
+
+	InfectedMushroomWoodBookcase: {
+		DisplayName: Infected Mushroom Wood Bookcase
+		Tooltip: ""
+	}
+
+	InfectedMushroomWoodClock: {
+		DisplayName: Infected Mushroom Wood Clock
+		Tooltip: ""
+	}
+
+	InfectedMushroomWoodDresser: {
+		DisplayName: Infected Mushroom Wood Dresser
+		Tooltip: ""
+	}
+
+	InfectedMushroomWoodPiano: {
+		DisplayName: Infected Mushroom Wood Piano
+		Tooltip: ""
+	}
+
+	InfectedMushroomWoodPlatform: {
+		DisplayName: Infected Mushroom Wood Platform
+		Tooltip: ""
+	}
+
+	InfectedMushroomWoodSink: {
+		DisplayName: Infected Mushroom Wood Sink
+		Tooltip: ""
+	}
+
+	CorruptionInfectedGel: {
+		DisplayName: Corruption Infected Gel
+		Tooltip: ""
+	}
+
+	CorruptionInfectedGelPlatform: {
+		DisplayName: Corruption Infected Gel Platform
+		Tooltip: ""
+	}
+
+	CrimsonInfectedGel: {
+		DisplayName: Crimson Infected Gel
+		Tooltip: ""
+	}
+
+	CrimsonInfectedGelPlatform: {
+		DisplayName: Crimson Infected Gel Platform
+		Tooltip: ""
+	}
+
+	CorruptionInfectedSmallMushroom: {
+		DisplayName: Corruption Infected Small Mushroom
+		Tooltip: ""
+	}
+
+	CrimsonInfectedSmallMushroom: {
+		DisplayName: Crimson Infected Small Mushroom
+		Tooltip: ""
+	}
+
+	CorruptionInfectedMushroomCactus: {
+		DisplayName: Corruption Infected Mushroom Cactus
+		Tooltip: ""
+	}
+
+	CorruptionInfectedMushroomHardenedSand: {
+		DisplayName: Corruption Infected Mushroom Hardened Sand
+		Tooltip: ""
+	}
+
+	CorruptionInfectedMushroomSand: {
+		DisplayName: Corruption Infected Mushroom Sand
+		Tooltip: ""
+	}
+
+	CrimsonInfectedMushroomCactus: {
+		DisplayName: Crimson Infected Mushroom Cactus
+		Tooltip: ""
+	}
+
+	CrimsonInfectedMushroomHardenedSand: {
+		DisplayName: Crimson Infected Mushroom Hardened Sand
+		Tooltip: ""
+	}
+
+	CrimsonInfectedMushroomSand: {
+		DisplayName: Crimson Infected Mushroom Sand
+		Tooltip: ""
+	}
+
+	CorruptionInfectedMushroomOldStone: {
+		DisplayName: Corruption Infected Mushroom Old Stone
+		Tooltip: ""
+	}
+
+	CorruptoomBar: {
+		DisplayName: Corruptoom Bar
+		Tooltip: ""
+	}
+
+	CorruptoomOre: {
+		DisplayName: Corruptoom Ore
+		Tooltip: ""
+	}
+
+	CrimsonInfectedMushroomOldStone: {
+		DisplayName: Crimson Infected Mushroom Old Stone
+		Tooltip: ""
+	}
+
+	CrimsoomBar: {
+		DisplayName: Crimsoom Bar
+		Tooltip: ""
+	}
+
+	CrimsoomOre: {
+		DisplayName: Crimsoom Ore
+		Tooltip: ""
+	}
+
+	Layer2Stone1: {
+		DisplayName: Layer2 Stone1
+		Tooltip: ""
+	}
+
+	Layer2Stone2: {
+		DisplayName: Layer2 Stone2
+		Tooltip: ""
+	}
+
+	CorruptionInfectedGelWall: {
+		DisplayName: Corruption Infected Gel Wall
+		Tooltip: ""
+	}
+
+	CorruptionInfectedMushroomGrassWall: {
+		DisplayName: Corruption Infected Mushroom Grass Wall
+		Tooltip: ""
+	}
+
+	CorruptionInfectedMushroomOldStoneWall: {
+		DisplayName: Corruption Infected Mushroom Old Stone Wall
+		Tooltip: ""
+	}
+
+	CorruptionInfectedMushroomSandWall: {
+		DisplayName: Corruption Infected Mushroom Sand Wall
+		Tooltip: ""
+	}
+
+	CorruptionInfectedMushroomStoneBrickWall: {
+		DisplayName: Corruption Infected Mushroom Stone Brick Wall
+		Tooltip: ""
+	}
+
+	CorruptionInfectedMushroomStoneWall: {
+		DisplayName: Corruption Infected Mushroom Stone Wall
+		Tooltip: ""
+	}
+
+	CorruptionInfectedMushroomWoodFence: {
+		DisplayName: Corruption Infected Mushroom Wood Fence
+		Tooltip: ""
+	}
+
+	CorruptionInfectedMushroomWoodWall: {
+		DisplayName: Corruption Infected Mushroom Wood Wall
+		Tooltip: ""
+	}
+
+	CrimsonInfectedGelWall: {
+		DisplayName: Crimson Infected Gel Wall
+		Tooltip: ""
+	}
+
+	CrimsonInfectedMushroomGrassWall: {
+		DisplayName: Crimson Infected Mushroom Grass Wall
+		Tooltip: ""
+	}
+
+	CrimsonInfectedMushroomOldStoneWall: {
+		DisplayName: Crimson Infected Mushroom Old Stone Wall
+		Tooltip: ""
+	}
+
+	CrimsonInfectedMushroomSandWall: {
+		DisplayName: Crimson Infected Mushroom Sand Wall
+		Tooltip: ""
+	}
+
+	CrimsonInfectedMushroomStoneBrickWall: {
+		DisplayName: Crimson Infected Mushroom Stone Brick Wall
+		Tooltip: ""
+	}
+
+	CrimsonInfectedMushroomStoneWall: {
+		DisplayName: Crimson Infected Mushroom Stone Wall
+		Tooltip: ""
+	}
+
+	CrimsonInfectedMushroomWoodFence: {
+		DisplayName: Crimson Infected Mushroom Wood Fence
+		Tooltip: ""
+	}
+
+	CrimsonInfectedMushroomWoodWall: {
+		DisplayName: Crimson Infected Mushroom Wood Wall
+		Tooltip: ""
+	}
+
+	CorruptoomAxe: {
+		DisplayName: Corruptoom Axe
+		Tooltip: ""
+	}
+
+	CorruptoomBow: {
+		DisplayName: Corruptoom Bow
+		Tooltip: ""
+	}
+
+	CorruptoomPickaxe: {
+		DisplayName: Corruptoom Pickaxe
+		Tooltip: ""
+	}
+
+	CorruptoomSword: {
+		DisplayName: Corruptoom Sword
+		Tooltip: ""
+	}
+
+	CrimsoomAxe: {
+		DisplayName: Crimsoom Axe
+		Tooltip: ""
+	}
+
+	CrimsoomBow: {
+		DisplayName: Crimsoom Bow
+		Tooltip: ""
+	}
+
+	CrimsoomPickaxe: {
+		DisplayName: Crimsoom Pickaxe
+		Tooltip: ""
+	}
+
+	CrimsoomSword: {
+		DisplayName: Crimsoom Sword
+		Tooltip: ""
+	}
+
+	TestPlaceable: {
+		DisplayName: Test Placeable
+		Tooltip: ""
+	}
+
+	TestSummonWeapon: {
+		DisplayName: Test Summon Weapon
+		Tooltip: ""
+	}
+
+	TestSword: {
+		DisplayName: Test Sword
+		Tooltip: ""
+	}
+}
+
+NPCs: {
+	CorruptionInfectedDiggerHead.DisplayName: Corruption Infected Digger Head
+	CorruptionInfectedEye.DisplayName: Corruption Infected Eye
+	CorruptionInfectedSlime.DisplayName: Corruption Infected Slime
+	CrimsonInfectedDiggerHead.DisplayName: Crimson Infected Digger Head
+	CrimsonInfectedEye.DisplayName: Crimson Infected Eye
+	CrimsonInfectedSlime.DisplayName: Crimson Infected Slime
+	FearClot.DisplayName: Fear Clot
+	TerrorGhost.DisplayName: Terror Ghost
+	CorruptionInfectedButterfly.DisplayName: Corruption Infected Butterfly
+	CorruptionInfectedCaterpillar.DisplayName: Corruption Infected Caterpillar
+	CorruptionInfectedDragonfly.DisplayName: Corruption Infected Dragonfly
+	CorruptionInfectedFairy.DisplayName: Corruption Infected Fairy
+	CorruptionInfectedFly.DisplayName: Corruption Infected Fly
+	CorruptionInfectedGrasshopper.DisplayName: Corruption Infected Grasshopper
+	CorruptionInfectedLadybug.DisplayName: Corruption Infected Ladybug
+	CorruptionInfectedRat.DisplayName: Corruption Infected Rat
+	CorruptionInfectedSmallFly.DisplayName: Corruption Infected Small Fly
+	CorruptionInfectedSnail.DisplayName: Corruption Infected Snail
+	CorruptionInfectedStagBeetle.DisplayName: Corruption Infected Stag Beetle
+	CrimsonInfectedButterfly.DisplayName: Crimson Infected Butterfly
+	CrimsonInfectedCaterpillar.DisplayName: Crimson Infected Caterpillar
+	CrimsonInfectedDragonfly.DisplayName: Crimson Infected Dragonfly
+	CrimsonInfectedFairy.DisplayName: Crimson Infected Fairy
+	CrimsonInfectedFly.DisplayName: Crimson Infected Fly
+	CrimsonInfectedGrasshopper.DisplayName: Crimson Infected Grasshopper
+	CrimsonInfectedLadybug.DisplayName: Crimson Infected Ladybug
+	CrimsonInfectedRat.DisplayName: Crimson Infected Rat
+	CrimsonInfectedSmallFly.DisplayName: Crimson Infected Small Fly
+	CrimsonInfectedSnail.DisplayName: Crimson Infected Snail
+	CrimsonInfectedStagBeetle.DisplayName: Crimson Infected Stag Beetle
+	CorruptionInfectedAnglerFish.DisplayName: Corruption Infected Angler Fish
+	CorruptionInfectedBeetle.DisplayName: Corruption Infected Beetle
+	CorruptionInfectedCrab.DisplayName: Corruption Infected Crab
+	CorruptionInfectedDiggerBody.DisplayName: Corruption Infected Digger Body
+	CorruptionInfectedDiggerTail.DisplayName: Corruption Infected Digger Tail
+	CorruptionInfectedSmallDiggerBody.DisplayName: Corruption Infected Small Digger Body
+	CorruptionInfectedSmallDiggerHead.DisplayName: Corruption Infected Small Digger Head
+	CorruptionInfectedSmallDiggerTail.DisplayName: Corruption Infected Small Digger Tail
+	CrimsonInfectedAnglerFish.DisplayName: Crimson Infected Angler Fish
+	CrimsonInfectedBeetle.DisplayName: Crimson Infected Beetle
+	CrimsonInfectedCrab.DisplayName: Crimson Infected Crab
+	CrimsonInfectedDiggerBody.DisplayName: Crimson Infected Digger Body
+	CrimsonInfectedDiggerTail.DisplayName: Crimson Infected Digger Tail
+	CrimsonInfectedSmallDiggerBody.DisplayName: Crimson Infected Small Digger Body
+	CrimsonInfectedSmallDiggerHead.DisplayName: Crimson Infected Small Digger Head
+	CrimsonInfectedSmallDiggerTail.DisplayName: Crimson Infected Small Digger Tail
+	InfectedAnglerFishSkeleton.DisplayName: Infected Angler Fish Skeleton
+	SmallTerrorGhost.DisplayName: Small Terror Ghost
+	TerrorGhostHand.DisplayName: Terror Ghost Hand
+	WeakFearClot.DisplayName: Weak Fear Clot
+}
+
+Projectiles: {
+	CorruptionInfectedMushroomFallingSandProjectile.DisplayName: Corruption Infected Mushroom Falling Sand Projectile
+	CorruptionInfectedMushroomSandGunProjectile.DisplayName: Corruption Infected Mushroom Sand Gun Projectile
+	CrimsonInfectedMushroomFallingSandProjectile.DisplayName: Crimson Infected Mushroom Falling Sand Projectile
+	CrimsonInfectedMushroomSandGunProjectile.DisplayName: Crimson Infected Mushroom Sand Gun Projectile
+	TestMinion.DisplayName: Test Minion
+}
