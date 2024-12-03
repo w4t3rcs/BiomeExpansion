@@ -1,0 +1,12 @@
+namespace BiomeExpansion.Content.Walls;
+
+public class CorruptionInfectedMushroomSharpStoneWall : ModWall
+{
+    public override string Texture => TextureHelper.DynamicWallsTextures["CorruptionInfectedMushroomSharpStoneWall"];
+
+    public override void SetStaticDefaults()
+{
+        DustType = DustID.Corruption;
+        AddMapEntry(Color.DarkMagenta);
+    }
+}
